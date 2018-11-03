@@ -117,8 +117,8 @@ h1 {
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
-				<button id="submit"><img src="../etc/img/submit.png" id="submit"></button>
-				<button type="reset" id="reset"><img src="../etc/img/reset.png"></button>
+				<button id="submit"><img src="../etc/image/submit.png" id="submit"></button>
+				<button type="reset" id="reset"><img src="../etc/image/reset.png"></button>
 			</td>
 		</tr>
 		

@@ -24,12 +24,13 @@ public class NotifyboardController {
 	@Autowired
 	private JavaMailSender mailSender;
 	
-	// ½Å°íÇÏ±â °Ô½ÃÆÇ (»ç¿ëÀÚ)
+	// ï¿½Å°ï¿½ï¿½Ï±ï¿½ ï¿½Ô½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½)
 	@RequestMapping(value = "/helpboardc/helpboardNotifyForm.do")
 	public ModelAndView helpboardNotifyForm() {
 		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("display", "../helpboardc/myTestttt.jsp");
 		modelAndView.addObject("display2", "../helpboardc/notifyForm.jsp");
-		modelAndView.setViewName("../helpboardc/myTestttt.jsp");
+		modelAndView.setViewName("../main/index.jsp");
 		return modelAndView;
 	}
 	
@@ -39,7 +40,7 @@ public class NotifyboardController {
 		// HttpSession session = request.getSession();
 		// String reporter_id = (String)session.getAttribute("session_id");
 		
-		// ÀÓ½Ã ÀÌ¸ÞÀÏ ÄÚµå ÀÔ·Â
+		// ï¿½Ó½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½Ô·ï¿½
 		String reporter_id = "iris9469@naver.com";
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
@@ -58,7 +59,7 @@ public class NotifyboardController {
 	}
 	
 	/////////////////////////////////////////////////
-	// ½Å°íÇÏ±â °Ô½ÃÆÇ(°ü¸®ÀÚ)
+	// ï¿½Å°ï¿½ï¿½Ï±ï¿½ ï¿½Ô½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 	@RequestMapping(value="/helpboard/notifyboardListAll.do")
 	public ModelAndView notifyboardListAll(HttpServletRequest request) {
 		String str_pg = request.getParameter("pg");
@@ -169,7 +170,7 @@ public class NotifyboardController {
 	}
 	
 	//////////////////////////////////////////////////
-	// È¸½Å¿ë ¸ÞÀÏ Àü¼Û
+	// È¸ï¿½Å¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping(value = "/helpboard/mailForm.do")
 	public ModelAndView mailForm(HttpServletRequest request) {
 		String tomail = request.getParameter("tomail");
