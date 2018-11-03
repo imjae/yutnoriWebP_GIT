@@ -18,6 +18,14 @@ public class HelpboardController {
 	@Autowired
 	private HelpboardService helpboardService;
 	
+	@RequestMapping(value = "/helpboardc/mytestForm.do")
+	public ModelAndView myTesttttForm() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("display", "../helpboardc/myTestttt.jsp");
+		modelAndView.setViewName("../main/index.jsp");
+		return modelAndView;
+	}
+	
 	@RequestMapping(value = "/helpboard/helpboardWriteForm.do")
 	public ModelAndView helpboardWriteForm() {
 		ModelAndView modelAndView = new ModelAndView();
@@ -221,7 +229,7 @@ public class HelpboardController {
 
 	//////////////////////////////////////////////////////////////////////////
 	
-	// client È­¸é
+	// client 
 	
 	@RequestMapping(value="/helpboardc/helpboardListAll.do")
 	public ModelAndView clientHelpboardList(HttpServletRequest request) {
@@ -263,9 +271,10 @@ public class HelpboardController {
 		
 		modelAndView.addObject("list", list);
 		modelAndView.addObject("hldto", helpListDTO);
+		modelAndView.addObject("display", "../helpboardc/myTestttt.jsp");
 		modelAndView.addObject("display2", "../helpboardc/helpBody.jsp");
 		
-		modelAndView.setViewName("../helpboardc/myTestttt.jsp");
+		modelAndView.setViewName("../main/index.jsp");
 		
 		return modelAndView;
 	}

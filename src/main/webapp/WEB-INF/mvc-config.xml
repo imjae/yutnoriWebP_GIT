@@ -16,6 +16,7 @@
     <mvc:resources location="/etc/" mapping="/etc/**"/>
     <mvc:resources location="/helpboard/" mapping="/helpboard/**" />
     <mvc:resources location="/helpboardc/" mapping="/helpboardc/**" />
+     <mvc:resources location="/news/" mapping="/news/**" />
 	
 	<mvc:resources location="/script/" mapping="/script/**" />
 
@@ -24,4 +25,5 @@
 	<context:component-scan base-package="phone.controller"/>
 	<context:component-scan base-package="rank.controller"/>
 	<context:component-scan base-package="helpboard.controller" />
+	<context:component-scan base-package="inform.controller" />
 </beans>

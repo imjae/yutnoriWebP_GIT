@@ -73,7 +73,7 @@ a.over_mouse_title:hover { text-decoration: none; color: white; }
 		</div>
 		
 		<div id="title_news">
-			<a href="#" class="over_mouse_title">새소식</a>
+			<a href="../news/newsMainAll.do" class="over_mouse_title">새소식</a>
 		</div>
 		
 		<div id="title_game_info">
@@ -93,7 +93,7 @@ a.over_mouse_title:hover { text-decoration: none; color: white; }
 		</div>
 
 		<div id="title_cs">
-			<a href="../main/index.jsp?display=../helpboardc/myTestttt.jsp" class="over_mouse_title">고객지원</a>
+			<a href="../helpboardc/mytestForm.do" class="over_mouse_title">고객지원</a>
 		</div>
 
 	</div>
