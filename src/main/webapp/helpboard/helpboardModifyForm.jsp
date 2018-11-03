@@ -16,20 +16,7 @@
 				alert("관련 분야를 선택해 주세요.");
 				$("select[name='sort1']").focus();
 				return false;
-			} else {
-				if ($("select[name='sort1'] > option:selected").index() == 1) {
-					// select 태그 생성(name=sort2)
-				}
-				if ($("select[name='sort1'] > option:selected").index() == 2) {
-					// select 태그 생성(name=sort2)			
-				}
-				if ($("select[name='sort1'] > option:selected").index() == 3) {
-					// select 태그 생성(name=sort2)
-				}
-				if ($("select[name='sort1'] > option:selected").index() == 4) {
-					// select 태그 생성(name=sort2)
-				}
-			}
+			} 
 			
 			if ($("select[name='sort2'] > option:selected").index() < 1) {
 				alert("세부 사항을 선택해 주세요.");

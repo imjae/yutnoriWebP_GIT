@@ -56,7 +56,7 @@
 					<c:set var="id" value="${id + 1}"></c:set>
 					<li class="article" id="${id}">
 						<p class="q">
-							<a href="${id }">${i.title }</a>
+							<a href="${id }" class="q_title">${i.title }</a>
 						</p>
 						<div class="a">${i.content }</div>
 					</li>

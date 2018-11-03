@@ -1,0 +1,65 @@
+@charset "UTF-8";
+/* FAQ */
+.faqHeader{position:relative;zoom:1}
+.faqHeader .showAll{position:absolute;bottom:0;right:0;border:0;padding:0;overflow:visible;background:none;cursor:pointer}
+.faqBody{margin:0;padding:0}
+.faqBody .article{list-style:none}
+.q{margin:0;}
+.q .sort {
+	float: left;
+	height: 60px;
+	width: 15%;
+	border: 1px solid black;
+	margin: 1px 0;
+	padding-top: 13px;
+	background-color: #ffebeb;
+	line-height: 45px;
+	text-align: center;
+	border-right: 2px solid white;
+	padding-right: -2px;
+}
+.q .date {
+	float: left;
+	height: 60px;
+	width: 15%;
+	border: 1px solid black;
+	margin: 1px 0;
+	padding-top: 13px;
+	/* background-color: #ffebeb; */
+	line-height: 45px;
+	text-align: center;
+	border-right: 2px solid white;
+	padding-right: -2px;
+}
+
+.q .q_title {
+	float: left;
+	width: 55%;
+	border: 1px solid yellow;
+	display:block;
+	text-align:left; 
+    border-left: 5px solid #c03;
+	border-bottom: 1px solid #c03;
+    padding:0 0 0 35px;
+    font-size:18px;
+    color:#5e5e5e;
+    height: 60px;
+    padding-top: 13px;
+    vertical-align: middle;
+    font-weight:bold;
+    line-height: 45px;
+    cursor:pointer;
+    text-decoration: none;
+    margin: 1px 0; !important}
+.q a:hover, .faq .q a:active, .faq .q a:focus{}
+.a{
+	background: #fcf0f3;
+	padding: 10px 75px 10px 75px;
+    font-size: 16px;
+    color: #444444;
+    line-height: 22px;
+    border-top: 1px solid #bdbdbd;
+    margin:5px 0 0 0;}
+.paging {
+	clear: both;
+}

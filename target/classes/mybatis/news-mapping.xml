@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="newsMapper">
+
+	<insert id="newsWrite" parameterType="newsVO">
+		insert into news
+		values (seq_news_num.nextval, #{sort}, #{title}, #{content}, to_char(sysdate, 'YYYY-MM-DD'))
+	</insert>
+	
+	<select id="newsListAll" parameterType="newsListDTO" resultType="newsVO">
+		<![CDATA[ select *
+		from (select rownum rn, tt.* from (select * from news
+		order by news_num desc) tt)
+		where rn >= #{startNum} and rn <= #{endNum}]]>
+	</select>
+	
+	<select id="newsList" parameterType="newsListDTO" resultType="newsVO">
+		<![CDATA[ select *
+		from (select rownum rn, tt.* from (select * from news
+		where sort = #{sort}
+		order by news_num desc) tt)
+		where rn >= #{startNum} and rn <= #{endNum}]]>
+	</select>
+	
+	<!-- 세부 내용 -->
+	<select id="newsView" parameterType="int" resultType="newsVO">
+		select * from news where news_num = #{news_num}
+	</select>
+	
+	<delete id="newsDelete" parameterType="int">
+		delete from news where news_num = #{news_num}
+	</delete>
+	
+	<update id="newsModify" parameterType="newsVO">
+		update news set		<!-- sort는 변경 불가 -->
+		title = #{title},
+		content = #{content}
+		where news_num = #{news_num}
+	</update>
+	
+	<select id="getTotalA" parameterType="java.lang.String" resultType="int">
+		select count(*) from news where sort = #{sort}
+	</select>
+	
+	<select id="getTotalAAll" resultType="int">
+		select count(*) from news
+	</select>
+	
+</mapper>

@@ -13,14 +13,13 @@
 	margin: 0px 0px;
 	padding: 0px 0px;
 }
-#menu_cs .m_header a {
+#menu_cs .m_header .header_a {
 	float: left;
 	width: 179px;
 	height: 48px;
 	color: #5e5e5e;
 	display: block;
 	font-size: larger;
-	text-shadow: 4px 2px 2px gray; 
 	/* text-decoration: underline; */
 }
 
@@ -43,10 +42,11 @@
 }
 
 #menu_cs .m_header a:hover {
-	margin-bottom: -7px;
-	border-bottom: 7px solid #c03;
+	/* margin-bottom: -7px;
+	border-bottom: 7px solid #c03; */
 	color: black;
 	font-size: large;
+	text-shadow: 4px 2px 2px gray; 
 }
 .m_header_btn {
 	margin-bottom: -7px;
@@ -56,8 +56,8 @@
 }
 
 #menu_cs .m_body a:hover {
-	margin-bottom: -7px;
-	border-bottom: 7px solid #fcf0f3;
+	/* margin-bottom: -7px;
+	border-bottom: 7px solid #fcf0f3; */
 	color: black;
 	font-size: large;
 }
@@ -75,6 +75,7 @@
 	float: none;
 }
 .subm {
+	width: 179px;
 	float: left;
 	margin: 0px 0px;
 	padding: 0px 0px;
@@ -104,10 +105,10 @@
 		
 			<div id="menu_cs">
 				<div class="m_header">
-					<a href="#">게임 관련</a>
-					<a href="#">아이디 관련</a>
-					<a href="#">캐시(결제) 관련</a>
-					<a href="../helpboardc/helpboardNotifyForm.do">신고/1:1 문의</a>
+					<a href="#" class="header_a">게임 관련</a>
+					<a href="#" class="header_a">아이디 관련</a>
+					<a href="#" class="header_a">캐시(결제) 관련</a>
+					<a href="../helpboardc/helpboardNotifyForm.do" class="header_a">신고/1:1 문의</a>
 				</div>
 				
 				<div class="m_body">

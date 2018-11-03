@@ -43,9 +43,10 @@ public class RankServiceImpl implements RankService{
 	public List<RankDTO> listAll(String searchOption, String keyword ,int startNumm, int endNumm) {
 		return yutnoriiiDAO.listAll(searchOption, keyword, startNumm,  endNumm);
 	}
+	
 	@Override
-	public int getcountArticle() {
-		return yutnoriiiDAO.getcountArticle();
+	public int getcountArticle(String searchOption, String keyword) {
+		return yutnoriiiDAO.getcountArticle(searchOption, keyword);
 	}
 
 	

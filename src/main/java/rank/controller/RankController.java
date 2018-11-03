@@ -42,7 +42,8 @@ public class RankController {
 		modelAndView.addObject("startPage", startPage);
 		modelAndView.addObject("endPage", endPage);
 		modelAndView.addObject("totalP", totalP);
-		modelAndView.setViewName("../rank/yutnoriiiRankList.jsp");
+		modelAndView.addObject("display", "../rank/rankInfo.jsp");
+		modelAndView.setViewName("../main/index.jsp");
 		return modelAndView;
 		
 	}
@@ -138,7 +139,9 @@ public class RankController {
 		modelAndView.addObject("startPage", startPage);
 		modelAndView.addObject("endPage", endPage);
 		modelAndView.addObject("totalP", totalP);
-		modelAndView.setViewName("../rank/MoneyRankList.jsp");
+		modelAndView.addObject("display", "../rank/rankInfo.jsp");
+		modelAndView.setViewName("../main/index.jsp");
+		
 		return modelAndView;
 		
 	}
@@ -155,7 +158,7 @@ public class RankController {
 		int startNumm = endNumm - 9;
 		// (2) DB
 		// 페이징 처리
-		int countArticle = rankService.getcountArticle();	// 총글수  = 43
+		int countArticle = rankService.getcountArticle(searchOption, keyword);	// 총글수  = 43
 		int totalPP = (countArticle + 4) / 5;		// 총페이지수 = 9
 		int startPagee = (pgg-1)/3*3+1;
 		int endPagee = startPagee + 2;
@@ -177,7 +180,9 @@ public class RankController {
 		modelAndVieww.addObject("startPagee", startPagee);
 		modelAndVieww.addObject("endPagee", endPagee);
 		modelAndVieww.addObject("totalPP", totalPP);
-		modelAndVieww.setViewName("../rank/RankList.jsp");
+		modelAndVieww.addObject("display", "../rank/rankInfo.jsp");
+		modelAndVieww.setViewName("../main/index.jsp");
+		
 		return modelAndVieww;
 	}
 	

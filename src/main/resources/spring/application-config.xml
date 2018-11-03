@@ -10,6 +10,7 @@
 	<context:component-scan base-package="mail.*" />
 	<context:component-scan base-package="rank.*" />
 	<context:component-scan base-package="helpboard.*" />
+	<context:component-scan base-package="inform.*" />
 	
 	<!-- DataSource 설정 -->
 	<context:property-placeholder
