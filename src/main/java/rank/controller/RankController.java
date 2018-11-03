@@ -43,6 +43,7 @@ public class RankController {
 		modelAndView.addObject("endPage", endPage);
 		modelAndView.addObject("totalP", totalP);
 		modelAndView.addObject("display", "../rank/rankInfo.jsp");
+		modelAndView.addObject("rank_page_url", "../rank/yutnoriiiRankList.jsp");
 		modelAndView.setViewName("../main/index.jsp");
 		return modelAndView;
 		
