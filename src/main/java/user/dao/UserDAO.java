@@ -1,13 +1,14 @@
 package user.dao;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-
+import itemShop.bean.PaymentHistoryDTO;
 import user.bean.UserDTO;
 
 @Repository
@@ -53,6 +54,11 @@ public class UserDAO {
 		map.put("ses_id", dto.getUser_id());
 		map.put("re_pw", dto.getUser_password());
 		return sqlSession.update("mybatis.userMapper.userModify", map);
+	}
+	
+	public List<PaymentHistoryDTO> haveItemList(String user_id) {
+		
+		return sqlSession.selectList("mybatis.userMapper.haveItemList", user_id);
 	}
 	
 }

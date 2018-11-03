@@ -12,6 +12,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		AND user_password = #{user_password}
 	</select> 
 	
+	<select id="haveItemList" parameterType="java.util.Map" resultType="paymentHistoryDTO">
+		<![CDATA[select * from  
+		(select rownum rn, tt.* from 
+		view_pament_item tt)  
+		where rn>=#{startNum} and rn<=#{endNum}]]>
+	</select>
+	
 	<insert id="userSignUp" parameterType="userDTO">
 		INSERT INTO users (user_num, user_name, user_id, user_password, user_jumin, user_gender, user_phone)
 		VALUES
