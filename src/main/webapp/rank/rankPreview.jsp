@@ -17,6 +17,7 @@
 body {
     font-smooth: always;
     -webkit-font-smoothing: antialiased;
+    
 }
 
 </style>
@@ -27,9 +28,9 @@ body {
 <body>
 	<table border="0.1" id="rankPreview">	
 		<tr>
-			<th width="80">순위</th>	
-			<th width="150">닉네임</th>
-			<th width="100">전적 (승/패)</th>
+			<th width="100" class="line" align="center" style="background-color:#A4A4A4; color:#FAFAFA">순위</th>	
+			<th width="180" class="line" align="center" style="background-color:#A4A4A4; color:#FAFAFA">닉네임</th>
+			<th width="120" class="line" align="center" style="background-color:#A4A4A4; color:#FAFAFA">전적 (승/패)</th>
 		</tr>
 	</table>
 </body>

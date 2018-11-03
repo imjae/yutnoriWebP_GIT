@@ -52,7 +52,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				where rn>=#{startNum} and rn<=#{endNum}]]>
 	</select>
 	
-	<select id="getcountArticle"  resultType="int">
+	<select id="getcountArticle" parameterType="java.util.Map" resultType="int">
 		SELECT COUNT(*) FROM users
 		WHERE ${searchOption}  like '%'||#{keyword}||'%'
 	</select>

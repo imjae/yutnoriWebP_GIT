@@ -155,7 +155,7 @@
 </div>
 </c:if>
 <div id="footer">
-	푸터푸터
+	<jsp:include page="../template/bottom.jsp"/>
 </div>
 
 </body>
