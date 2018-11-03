@@ -1,0 +1,224 @@
+@charset "UTF-8";
+
+/** 큰틀  */
+div#shop_bg{
+	margin: 0 auto;
+	width: 2000px;
+	background-image: url("../image/itemImage/moontheme.png");
+	background-position: top;
+	background-repeat: no-repeat;
+}
+#menu_space {
+	width: 2000px;
+	height: 380px;
+	margin: 0 auto;
+	/* background-image: url("../etc/image/배경테마2.png");  */
+	/* opacity: 0.8; */
+	z-index: 0;
+	/* border: 1px solid yellow;  */
+}
+div#top_info {
+	margin: 0 auto;
+	width: 2000px;
+	height: 60px;
+	border: 1px solid blue;
+}
+#menu_space div#menu_space_top {
+	
+	width: 2000px;
+	height: 100px;
+	background-color: rgba(0,0,0,0.7);
+	/* margin-bottom: 30px; */
+}
+#menu_space div#menu_space_ad {
+	width: 2000px;
+	height: 200px;
+	background: none;
+	/* border: 1px solid red; */
+}
+div#body {
+	margin: 0 auto;
+	width: 1000px;
+	height:1000px;
+	/* border: 1px solid black;   */
+	text-align: center;
+	margin-top: 0;
+}
+
+
+
+/** 세부사항 */
+#menu_space div#blank {width: 550px; height:10px; float:left; /* border: 1px solid red; */}
+#menu_space_top > div#blank {width: 500px; height:10px; float: left;/*  border: 1px solid red; */}
+#menu_space_top > div {float: left;/* border: 1px solid red; */}
+#menu_space_top > div a {
+	color: white; font-size: 20px; 
+	font-family: "-윤고딕310"; 
+}
+#menu_space_top > div#basket {
+	width: 120px; text-align: center; 
+	margin-top: 40px; margin-left: 20px;
+	/* border: 1px solid red; */
+}
+#menu_space_top > div#buyList {
+	width: 120px; text-align: center; 
+	margin-top: 40px; margin-left: -5px;
+	/* border: 1px solid red;  */
+}
+div#menu_space_top a{
+	font-size: 1.2em;
+	color: white;
+}
+
+
+
+
+.footer{
+	border: 1500px 1000px;
+    border-top: 1px solid #BDBDBD;
+    overflow-x: none;
+    font-size: 13px;
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    font-family:'Nanum Gothic', 'NanumGothic','나눔고딕', 돋움, Dotum, Arial, sans-serif; font-size:16px; color:#676767; line-height:1; letter-spacing:-1px; -webkit-text-size-adjust: none;
+	position:relative;
+	width:1500px; 
+	padding:40px 0 57px 0; 
+	margin:0 auto
+}
+
+.footer .ft_logo{
+	position:absolute;
+	top:45px;
+	left:152px
+}
+.footer .ft_info{
+	border-left:1px solid #e8e8e8;
+	padding:2px 0 0 19px;
+	margin-left:292px
+}
+.footer .ft_info ul{
+	height:16px;
+	padding:0 0 0 1px
+}
+.footer .ft_info li{
+	float:left;
+	font-size:11px;
+	padding:0 16px 0 0;
+	margin:0 16px 0 0;
+	background:url('http://s.nx.com/s2/game/mabinogi/mabiweb/homepage/images/common/bg_gs.gif') no-repeat right top
+}
+.footer .ft_info li.last{
+	padding:0;
+	margin:0;
+	background:none
+}
+.footer .ft_info li a{
+	color:#2a2a2a
+}
+.footer .ft_info li a.bold{
+	font-weight:bold
+}
+.footer .ft_info dl{
+	clear:both;
+	letter-spacing:0;
+	padding:6px 0 0 0
+}
+.footer .ft_info dl:after{
+	content:"";
+	display:block;
+	clear:both
+}
+.footer .ft_info dd{
+	float:left;
+	font-size:11px;
+	color:#7f7f7f;
+	padding:0 9px 0 0;
+	margin:0 6px 0 0;
+	background:url('http://s.nx.com/s2/game/mabinogi/mabiweb/homepage/images/common/ft_line.gif') no-repeat right 3px
+}
+.footer .ft_info dd.last{
+	padding:0;
+	margin:0;
+	background:none
+}
+.footer .img_copyright{
+	padding:12px 0 0 0;
+	margin:0;
+	background:none
+}
+.footer_new{
+	position:relative;
+	width:1200px;
+	margin:0 auto;
+	padding:37px 0 57px 0
+}
+.footer_new .ft_info_new{
+	margin-left:261px
+}
+.footer_new .ft_info_new ul{
+	height:25px
+}
+.footer_new .ft_info_new ul:after{
+	content:"";
+	display:block;
+	clear:both
+}
+.footer_new .ft_info_new ul li{
+	float:left;
+	font-size:12px;
+	color:#666666;
+	font-weight:bold;
+	padding:0 10px 0 0;
+	margin:0 10px 0 0;
+	background:url('http://s.nx.com/s2/game/mabinogi/mabiweb/homepage/images/common/ft_line_new.gif') no-repeat right top
+}
+.footer_new .ft_info_new ul li.last{
+	padding:0;
+	margin:0;
+	background:none
+}
+.footer_new .ft_info_new ul li a.bold{
+	color:#000000
+}
+
+.footer_new .ft_info_new dl,
+.footer_new .ft_info_new p{
+	font-size:11px;
+	color:#888888;
+	letter-spacing:0.5px
+}
+
+.footer_new .ft_info_new dl{
+	height:16px
+}
+.footer_new .ft_info_new dl:after{
+	content:"";
+	display:block;
+	clear:both
+}
+.footer_new .ft_info_new dl dd{
+	float:left;
+	padding:0 12px 0 0;
+	letter-spacing:0
+}
+.footer_new .ft_info_new dl dd a{
+	text-decoration:underline
+}
+.footer_new .copyright{
+	padding:2px 0 21px 0
+}
+.footer_new .naver_policy{
+	line-height:14px;
+	padding:2px 0 21px 0
+}
+.footer_new .img_logo img{
+	padding-right:16px
+}
+
+
+
+
+
+
+

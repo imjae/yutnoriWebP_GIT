@@ -17,7 +17,12 @@
     <mvc:resources location="/helpboard/" mapping="/helpboard/**" />
     <mvc:resources location="/helpboardc/" mapping="/helpboardc/**" />
     <mvc:resources location="/news/" mapping="/news/**" />
+<<<<<<< HEAD
     <mvc:resources location="/storage/" mapping="/storage/**"/>
+=======
+	<mvc:resources location="/itemShop/" mapping="/itemShop/**" />
+	<mvc:resources location="/storage/" mapping="/storage/**"/>
+>>>>>>> 1ed693edf0155e32e60bd7144d704bb3bfe889b6
 	
 	<mvc:resources location="/script/" mapping="/script/**" />
 
@@ -27,4 +32,5 @@
 	<context:component-scan base-package="rank.controller"/>
 	<context:component-scan base-package="helpboard.controller" />
 	<context:component-scan base-package="inform.controller" />
+	<context:component-scan base-package="itemShop.controller"/>
 </beans>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.itemShopMapper">
+	
+	<select id="allItemShopList" parameterType="java.util.Map" resultType="itemShopDTO">
+		<![CDATA[select * from 
+		(select rownum rn, tt.* from 
+		(select * from item_shop order by ${order}) tt) 
+		where rn>=#{startNum} and rn<=#{endNum}]]>
+	</select>
+	
+	<select id="itemShopList" parameterType="java.util.Map" resultType="itemShopDTO">
+		<![CDATA[select * from 
+		(select rownum rn, tt.* from 
+		(select * from item_shop where category=#{category} order by ${order}) tt)
+		where rn>=#{startNum} and rn<=#{endNum}]]>
+	</select>
+		
+	<select id="getTotalA" resultType="int">
+		select count(*) from item_shop
+	</select>
+ 	
+ 	<select id="getCategoryA" parameterType="java.lang.String" resultType="int">
+		select count(*) from item_shop where category=#{category}
+	</select>
+ 
+	<select id="itemDetail" parameterType="java.lang.String" resultType="itemShopDTO">
+		select * from item_Shop where item_code=#{item_code}
+	</select>
+ 
+ 
+</mapper>
+
+
