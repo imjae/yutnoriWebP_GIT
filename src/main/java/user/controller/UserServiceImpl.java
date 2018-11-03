@@ -1,8 +1,11 @@
 package user.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import itemShop.bean.PaymentHistoryDTO;
 import user.bean.UserDTO;
 import user.dao.UserDAO;
 
@@ -61,6 +64,12 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public int userModify(UserDTO userDTO) {
 		return userDAO.userModify(userDTO);
+	}
+
+	@Override
+	public List<PaymentHistoryDTO> haveItemList() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
