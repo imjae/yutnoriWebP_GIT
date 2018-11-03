@@ -104,6 +104,7 @@
 		
 		
 			<div id="menu_cs">
+				<br>
 				<div class="m_header">
 					<a href="#" class="header_a">게임 관련</a>
 					<a href="#" class="header_a">아이디 관련</a>
@@ -133,7 +134,7 @@
 		</div>
 		
 		<div style="height: 50px;"></div>
-		<hr>
+		<!-- <hr> -->
 		<br>
 		<div id="helpContent">
 		
