@@ -68,7 +68,6 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<PaymentHistoryDTO> haveItemList() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	

@@ -107,9 +107,7 @@ a.my_sub_menu:hover { text-decoration: none;  }
 		
 	</div>
 	
-	<div>
-		<jsp:include page="../rank/rankInfo.jsp"></jsp:include>
-	</div>
+	
 
 </div>
 
