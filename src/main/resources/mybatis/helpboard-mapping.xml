@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="helpboardMapper">
+
+	<insert id="helpboardWrite" parameterType="helpboardVO">
+		insert into helpboard
+		values (seq_helpboard_num.nextval, #{sort1}, #{sort2}, #{title}, #{content})
+	</insert>
+	
+	<select id="helpboardListAllAdmin" parameterType="helpListDTO" resultType="helpboardVO">
+		<![CDATA[ select *
+		from (select rownum rn, tt.* from (select * from helpboard
+		order by helpboard_num desc) tt)
+		where rn >= #{startNum} and rn <= #{endNum}]]>
+	</select>
+	
+	<select id="helpboardListAll" parameterType="helpListDTO" resultType="helpboardVO">
+		<![CDATA[ select *
+		from (select rownum rn, tt.* from (select * from helpboard
+		where sort1 = #{sort1} and sort2 = #{sort2}
+		order by helpboard_num desc) tt)
+		where rn >= #{startNum} and rn <= #{endNum}]]>
+	</select>
+	
+	<!-- 세부 내용 -->
+	<select id="helpboardView" parameterType="int" resultType="helpboardVO">
+		select * from helpboard where helpboard_num = #{helpboard_num}
+	</select>
+	
+	<delete id="helpboardDelete" parameterType="int">
+		delete from helpboard where helpboard_num = #{helpboard_num}
+	</delete>
+	
+	<update id="helpboardModify" parameterType="helpboardVO">
+		update helpboard set
+		title = #{title},
+		content = #{content}
+		where helpboard_num = #{helpboard_num}
+	</update>
+	
+	<select id="getTotalA" parameterType="java.util.Map" resultType="int">
+		select count(*) from helpboard where sort1 = #{sort1} and sort2 = #{sort2}
+	</select>
+	
+	<select id="getTotalAAllAdmin" resultType="int">
+		select count(*) from helpboard
+	</select>
+	
+</mapper>

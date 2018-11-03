@@ -1,0 +1,11 @@
+* {margin: 0; padding: 0;}
+
+#top_menu_drop {min-width: 300px;  background-color: navy; text-align: center;}
+
+.top_menu ul ul {position: absolute; display: none;}
+.top_menu ul ul li {display: block; background-color: navy; color: white;}
+
+.top_menu ul li {display: inline-block; margin-left: -5.5px;}
+.top_menu ul li a {display: block; width: 150px; color: white;
+	text-decoration: none; line-height: 43px;}
+.top_menu ul li a:hover { background-color: navy; color: blue;}

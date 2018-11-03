@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.rankMapper">
+
+	<select id="yutnoriiiRankList" parameterType="java.util.Map"
+		resultType="userDTO">
+		<![CDATA[select * from  
+		(select rownum rn, tt.* from 
+		(select * from users order by user_ desc) tt)  
+		where rn>=#{startNum} and rn<=#{endNum}]]>
+	</select>
+
+	<select id="rankList" parameterType="java.util.Map"
+		resultType="rankDTO">
+		<![CDATA[select rank,user_tear tear,user_name name,user_money money,user_win win,user_lose lose from
+				(select DENSE_RANK() OVER (ORDER BY user_win DESC) rank ,rownum rn, tt.* from
+				(select * from users order by user_win desc) tt)
+				where rn>=#{startNum} and rn<=#{endNum}]]>
+	</select>
+	
+	<select id="rankPreview" parameterType="java.util.Map"
+		resultType="PreviewDTO">
+		<![CDATA[select rank,user_name name,user_win win,user_lose lose from
+				(select DENSE_RANK() OVER (ORDER BY user_win DESC) rank ,rownum rn, tt.* from
+				(select * from users order by user_win desc) tt)
+				where rn>=#{startNum} and rn<=#{endNum}]]>
+	</select>
+	
+	<select id="moneyRankList" parameterType="java.util.Map"
+		resultType="MoneyRankDTO">
+		<![CDATA[select rank,user_tear tear,user_name name,user_money money,user_win win,user_lose lose from
+				(select DENSE_RANK() OVER (ORDER BY user_money DESC) rank ,rownum rn, tt.* from
+				(select * from users order by user_money desc) tt)
+				where rn>=#{startNum} and rn<=#{endNum}]]>
+	</select>
+	
+	<select id="getTotalA" resultType="int">
+		select count(*) from users
+	</select>
+	
+	<select id="listAll" parameterType="java.util.Map" resultType="rankDTO">
+	
+	<![CDATA[select rank,user_tear tear,user_name name,user_money money,user_win win,user_lose lose 
+			from (select DENSE_RANK() OVER (ORDER BY user_name DESC) rank ,rownum rn, tt.* 
+				 from (select * 
+					  from users 
+					  WHERE ${searchOption}  like '%'||#{keyword}||'%' 
+					  order by user_name desc) tt)
+				where rn>=#{startNum} and rn<=#{endNum}]]>
+	</select>
+	
+	<select id="getcountArticle"  resultType="int">
+		SELECT COUNT(*) FROM users
+		WHERE ${searchOption}  like '%'||#{keyword}||'%'
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</mapper>

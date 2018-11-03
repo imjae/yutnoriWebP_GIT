@@ -1,0 +1,58 @@
+package user.dao;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+
+import user.bean.UserDTO;
+
+@Repository
+public class UserDAO {
+	
+	@Autowired
+	private SqlSessionTemplate sqlSession;
+	
+	
+	public UserDTO userLogin(UserDTO dto) {
+		return sqlSession.selectOne("mybatis.userMapper.userLogin", dto);
+	}
+	
+	public int userSignUp(UserDTO dto) {
+		return sqlSession.insert("mybatis.userMapper.userSignUp", dto);
+	}
+	
+	public int userIdCheck(String user_id) {
+		return sqlSession.selectOne("mybatis.userMapper.userIdCheck", user_id);
+	}
+	public int userPwCheck(String user_password) {
+		return sqlSession.selectOne("mybatis.userMapper.userPwCheck", user_password);
+	}
+	public int userNameCheck(String user_name) {
+		return sqlSession.selectOne("mybatis.userMapper.userNameCheck", user_name);
+	}
+	public int userJuminCheck(String user_jumin) {
+		return sqlSession.selectOne("mybatis.userMapper.userJuminCheck", user_jumin);
+	}
+	public int userPhoneCheck(String user_phone) {
+		return sqlSession.selectOne("mybatis.userMapper.userPhoneCheck", user_phone);
+	}
+	public UserDTO findIdPwSelect(UserDTO dto) {
+		return sqlSession.selectOne("mybatis.userMapper.findIdPwSelect", dto);
+	}
+	public UserDTO userIdPwCheck(UserDTO dto) {
+		return sqlSession.selectOne("mybatis.userMapper.userIdPwCheck", dto);
+	}
+	
+	public int userModify(UserDTO dto) {
+		
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("ses_id", dto.getUser_id());
+		map.put("re_pw", dto.getUser_password());
+		return sqlSession.update("mybatis.userMapper.userModify", map);
+	}
+	
+}

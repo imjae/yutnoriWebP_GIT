@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<!-- 클래스에 별명 설정 -->
+	<typeAliases>
+		<typeAlias type="user.bean.UserDTO" alias="userDTO"/>
+		<typeAlias type="rank.bean.RankDTO" alias="rankDTO"/>
+		<typeAlias type="rank.bean.PreviewDTO" alias="PreviewDTO"/>
+		<typeAlias type="rank.bean.MoneyRankDTO" alias="MoneyRankDTO"/>
+		<typeAlias type="helpboard.bean.HelpboardVO" alias="helpboardVO"/>
+		<typeAlias type="helpboard.controller.HelpListDTO" alias="helpListDTO"/>
+		<typeAlias type="helpboard.bean.NotifyboardVO" alias="notifyboardVO"/>
+		<typeAlias type="helpboard.controller.NotifyListDTO" alias="notifyListDTO"/>
+		<typeAlias type="itemShop.bean.ItemShopDTO" alias="itemShopDTO"/>
+		
+	</typeAliases>
+	
+	<!-- SQL Mapper 설정  -->
+	<mappers>
+		<!-- SQL문장이 기술되는 Mapper파일 -->
+		<mapper resource="mybatis/user-mapping.xml"/>
+		<mapper resource="mybatis/rank-mapping.xml"/>
+		<mapper resource="mybatis/helpboard-mapping.xml" />
+		<mapper resource="mybatis/notifyboard-mapping.xml" />	
+	</mappers>
+</configuration>
+
+
+
+

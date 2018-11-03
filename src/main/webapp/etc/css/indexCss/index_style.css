@@ -1,0 +1,144 @@
+@charset "UTF-8";
+
+body {
+	
+	background-image: url("../../image/mainImage/mainBack2.png");
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-size: 2000px;
+}
+div#top_info {
+	margin: 0 auto;
+	width: 2000px;
+	height: 60px;
+}
+
+#menu_sub {
+	width: 2000px;
+	height: 300px;
+	position: absolute;
+	top: 70px;
+	border-bottom: 1px solid black;
+	z-index: 5;
+	display: none;   
+}
+ 
+#menu_space {
+	font-size: 2em;
+	text-align: center;
+	width: 2000px;
+	height: 400px;
+	margin: 0 auto;
+	opacity: 0.8;
+	z-index: 0;
+}
+
+#menu_title {
+	position: absolute;
+	width: 2000px;
+	height: 100px;
+	z-index: 10;
+}
+
+#menu {
+	position: absolute;
+	width: 2000px;
+	height: 100px;
+}
+
+
+#start_button {
+	position: absolute;
+	float: left;
+	top: 0px;
+	right: 0px;
+	width: 370px;
+	height: 100px;
+	float: right;
+	margin-right: 130px; 
+	background-color: yellow;
+	z-index: 10;
+}
+
+#start_button:after {
+	clear: both;
+}
+
+div#menu_space > div#login_form {
+	width: 370px;
+	height: 300px;
+	top: 167px;
+	margin-top: 0px;
+	margin-left: 1500px;
+	position: absolute;
+	z-index: 10;
+	
+}
+
+#login_activity {
+	width: 370px;
+	height: 90px;
+	position: absolute;
+	bottom: 0;
+	background-color: black;
+	opacity: 0.8;
+	z-index: 10;
+}
+
+#data_space, #space {
+	/* border: 1px solid black; */
+	border-top: 0px;
+	width: 1400px;
+	height: 1250px;
+	margin: 50px auto;
+	background-color: rgba(255,255,255,0.6);
+}
+
+#rank_notice {
+	border-bottom: 1px solid black;
+	width: 100%;
+	height: 400px;
+}
+
+#rank {
+	width: 40%;
+	height: 100%;
+	float: left;
+}
+
+#notice {
+	width: 100%;
+	height:100%;
+}
+#game_info {
+	border-bottom: 1px solid black;
+	clear: both;
+	width: 100%;
+	height: 100px;
+}
+
+#screenshot {
+	border-bottom: 1px solid black;
+	width: 100%;
+	height: 400px;
+}
+#item_shop {
+	border-bottom: 1px solid black;
+	width: 100%;
+	height: 350px;
+}
+
+#footer { 
+	background-color: lightgray;
+	width: 1500px;
+	height: 200px;
+	margin: 0 auto;
+}
+div#login_form a {
+	font-weight: bold;
+	line-height: 90px;
+	margin: 10px 10px;
+	text-decoration: none;
+	font-size: 0.58em;
+	color: #eaeaea;
+}

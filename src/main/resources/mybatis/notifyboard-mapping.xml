@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="notifyboardMapper">
+
+	<insert id="notifyboardWrite" parameterType="notifyboardVO">
+		insert into notifyboard
+		values (seq_notifyboard_num.nextval, #{reporter_id}, #{notify_sort}, #{title}, #{content}, 0)
+	</insert>
+	
+	<select id="notifyboardList" parameterType="notifyListDTO" resultType="notifyboardVO">
+		<![CDATA[ select *
+		from (select rownum rn, tt.* from (select * from notifyboard
+		where notify_sort = #{notify_sort}
+		order by notifyboard_num asc) tt)
+		where rn >= #{startNum} and rn <= #{endNum}]]>
+	</select>
+	
+	<select id="notifyboardListAll" parameterType="notifyListDTO" resultType="notifyboardVO">
+		<![CDATA[ select *
+		from (select rownum rn, tt.* from (select * from notifyboard
+		order by notifyboard_num asc) tt)
+		where rn >= #{startNum} and rn <= #{endNum}]]>
+	</select>
+	
+	<!-- 세부 내용 -->
+	<select id="notifyboardView" parameterType="int" resultType="notifyboardVO">
+		select * from notifyboard where notifyboard_num = #{notifyboard_num}
+	</select>
+	
+	<delete id="notifyboardDelete" parameterType="int">
+		delete from notifyboard where notifyboard_num = #{notifyboard_num}
+	</delete>
+	
+	<select id="getTotalA" parameterType="java.lang.String" resultType="int">
+		select count(*) from notifyboard where notify_sort = #{notify_sort}
+	</select>
+	
+	<select id="getTotalAAll" resultType="int">
+		select count(*) from notifyboard
+	</select>
+	
+	<update id="notifyboardRespondDone" parameterType="int">
+		update notifyboard set respond=1 where notifyboard_num = #{notifyboard_num}
+	</update>
+	
+</mapper>

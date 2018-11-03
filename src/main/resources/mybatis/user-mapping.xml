@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.userMapper">
+
+	<select id="userLogin" parameterType="userDTO" resultType="userDTO">
+		SELECT * 
+		FROM users
+		WHERE user_id = #{user_id}
+		AND user_password = #{user_password}
+	</select> 
+	
+	<insert id="userSignUp" parameterType="userDTO">
+		INSERT INTO users (user_num, user_name, user_id, user_password, user_jumin, user_gender, user_phone)
+		VALUES
+		(seq_user_num.nextval, #{user_name}, #{user_id},#{user_password}, #{user_jumin}, #{user_gender}, #{user_phone} )
+	</insert>
+	
+	<select id="userIdCheck" parameterType="String" resultType="Integer">
+		SELECT count(*) FROM users
+		WHERE user_id = #{user_id}
+	</select>
+	<select id="userPwCheck" parameterType="String" resultType="Integer">
+		SELECT count(*) FROM users
+		WHERE user_password = #{user_password}
+	</select>
+	<select id="userIdPwCheck" parameterType="userDTO" resultType="userDTO">
+		SELECT *
+		FROM users
+		WHERE user_id = #{user_id}
+		AND user_password = #{user_password}
+	</select>
+	
+	<update id="userModify" parameterType="java.util.Map">
+		UPDATE users
+		SET user_password = #{re_pw}
+		WHERE user_id = #{ses_id}
+	</update>
+	
+	<select id="userNameCheck" parameterType="String" resultType="Integer">
+		SELECT count(*) FROM users
+		WHERE user_name = #{user_name}
+	</select>
+	<select id="userJuminCheck" parameterType="String" resultType="Integer">
+		SELECT count(*) FROM users
+		WHERE user_jumin = #{user_jumin}
+	</select>
+	<select id="userPhoneCheck" parameterType="String" resultType="Integer">
+		SELECT count(*) FROM users
+		WHERE user_phone = #{user_phone}
+	</select>
+	
+	<select id="userSelect" parameterType="userDTO" resultType="userDTO">
+		SELECT * FROM users
+		WHERE user_id = #{user_id}
+		AND user_password = #{user_password}
+	</select>
+	
+	<select id="findIdPwSelect" parameterType="userDTO" resultType="userDTO">
+		SELECT *
+		FROM users
+		WHERE user_name = #{user_name} 
+		AND user_phone=#{user_phone}
+	</select>
+	
+	
+	
+	<!-- <insert id="userLogin" parameterType="boardDTO">
+		INSERT INTO guestbook
+		VALUES
+		(seq_guestbook_num.nextval, #{writer},#{email},#{subject},#{content},to_char(sysdate,'yy-mm-dd HH24:mi:ss'))
+	</insert>
+	
+	
+	
+	<delete id="boardDelete" parameterType="boardDTO">
+		delete guestbook where num=#{num}
+	</delete>
+	
+	<select id="boardView" parameterType="boardDTO" resultType="boardDTO">
+		select * from guestbook where num=#{num}
+	</select>
+	
+	<select id="boardList" parameterType="java.util.Map" resultType="boardDTO">
+		<![CDATA[select * from  
+		(select rownum rn, tt.* from 
+		(select * from guestbook order by num desc) tt)  
+		where rn>=#{startNum} and rn<=#{endNum}]]>
+	</select>
+	
+	<select id="getTotalA" resultType="int">
+		select count(*) from guestbook
+	</select> -->
+	
+</mapper>
