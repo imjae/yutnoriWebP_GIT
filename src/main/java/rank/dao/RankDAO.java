@@ -58,10 +58,15 @@ public class RankDAO {
 		map.put("keyword",keyword);
 		map.put("startNum", startNumm);
 		map.put("endNum" , endNumm);
+		System.out.println(searchOption);
+		System.out.println(keyword);
 		return sqlSession.selectList("mybatis.rankMapper.listAll", map);
 		}
 		
-		public int getcountArticle() {
-			return sqlSession.selectOne("mybatis.rankMapper.getcountArticle");
+		public int getcountArticle(String searchOption, String keyword) {
+			Map<String, Object> map = new HashMap<>();
+			map.put("searchOption",searchOption);
+			map.put("keyword",keyword);
+			return sqlSession.selectOne("mybatis.rankMapper.getcountArticle", map);
 		}
 }
