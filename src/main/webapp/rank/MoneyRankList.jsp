@@ -143,7 +143,7 @@ body {
 </head>
 <body>
 
-<form action="../rank/rankInfo.do?pg=1" name="MoneyRankList" method="post" >
+<form action="../rank/RankList.do?pgg=1" name="MoneyRankList" method="post" >
 <table border="0" cellpadding="5" align="center"> 
 	<tr color="">
 		<td colspan="5"><h1>랭킹순위</h1></td>
