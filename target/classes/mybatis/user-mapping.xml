@@ -81,7 +81,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		AND user_phone=#{user_phone}
 	</select>
 	
-	<select id="haveItemCount" parameterType="String" resultType="int">
+	<select id="haveItemCount" parameterType="String" resultType="Integer">
 		SELECT COUNT(*) FROM view_pament_item
 		WHERE user_id = #{user_id}
 	</select>
