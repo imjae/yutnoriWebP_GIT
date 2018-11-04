@@ -58,7 +58,7 @@ div#menu_name td input {
 	<div id="menu_space_top">
 		<div id="blank"></div>
 		<div id="mainLogo">
-			<a href="#">
+			<a href="../main/index.jsp">
 				<img src="../etc/image/mainImage/logo.png">
 			</a>
 		</div>
@@ -103,14 +103,6 @@ div#menu_name td input {
 				</td>
 			</tr>
 		</table>
-		<%-- <h4>상품명 : <span>${itemShopDTO.item_name }</span></h4>
-		<h4>수량 : </h4>
-		<h4>상품가격 : <span>${itemShopDTO.item_charge }캐시</span></h4>
-		<div id="menu_button">
-			<button>목록</button>
-			<button>장바구니</button>
-			<button>결제하기</button>
-		</div> --%>
 	</div>
 	
 </div>

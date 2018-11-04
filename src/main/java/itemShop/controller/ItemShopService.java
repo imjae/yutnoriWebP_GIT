@@ -15,4 +15,8 @@ public interface ItemShopService {
 	
 	// detail
 	ItemShopDTO itemDetail(String item_code);
+	
+	// 가격차감
+	int itemPaymentSuccess(int item_charge, String user_id);
+	
 }
