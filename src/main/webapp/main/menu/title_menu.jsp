@@ -89,7 +89,7 @@ a.over_mouse_title:hover { text-decoration: none; color: white; }
 		</div>
 
 		<div id="title_itemshop">
-			<a href="#" class="over_mouse_title">상점</a>
+			<a href="../itemShop/mainShop.do?category=all&pg=1&order=logtime" class="over_mouse_title">상점</a>
 		</div>
 
 		<div id="title_cs">
