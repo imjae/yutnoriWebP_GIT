@@ -51,7 +51,7 @@ h1 {
 		
 		$("#helpboardWriteForm").submit(function() {
 			if ($("select[name='notify_sort'] > option:selected").index() < 1) {
-				var i = $("select[name='sort1'] > option:selected").index();
+				var i = $("select[name='sort'] > option:selected").index();
 				alert("관련 분야를 선택해 주세요.");
 				$("select[name='sort1']").focus();
 				return false;

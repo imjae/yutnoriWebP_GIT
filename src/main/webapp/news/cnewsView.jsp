@@ -7,6 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div id="sec_title">
+	
+</div>
 
+<div id="sec_date">
+</div>
+
+<div id="sec_content">
+</div>
+&nbsp;&nbsp;&nbsp;<button>목록</button>
 </body>
 </html>
