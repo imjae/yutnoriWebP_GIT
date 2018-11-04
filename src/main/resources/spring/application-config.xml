@@ -11,6 +11,7 @@
 	<context:component-scan base-package="rank.*" />
 	<context:component-scan base-package="helpboard.*" />
 	<context:component-scan base-package="inform.*" />
+	<context:component-scan base-package="itemShop.*"/>
 	
 	<!-- DataSource 설정 -->
 	<context:property-placeholder
