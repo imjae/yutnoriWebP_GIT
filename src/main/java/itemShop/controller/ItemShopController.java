@@ -43,7 +43,7 @@ public class ItemShopController {
 		
 		if(order.equals("logtime")) {
 			order += " desc";
-		}else if(order.equals("item_charge_low")){
+		}else if(order.equals("item_charge_high")){
 			order = "item_charge desc";
 		}else {
 			order += " asc";

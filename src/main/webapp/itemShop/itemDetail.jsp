@@ -58,7 +58,7 @@ div#menu_name td input {
 	<div id="menu_space_top">
 		<div id="blank"></div>
 		<div id="mainLogo">
-			<a href="#">
+			<a href="../main/index.jsp">
 				<img src="../etc/image/mainImage/logo.png">
 			</a>
 		</div>

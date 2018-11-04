@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,6 +70,20 @@ div#payBody div#warning label{
 	
 
 </style>
+<script type="text/javascript">
+	$(function(){
+		$("button#go_buy").click(function(){
+			if($("input[type=checkbox]#warning_check").is(":checked")){
+				alert("체크함");
+			}else{
+				$("input[type=checkbox]#warning_check").css("color","red");
+				$("input[type=checkbox]#warning_check").effect("shake");
+				return false;
+			}
+		});
+	});
+</script>
+
 </head>
 <body>
 
@@ -80,7 +95,7 @@ div#payBody div#warning label{
 		<div id="menu_space_top">
 			<div id="blank"></div>
 			<div id="mainLogo">
-				<a href="#">
+				<a href="../main/index.jsp">
 					<img src="../etc/image/mainImage/logo.png">
 				</a>
 			</div>
@@ -103,6 +118,7 @@ div#payBody div#warning label{
 			<h2>　구매하기</h2>
 		</div>
 		<div id="payBody">
+			<c:if test="${payOK == null }">
 			<table>
 				<tr id="title">
 					<td width="200px"></td><td width="250px">상품명</td>
@@ -135,8 +151,10 @@ div#payBody div#warning label{
 				<div style="width: 250px;"></div>
 				<div><button id="refill" onclick="location.href='#'">캐시 충전하기</button></div>
 				<div><button id="go_shop" onclick="location.href='../itemShop/mainShop.do?category=all&pg=1&order=logtime'">계속 쇼핑하기</button></div>
-				<div><button id="go_buy" onclick="location.href='#'">결제하기</button></div>
+				<div><button id="go_buy">결제하기</button></div>
 			</div>
+			</c:if>
+			
 		</div>
 	</div>
 </div>

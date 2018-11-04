@@ -116,8 +116,8 @@ div#menu_space_ad a {margin-left: 500px; /* border: 1px solid orange; */}
 	<div id="sort">
 		<a href="../itemShop/mainShop.do?category=${category }&pg=1&order=logtime">신상품순</a>
 		<a href="../itemShop/mainShop.do?category=${category }&pg=1&order=item_name">이름순</a>
-		<a href="../itemShop/mainShop.do?category=${category }&pg=1&order=item_charge_low">낮은가격순</a>
-		<a href="../itemShop/mainShop.do?category=${category }&pg=1&order=item_charge">높은가격순</a>
+		<a href="../itemShop/mainShop.do?category=${category }&pg=1&order=item_charge">낮은가격순</a>
+		<a href="../itemShop/mainShop.do?category=${category }&pg=1&order=item_charge_high">높은가격순</a>
 	</div>
 	
 </div>
