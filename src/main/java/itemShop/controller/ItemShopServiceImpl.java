@@ -41,6 +41,11 @@ public class ItemShopServiceImpl implements ItemShopService{
 		return itemShopDAO.itemDetail(item_code);
 	}
 
+	@Override
+	public int itemPaymentSuccess(int item_charge, String user_id) {
+		return itemShopDAO.itemPaymentSuccess(item_charge, user_id);
+	}
+
 	
 	
 }

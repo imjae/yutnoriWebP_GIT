@@ -6,6 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="../etc/js/jquery-3.3.1.min.js"></script>
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="../etc/css/shopTheme.css" type="text/css">
 <style type="text/css">
 div#body div#payTitle {
@@ -74,10 +77,15 @@ div#payBody div#warning label{
 	$(function(){
 		$("button#go_buy").click(function(){
 			if($("input[type=checkbox]#warning_check").is(":checked")){
-				alert("체크함");
+				if(${session_dto.user_cash - (itemShopDTO.item_charge*ea)} < 0){
+					// 캐시충전페이지로 이동하기
+				}else{
+					// 결제화면으로 이동하기
+					location.href="../itemShop/itemPaymentSuccess.do?item_charge=${itemShopDTO.item_charge*ea}";
+				}
 			}else{
-				$("input[type=checkbox]#warning_check").css("color","red");
-				$("input[type=checkbox]#warning_check").effect("shake");
+				$("div#warning").css("color","red");
+				$("div#warning").effect("shake");
 				return false;
 			}
 		});
@@ -137,7 +145,7 @@ div#payBody div#warning label{
 						</div>
 						<div style="width: 280px;"></div>
 						<div style="width: 125px;">
-							<label id="price">${itemShopDTO.item_charge }</label>
+							<label id="price">${itemShopDTO.item_charge*ea }</label>
 						</div>
 						<div style="width: 190px;"></div>
 					</td>
@@ -154,7 +162,9 @@ div#payBody div#warning label{
 				<div><button id="go_buy">결제하기</button></div>
 			</div>
 			</c:if>
-			
+			<c:if test="${payOK != null}">
+				<jsp:include page="../itemShop/itemPaymentSuccess.jsp"/>
+			</c:if>
 		</div>
 	</div>
 </div>
