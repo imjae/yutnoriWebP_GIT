@@ -53,8 +53,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="getcountArticle" parameterType="java.util.Map" resultType="int">
-		SELECT COUNT(*) FROM users
-		WHERE ${searchOption}  like '%'||#{keyword}||'%'
+		select count(*) from users
+		where ${searchOption}  like '%'||#{keyword}||'%'
+		
 	</select>
 	
 	

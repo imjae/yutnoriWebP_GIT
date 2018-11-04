@@ -9,7 +9,7 @@
 </head>
 <body>
 <div align="right">
-	<a href="../rank/yutnoriiiRankList.do?pg=1">더보기</a>
+	<a href="../rank/yutnoriiiRankList.do?pg=1"><img src="../etc/image/rankImage/plus.png"></a>
 </div>
 <div align="center">
 <img alt="" src="../etc/image/rankImage/honor.png" >

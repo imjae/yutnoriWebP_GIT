@@ -20,10 +20,9 @@ body {
     border: 0;
     overflow-x: none;
     background-color: #ffffff;
-    font-size: 13px;
     font-smooth: always;
     -webkit-font-smoothing: antialiased;
-    font-family:'Nanum Gothic', 'NanumGothic','나눔고딕', 돋움, Dotum, Arial, sans-serif; font-size:16px; color:#676767; line-height:1; letter-spacing:-1px; -webkit-text-size-adjust: none;
+    
 }
 .back {
     width: 15%;
@@ -161,8 +160,8 @@ input[type=submit] {
   
 }
 input[type=text] {
-	padding: 1px 4px;
-	border-radius: 4px;
+	padding: 1px 1px;
+	border-radius: 2px;
 }  
 select {
 	width: 70px;
@@ -184,7 +183,6 @@ select::-ms-expand{
 div#total_rank_title {
 	width: 1000px;
 	height: 90px;
-	border: 1px solid white;
 	border-bottom: 2px solid #BDBDBD;
 	font-weight: 600;
 	font: #424242;
@@ -195,7 +193,7 @@ div#total_rank_title {
 <body>
 
 <form action="../rank/RankList.do?pgg=1" name="yutnoriiiRankList" method="post" >
-<table border="0" cellpadding="5" align="center"> 
+<table border="0" cellpadding="5" align="center" id="kim"> 
 	<tr color="">
 		<td colspan="5"><div id="total_rank_title"><FONT SIZE=6 COLOR="black">종합 랭킹</FONT></div></td>
 	</tr>
