@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="../etc/js/jquery-3.3.1.min.js"></script>
 <style type="text/css">
 
 div#user_info_total {
@@ -133,19 +134,20 @@ div#category_total {
 <script type="text/javascript">
 
 	$(function(){
+		
+		var pg = 1;
+		
 		$("div#category_total").click(function(){
 			
 			$(this).css("background-color", "white");
 			
-			location.href="../user/have_itemList.do?category='total'";
-			
-			
+			location.href="../user/have_itemList.do?category=total&pg="+pg;
 			
 		});
 		
 		$("div#item_list_nextBtn").click(function(){
-			$("div.item_list_element_2").css("display", "block");
-			$("div.item_list_element_2").show("slide", {direction: "right"}, 1000);
+			pg = 2;
+			$("div.item_list_element_2").show("slide",{direction:"right"},500);
 		});
 	});
 
@@ -188,16 +190,16 @@ div#category_total {
 		
 		<div id="item_list_div">
 			
-			<c:forEach var="i" begin="1" end="20" step="1">
+			<c:forEach items="${list }" var="list">
 				<div class="item_list_element_1">
-				<img class="item_list_img" src="../etc/image/itemImage/characterImage/jk.png"/>		
+				<img class="item_list_img" src="../etc/image/itemImage/characterImage/${list.item_img }.png"/>		
 				</div>
 			</c:forEach>
-			<c:forEach var="i" begin="1" end="20" step="1">
-				<div class="item_list_element_2" style="display: none;">
+			<%-- <c:forEach var="i" begin="1" end="20" step="1">
+				<div class="item_list_element_2" style="display: none;"> 
 				<img class="item_list_img" src="../etc/image/itemImage/characterImage/jk.png"/>		
 				</div>
-			</c:forEach>
+			</c:forEach> --%>
 			
 		</div>
 	</div>
