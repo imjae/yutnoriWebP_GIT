@@ -34,25 +34,15 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mybatis/helpboard-mapping.xml" />
 		<mapper resource="mybatis/notifyboard-mapping.xml" />	
 
-<<<<<<< HEAD
-
 		
 
-=======
-<<<<<<< HEAD
 		<mapper resource="mybatis/news-mapping.xml" />
 		<mapper resource="mybatis/itemShop-mapping.xml"/>
 		<!-- <mapper resource="mybatis/event-mapping.xml" />	 -->
-=======
->>>>>>> 71ce51f5fcf66a953e6b9c8a4fc3c22fd073b166
 
 		<mapper resource="mybatis/news-mapping.xml" />
 		<mapper resource="mybatis/itemShop-mapping.xml"/>
 		<!-- <mapper resource="mybatis/event-mapping.xml" />	 -->	
-<<<<<<< HEAD
-=======
->>>>>>> 122833f2be51b043947e03c3be3859f3d91438fc
->>>>>>> 71ce51f5fcf66a953e6b9c8a4fc3c22fd073b166
 
 	</mappers>
 </configuration>
