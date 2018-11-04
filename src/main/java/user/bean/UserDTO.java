@@ -8,6 +8,7 @@ public class UserDTO {
 	private String user_jumin;			//주민번호
 	private String user_gender;			//성별
 	private String user_phone;			//핸드폰번호
+	private int user_cash;				//캐쉬
 	private int user_win;				//승
 	private int user_lose;				//패
 	private double user_rate;			//승률
@@ -15,6 +16,12 @@ public class UserDTO {
 	private String user_tear;			//유저 등급
 	public int getUser_num() {
 		return user_num;
+	}
+	public int getUser_cash() {
+		return user_cash;
+	}
+	public void setUser_cash(int user_cash) {
+		this.user_cash = user_cash;
 	}
 	public void setUser_num(int user_num) {
 		this.user_num = user_num;

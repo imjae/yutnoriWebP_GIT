@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="../etc/js/jquery-3.3.1.min.js"></script>
 <style type="text/css">
 
 div#user_info_total {
@@ -56,7 +57,7 @@ div#item_list_div {
 	margin-left: 10px;
 }
 
-div.item_list_element {
+div.item_list_element_1, div.item_list_element_2{
 	width: 17%;
 	height: 23%;
 	border: 1px solid lightgray;;
@@ -66,7 +67,7 @@ div.item_list_element {
 	margin-bottom: 8px;
 }
 
-div.item_list_nextBtn {
+div#item_list_nextBtn {
 	width: 25px;
 	height: 90%;
 	background-color: lightgray;
@@ -78,7 +79,7 @@ div.item_list_nextBtn {
 	line-height: 360px
 
 }
-
+div#item_list_nextBtn:hover {cursor: pointer;}
 img.item_list_img {
 	width: 95%;
 	height: 100%;
@@ -133,14 +134,20 @@ div#category_total {
 <script type="text/javascript">
 
 	$(function(){
+		
+		var pg = 1;
+		
 		$("div#category_total").click(function(){
 			
 			$(this).css("background-color", "white");
 			
-			location.href="../user/have_itemList.do?category='total'";
+			location.href="../user/have_itemList.do?category=total&pg="+pg;
 			
-			
-			
+		});
+		
+		$("div#item_list_nextBtn").click(function(){
+			pg = 2;
+			$("div.item_list_element_2").show("slide",{direction:"right"},500);
 		});
 	});
 
@@ -178,17 +185,21 @@ div#category_total {
 			<img id="char_img" src="../etc/image/itemImage/characterImage/jk_.png"/>
 		</div>
 		
-		<div class="item_list_nextBtn"> &gt;
+		<div id="item_list_nextBtn"> &gt;
 		</div>
 		
 		<div id="item_list_div">
 			
-			<c:forEach var="i" begin="1" end="20" step="1">
-				<div class="item_list_element">
-				<img class="item_list_img" src="../etc/image/itemImage/characterImage/jk.png"/>		
+			<c:forEach items="${list }" var="list">
+				<div class="item_list_element_1">
+				<img class="item_list_img" src="../etc/image/itemImage/characterImage/${list.item_img }.png"/>		
 				</div>
 			</c:forEach>
-			
+			<%-- <c:forEach var="i" begin="1" end="20" step="1">
+				<div class="item_list_element_2" style="display: none;"> 
+				<img class="item_list_img" src="../etc/image/itemImage/characterImage/jk.png"/>		
+				</div>
+			</c:forEach> --%>
 			
 		</div>
 	</div>
