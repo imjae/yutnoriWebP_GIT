@@ -70,7 +70,7 @@ div#menu_space_ad a {margin-left: 500px; /* border: 1px solid orange; */}
 	<div id="menu_space_top">
 		<div id="blank"></div>
 		<div id="mainLogo">
-			<a href="#">
+			<a href="../main/index.jsp">
 				<img src="../etc/image/mainImage/logo.png">
 			</a>
 		</div>

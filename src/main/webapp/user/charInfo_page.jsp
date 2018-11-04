@@ -56,7 +56,7 @@ div#item_list_div {
 	margin-left: 10px;
 }
 
-div.item_list_element {
+div.item_list_element_1, div.item_list_element_2{
 	width: 17%;
 	height: 23%;
 	border: 1px solid lightgray;;
@@ -66,7 +66,7 @@ div.item_list_element {
 	margin-bottom: 8px;
 }
 
-div.item_list_nextBtn {
+div#item_list_nextBtn {
 	width: 25px;
 	height: 90%;
 	background-color: lightgray;
@@ -78,7 +78,7 @@ div.item_list_nextBtn {
 	line-height: 360px
 
 }
-
+div#item_list_nextBtn:hover {cursor: pointer;}
 img.item_list_img {
 	width: 95%;
 	height: 100%;
@@ -142,6 +142,11 @@ div#category_total {
 			
 			
 		});
+		
+		$("div#item_list_nextBtn").click(function(){
+			$("div.item_list_element_2").css("display", "block");
+			$("div.item_list_element_2").show("slide", {direction: "right"}, 1000);
+		});
 	});
 
 </script>
@@ -178,17 +183,21 @@ div#category_total {
 			<img id="char_img" src="../etc/image/itemImage/characterImage/jk_.png"/>
 		</div>
 		
-		<div class="item_list_nextBtn"> &gt;
+		<div id="item_list_nextBtn"> &gt;
 		</div>
 		
 		<div id="item_list_div">
 			
 			<c:forEach var="i" begin="1" end="20" step="1">
-				<div class="item_list_element">
+				<div class="item_list_element_1">
 				<img class="item_list_img" src="../etc/image/itemImage/characterImage/jk.png"/>		
 				</div>
 			</c:forEach>
-			
+			<c:forEach var="i" begin="1" end="20" step="1">
+				<div class="item_list_element_2" style="display: none;">
+				<img class="item_list_img" src="../etc/image/itemImage/characterImage/jk.png"/>		
+				</div>
+			</c:forEach>
 			
 		</div>
 	</div>
