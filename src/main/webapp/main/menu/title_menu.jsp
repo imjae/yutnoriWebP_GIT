@@ -81,7 +81,7 @@ a.over_mouse_title:hover { text-decoration: none; color: white; }
 		</div>
 	
 		<div id="title_ranking">
-			<a href="#" class="over_mouse_title">랭킹</a>
+			<a href="../rank/yutnoriiiRankList.do?pg=1" class="over_mouse_title">랭킹</a>
 		</div>
 
 		<div id="title_comunity">

@@ -159,7 +159,7 @@ public class RankController {
 		int startNumm = endNumm - 9;
 		// (2) DB
 		// 페이징 처리
-		int countArticle = rankService.getcountArticle(searchOption, keyword);	// 총글수  = 43
+		int countArticle = rankService.getcountArticle(searchOption, keyword, startNumm, endNumm);	// 총글수  = 43
 		int totalPP = (countArticle + 4) / 5;		// 총페이지수 = 9
 		int startPagee = (pgg-1)/3*3+1;
 		int endPagee = startPagee + 2;
@@ -181,6 +181,7 @@ public class RankController {
 		modelAndVieww.addObject("startPagee", startPagee);
 		modelAndVieww.addObject("endPagee", endPagee);
 		modelAndVieww.addObject("totalPP", totalPP);
+		modelAndVieww.addObject("rank_page_url", "../rank/RankList.jsp");
 		modelAndVieww.addObject("display", "../rank/rankInfo.jsp");
 		modelAndVieww.setViewName("../main/index.jsp");
 		

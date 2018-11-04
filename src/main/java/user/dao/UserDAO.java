@@ -83,7 +83,7 @@ public class UserDAO {
 	}
 
 	public int haveItemCount(String user_id) {
-		return sqlSession.selectOne("mybatis.userMapper.havaItemCount", user_id);
+		return sqlSession.selectOne("mybatis.userMapper.haveItemCount", user_id);
 	}
 
 }

@@ -280,9 +280,8 @@ public class UserController {
 		String user_id =String.valueOf(request.getSession().getAttribute("session_id"));
 		int pg = Integer.parseInt(request.getParameter("pg"));
 		// 페이징 처리
-		int totalA = userService.haveItemCount(user_id);
 		
-		
+		System.out.println(category);
 		int startNum = 0;
 		int endNum = 0;
 		if(pg==1) {
@@ -299,10 +298,15 @@ public class UserController {
 			list = userService.haveItemList(category,user_id,startNum,endNum);
 		}
 		
+		int totalA = list.size();
+		
+		int su = 20 - totalA%20;
+		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("list",list);
 		modelAndView.addObject("startNum",startNum);
 		modelAndView.addObject("endNum", endNum);
+		modelAndView.addObject("su",su);
 		
 		modelAndView.addObject("userInfo_page_url","../user/charInfo_page.jsp");
 		modelAndView.addObject("display", "../user/userInfo_title.jsp");	
