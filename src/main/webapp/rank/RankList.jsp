@@ -146,15 +146,15 @@ body {
 <form action="../rank/RankList.do?pg=1" name="RankList" method="post" >
 <table border="0" cellpadding="5" align="center"> 
 	<tr color="">
-		<td colspan="5"><h1>랭킹순위</h1></td>
+		<td colspan="5"><h1>종합 랭킹</h1></td>
 	</tr>
 	<tr>
 		<td colspan="5">
 			<div class="back">
     <div class="button_base b03_skewed_slide_in">
-        <div>종합 랭킹</div>
+        <div>전적 랭킹</div>
         <div></div>
-        <div onclick="location.href='../rank/yutnoriiiRankList.do?pg=1'">종합 랭킹</div>
+        <div onclick="location.href='../rank/yutnoriiiRankList.do?pg=1'">전적 랭킹</div>
    	
    	</div>
 </div>
