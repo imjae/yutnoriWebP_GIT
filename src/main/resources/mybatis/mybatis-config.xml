@@ -25,7 +25,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="inform.bean.EventVO" alias="eventVO"/>
 		<typeAlias type="inform.controller.NewsListDTO" alias="newsListDTO"/>
 		
+		
 		<!-- <typeAlias type="inform.controller.EventListDTO" alias="eventListDTO"/> -->
+		
 		
 	</typeAliases>
 	
