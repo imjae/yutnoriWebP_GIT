@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="../etc/js/jquery-3.3.1.min.js"></script>
 <link rel="stylesheet" href="../etc/css/shopTheme.css" type="text/css">
 <style type="text/css">
 div#content {height: 600px; background: none; }
@@ -48,6 +49,18 @@ div#menu_name td input {
     /* cursor: pointer; */
 }
 </style>
+<script type="text/javascript">
+	function confLogin(){
+		if(${session.user_id == null}){	// 로그인 안한 상태로 결제하기 눌렀을 때
+			alert("로그인 후 결제해주세요.");
+			location.href="../login/loginPage.jsp";
+		}else{	// 로그인 상태일때
+			location.href="../itemShop/itemPayment.do?item_code=${itemShopDTO.item_code}&ea=1";
+		}
+	}
+	
+	
+</script>
 </head>
 <body>
 
@@ -99,7 +112,7 @@ div#menu_name td input {
 				<td colspan="2" width="500px"  align="center">
 					<input type="button" value="목록" onclick="location.href='../itemShop/mainShop.do?category=${category}&pg=${pg }&order=${order }'">
 					<input type="button" value="장바구니" onclick="location.href='#'">
-					<input type="button" value="결제하기" onclick="location.href='../itemShop/itemPayment.do?item_code=${itemShopDTO.item_code}&ea=1'">
+					<input type="button" value="결제하기" onclick="confLogin()">
 				</td>
 			</tr>
 		</table>

@@ -78,7 +78,8 @@ div#payBody div#warning label{
 		$("button#go_buy").click(function(){
 			if($("input[type=checkbox]#warning_check").is(":checked")){
 				if(${session_dto.user_cash - (itemShopDTO.item_charge*ea) < 0} ){
-					// 캐시충전페이지로 이동하기 
+					// 캐시충전페이지로 이동하기
+					location.href="../main/myPage.do?dis=../user/cashCharge_page.jsp";
 				}else{
 					// 결제화면으로 이동하기
 					location.href="../itemShop/itemPaymentSuccess.do?item_charge=${itemShopDTO.item_charge*ea}";
@@ -157,7 +158,7 @@ div#payBody div#warning label{
 			</div> 
 			<div id="buttonLine">
 				<div style="width: 250px;"></div>
-				<div><button id="refill" onclick="location.href='#'">캐시 충전하기</button></div>
+				<div><button id="refill" onclick="location.href='../main/myPage.do?dis=../user/cashCharge_page.jsp'">캐시 충전하기</button></div>
 				<div><button id="go_shop" onclick="location.href='../itemShop/mainShop.do?category=all&pg=1&order=logtime'">계속 쇼핑하기</button></div>
 				<div><button id="go_buy">결제하기</button></div>
 			</div>
