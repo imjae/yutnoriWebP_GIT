@@ -85,7 +85,7 @@ a.over_mouse_title:hover { text-decoration: none; color: white; }
 		</div>
 
 		<div id="title_comunity">
-			<a href="#" class="over_mouse_title">커뮤니티</a>
+			<a href="../freeboard/freeboard_list.do?freeboard_pg=1" class="over_mouse_title">커뮤니티</a>
 		</div>
 
 		<div id="title_itemshop">

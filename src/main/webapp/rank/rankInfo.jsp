@@ -17,7 +17,7 @@
 		/* border-top: 3px dashed rgba(0,0,0,0.6);  */
 		background-color: rgba(255,255,255,0.5);
 		font-family: "-윤고딕320";
-		font-size:14px; 
+		font-size:14px;
 		color:#676767; 
 		line-height:1; 
 		letter-spacing:-1px; 

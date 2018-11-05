@@ -68,7 +68,6 @@
 				$("div").html("<div>"+textStatus+" (HTTP-)"+ xhr.status + " / " + errorThrown +")</div>");
 			}
 		});
-		
 	});
 </script>
 
@@ -138,7 +137,7 @@
 	</div>
 	
 	<div id="screenshot">
-		스크린샷
+		
 	</div>
 	
 	<div id="item_shop">
