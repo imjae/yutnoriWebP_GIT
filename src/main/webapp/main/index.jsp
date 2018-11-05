@@ -152,6 +152,10 @@
 	<jsp:include page="${display }"/>
 </div>
 </c:if>
+
+
+
+
 <div id="footer">
 	<jsp:include page="../template/bottom.jsp"/>
 </div>

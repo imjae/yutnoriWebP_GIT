@@ -20,7 +20,7 @@ public interface RankService {
 	    
 		// 전체 게시판 글 갯수 조회
 		int getTotalA();
-		int getcountArticle(String searchOption, String keyword);
+		int getcountArticle(String searchOption, String keyword,int startNumm,int endNumm);
 		
 		
 }

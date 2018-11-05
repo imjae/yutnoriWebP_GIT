@@ -280,9 +280,8 @@ public class UserController {
 		String user_id =String.valueOf(request.getSession().getAttribute("session_id"));
 		int pg = Integer.parseInt(request.getParameter("pg"));
 		// 페이징 처리
-		int totalA = userService.haveItemCount(user_id);
 		
-		
+		System.out.println(category);
 		int startNum = 0;
 		int endNum = 0;
 		if(pg==1) {
@@ -299,15 +298,52 @@ public class UserController {
 			list = userService.haveItemList(category,user_id,startNum,endNum);
 		}
 		
+		int totalA = list.size();
+		
+		int su = 20 - totalA%20;
+		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("list",list);
 		modelAndView.addObject("startNum",startNum);
 		modelAndView.addObject("endNum", endNum);
+		modelAndView.addObject("su",su);
 		
 		modelAndView.addObject("userInfo_page_url","../user/charInfo_page.jsp");
 		modelAndView.addObject("display", "../user/userInfo_title.jsp");	
 
 		modelAndView.setViewName("../main/index.jsp");
+		
+		return modelAndView;
+	}
+
+	@RequestMapping(value="/user/cashCharge.do")
+	public ModelAndView cashCharge(HttpServletRequest request) {
+	
+		String charge_price = request.getParameter("cash_input");
+		int price = Integer.parseInt(charge_price);
+		String id = String.valueOf(request.getSession().getAttribute("session_id"));
+		
+		HttpSession session = request.getSession();
+		
+		UserDTO dto = (UserDTO)session.getAttribute("session_dto");
+		int cur_cash = dto.getUser_cash();
+		
+		
+		int charge_count = userService.cashCharge(id, price);
+		
+		if(charge_count > 0) {
+			dto.setUser_cash(cur_cash + price);
+			session.setAttribute("session_dto", dto);
+		}
+		
+		
+		ModelAndView modelAndView = new ModelAndView();
+		
+		modelAndView.addObject("userInfo_page_url","../user/cashCharge_result.jsp");
+		modelAndView.addObject("display", "../user/userInfo_title.jsp");	
+		modelAndView.addObject("charge_count", charge_count);
+		modelAndView.setViewName("../main/index.jsp");
+		
 		
 		return modelAndView;
 	}

@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+결제성공!
+${suc }
+${payOK }
 </body>
 </html>

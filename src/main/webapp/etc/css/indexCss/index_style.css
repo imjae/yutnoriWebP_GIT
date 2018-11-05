@@ -101,7 +101,7 @@ div#menu_space > div#login_form {
 }
 
 #rank {
-	width: 40%;
+	width: 35%;
 	height: 100%;
 	float: left;
 	border-right: 1px solid black;
@@ -145,7 +145,7 @@ div#menu_space > div#login_form {
     font-size: 13px;
     font-smooth: always;
     -webkit-font-smoothing: antialiased;
-    font-family:'Nanum Gothic', 'NanumGothic','나눔고딕', 돋움, Dotum, Arial, sans-serif; font-size:16px; color:#676767; line-height:1; letter-spacing:-1px; -webkit-text-size-adjust: none;
+    font-family: "-윤고딕320";
 	position:relative;
 	width:1500px; 
 	padding:40px 0 57px 0; 

@@ -44,4 +44,15 @@ public class ItemShopDAO {
 		return sqlSession.selectOne("mybatis.itemShopMapper.itemDetail", item_code);
 	}
 	
+	public int itemPaymentSuccess(int item_charge,String user_id) {
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		System.out.println("item_charge"+item_charge);
+		System.out.println("user_id"+user_id);
+		map.put("item_charge", item_charge);
+		map.put("user_id", user_id);
+		return sqlSession.update("mybatis.itemShopMapper.itemPaymentSuccess", map);
+	}
+	
+	
 }
