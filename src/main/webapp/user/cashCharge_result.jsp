@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="../etc/js/jquery-3.3.1.min.js"></script>
+
 
 <style type="text/css">
 
@@ -55,7 +57,7 @@ div#cash_result_con > div#left {
 	width: 190px;
 	height: 130px;
 	
-	margin-left: 330px;
+	margin-left: 280px;
 	margin-top: 80px;
 	float: left;
 }
@@ -78,7 +80,7 @@ div#go_index_btn{
 	color: white;
 	text-align: center;
 	float: left;
-	margin-left: 330px;
+	margin-left: 290px;
 }
 
 div#go_itemShop_btn{
@@ -99,6 +101,20 @@ div#go_index_btn:hover,div#go_itemShop_btn:hover {
 	cursor: pointer;
 }
 </style>
+
+<script type="text/javascript">
+
+	$(function(){
+		$("div#go_index_btn").click(function(){
+			location.href="../main/index.jsp";
+		});
+		
+		$("div#go_itemShop_btn").click(function(){
+			location.href="../itemShop/mainShop.do?category=all&pg=1&order=logtime";
+		});
+	});
+
+</script>
 
 </head>
 <body>
@@ -129,8 +145,8 @@ div#go_index_btn:hover,div#go_itemShop_btn:hover {
 		<div id="right">
 			
 			<p> 무통장 입금 </p>
-			<p> 10000 원 </p>
-			<p> 20000 원 </p>
+			<p> ${charge_price } 원</p>
+			<p> ${session_dto.user_cash } 원</p>
 			
 		</div>
 		<!-- &#x2714; 충전 수단 -->
