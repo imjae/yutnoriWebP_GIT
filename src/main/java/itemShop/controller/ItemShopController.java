@@ -127,10 +127,7 @@ public class ItemShopController {
 		int item_charge = Integer.parseInt(request.getParameter("item_charge"));
 		String user_id = (String)request.getSession().getAttribute("session_id");		
 		
-		System.out.println("item_charge"+item_charge);
-		System.out.println("user_id"+user_id);
 		int suc = itemShopService.itemPaymentSuccess(item_charge, user_id);
-		System.out.println(suc+"suc");
 		
 		// 세션안의 dto값이 변경되었으니까 다시 만들어줘야함 -> user-mapping에 쿼리문만들어서 사용하면됨
 		ModelAndView modelAndView = new ModelAndView();

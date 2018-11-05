@@ -45,7 +45,7 @@ div#payBody div#buttonLine div {
 	padding-top: 20px;
 	/* border: 1px solid blue; */
 } 
-div#payBody div#buttonLine button {
+div#payBody button {
 	width:140px;
     background-color: #b7b1b6;
     border: none;
@@ -77,8 +77,8 @@ div#payBody div#warning label{
 	$(function(){
 		$("button#go_buy").click(function(){
 			if($("input[type=checkbox]#warning_check").is(":checked")){
-				if(${session_dto.user_cash - (itemShopDTO.item_charge*ea)} < 0){
-					// 캐시충전페이지로 이동하기
+				if(${session_dto.user_cash - (itemShopDTO.item_charge*ea) < 0} ){
+					// 캐시충전페이지로 이동하기 
 				}else{
 					// 결제화면으로 이동하기
 					location.href="../itemShop/itemPaymentSuccess.do?item_charge=${itemShopDTO.item_charge*ea}";
