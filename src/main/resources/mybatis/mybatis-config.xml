@@ -32,23 +32,11 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mybatis/user-mapping.xml"/>
 		<mapper resource="mybatis/rank-mapping.xml"/>
 		<mapper resource="mybatis/helpboard-mapping.xml" />
-<<<<<<< HEAD
 		<mapper resource="mybatis/itemShop-mapping.xml"/>	
 		<mapper resource="mybatis/notifyboard-mapping.xml" />
-=======
-		<mapper resource="mybatis/notifyboard-mapping.xml" />	
-
-
->>>>>>> 286388d42dbd790a46fc5cb3b670405681a50ff7
 		<mapper resource="mybatis/news-mapping.xml" />
 		<!-- <mapper resource="mybatis/event-mapping.xml" />	 -->
-<<<<<<< HEAD
 		<mapper resource="mybatis/community-mapping.xml"/>
-=======
-
-
-		
->>>>>>> 286388d42dbd790a46fc5cb3b670405681a50ff7
 	</mappers>
 </configuration>
 
