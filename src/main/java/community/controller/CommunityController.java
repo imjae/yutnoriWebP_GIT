@@ -424,15 +424,15 @@ public class CommunityController {
 	public ModelAndView imgboard_list(HttpServletRequest request) {
 		// data
 		int imgboard_pg = Integer.parseInt(request.getParameter("imgboard_pg"));
-		int img_endNum = imgboard_pg * 16;
-		int img_startNum = img_endNum - 15;
+		int img_endNum = imgboard_pg * 12;
+		int img_startNum = img_endNum - 11;
 		
 		// DB
 		List<ImgboardDTO> imgboard_list = communityService.imgboard_list(img_startNum, img_endNum);
 		
 		// paging
 		int img_totalA = communityService.imgboard_getTotalA();
-		int img_totalP = (img_totalA + 15) / 16;
+		int img_totalP = (img_totalA + 11) / 12;
 		int img_startPg = (imgboard_pg-1) / 10 * 10 + 1;
 		int img_endPg = img_startPg + 9;
 		if(img_endPg > img_totalP) img_endPg = img_totalP;
