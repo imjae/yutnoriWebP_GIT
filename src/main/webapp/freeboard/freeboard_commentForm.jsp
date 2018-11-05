@@ -19,7 +19,7 @@
 		padding-top: 90px;
 	}
 	
-	li {
+	li#freeboard_commentItem {
 		width: 950px;
 		padding-bottom: 10px;
 		border-bottom: 1px solid lightgray;
