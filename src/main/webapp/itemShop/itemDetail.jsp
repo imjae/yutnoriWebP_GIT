@@ -51,7 +51,7 @@ div#menu_name td input {
 </style>
 <script type="text/javascript">
 	function confLogin(){
-		if(${session.user_id == null}){	// 로그인 안한 상태로 결제하기 눌렀을 때
+		if(${session_id == null}){	// 로그인 안한 상태로 결제하기 눌렀을 때
 			alert("로그인 후 결제해주세요.");
 			location.href="../login/loginPage.jsp";
 		}else{	// 로그인 상태일때
