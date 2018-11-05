@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import itemShop.bean.ItemShopDTO;
+import user.bean.UserDTO;
 
 @Controller
 public class ItemShopController {
@@ -126,6 +127,7 @@ public class ItemShopController {
 	public ModelAndView itemPaymentSuccess(HttpServletRequest request) {
 		int item_charge = Integer.parseInt(request.getParameter("item_charge"));
 		String user_id = (String)request.getSession().getAttribute("session_id");		
+		UserDTO userDTO = (UserDTO)request.getSession().getAttribute("session_dto");
 		
 		int suc = itemShopService.itemPaymentSuccess(item_charge, user_id);
 		
