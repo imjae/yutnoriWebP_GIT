@@ -13,8 +13,9 @@
 <style type="text/css">
 
 	div#section_total {
-		width : 1400px;
-		height : 1000px;/* 
+		width : 1400px; 
+		height: 1000px;
+		/*
 		border : 1px solid black; */
 		/* border-top: 3px dashed rgba(0,0,0,0.6);  */
 		background-color: rgba(255,255,255,0.5);

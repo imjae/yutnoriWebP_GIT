@@ -29,7 +29,8 @@
 #sec_content {
 	padding-left: 30px;
 	padding-right: 30px;
-	border: 1px solid black;
+	height: 800px;
+	overflow: scroll;
 }
 #sec_btn {
 	padding-left: 30px;
@@ -38,9 +39,11 @@
 	border-top: 1px solid rgba(200,200,200,0.4);
 	/* border: 1px solid red; */
 }
+
+
 </style>
 </head>
-<body>
+<body id="news_sec_total">
 <div id="sec_title">
 	[
 	<c:if test="${newsVO.sort == 'inform' }">
