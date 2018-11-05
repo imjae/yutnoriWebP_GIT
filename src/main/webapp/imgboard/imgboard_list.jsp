@@ -38,7 +38,7 @@
 		text-align: right;
 	}
 	
-	ul li {
+	li#imgboard_list {
 		float: center;
 		display: inline-block;
 		margin: 7px;
@@ -48,24 +48,25 @@
 		border: 1px solid lightgray;
 	}
 	
-	ul li img {
+	img#img_shot {
 		width: 100%;
 		height: 100%;;
 		margin: 0;
 		padding: 0;
 	}
 	
-	ul li p {
+	p.img_info {
 		font-size: 12px;
 		width: 100%;
 		line-height: 50%;
 	}
 	
-	ul li p#img_img {
-		height: 60%;
+	p#img_img {
+		height: 65%;
+		margin-top: 0;
 	}
 	
-	ul li p#img_listSubject {
+	p#img_listSubject {
 		overflow: hidden;
 		text-overflow: clip;
 		font-size: 16px;
@@ -109,8 +110,8 @@
 	<div id="imgboard_listForm">
 		<ul>
 			<c:forEach var="imgboardDTO" items="${imgboard_list}">
-				<li onclick="location.href='../imgboard/imgboard_view.do?imgboard_pg=${imgboard_pg}&imgboard_num=${imgboardDTO.imgboard_num}'">
-					<p id="img_img"><img src ="../storage/${imgboardDTO.imgboard_img}"></p>
+				<li id="imgboard_list" onclick="location.href='../imgboard/imgboard_view.do?imgboard_pg=${imgboard_pg}&imgboard_num=${imgboardDTO.imgboard_num}'">
+					<p id="img_img"><img id="img_shot" src ="../storage/${imgboardDTO.imgboard_img}"></p>
 					<p id="img_listSubject">${imgboardDTO.imgboard_subject}</p>
 					<p class="img_info">${imgboardDTO.imgboard_writer}</p>
 					<p class="img_info">조회 수 : <span>${imgboardDTO.imgboard_readCount}</span> / 덧글 : <span>덧글 수</span></p>
