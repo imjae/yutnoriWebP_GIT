@@ -17,7 +17,7 @@
 		/* border-top: 3px dashed rgba(0,0,0,0.6);  */
 		background-color: rgba(255,255,255,0.5);
 		font-family: "-윤고딕320";
-		font-size:14px;
+		font-size:14px; 
 		color:#676767; 
 		line-height:1; 
 		letter-spacing:-1px; 
@@ -57,7 +57,7 @@
 		
 	}
 	
-	div.userInfo_sub_menu {
+	div.commInfo_sub_menu {
 		margin: 0 auto;
 		width: 80%;
 		height: 70px;
@@ -66,7 +66,7 @@
 		
 	}
 	
-	div.userInfo_sub_menu a {
+	div.commInfo_sub_menu a {
 		font-size: 1.3em;
 		color: gray;
 		
@@ -87,7 +87,7 @@ a.my_sub_menu:hover { text-decoration: none;  }
 
 
 	<div id="section_left">
-		<jsp:include page="${rank_page_url }"/>
+		<jsp:include page="${imgboard_page_url}"/>
 	
 	</div>
 
@@ -95,15 +95,15 @@ a.my_sub_menu:hover { text-decoration: none;  }
 	
 	<div id="section_right">
 		<div id="section_title">
-		<p>&nbsp;&nbsp;랭킹</p>
+		<p>&nbsp;&nbsp;커뮤니티</p>
 		</div>
 		
-		<div id="section_char_info" class="userInfo_sub_menu">
-		<a href="#" class="my_sub_menu">&nbsp;&nbsp;&CenterDot;전적랭킹</a>
+		<div id="section_char_info" class="commInfo_sub_menu">
+		<a href="../freeboard/freeboard_list.do?freeboard_pg=1" class="my_sub_menu">&nbsp;&nbsp;&CenterDot; 자유 게시판</a>
 		</div>
 		
-		<div id="section_user_item" class="userInfo_sub_menu">
-		<a href="#"  class="my_sub_menu">&nbsp;&nbsp;&CenterDot;골드보유 랭킹</a>
+		<div id="section_comm_item" class="commInfo_sub_menu">
+		<a href="../imgboard/imgboard_list.do?imgboard_pg=1"  class="my_sub_menu">&nbsp;&nbsp;&CenterDot; 스크린샷 게시판</a>
 		</div>
 		
 		

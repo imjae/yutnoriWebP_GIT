@@ -80,6 +80,11 @@ public class UserServiceImpl implements UserService {
 	public List<PaymentHistoryDTO> haveItemListAll(String user_id, int startNum, int endNum) {
 		return userDAO.haveItemListAll(user_id, startNum, endNum);
 	}
+
+	@Override
+	public int cashCharge(String user_id, int charge_price) {
+		return userDAO.cashCharge(user_id, charge_price);
+	}
 	
 	
 	

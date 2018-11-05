@@ -13,27 +13,32 @@
 	};
 </script>
 <style type="text/css">
-	table {
+	table#modify_table {
 		width: 950px;
+		height: 550px;
+		padding: 0;
+		margin: auto;
+		font-family: "-윤고딕320";
+		font-size: 18px;
 	}
 </style>
 </head>
 <body>
 <form action="../freeboard/freeboard_modify.do?freeboard_num=${freeboardDTO.freeboard_num}&freeboard_pg=${freeboard_pg}" method="post" name="freeboard_modifyForm">
-	<div id="modify_test">
-	<table>
+	<div id="modify_div">
+	<table id="modify_table">
 		<tr>
-			<td><h3>자유 게시판 &gt; 게시 글 수정</h3></td>
+			<td style="border-bottom: 1px solid lightgray;"><h1>자유 게시판 &gt; 게시 글 수정</h1></td>
 		</tr>
 		<tr>
-			<td>
-				<label>제목</label>
-				<input type="text" name="freeboard_subject" required="required" value="${freeboardDTO.freeboard_subject}" style="width: 602px;">
+			<td style="padding-top: 10px; padding-bottom: 5px;">
+				<label>제목&nbsp;</label>
+				<input type="text" name="freeboard_subject" required="required" value="${freeboardDTO.freeboard_subject}" style="width: 600px;">
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<textarea rows="20" cols="60" name="freeboard_content" id="editor" style="resize: none;" required="required">${freeboardDTO.freeboard_content}</textarea>
+				<textarea name="freeboard_content" id="editor" style="resize: none;" required="required">${freeboardDTO.freeboard_content}</textarea>
 				<script>
               		CKEDITOR.replace('editor');
             	</script>

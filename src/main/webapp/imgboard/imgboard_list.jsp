@@ -12,6 +12,8 @@
 		margin: auto;
 		padding: 0;
 		display: block;
+		font-family: "-윤고딕320";
+		font-size: 18px;
 	}
 	
 	div#imgboard_listForm, div#imgboard_paging {
@@ -21,6 +23,7 @@
 	
 	div#imgboard_writeBtn {
 		text-align: right;
+		border-bottom: 0;
 	}
 	
 	div#imgboard_listForm > ul {
@@ -89,7 +92,7 @@
 <body>
 <div id="imgboard_listPage">
 	<div style="width: 950px; border-bottom: 1px solid lightgray;">
-		<h3>커뮤니티 &gt; 스크린샷 게시판</h3>
+		<h1>커뮤니티 &gt; 스크린샷 게시판</h1>
 	</div>
 	<div id="img_search">
 		<form action="imgboard_list.do?" name="imgboard_searchForm" method="post">
@@ -133,7 +136,9 @@
 	</c:if>
 </div>
 <div id="imgboard_writeBtn">
-	<input type="button" value="글 작성" onclick="location.href='../imgboard/imgboard_writeForm.do'">
+	<c:if test="${session_id != null}">
+		<input type="button" value="글 작성" onclick="location.href='../imgboard/imgboard_writeForm.do'">
+	</c:if>
 </div>
 </body>
 </html>

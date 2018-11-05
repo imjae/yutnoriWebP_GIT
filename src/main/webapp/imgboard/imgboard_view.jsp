@@ -13,6 +13,8 @@
 		width: 950px;
 		margin: auto;
 		padding: 0;
+		font-family: "-윤고딕320";
+		font-size:18px;
 	}
 	
 	div#imgboard_viewForm div.imgboard_viewDetail {
@@ -142,10 +144,10 @@
 <div id="imgboard_viewForm">
 	<!-- 게시글 내용 출력 -->
 	<div class="imgboard_viewDetail" id="imgboard_title">
-		<h3>&nbsp;스크린샷 게시판 > 글 상세 보기</h3>
+		<h1>스크린샷 게시판 &gt; 글 상세 보기</h1>
 	</div>
 	<div class="imgboard_viewDetail" id="imgboard_viewSubject">
-		${imgboardDTO.imgboard_subject}
+		<h3>${imgboardDTO.imgboard_subject}</h3>
 	</div>
 	<div class="imgboard_viewDetail" id="imgboard_viewId">
 		${imgboardDTO.imgboard_writer}
@@ -160,7 +162,7 @@
 	<div class="imgboard_viewDetail" id="imgboard_listBtn">
 		<input type="button" value="목록" onclick="location.href='imgboard_list.do?imgboard_pg=1'">
 		
-		<c:if test="${imgboardDTO.imgboard_writer == sessionScope.id}">
+		<c:if test="${imgboardDTO.imgboard_writer == session_id}">
 			<input type="button" value="수정" onclick="location.href='../imgboard/imgboard_modifyForm.do?imgboard_num=${imgboardDTO.imgboard_num}&imgboard_pg=${imgboard_pg}'">
 			<input type="button" value="삭제" id="img_del_btn">
 		</c:if>

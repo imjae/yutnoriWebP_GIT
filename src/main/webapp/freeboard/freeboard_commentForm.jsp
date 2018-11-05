@@ -29,7 +29,7 @@
 		font-weight: bold;
 	}
 </style>
-<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="etc/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$("#freeboard_commentForm").submit(function() {
@@ -42,7 +42,7 @@
 			$.ajax({
 				url: "../freeboard/freeboard_commentJson.do",
 				type: "post",
-				data: {param: "${freeboardDTO.freeboard_num}"},
+				data: {"freeboard_num": "${freeboardDTO.freeboard_num}"},
 				dataType: "json",
 				success: function(data) {
 					$.each(data.items, function(index, item) {
@@ -82,7 +82,7 @@
 <body>
 <!-- 덧글 입력 폼 -->
 <div id="freeboard_commentInput">
-	<form action="../freeboard/freeboard_commentJson.do?freeboard_num=${freeboardDTO.freeboard_num}" method="post" id="freeboard_commentForm" name="freeboard_commentForm">
+	<form action="" method="post" id="freeboard_commentForm" name="freeboard_commentForm">
 		<textarea id="freeboard_comment" name="freeboard_comment" style="resize: none; float: left; width: 84.4%; height: 68px;"></textarea>
 		<input type="submit" value="덧글 등록" style="float: left; width: 14.7%; height:74px;">
 	</form>

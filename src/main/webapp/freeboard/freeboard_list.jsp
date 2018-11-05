@@ -8,19 +8,23 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
 <style type="text/css">
-	body, table {
+	body#freeboard_list, table#freeboard_listForm {
 		margin: auto;
 		width: 950px;
+		font-family: "-윤고딕320";
+		font-size:18px;
 	}
-	table#freeboard_listForm tr th,td {
+	table#freeboard_listForm th,td {
 		border-bottom: 1px solid lightgray;
+		padding-top: 5px;
+		padding-bottom: 10px;
 	}
 	table#freeboard_listForm tr td {
 		padding-bottom: 5px;
 	}
 	div#freeboard_selectBox {
 		float: right;
-		border: 1px solid lightgray;
+		/* border: 1px solid lightgray; */
 	}
 	#freeboard_listKind th {
 		padding-bottom: 10px;
@@ -49,10 +53,10 @@
 	.currentPaging {color: red; text-decoration: underline;}
 </style>
 </head>
-<body>
+<body id="freeboard_list">
 <table id="freeboard_listForm">
 	<tr>
-		<td colspan="5"><h3>커뮤니티 &gt; 자유 게시판</h3></td>
+		<td colspan="5"><h1>커뮤니티 &gt; 자유 게시판</h1></td>
 	</tr>
 	<tr>
 		<td colspan="5" align="right">
@@ -109,8 +113,10 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="5" align="right">
-			<input type="button" value="새 글 작성" onclick="location.href='../freeboard/freeboard_writeForm.do'">
+		<td colspan="5" align="right" style="border-bottom: 0;">
+			<c:if test="${session_id != null}">
+				<input type="button" value="새 글 작성" onclick="location.href='../freeboard/freeboard_writeForm.do'">
+			</c:if>
 		</td>
 	</tr>
 </table>

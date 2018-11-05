@@ -6,6 +6,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+	div#img_modifyForm {
+		width: 950px;
+		padding: 0;
+		margin: auto;
+		font-family: "-윤고딕320";
+		font-size: 18px;
+	}
+	
 	table tr td.imgStyle_btm {
 		border-bottom: 1px solid lightgray;
 	}
@@ -16,7 +24,7 @@
 	<div id="img_modifyForm">
 		<table>
 			<tr>
-				<td style="width: 950px;" class="imgStyle_btm"><h3>스크린샷 게시판 > 게시글 수정</h3></td>
+				<td class="imgStyle_btm"><h1>스크린샷 게시판 > 게시글 수정</h1></td>
 			</tr>
 			<tr>
 				<td>

@@ -86,6 +86,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE user_id = #{user_id}
 	</select>
 	
+	<update id="cashCharge" parameterType="java.util.Map">
+		UPDATE users
+		SET user_cash = user_cash + #{charge_price}
+		WHERE user_id = #{user_id}
+	</update>
+	
 	
 	<!-- <insert id="userLogin" parameterType="boardDTO">
 		INSERT INTO guestbook

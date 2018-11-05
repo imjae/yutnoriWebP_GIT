@@ -19,6 +19,8 @@
 		padding-top: 5px;
 		padding-bottom: 10px;
 		border-bottom: 1px solid lightgray;
+		font-family: "-윤고딕320";
+		font-size: 18px;
 	}
 	
 	div#freeboard_viewSubject, #freeboard_viewId,
@@ -49,10 +51,10 @@
 <div id="freeboard_viewForm">
 	<!-- 게시글 내용 출력 -->
 	<div class="freeboard_viewForm" id="freeboard_title">
-		<h3>&nbsp;자유 게시판</h3>
+		<h1>자유 게시판 &gt; 게시물 보기</h1>
 	</div>
 	<div class="freeboard_viewForm" id="freeboard_viewSubject">
-		${freeboardDTO.freeboard_subject}
+		<h3>${freeboardDTO.freeboard_subject}</h3>
 	</div>
 	<div class="freeboard_viewForm" id="freeboard_viewId">
 		${freeboardDTO.freeboard_writer}
@@ -60,12 +62,12 @@
 	<div class="freeboard_viewForm" id="freeboard_view_hitNdate" style="text-align: right;">
 		${freeboardDTO.freeboard_readCount}&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;${freeboardDTO.freeboard_date}&nbsp;&nbsp;
 	</div>
-	<div class="freeboard_viewForm" id="freeboard_viewContent">
+	<div class="freeboard_viewForm" id="freeboard_viewContent" style="height: 650px;">
 		<pre>${freeboardDTO.freeboard_content}</pre>
 	</div>
 	<div class="freeboard_viewForm" id="freeboard_listBtn">
 		<input type="button" value="목록" onclick="location.href='../freeboard/freeboard_list.do?freeboard_pg=1'">
-		<c:if test="${freeboardDTO.freeboard_writer == sessionScope.id}">
+		<c:if test="${freeboardDTO.freeboard_writer == session_id}">
 			<input type="button" value="수정" onclick="location.href='../freeboard/freeboard_modifyForm.do?freeboard_num=${freeboardDTO.freeboard_num}&freeboard_pg=${freeboard_pg}'">
 			<input type="button" value="삭제" id="free_del_btn">
 		</c:if>

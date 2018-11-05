@@ -33,7 +33,9 @@ public class CommunityController {
 	@RequestMapping(value="/freeboard/freeboard_writeForm.do")
 	public ModelAndView freeboard_writeForm() {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("../freeboard/freeboard_writeForm.jsp");
+		mav.addObject("freeboard_page_url", "../freeboard/freeboard_writeForm.jsp");
+		mav.addObject("display", "../freeboard/freeboard_info.jsp");
+		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
 	
@@ -44,9 +46,8 @@ public class CommunityController {
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		
-		/*session.setAttribute("id", "test");*/
-		String freeboard_writer = "test";
+		String user_id = (String)session.getAttribute("session_id");
+		String freeboard_writer = user_id;
 		String freeboard_subject = request.getParameter("freeboard_subject");
 		String freeboard_content = request.getParameter("freeboard_content");
 		
@@ -58,12 +59,13 @@ public class CommunityController {
 		int num = communityService.freeboard_write(freeboardDTO);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("num", num);
-		
-		mav.setViewName("../freeboard/freeboard_write.jsp");
+		mav.addObject("freeboard_page_url", "../freeboard/freeboard_write.jsp");
+		mav.addObject("display", "../freeboard/freeboard_info.jsp");
+		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
 	
-	@RequestMapping(value="/freeboard/freeboard_modifyForm.do", method=RequestMethod.POST)
+	@RequestMapping(value="/freeboard/freeboard_modifyForm.do")
 	public ModelAndView freeboard_modifyForm(HttpServletRequest request) {
 		try {
 			request.setCharacterEncoding("utf-8");
@@ -79,7 +81,9 @@ public class CommunityController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("freeboardDTO", freeboardDTO);
 		mav.addObject("freeboard_pg", freeboard_pg);
-		mav.setViewName("../freeboard/freeboard_modifyForm.jsp");
+		mav.addObject("freeboard_page_url", "../freeboard/freeboard_modifyForm.jsp");
+		mav.addObject("display", "../freeboard/freeboard_info.jsp");
+		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
 	
@@ -109,7 +113,9 @@ public class CommunityController {
 		mav.addObject("num", num);
 		mav.addObject("freeboardDTO", freeboardDTO);
 		mav.addObject("freeboard_pg", freeboard_pg);
-		mav.setViewName("../freeboard/freeboard_modify.jsp");
+		mav.addObject("freeboard_page_url", "../freeboard/freeboard_modify.jsp");
+		mav.addObject("display", "../freeboard/freeboard_info.jsp");
+		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
 	
@@ -121,7 +127,9 @@ public class CommunityController {
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("num", num);
-		mav.setViewName("../freeboard/freeboard_delete.jsp");
+		mav.addObject("freeboard_page_url", "../freeboard/freeboard_delete.jsp");
+		mav.addObject("display", "../freeboard/freeboard_info.jsp");
+		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
 	
@@ -129,15 +137,15 @@ public class CommunityController {
 	public ModelAndView freeboard_list(HttpServletRequest request) {
 		// data
 		int freeboard_pg = Integer.parseInt(request.getParameter("freeboard_pg"));
-		int free_endNum = freeboard_pg * 20;
-		int free_startNum = free_endNum - 19;
+		int free_endNum = freeboard_pg * 15;
+		int free_startNum = free_endNum - 14;
 		
 		// DB
 		List<FreeboardDTO> freeboard_list = communityService.freeboard_list(free_startNum, free_endNum);
 		
 		// paging
 		int free_totalA = communityService.freeboard_getTotalA();
-		int free_totalP = (free_totalA + 19) / 20;
+		int free_totalP = (free_totalA + 14) / 15;
 		int free_startPg = (freeboard_pg - 1) / 10 * 10 + 1;
 		int free_endPg = free_startPg + 9;
 		if(free_endPg > free_totalP) free_endPg = free_totalP;
@@ -149,14 +157,14 @@ public class CommunityController {
 		mav.addObject("free_startPg", free_startPg);
 		mav.addObject("free_endPg", free_endPg);
 		mav.addObject("free_totalP", free_totalP);
-		
-		mav.setViewName("../freeboard/freeboard_list.jsp");
+		mav.addObject("freeboard_page_url", "../freeboard/freeboard_list.jsp");
+		mav.addObject("display", "../freeboard/freeboard_info.jsp");
+		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
 	
 	@RequestMapping(value="/freeboard_listJson.do")
 	public ModelAndView freeboard_listJson(HttpServletRequest request) throws Exception {
-		System.out.println("test");
 		
 		int freeboard_pg = 1;
 		int free_endNum = freeboard_pg * 10;
@@ -199,7 +207,7 @@ public class CommunityController {
 		// 3. 검색 결과를 세션에 저장하고 목록 화면으로 이동
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("json", json);
-		mav.setViewName("freeboard_listJson.jsp");
+		mav.setViewName("../main/index_json.jsp");
 		return mav;
 	}
 	
@@ -217,85 +225,91 @@ public class CommunityController {
 		mav.addObject("freeboardDTO", freeboardDTO);
 		mav.addObject("freeboard_num", freeboard_num);
 		mav.addObject("freeboard_pg", freeboard_pg);
-		mav.setViewName("../freeboard/freeboard_view.jsp");
+		mav.addObject("freeboard_page_url", "../freeboard/freeboard_view.jsp");
+		mav.addObject("display", "../freeboard/freeboard_info.jsp");
+		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
 	
 	
 	// 자유 게시판(댓글)
-	@RequestMapping(value="/freeboard/freeboard_commentForm.do")
-	public void free_comment_write(HttpServletRequest request, HttpSession session) {
-		try {
-			request.setCharacterEncoding("utf-8");
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-		System.out.println("test : " + session.getAttribute("id"));
-		
-		int freeboard_num = Integer.parseInt(request.getParameter("freeboard_num"));
-		System.out.println("freeboard_num" + freeboard_num);
-		
-		String free_comment_writer = (String)session.getAttribute("id");
-		
-		Freeboard_commentDTO freeboard_commentDTO = new Freeboard_commentDTO();
-		freeboard_commentDTO.setFreeboard_num(freeboard_num);
-		freeboard_commentDTO.setFree_comment_writer(free_comment_writer);
-		freeboard_commentDTO.setFree_comment_content(request.getParameter("free_comment_content"));
-		
-		communityService.free_commentInsert(freeboard_commentDTO);
-	}
+//	@RequestMapping(value="/freeboard/freeboard_commentForm.do")
+//	public void free_comment_write(HttpServletRequest request, HttpSession session) {
+//		try {
+//			request.setCharacterEncoding("utf-8");
+//		} catch (UnsupportedEncodingException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		int freeboard_num = Integer.parseInt(request.getParameter("freeboard_num"));
+//		
+//		String free_comment_writer = (String)session.getAttribute("session_id");
+//		
+//		Freeboard_commentDTO freeboard_commentDTO = new Freeboard_commentDTO();
+//		freeboard_commentDTO.setFreeboard_num(freeboard_num);
+//		freeboard_commentDTO.setFree_comment_writer(free_comment_writer);
+//		freeboard_commentDTO.setFree_comment_content(request.getParameter("free_comment_content"));
+//		
+//		communityService.free_commentInsert(freeboard_commentDTO);
+//	}
 	
-	@RequestMapping(value="/freeboard/freeboard_commentJson.do")
-	public ModelAndView freeboard_commentJson(HttpServletRequest request) {
-		int freeboard_num = Integer.parseInt(request.getParameter("freeboard_num"));
-		
-		List<Freeboard_commentDTO> free_commentJson = communityService.free_commentList(freeboard_num);
-		
-		String rt = null;
-		int total = free_commentJson.size();
-		if(total > 0) {
-			rt = "OK";
-		} else {
-			rt = "FAIL";
-		}
-		
-		JSONObject json = new JSONObject();
-		json.put("rt", rt);
-		json.put("total", total);
-		if(total > 0) {
-			JSONArray items = new JSONArray();
-			for(int i=0; i<free_commentJson.size(); i++) {
-				Freeboard_commentDTO freeboard_commentDTO = free_commentJson.get(i);
-				JSONObject temp = new JSONObject();
-				temp.put("free_comment_num", freeboard_commentDTO.getFree_comment_num());
-				temp.put("free_comment_writer", freeboard_commentDTO.getFree_comment_writer());
-				temp.put("free_comment_content", freeboard_commentDTO.getFree_comment_content());
-				temp.put("free_comment_date", freeboard_commentDTO.getFree_comment_date());
-				
-				items.put(i, temp);
-			}
-			
-			json.put("items", items);
-		}
-		
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("json", json);
-		mav.setViewName("../freeboard/freeboard_commentJson.jsp");
-		return mav;
-	}
+//	@RequestMapping(value="/freeboard/freeboard_commentJson.do")
+//	public ModelAndView freeboard_commentJson(HttpServletRequest request, HttpSession session) {
+//		
+//		int freeboard_num = Integer.parseInt(request.getParameter("freeboard_num"));
+//		
+//		System.out.println("freeboard_num : " + freeboard_num);
+//		
+//		List<Freeboard_commentDTO> free_commentJson = communityService.free_commentList(freeboard_num);
+//		
+//		String rt = null;
+//		int total = free_commentJson.size();
+//		if(total > 0) {
+//			rt = "OK";
+//		} else {
+//			rt = "FAIL";
+//		}
+//		
+//		JSONObject json = new JSONObject();
+//		json.put("rt", rt);
+//		json.put("total", total);
+//		if(total > 0) {
+//			JSONArray items = new JSONArray();
+//			for(int i=0; i<free_commentJson.size(); i++) {
+//				Freeboard_commentDTO freeboard_commentDTO = free_commentJson.get(i);
+//				JSONObject temp = new JSONObject();
+//				temp.put("free_comment_num", freeboard_commentDTO.getFree_comment_num());
+//				temp.put("free_comment_writer", free_comment_writer);
+//				temp.put("free_comment_content", freeboard_commentDTO.getFree_comment_content());
+//				temp.put("free_comment_date", freeboard_commentDTO.getFree_comment_date());
+//				
+//				items.put(i, temp);
+//			}
+//			
+//			json.put("items", items);
+//		}
+//		
+//		ModelAndView mav = new ModelAndView();
+//		mav.addObject("json", json);
+//		mav.setViewName("../freeboard/freeboard_commentJson.jsp");
+//		return mav;
+//	}
 	
 	
 	// 스샷 게시판(게시글)
 	@RequestMapping(value="/imgboard/imgboard_writeForm.do")
 	public ModelAndView imgboard_writeForm() {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("imgboard_writeForm.jsp");
+		mav.addObject("imgboard_page_url", "../imgboard/imgboard_writeForm.jsp");
+		mav.addObject("display", "../imgboard/imgboard_info.jsp");
+		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
 	
 	@RequestMapping(value="/imgboard/imgboard_write.do", method=RequestMethod.POST)
 	public ModelAndView write(HttpSession session, MultipartFile imgboard_file, HttpServletRequest request) {
-		String filePath = "F:/spring/workspace/community/src/main/webapp/storage";
+		String filePath = "/storage";
+		System.out.println("filePath : " + filePath);
 		String fileName = imgboard_file.getOriginalFilename();
 		File file = new File(filePath, fileName);
 		
@@ -309,8 +323,8 @@ public class CommunityController {
 			e.printStackTrace();
 		}
 		
-		session.setAttribute("id", "test");
-		String imgboard_writer = "test";
+		String user_id = (String)session.getAttribute("session_id");
+		String imgboard_writer = user_id;
 		
 		// data
 		ImgboardDTO imgboardDTO = new ImgboardDTO();
@@ -324,7 +338,9 @@ public class CommunityController {
 		// 화면 navigation
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("num", num);
-		mav.setViewName("imgboard_write.jsp");
+		mav.addObject("imgboard_page_url", "../imgboard/imgboard_write.jsp");
+		mav.addObject("display", "../imgboard/imgboard_info.jsp");
+		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
 	
@@ -344,7 +360,9 @@ public class CommunityController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("imgboardDTO", imgboardDTO);
 		mav.addObject("imgboard_pg", imgboard_pg);
-		mav.setViewName("imgboard_modifyForm.jsp");
+		mav.addObject("imgboard_page_url", "../imgboard/imgboard_modifyForm.jsp");
+		mav.addObject("display", "../imgboard/imgboard_info.jsp");
+		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
 	
@@ -382,7 +400,9 @@ public class CommunityController {
 		mav.addObject("num", num);
 		mav.addObject("imgboardDTO", imgboardDTO);
 		mav.addObject("imgboard_pg", imgboard_pg);
-		mav.setViewName("imgboard_modify.jsp");
+		mav.addObject("imgboard_page_url", "../imgboard/imgboard_modify.jsp");
+		mav.addObject("display", "../imgboard/imgboard_info.jsp");
+		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
 	
@@ -394,7 +414,9 @@ public class CommunityController {
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("num", num);
-		mav.setViewName("imgboard_delete.jsp");
+		mav.addObject("imgboard_page_url", "../imgboard/imgboard_delete.jsp");
+		mav.addObject("display", "../imgboard/imgboard_info.jsp");
+		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
 	
@@ -402,15 +424,15 @@ public class CommunityController {
 	public ModelAndView imgboard_list(HttpServletRequest request) {
 		// data
 		int imgboard_pg = Integer.parseInt(request.getParameter("imgboard_pg"));
-		int img_endNum = imgboard_pg * 20;
-		int img_startNum = img_endNum - 19;
+		int img_endNum = imgboard_pg * 16;
+		int img_startNum = img_endNum - 15;
 		
 		// DB
 		List<ImgboardDTO> imgboard_list = communityService.imgboard_list(img_startNum, img_endNum);
 		
 		// paging
 		int img_totalA = communityService.imgboard_getTotalA();
-		int img_totalP = (img_totalA + 19) / 20;
+		int img_totalP = (img_totalA + 15) / 16;
 		int img_startPg = (imgboard_pg-1) / 10 * 10 + 1;
 		int img_endPg = img_startPg + 9;
 		if(img_endPg > img_totalP) img_endPg = img_totalP;
@@ -423,7 +445,9 @@ public class CommunityController {
 		mav.addObject("img_endPg", img_endPg);
 		mav.addObject("img_totalP", img_totalP);
 		
-		mav.setViewName("imgboard_list.jsp");
+		mav.addObject("imgboard_page_url", "../imgboard/imgboard_list.jsp");
+		mav.addObject("display", "../imgboard/imgboard_info.jsp");
+		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
 	
@@ -441,7 +465,9 @@ public class CommunityController {
 		mav.addObject("imgboardDTO", imgboardDTO);
 		mav.addObject("imgboard_num", imgboard_num);
 		mav.addObject("imgboard_pg", imgboard_pg);
-		mav.setViewName("imgboard_view.jsp");
+		mav.addObject("imgboard_page_url", "../imgboard/imgboard_view.jsp");
+		mav.addObject("display", "../imgboard/imgboard_info.jsp");
+		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
 }

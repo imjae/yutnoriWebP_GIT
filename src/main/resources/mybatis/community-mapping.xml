@@ -50,8 +50,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <insert id="free_commentInsert">
         INSERT INTO
         freeboard_comment
-        VALUES(#{freeboard_num}, seq_free_comment.nextval,
-        #{free_comment_writer}, #{free_comment_content}, sysdate) 
+        VALUES(#{freeboard_num} ,seq_free_comment.nextval,
+        #{free_comment_writer}, #{free_comment_content}, sysdate)
     </insert>
     
     <delete id="free_commentDelete" parameterType="int">

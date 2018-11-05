@@ -74,8 +74,8 @@ a.sub_menu_a:hover { text-decoration: none; color: white; }
 		</div>
 
 		<div id="sub_comunity">
-			<a href="#" class="sub_menu_a">자유게시판</a>
-			<a href="#" class="sub_menu_a">스크린샷</a>
+			<a href="../freeboard/freeboard_list.do?freeboard_pg=1" class="sub_menu_a">자유게시판</a>
+			<a href="../imgboard/imgboard_list.do?imgboard_pg=1" class="sub_menu_a">스크린샷</a>
 		</div>
 
 		<div id="sub_itemshoa">

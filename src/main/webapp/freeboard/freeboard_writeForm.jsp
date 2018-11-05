@@ -10,6 +10,9 @@
 	table#free_writeForm {
 		width: 950px;
 		margin: auto;
+		padding: 0;
+		font-family: "-윤고딕320";
+		font-size:18px;
 	}
 </style>
 </head>
@@ -18,7 +21,7 @@
 	<div>
 	<table id="free_writeForm">
 		<tr>
-			<td><h3>자유 게시판 > 글 쓰기</h3></td>
+			<td><h1>자유 게시판 > 글 쓰기</h1></td>
 		</tr>
 		<tr>
 			<td>
