@@ -1,0 +1,45 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	table tr td.imgStyle_btm {
+		border-bottom: 1px solid lightgray;
+	}
+</style>
+</head>
+<body>
+<form action="../imgboard/imgboard_modify.do?imgboard_num=${imgboardDTO.imgboard_num}&imgboard_pg=${imgboard_pg}" method="post" name="imgboard_modifyForm" enctype="multipart/form-data">
+	<div id="img_modifyForm">
+		<table>
+			<tr>
+				<td style="width: 950px;" class="imgStyle_btm"><h3>스크린샷 게시판 > 게시글 수정</h3></td>
+			</tr>
+			<tr>
+				<td>
+					<label>제목</label>
+					<input type="text" name="imgboard_subject" value="${imgboardDTO.imgboard_subject}" required="required" style="width: 95.5%;">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<textarea rows="20" name="imgboard_content" style="resize: none; width: 99.3%;" required="required">${imgboardDTO.imgboard_content}</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td class="imgStyle_btm" style="padding-bottom: 5px;"><input type="file" name="imgboard_file"></td>
+			</tr>
+			<tr>
+				<td align="right"  style="padding-top: 5px;">
+					<input type="submit" value="게시물 등록">
+					<input type="button" value="게시판 목록" onclick="location.href='../imgboard/imgboard_list.do?imgboard_pg=1'">
+				</td>
+			</tr>
+		</table>
+	</div>
+</form>
+</body>
+</html>

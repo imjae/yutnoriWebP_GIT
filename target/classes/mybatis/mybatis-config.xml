@@ -15,23 +15,18 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="helpboard.bean.NotifyboardVO" alias="notifyboardVO"/>
 		<typeAlias type="helpboard.controller.NotifyListDTO" alias="notifyListDTO"/>
 		<typeAlias type="itemShop.bean.ItemShopDTO" alias="itemShopDTO"/>
-<<<<<<< HEAD
 		<typeAlias type="itemShop.bean.PaymentHistoryDTO" alias="paymentHistoryDTO"/>
-=======
-
 		<typeAlias type="itemShop.bean.PaymentHistoryDTO" alias="paymentHistoryDTO"/>
-
->>>>>>> a401151027b177766b2cb9c07224a32f95880090
 		<typeAlias type="inform.bean.NewsVO" alias="newsVO"/>
 		<typeAlias type="inform.bean.EventVO" alias="eventVO"/>
 		<typeAlias type="inform.controller.NewsListDTO" alias="newsListDTO"/>
 		<typeAlias type="itemShop.bean.ItemShopDTO" alias="itemShopDTO"/>
 		<!-- <typeAlias type="inform.controller.EventListDTO" alias="eventListDTO"/> -->
-<<<<<<< HEAD
-
-=======
->>>>>>> a401151027b177766b2cb9c07224a32f95880090
 		
+		<typeAlias type="community.bean.FreeboardDTO" alias="freeboardDTO"/>
+		<typeAlias type="community.bean.Freeboard_commentDTO" alias="freeboard_commentDTO"/>
+		<typeAlias type="community.bean.ImgboardDTO" alias="imgboardDTO"/>
+		<!-- <typeAlias type="community.bean.Imgboard_commentDTO" alias="imgboard_commentDTO"/> -->
 	</typeAliases>
 	
 	<!-- SQL Mapper 설정  -->
@@ -40,35 +35,11 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mybatis/user-mapping.xml"/>
 		<mapper resource="mybatis/rank-mapping.xml"/>
 		<mapper resource="mybatis/helpboard-mapping.xml" />
-<<<<<<< HEAD
-		<mapper resource="mybatis/notifyboard-mapping.xml" />
-		<mapper resource="mybatis/news-mapping.xml" />
-		<mapper resource="mybatis/itemShop-mapping.xml"/>
-		<!-- <mapper resource="mybatis/event-mapping.xml" />	 -->	
-=======
+		<mapper resource="mybatis/itemShop-mapping.xml"/>	
 		<mapper resource="mybatis/notifyboard-mapping.xml" />	
-
-<<<<<<< HEAD
-
-		
-
-=======
-<<<<<<< HEAD
 		<mapper resource="mybatis/news-mapping.xml" />
-		<mapper resource="mybatis/itemShop-mapping.xml"/>
 		<!-- <mapper resource="mybatis/event-mapping.xml" />	 -->
-=======
->>>>>>> 71ce51f5fcf66a953e6b9c8a4fc3c22fd073b166
-
-		<mapper resource="mybatis/news-mapping.xml" />
-		<mapper resource="mybatis/itemShop-mapping.xml"/>
-		<!-- <mapper resource="mybatis/event-mapping.xml" />	 -->	
-<<<<<<< HEAD
-=======
->>>>>>> 122833f2be51b043947e03c3be3859f3d91438fc
->>>>>>> 71ce51f5fcf66a953e6b9c8a4fc3c22fd073b166
-
->>>>>>> a401151027b177766b2cb9c07224a32f95880090
+		<mapper resource="mybatis/community-mapping.xml"/>
 	</mappers>
 </configuration>
 

@@ -17,13 +17,9 @@
     <mvc:resources location="/helpboard/" mapping="/helpboard/**" />
     <mvc:resources location="/helpboardc/" mapping="/helpboardc/**" />
     <mvc:resources location="/news/" mapping="/news/**" />
-<<<<<<< HEAD
     <mvc:resources location="/storage/" mapping="/storage/**"/>
-=======
 	<mvc:resources location="/itemShop/" mapping="/itemShop/**" />
 	<mvc:resources location="/storage/" mapping="/storage/**"/>
->>>>>>> 1ed693edf0155e32e60bd7144d704bb3bfe889b6
-	
 	<mvc:resources location="/script/" mapping="/script/**" />
 
 	<context:component-scan base-package="user.controller" />
@@ -33,4 +29,10 @@
 	<context:component-scan base-package="helpboard.controller" />
 	<context:component-scan base-package="inform.controller" />
 	<context:component-scan base-package="itemShop.controller"/>
+	<context:component-scan base-package="community.controller"/>
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="5000000"/>
+		<property name="defaultEncoding" value="UTF-8"/>
+	</bean>
 </beans>

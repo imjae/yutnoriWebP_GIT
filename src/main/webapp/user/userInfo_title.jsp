@@ -79,7 +79,7 @@ a.my_sub_menu:hover { text-decoration: none;  }
 
 	<div id="section_left">
 		<%-- <jsp:include page="${userInfo_page_url }"/> --%>
-		<jsp:include page="cashCharge_page.jsp"/>
+		<%-- <jsp:include page="../user/cashCharge_page.jsp"/> --%>
 	</div>
 	
 	

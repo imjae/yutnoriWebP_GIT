@@ -68,7 +68,6 @@
 				$("div").html("<div>"+textStatus+" (HTTP-)"+ xhr.status + " / " + errorThrown +")</div>");
 			}
 		});
-		
 	});
 </script>
 
@@ -149,10 +148,6 @@
 </c:if>
 <c:if test="${display != null }">
 <div id="space">
-<<<<<<< HEAD
-
-=======
->>>>>>> 71ce51f5fcf66a953e6b9c8a4fc3c22fd073b166
 	<jsp:include page="${display }"/>
 </div>
 </c:if>

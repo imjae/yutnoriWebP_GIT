@@ -44,7 +44,6 @@
 	</repositories>
 
 	<dependencies>
-<<<<<<< HEAD
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
@@ -58,9 +57,8 @@
 			<scope>compile</scope>
 		</dependency>
 	<!-- https://mvnrepository.com/artifact/org.json/json -->
-=======
-		<!-- https://mvnrepository.com/artifact/org.json/json -->
->>>>>>> a401151027b177766b2cb9c07224a32f95880090
+
+	<!-- https://mvnrepository.com/artifact/org.json/json -->
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
