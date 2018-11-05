@@ -39,7 +39,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	<!-- 자유 게시판 - 댓글 -->
-	<select id="free_commentCount" resultType="int" parameterType="int">
+	<!-- <select id="free_commentCount" resultType="int" parameterType="int">
         SELECT COUNT(*) FROM freeboard_comment where freeboard_num = #{freeboard_num}
     </select>
     
@@ -56,7 +56,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     
     <delete id="free_commentDelete" parameterType="int">
         DELETE FROM freeboard_comment WHERE free_comment_num = #{free_comment_num}
-    </delete>
+    </delete> -->
 	<!-- 자유 게시판 - 댓글 -->
 	
 	
