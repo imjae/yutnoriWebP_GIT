@@ -1,6 +1,8 @@
 package user.controller;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import itemShop.bean.PaymentHistoryDTO;
 import user.bean.UserDTO;
 
 @Controller
@@ -67,10 +70,16 @@ public class UserController {
 	@RequestMapping(value = "/main/myPage.do")
 	public ModelAndView myPage_go(HttpServletRequest request) {
 		
+		String url = request.getParameter("dis");
+		
+		if(url == null) {
+			url = "../user/userInfo_page.jsp";
+		}
+		
 		ModelAndView modelAndView = new ModelAndView();
 		
 		modelAndView.addObject("display", "../user/userInfo_title.jsp");
-		modelAndView.addObject("userInfo_page_url", "../user/userInfo_page.jsp");
+		modelAndView.addObject("userInfo_page_url", url);
 		
 		modelAndView.setViewName("../main/index.jsp");
 		
@@ -268,10 +277,41 @@ public class UserController {
 	public ModelAndView have_itemList(HttpServletRequest request) {
 		
 		String category = request.getParameter("category");
+		String user_id =String.valueOf(request.getSession().getAttribute("session_id"));
+		int pg = Integer.parseInt(request.getParameter("pg"));
+		// 페이징 처리
 		
+		System.out.println(category);
+		int startNum = 0;
+		int endNum = 0;
+		if(pg==1) {
+			startNum = 1;
+			endNum = 20;
+		}else {
+			startNum = 21;
+			endNum = 40;
+		}
+		List<PaymentHistoryDTO> list = null;
+		if(category.equals("total")){
+			 list = userService.haveItemListAll(user_id,startNum,endNum);
+		}else {
+			list = userService.haveItemList(category,user_id,startNum,endNum);
+		}
 		
+		int totalA = list.size();
+		
+		int su = 20 - totalA%20;
 		
 		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("list",list);
+		modelAndView.addObject("startNum",startNum);
+		modelAndView.addObject("endNum", endNum);
+		modelAndView.addObject("su",su);
+		
+		modelAndView.addObject("userInfo_page_url","../user/charInfo_page.jsp");
+		modelAndView.addObject("display", "../user/userInfo_title.jsp");	
+
+		modelAndView.setViewName("../main/index.jsp");
 		
 		return modelAndView;
 	}

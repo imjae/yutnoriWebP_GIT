@@ -44,6 +44,7 @@
 	</repositories>
 
 	<dependencies>
+<<<<<<< HEAD
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
@@ -57,6 +58,9 @@
 			<scope>compile</scope>
 		</dependency>
 	<!-- https://mvnrepository.com/artifact/org.json/json -->
+=======
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+>>>>>>> a401151027b177766b2cb9c07224a32f95880090
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
@@ -74,7 +78,7 @@
 			<artifactId>mail</artifactId>
 			<version>1.4.3</version>
 		</dependency>
-		
+
 		<!-- 오라클 JDBC 드라이버 -->
 		<dependency>
 			<groupId>com.oracle</groupId>
@@ -93,7 +97,20 @@
 			<artifactId>mybatis</artifactId>
 			<version>3.4.6</version>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+			<scope>compile</scope>
+		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
 		<dependency>
 			<groupId>org.springframework</groupId>

@@ -53,7 +53,7 @@
 							<c:if test="${i.sort == 'patch' }">점검</c:if>
 							<c:if test="${i.sort == 'shop' }">샵</c:if>
 						</div>
-						<a href="../news/newsViewMain.do?&news_num=${i.news_num}" class="q_title">${i.title }</a>
+						<a href="../news/newsMainView.do?&news_num=${i.news_num}" class="q_title">${i.title }</a>
 						<div class="date">
 							${i.logtime }
 						</div>

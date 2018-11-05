@@ -30,6 +30,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="itemDetail" parameterType="java.lang.String" resultType="itemShopDTO">
 		select * from item_Shop where item_code=#{item_code}
 	</select>
+	
+	<update id="itemPaymentSuccess" parameterType="java.util.Map">
+		update users 
+		set user_cash=3000 
+		where user_id=#{user_id}
+	</update>
  
  
 </mapper>

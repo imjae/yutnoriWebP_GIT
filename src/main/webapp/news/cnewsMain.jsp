@@ -23,23 +23,29 @@
 		
 	}
 	
+	div#section_top_left_center {
+		width: 80%;
+		height: 100%;
+		float: left;
+	}
+	
 	div#section_left {
-		width:15%;
+		width:20%;
 		height:100%;
 		float: left;
-		border: 1px solid black;
+		/* border: 1px solid black; */
 	}
 	
 	div#section_center {
-		width: 60%;
-		height:90%;
+		width: 850px;
+		height:100%;
 		float: left;
-		margin: 100px 28px;
+		padding-right: 45px;
 		/* border: 1px solid black; */
 	}
 	
 	div#section_right{
-		width: 20.85%;
+		width: 20%;
 		height:100%;
 		float: left;
 		background-color: rgba(200,200,200,0.4);
@@ -71,10 +77,40 @@
 	
 	div.userInfo_sub_menu a {
 		font-size: 1.3em;
-		color: gray;
-		
+		color: gray;	
 	}
 	
+	.inav {
+		margin-left: 20%;
+		margin-right: 20%;
+		margin-bottom: 1.5px;
+		width: 60%;
+		height: 60px;
+		line-height: 60px;
+		text-align: center;
+		display: block;
+		/* border: 1px solid black; */
+		background-color: rgba(200,200,200,0.4);	
+		text-decoration: none;
+		color: black;
+		font-size: 1.2em;
+	}
+	
+	.navClass {
+		margin-left: 20%;
+		margin-right: 20%;
+		margin-bottom: 1.5px;
+		width: 60%;
+		height: 60px;
+		line-height: 60px;
+		text-align: center;
+		display: block;
+		/* border: 1px solid black; */
+		background-color: black;	
+		text-decoration: none;
+		color: white;
+		font-size: 1.2em;
+	}
 	
 a.my_sub_menu:link { text-decoration: none; }
 a.my_sub_menu:visited { text-decoration: none; }
@@ -87,33 +123,43 @@ a.my_sub_menu:hover { text-decoration: none;  }
 <body>
 
 <div id="section_total">
+	
+	<div id="section_top_left_center">
+		<h1 id="section_top" style="margin: 30px">공지사항</h1>
 		
-	<div id="section_left">
-		<div style="height: 100px;border: 1px solid black;line-height: 60px;">
-			<h1>공지사항</h1>
-		</div>
-		<div style="width: 100%;">
-			<a href="#">전체</a>
-			<a href="#">공지</a>
-			<a href="#">점검</a>
-			<a href="#">샵</a>
+		<div id="section_left_center">
+			<c:if test="${newsView != null }">
+				<jsp:include page="${newsView }"></jsp:include>
+			</c:if>
+			
+			<c:if test="${newsView == null }">
+				<div id="section_left">
+				
+				<div id="inform_nav">
+					<a href="../news/newsMainAll.do?pg=1" class="${newsdto.sort == null ? 'navClass' : 'inav' }">전체</a>
+					<a href="../news/newsMainSortInform.do?pg=1&sort=inform" class="${newsdto.sort == 'inform' ? 'navClass' : 'inav' }">공지</a>
+					<a href="../news/newsMainSortInform.do?pg=1&sort=patch" class="${newsdto.sort == 'patch' ? 'navClass' : 'inav' }">점검</a>
+					<a href="../news/newsMainSortInform.do?pg=1&sort=shop" class="${newsdto.sort == 'shop' ? 'navClass' : 'inav' }">샵</a>
+				</div>
+			</div>
+			
+			<div id="section_center">
+				<c:if test="${display2 != null }">
+					<jsp:include page="${display2 }" />
+				</c:if>
+				
+				<c:if test="${display2 == null }">
+					<jsp:include page="cnewsCenter.jsp" />
+				</c:if>
+				
+			</div>
+			</c:if>
+			
 		</div>
 	</div>
-	
-	<div id="section_center">
-		<c:if test="${display2 != null }">
-			<jsp:include page="${display2 }" />
-		</c:if>
-		
-		<c:if test="${display2 == null }">
-			<jsp:include page="cnewsCenter.jsp" />
-		</c:if>
-		
-	</div>
-	
 	
 	<div id="section_right">
-		<br><br><br>
+		
 		<div id="section_title">
 		<p>&nbsp;&nbsp;새소식</p>
 		</div>
@@ -126,7 +172,6 @@ a.my_sub_menu:hover { text-decoration: none;  }
 		<a href="#"  class="my_sub_menu">&nbsp;&nbsp;&CenterDot;  이벤트</a>
 		</div>
 	</div>
-
 </div>
 
 </body>
