@@ -83,8 +83,8 @@ a.sub_menu_a:hover { text-decoration: none; color: white; }
 		</div>
 
 		<div id="sub_cs">
-			<a href="#" class="sub_menu_a">FAQ</a>
-			<a href="#" class="sub_menu_a">1:1 문의 </a>
+			<a href="../helpboardc/mytestForm.do" class="sub_menu_a">FAQ</a>
+			<a href="../helpboardc/helpboardNotifyForm.do" class="sub_menu_a">1:1 문의 / 신고 </a>
 		</div>
 
 	</div>

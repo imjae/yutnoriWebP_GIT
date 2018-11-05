@@ -89,6 +89,10 @@ div#menu_space > div#login_form {
 	/* border: 1px solid black; */
 	border-top: 0px;
 	width: 1400px;
+<<<<<<< HEAD
+=======
+	/* height: auto; */
+>>>>>>> 01c9ffe24e328bc62ce2a6b86201c11e95e2ac92
 	margin: 50px auto;
 	background-color: rgba(255,255,255,0.6);
 }
@@ -148,7 +152,7 @@ div#menu_space > div#login_form {
 	position:relative;
 	width:1500px; 
 	padding:40px 0 57px 0; 
-	margin:0 auto
+	margin:0 auto;
 }
 
 .footer .ft_logo{

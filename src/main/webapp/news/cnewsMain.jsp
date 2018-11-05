@@ -165,7 +165,7 @@ a.my_sub_menu:hover { text-decoration: none;  }
 		</div>
 		
 		<div id="section_char_info" class="userInfo_sub_menu">
-		<a href="#" class="my_sub_menu">&nbsp;&nbsp;&CenterDot; 공지사항</a>
+		<a href="../news/newsMainAll.do" class="my_sub_menu">&nbsp;&nbsp;&CenterDot; 공지사항</a>
 		</div>
 		
 		<div id="section_user_item" class="userInfo_sub_menu">
