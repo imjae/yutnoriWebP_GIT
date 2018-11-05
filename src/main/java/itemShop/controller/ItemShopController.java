@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import itemShop.bean.ItemShopDTO;
+import user.bean.UserDTO;
 
 @Controller
 public class ItemShopController {
@@ -124,15 +126,20 @@ public class ItemShopController {
 	
 	@RequestMapping(value="/itemShop/itemPaymentSuccess.do")
 	public ModelAndView itemPaymentSuccess(HttpServletRequest request) {
-		int item_charge = Integer.parseInt(request.getParameter("item_charge"));
-		String user_id = (String)request.getSession().getAttribute("session_id");		
+		int item_charge = Integer.parseInt(request.getParameter("item_charge"));	
+		HttpSession session = request.getSession();
+		UserDTO userDTO = (UserDTO)session.getAttribute("session_dto");
 		
-		System.out.println("item_charge"+item_charge);
-		System.out.println("user_id"+user_id);
-		int suc = itemShopService.itemPaymentSuccess(item_charge, user_id);
-		System.out.println(suc+"suc");
+		int suc = itemShopService.itemPaymentSuccess(item_charge, userDTO.getUser_id());
 		
+		if(suc>0) {
+			int user_cash = userDTO.getUser_cash();
+			userDTO.setUser_cash(user_cash - item_charge);
+			session.setAttribute("session_dto", userDTO);
+		}
 		// 세션안의 dto값이 변경되었으니까 다시 만들어줘야함 -> user-mapping에 쿼리문만들어서 사용하면됨
+		
+		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("suc", suc);
 		modelAndView.addObject("payOK", "ok");

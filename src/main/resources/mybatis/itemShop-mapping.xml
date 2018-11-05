@@ -33,7 +33,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<update id="itemPaymentSuccess" parameterType="java.util.Map">
 		update users 
-		set user_cash=user_cash-#{item_charge}
+		set user_cash=user_cash-#{item_charge} 
 		where user_id=#{user_id}
 	</update>
  

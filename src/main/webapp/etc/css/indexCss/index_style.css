@@ -85,15 +85,16 @@ div#menu_space > div#login_form {
 	z-index: 10;
 }
 
+
+
 #data_space, #space {
 	/* border: 1px solid black; */
 	border-top: 0px;
-	width: 1400px;
-	height: 1250px;
+	width: 1400px; 
+	height: 1000px;
 	margin: 50px auto;
 	background-color: rgba(255,255,255,0.6);
 }
-
 #rank_notice {
 	border-bottom: 1px solid black;
 	width: 100%;
@@ -149,7 +150,7 @@ div#menu_space > div#login_form {
 	position:relative;
 	width:1500px; 
 	padding:40px 0 57px 0; 
-	margin:0 auto
+	margin:0 auto;
 }
 
 .footer .ft_logo{
