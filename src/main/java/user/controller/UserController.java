@@ -316,5 +316,25 @@ public class UserController {
 		return modelAndView;
 	}
 
+	@RequestMapping(value="/user/cashCharge.do")
+	public ModelAndView cashCharge(HttpServletRequest request) {
+	
+		String charge_price = request.getParameter("cash_input");
+		int price = Integer.parseInt(charge_price);
+		String id = String.valueOf(request.getSession().getAttribute("session_id"));
+		
+		int charge_count = userService.cashCharge(id, price);
+		
+		ModelAndView modelAndView = new ModelAndView();
+		
+		modelAndView.addObject("userInfo_page_url","../user/cashCharge_result.jsp");
+		modelAndView.addObject("display", "../user/userInfo_title.jsp");	
+		modelAndView.addObject("charge_count", charge_count);
+		modelAndView.setViewName("../main/index.jsp");
+		
+		
+		return modelAndView;
+	}
+
 
 }
