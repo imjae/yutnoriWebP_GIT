@@ -95,7 +95,7 @@ a.my_sub_menu:hover { text-decoration: none;  }
 		</div>
 		
 		<div id="section_user_item" class="userInfo_sub_menu">
-		<a href="#"  class="my_sub_menu">&nbsp;&nbsp;&CenterDot;구매 내역</a>
+		<a href="../main/myPage.do?dis=../user/paymentHistory_page.jsp"  class="my_sub_menu">&nbsp;&nbsp;&CenterDot;구매 내역</a>
 		</div>
 		
 		<div id="section_cash_chung" class="userInfo_sub_menu">

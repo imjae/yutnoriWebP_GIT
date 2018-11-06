@@ -131,9 +131,9 @@ public class ItemShopController {
 		UserDTO userDTO = (UserDTO)session.getAttribute("session_dto");
 		
 		int suc = itemShopService.itemPaymentSuccess(item_charge, userDTO.getUser_id());
+		int user_cash = userDTO.getUser_cash();
 		
 		if(suc>0) {
-			int user_cash = userDTO.getUser_cash();
 			userDTO.setUser_cash(user_cash - item_charge);
 			session.setAttribute("session_dto", userDTO);
 		}
@@ -143,6 +143,8 @@ public class ItemShopController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("suc", suc);
 		modelAndView.addObject("payOK", "ok");
+		modelAndView.addObject("item_charge", item_charge);
+		modelAndView.addObject("user_cash", user_cash);
 		
 		modelAndView.setViewName("../itemShop/itemPayment.jsp");
 		return modelAndView;
