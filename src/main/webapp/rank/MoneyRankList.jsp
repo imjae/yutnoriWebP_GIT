@@ -20,16 +20,14 @@ body {
     border: 0;
     overflow-x: none;
     background-color: #ffffff;
-    font-family: Roboto Condensed, sans-serif;
-    font-size: 13px;
     font-smooth: always;
     -webkit-font-smoothing: antialiased;
+    
 }
 .back {
-    width: 13%;
-    height: 50px;
+    width: 15%;
+    height: 160px;
     float: left;
-    background-color: #eeeeee;
     border: 10px;
     border-color: #ffffff;
     border-style: solid;
@@ -40,11 +38,7 @@ body {
     padding: 0px 5px 5px 5px;
 }
 
-.back:before {
-    content: counter(bc) "_";
-    position: absolute;
-    padding: 10px;
-}
+
 
 @media screen and (max-width: 1260px) {
     .back {
@@ -61,20 +55,24 @@ body {
 .button_base {
     margin: 0;
     border: 0;
-    font-size: 14px;
+    border-color: #BDBDBD;
+    font-size: 18px;
     position: relative;
     top: 50%;
     left: 50%;
-    margin-top: -25px;
-    margin-left: -100px;
-    width: 126px;
-    height: 40px;
+    margin-top: -60px;
+    margin-left: -70px;
+    width: 150px;
+    height: 50px;
     text-align: center;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-user-select: none;
     cursor: default;
+    border-radius: 2px;
+   
+    
 }
 
 .button_base:hover {
@@ -84,7 +82,7 @@ body {
 /* ### ### ### 03 */
 .b03_skewed_slide_in {
     overflow: hidden;
-    border: #000000 solid 1px;
+    border: #BDBDBD solid 1px;
 }
 
 .b03_skewed_slide_in div {
@@ -99,12 +97,12 @@ body {
 }
 
 .b03_skewed_slide_in div:nth-child(1) {
-    color: #000000;
+    color: #424242;
     background-color: #ffffff;
 }
 
 .b03_skewed_slide_in div:nth-child(2) {
-    background-color: #000000;
+    background-color: #FA8258;
     width: 230px;
     transition: all 0.2s ease;
     -webkit-transition: all 0.2s ease;
@@ -139,6 +137,57 @@ body {
 }
 .line{border: 2px solid LightGray;}
  
+div#ranking_title {
+	 
+}
+
+A:link {text-decoration:none; color:#646464;}
+A:visited {text-decoration:none; color:#646464;}
+input[type=submit] { 
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;   
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #424242;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 2px #999;
+  margin-top: -200px; 
+  
+}
+input[type=text] {
+	padding: 1px 1px;
+	border-radius: 2px;
+}  
+select {
+	width: 70px;
+	height: 20px;
+	color:#999;
+	border:2px solid #ddd;
+	background: url('../etc/image/rankImage/ico_selectArrow.png') no-repeat right -4px center;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none; 
+	border-radius: 2px;
+	
+}
+select::-ms-expand{
+    display: none;
+}
+
+ 
+div#total_rank_title {
+	width: 1000px;
+	height: 90px;
+	border-bottom: 2px solid #BDBDBD;
+	font-weight: 600;
+	font: #424242;
+}
+ 
 </style>
 </head>
 <body>
@@ -146,7 +195,7 @@ body {
 <form action="../rank/RankList.do?pgg=1" name="MoneyRankList" method="post" >
 <table border="0" cellpadding="5" align="center"> 
 	<tr color="">
-		<td colspan="5"><h1>랭킹순위</h1></td>
+		<td colspan="5"><div id="total_rank_title"><FONT SIZE=6 COLOR="black">골드 보유랭킹</FONT></div></td>
 	</tr>
 	<tr>
 		<td colspan="5">
@@ -173,8 +222,9 @@ body {
 	
 		<td colspan="5" align="right">
 			<select name="searchOption">
-				<option value="name">닉네임</option>
-				<option value="tear">티어</option>
+				<option value="select">선택</option>
+				<option value="user_name">닉네임</option>
+				<option value="user_tear">티어</option>
 			</select>
 			<input name="keyword" value="${keyword}">
 			<input type="submit" value="검색">
@@ -182,18 +232,18 @@ body {
 	</tr>
 	<br>
 	<tr>
-		<td width="100" class="line" align="center" style="background-color:LightGray;">순위</td>	
-		<td width="150" class="line" align="center" style="background-color:LightGray;">티어</td>
-		<td width="200" class="line" align="center" style="background-color:LightGray;">이름</td>
-		<td width="300" class="line" align="center" style="background-color:LightGray;">보유금액</td>
-		<td width="150" class="line" align="center" style="background-color:LightGray;">전적</td>
+		<td width="100" class="line" align="center" style="background-color:#424242; color:#FAFAFA">순위</td>	
+		<td width="150" class="line" align="center" style="background-color:#424242; color:#FAFAFA">티어</td>
+		<td width="200" class="line" align="center" style="background-color:#424242; color:#FAFAFA">이름</td>
+		<td width="300" class="line" align="center" style="background-color:#424242; color:#FAFAFA">보유금액</td>
+		<td width="150" class="line" align="center" style="background-color:#424242; color:#FAFAFA">전적</td>
 	</tr>
 <c:forEach var="moneydto" items="${list}">
 	<tr align="center">
 		<td>${moneydto.rank}</td>
 		<td>${moneydto.tear}</td>
 		<td>${moneydto.name}</td>
-		<td>${moneydto.money}</td>
+		<td>${moneydto.money}원 </td>
 		<td>${moneydto.win}승${moneydto.lose}패</td>
 	</tr>
 	
