@@ -57,12 +57,18 @@ div#item_list_div {
 div.item_list_element_1, div.item_list_element_2 {
 	width: 17%;
 	height: 23%;
-	border: 1px solid lightgray;;
+	border: 2px solid lightgray;;
 	border-radius: 5px;
 	float: left;
-	margin-right: 7px;
-	margin-bottom: 8px;
+	margin-right: 8px;
+	margin-bottom: 10px;
 }
+
+div.item_list_element_1:hover {
+	border: 2px solid pink;
+	cursor: pointer;
+}
+
 
 div#item_list_nextBtn {
 	width: 25px;
@@ -108,7 +114,7 @@ div#item_category_total div {
 	border-bottom: 1.5px solid black;
 	text-align: center;
 	line-height: 40px;
-	border-radius: 3px;
+	border-radius: 0px 6px 0px 0px;
 	background: lightgray;
 }
 
@@ -133,36 +139,257 @@ div#category_total {
 
 <script type="text/javascript">
 	$(function() {
-
 		var pg = 1;
+		
+		$.ajax({
+			url : "../user/have_itemList.do",
+			type : "post",
+			data : {"category" : "total",
+					"pg":"1"},
+			dataType : "json",
+			success : function(data){
+				var su = 0;
+				$.each(data.items, function(index, item){
+					// 결과를 출력하기 위한 동적 요소의 생성
+					/*<div class="item_list_element_1">
+						<img class="item_list_img"
+							src="../etc/image/itemImage/characterImage/${list.item_img }.png" />
+					</div> */
+					
+					var div1 = $("<div>",{
+						class: "item_list_element_1",
+						"data-itemCode": item.item_code,
+						"data-payLog": item.pay_log
+					});
+					
+					su = item.su;
+					if(su != 0){
+						var img = $("<img>", {class: "item_list_img"}).attr("src","../etc/image/itemImage/characterImage/"+item.item_img+".png");
+						}
+					div1.append(img);
+					
+					$("div#item_list_div").append(div1);  
+					
+				
+				});
+				
+				for(var i=0; i<su; i++){
+					var div1 = $("<div>",{class: "item_list_element_1"});
+					
+					$("div#item_list_div").append(div1);
+				}
+			},
+			error : function(xhr, textStatus, errorThrown){
+				$("div").html("<div>"+textStatus+" (HTTP-)"+ xhr.status + " / " + errorThrown +")</div>");
+			}
+		});
+	
+
+		$("div.item_list_element_1").click(function(){
+			alert("tetst");
+			$(this).css("border", "1px solid pink");
+		});
+		
+		
 
 		$("div#category_total").click(function() {
-
+			$("div.item_list_element_1").remove();
+			
+			$("div.category").css("border-bottom","1px solid black");
+			$("div.category").css("background-color","lightgray");
+			
 			$(this).css("background-color", "white");
-
-			location.href = "../user/have_itemList.do?category=total&pg=" + pg;
+			$(this).css("border-bottom", "0px");
+				
+			$.ajax({
+				url : "../user/have_itemList.do",
+				type : "post",
+				data : {"category" : "total",
+						"pg":"1"},
+				dataType : "json",
+				success : function(data){
+					var su = 0;
+					
+				
+					$.each(data.items, function(index, item){
+						// 결과를 출력하기 위한 동적 요소의 생성
+						/*<div class="item_list_element_1">
+							<img class="item_list_img"
+								src="../etc/image/itemImage/characterImage/${list.item_img }.png" />
+						</div> */
+						
+						var div1 = $("<div>",{class: "item_list_element_1"});
+						su = item.su;
+						if(su != 0){
+							var img = $("<img>", {class: "item_list_img"}).attr("src","../etc/image/itemImage/characterImage/"+item.item_img+".png");
+							}
+						div1.append(img);
+						
+						$("div#item_list_div").append(div1);  
+					});
+					
+					for(var i=0; i<su; i++){
+						var div1 = $("<div>",{class: "item_list_element_1"});
+						
+						$("div#item_list_div").append(div1);
+					}
+				},
+				error : function(xhr, textStatus, errorThrown){
+					$("div").html("<div>"+textStatus+" (HTTP-)"+ xhr.status + " / " + errorThrown +")</div>");
+				}
+			});
 
 		});
 		$("div#category_character").click(function() {
+			$("div.item_list_element_1").remove();
 
+
+			$("div.category").css("border-bottom","1px solid black");
+			$("div.category").css("background-color","lightgray");
+			
 			$(this).css("background-color", "white");
+			$(this).css("border-bottom", "0px");
 
-			location.href = "../user/have_itemList.do?category=character&pg=" + pg;
+			$.ajax({
+				url : "../user/have_itemList.do",
+				type : "post",
+				data : {"category" : "character",
+						"pg":"1"},
+				dataType : "json",
+				success : function(data){
+					var su = 0;
+				
+					$.each(data.items, function(index, item){
+						// 결과를 출력하기 위한 동적 요소의 생성
+						/*<div class="item_list_element_1">
+							<img class="item_list_img"
+								src="../etc/image/itemImage/characterImage/${list.item_img }.png" />
+						</div> */
+						
+						var div1 = $("<div>",{class: "item_list_element_1"});
+						su = item.su;
+						if(su != 0){
+							var img = $("<img>", {class: "item_list_img"}).attr("src","../etc/image/itemImage/characterImage/"+item.item_img+".png");
+							}
+						div1.append(img);
+						
+						$("div#item_list_div").append(div1);  
+					});
+					
+					for(var i=0; i<su; i++){
+						var div1 = $("<div>",{class: "item_list_element_1"});
+						
+						$("div#item_list_div").append(div1);
+					}
+				},
+				error : function(xhr, textStatus, errorThrown){
+					$("div").html("<div>"+textStatus+" (HTTP-)"+ xhr.status + " / " + errorThrown +")</div>");
+				}
+			});
 
 		});
 		$("div#category_background").click(function() {
+			$("div.item_list_element_1").remove();
+			$("div.category").css("border-bottom","1px solid black");
+			$("div.category").css("background-color","lightgray");
 
 			$(this).css("background-color", "white");
+			$(this).css("border-bottom", "0px");
 
-			location.href = "../user/have_itemList.do?category=background&pg=" + pg;
+			$.ajax({
+				url : "../user/have_itemList.do",
+				type : "post",
+				data : {"category" : "background",
+						"pg":"1"},
+				dataType : "json",
+				success : function(data){
+					var su = 0;
+				
+					$.each(data.items, function(index, item){
+						// 결과를 출력하기 위한 동적 요소의 생성
+						/*<div class="item_list_element_1">
+							<img class="item_list_img"
+								src="../etc/image/itemImage/characterImage/${list.item_img }.png" />
+						</div> */
+						su = item.su;
+						
+						var div1 = $("<div>",{class: "item_list_element_1"});
+						
+						
+						if(su != 0){
+							var img = $("<img>", {class: "item_list_img"}).attr("src","../etc/image/itemImage/characterImage/"+item.item_img+".png");
+						}
+						div1.append(img);
+						
+						$("div#item_list_div").append(div1);  
+					});
+					
+					for(var i=0; i<su; i++){
+						var div1 = $("<div>",{class: "item_list_element_1"});
+						
+						$("div#item_list_div").append(div1);
+					}
+				},
+				error : function(xhr, textStatus, errorThrown){
+					$("div").html("<div>"+textStatus+" (HTTP-)"+ xhr.status + " / " + errorThrown +")</div>");
+				}
+			});
 
 		});
 		$("div#category_etc").click(function() {
+			$("div.item_list_element_1").remove();
 
+			$("div.category").css("border-bottom","1px solid black");
+			$("div.category").css("background-color","lightgray");
+			
 			$(this).css("background-color", "white");
+			$(this).css("border-bottom", "0px");
+			
 
-			location.href = "../user/have_itemList.do?category=potion&pg=" + pg;
+			$.ajax({
+				url : "../user/have_itemList.do",
+				type : "post",
+				data : {"category" : "etc",
+						"pg":"1"},
+				dataType : "json",
+				success : function(data){
+					var su = 0;
+				
+					$.each(data.items, function(index, item){
+						// 결과를 출력하기 위한 동적 요소의 생성
+						/*<div class="item_list_element_1">
+							<img class="item_list_img"
+								src="../etc/image/itemImage/characterImage/${list.item_img }.png" />
+						</div> */
+						su = item.su;
+						
+						var div1 = $("<div>",{class: "item_list_element_1"});
+						
+						if(su != 0){
+						var img = $("<img>", {class: "item_list_img"}).attr("src","../etc/image/itemImage/characterImage/"+item.item_img+".png");
+						}
+						div1.append(img);
+						
+						$("div#item_list_div").append(div1);  
+						
+					});
+					
+					for(var i=0; i<su; i++){
+						var div1 = $("<div>",{class: "item_list_element_1"});
+						
+						$("div#item_list_div").append(div1);
+					}
+				},
+				error : function(xhr, textStatus, errorThrown){
+					$("div").html("<div>"+textStatus+" (HTTP-)"+ xhr.status + " / " + errorThrown +")</div>");
+				}
+			});
 
+		});
+		
+		
+		$("div.item_list_element_1").hover(function(){
+			$(this).css("border", "3px solid red");
 		});
 
 		$("div#item_list_nextBtn").click(function() {
@@ -185,10 +412,10 @@ div#category_total {
 		</div>
 
 		<div id="item_category_total">
-			<div id="category_total">전 체</div>
-			<div id="category_character">캐 릭 터</div>
-			<div id="category_background">배 경</div>
-			<div id="category_etc">기 타</div>
+			<div id="category_total" class="category">전 체</div>
+			<div id="category_character" class="category">캐 릭 터</div>
+			<div id="category_background" class="category">배 경</div>
+			<div id="category_etc" class="category">기 타</div>
 		</div>
 
 		<div id="char_info_div">
@@ -200,17 +427,8 @@ div#category_total {
 			<div id="item_list_nextBtn">&gt;</div>
 
 			<div id="item_list_div">
-
-				<c:forEach items="${list }" var="list">
-					<div class="item_list_element_1">
-						<img class="item_list_img"
-							src="../etc/image/itemImage/characterImage/${list.item_img }.png" />
-					</div>
-				</c:forEach>
-
-				<c:forEach var="i" begin="1" end="${su }" step="1">
-					<div class="item_list_element_1"></div>
-				</c:forEach>
+				
+				
 
 			</div>
 		</div>

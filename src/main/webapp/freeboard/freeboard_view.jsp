@@ -77,6 +77,7 @@
 	<div id="free_commentInclude">
 		<jsp:include page="../freeboard/freeboard_commentForm.jsp"/>
 	</div>
+	
 </div>
 </body>
 </html>
