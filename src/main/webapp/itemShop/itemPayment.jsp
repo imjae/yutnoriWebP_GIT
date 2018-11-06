@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="../etc/js/jquery-3.3.1.min.js"></script>
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="../etc/css/shopTheme.css" type="text/css">
 <style type="text/css">
 div#body div#payTitle {
@@ -41,7 +45,7 @@ div#payBody div#buttonLine div {
 	padding-top: 20px;
 	/* border: 1px solid blue; */
 } 
-div#payBody div#buttonLine button {
+div#payBody button {
 	width:140px;
     background-color: #b7b1b6;
     border: none;
@@ -69,6 +73,26 @@ div#payBody div#warning label{
 	
 
 </style>
+<script type="text/javascript">
+	$(function(){
+		$("button#go_buy").click(function(){
+			if($("input[type=checkbox]#warning_check").is(":checked")){
+				if(${session_dto.user_cash - (itemShopDTO.item_charge*ea) < 0} ){
+					// 캐시충전페이지로 이동하기
+					location.href="../main/myPage.do?dis=../user/cashCharge_page.jsp";
+				}else{
+					// 결제화면으로 이동하기
+					location.href="../itemShop/itemPaymentSuccess.do?item_charge=${itemShopDTO.item_charge*ea}";
+				}
+			}else{
+				$("div#warning").css("color","red");
+				$("div#warning").effect("shake");
+				return false;
+			}
+		});
+	});
+</script>
+
 </head>
 <body>
 
@@ -80,7 +104,7 @@ div#payBody div#warning label{
 		<div id="menu_space_top">
 			<div id="blank"></div>
 			<div id="mainLogo">
-				<a href="#">
+				<a href="../main/index.jsp">
 					<img src="../etc/image/mainImage/logo.png">
 				</a>
 			</div>
@@ -103,6 +127,7 @@ div#payBody div#warning label{
 			<h2>　구매하기</h2>
 		</div>
 		<div id="payBody">
+			<c:if test="${payOK == null }">
 			<table>
 				<tr id="title">
 					<td width="200px"></td><td width="250px">상품명</td>
@@ -121,7 +146,7 @@ div#payBody div#warning label{
 						</div>
 						<div style="width: 280px;"></div>
 						<div style="width: 125px;">
-							<label id="price">${itemShopDTO.item_charge }</label>
+							<label id="price">${itemShopDTO.item_charge*ea }</label>
 						</div>
 						<div style="width: 190px;"></div>
 					</td>
@@ -133,10 +158,14 @@ div#payBody div#warning label{
 			</div> 
 			<div id="buttonLine">
 				<div style="width: 250px;"></div>
-				<div><button id="refill" onclick="location.href='#'">캐시 충전하기</button></div>
+				<div><button id="refill" onclick="location.href='../main/myPage.do?dis=../user/cashCharge_page.jsp'">캐시 충전하기</button></div>
 				<div><button id="go_shop" onclick="location.href='../itemShop/mainShop.do?category=all&pg=1&order=logtime'">계속 쇼핑하기</button></div>
-				<div><button id="go_buy" onclick="location.href='#'">결제하기</button></div>
+				<div><button id="go_buy">결제하기</button></div>
 			</div>
+			</c:if>
+			<c:if test="${payOK != null}">
+				<jsp:include page="../itemShop/itemPaymentSuccess.jsp"/>
+			</c:if>
 		</div>
 	</div>
 </div>

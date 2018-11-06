@@ -31,4 +31,6 @@ public interface UserService {
 	List<PaymentHistoryDTO> haveItemListAll(String user_id,int startNum, int endNum);
 	int haveItemCount(String user_id);
 	
+	int cashCharge(String user_id, int charge_price);
+	
 }

@@ -12,6 +12,8 @@ div#footer {
     
     font-size: 13px;
     font-smooth: always;
+    position: relative;
+    bottom: 0px;
     -webkit-font-smoothing: antialiased;
     font-family:'Nanum Gothic', 'NanumGothic','나눔고딕', 돋움, Dotum, Arial, sans-serif; font-size:16px; color:#676767; line-height:1; letter-spacing:-1px; -webkit-text-size-adjust: none;
 }

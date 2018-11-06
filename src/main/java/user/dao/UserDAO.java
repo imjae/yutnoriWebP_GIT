@@ -83,7 +83,17 @@ public class UserDAO {
 	}
 
 	public int haveItemCount(String user_id) {
-		return sqlSession.selectOne("mybatis.userMapper.havaItemCount", user_id);
+		return sqlSession.selectOne("mybatis.userMapper.haveItemCount", user_id);
+	}
+	
+	public int cashCharge(String user_id, int charge_price) {
+		
+		Map<Object, Object> map = new HashMap<Object,Object>();
+		
+		map.put("user_id", user_id);
+		map.put("charge_price", charge_price);
+		
+		return sqlSession.update("mybatis.userMapper.cashCharge", map);
 	}
 
 }

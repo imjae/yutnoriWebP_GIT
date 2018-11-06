@@ -5,6 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	if(${num > 0}) {
+		location.href="../imgboard/imgboard_list.do?imgboard_pg=${imgboard_pg}";
+	}
+</script>
 </head>
 <body>
 

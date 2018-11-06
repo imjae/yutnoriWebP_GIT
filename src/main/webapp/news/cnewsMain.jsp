@@ -13,8 +13,9 @@
 <style type="text/css">
 
 	div#section_total {
-		width : 1400px;
-		height : 1000px;/* 
+		width : 1400px; 
+		height: 1000px;
+		/*
 		border : 1px solid black; */
 		/* border-top: 3px dashed rgba(0,0,0,0.6);  */
 		background-color: rgba(255,255,255,0.5);
@@ -165,7 +166,7 @@ a.my_sub_menu:hover { text-decoration: none;  }
 		</div>
 		
 		<div id="section_char_info" class="userInfo_sub_menu">
-		<a href="#" class="my_sub_menu">&nbsp;&nbsp;&CenterDot; 공지사항</a>
+		<a href="../news/newsMainAll.do" class="my_sub_menu">&nbsp;&nbsp;&CenterDot; 공지사항</a>
 		</div>
 		
 		<div id="section_user_item" class="userInfo_sub_menu">

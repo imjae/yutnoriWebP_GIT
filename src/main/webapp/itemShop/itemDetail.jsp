@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="../etc/js/jquery-3.3.1.min.js"></script>
 <link rel="stylesheet" href="../etc/css/shopTheme.css" type="text/css">
 <style type="text/css">
 div#content {height: 600px; background: none; }
@@ -48,6 +49,18 @@ div#menu_name td input {
     /* cursor: pointer; */
 }
 </style>
+<script type="text/javascript">
+	function confLogin(){
+		if(${session_id == null}){	// 로그인 안한 상태로 결제하기 눌렀을 때
+			alert("로그인 후 결제해주세요.");
+			location.href="../login/loginPage.jsp";
+		}else{	// 로그인 상태일때
+			location.href="../itemShop/itemPayment.do?item_code=${itemShopDTO.item_code}&ea=1";
+		}
+	}
+	
+	
+</script>
 </head>
 <body>
 
@@ -58,7 +71,7 @@ div#menu_name td input {
 	<div id="menu_space_top">
 		<div id="blank"></div>
 		<div id="mainLogo">
-			<a href="#">
+			<a href="../main/index.jsp">
 				<img src="../etc/image/mainImage/logo.png">
 			</a>
 		</div>
@@ -99,18 +112,10 @@ div#menu_name td input {
 				<td colspan="2" width="500px"  align="center">
 					<input type="button" value="목록" onclick="location.href='../itemShop/mainShop.do?category=${category}&pg=${pg }&order=${order }'">
 					<input type="button" value="장바구니" onclick="location.href='#'">
-					<input type="button" value="결제하기" onclick="location.href='../itemShop/itemPayment.do?item_code=${itemShopDTO.item_code}&ea=1'">
+					<input type="button" value="결제하기" onclick="confLogin()">
 				</td>
 			</tr>
 		</table>
-		<%-- <h4>상품명 : <span>${itemShopDTO.item_name }</span></h4>
-		<h4>수량 : </h4>
-		<h4>상품가격 : <span>${itemShopDTO.item_charge }캐시</span></h4>
-		<div id="menu_button">
-			<button>목록</button>
-			<button>장바구니</button>
-			<button>결제하기</button>
-		</div> --%>
 	</div>
 	
 </div>
