@@ -86,9 +86,14 @@ a.my_sub_menu:hover { text-decoration: none;  }
 <div id="section_total">
 
 
+
 	<div id="section_left">
-		<jsp:include page="${rank_page_url }"/>
-	
+		<c:if test="${rank_page_url == null }">
+			<p>rank_page_url 가 null 입니다.</p>
+		</c:if>
+		<c:if test="${rank_page_url != null }">
+			<jsp:include page="${rank_page_url }"/>	
+		</c:if>
 	</div>
 
 	
@@ -99,11 +104,11 @@ a.my_sub_menu:hover { text-decoration: none;  }
 		</div>
 		
 		<div id="section_char_info" class="userInfo_sub_menu">
-		<a href="#" class="my_sub_menu">&nbsp;&nbsp;&CenterDot;전적랭킹</a>
+		<a href="../rank/yutnoriiiRankList.do?pg=1" class="my_sub_menu">&nbsp;&nbsp;&CenterDot;전적랭킹</a>
 		</div>
 		
 		<div id="section_user_item" class="userInfo_sub_menu">
-		<a href="#"  class="my_sub_menu">&nbsp;&nbsp;&CenterDot;골드보유 랭킹</a>
+		<a href="../rank/MoneyRankList.do?pg=1"  class="my_sub_menu">&nbsp;&nbsp;&CenterDot;골드보유 랭킹</a>
 		</div>
 		
 		
