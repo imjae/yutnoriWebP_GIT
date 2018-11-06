@@ -38,7 +38,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="imgStyle_btm" style="padding-bottom: 5px;"><input type="file" name="imgboard_file"></td>
+				<td class="imgStyle_btm" style="padding-bottom: 5px;"><input type="file" name="imgboard_img"></td>
 			</tr>
 			<tr>
 				<td align="right" style="padding-top: 5px;">
