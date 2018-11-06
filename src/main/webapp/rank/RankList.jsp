@@ -189,13 +189,16 @@ div#total_rank_title {
 }
 
 </style>
+<script type="text/javascript">
+
+</script>
 </head>
 <body>
 
 <form action="../rank/RankList.do?pgg=1" name="RankList" method="post" >
 <table border="0" cellpadding="5" align="center" id="park"> 
 	<tr color="">
-		<td colspan="5"><h1>종합 랭킹</h1></td>
+		<td colspan="5"><div id="total_rank_title"><FONT SIZE=6 COLOR="black">전적 랭킹</FONT></div></td>
 	</tr>
 	<tr>
 		<td colspan="5">
@@ -211,10 +214,9 @@ div#total_rank_title {
     <div class="button_base b03_skewed_slide_in">
         <div>골드보유 랭킹</div>
         <div></div>
-        <div onclick="location.href='../rank/MoneyRankList.do?pgg=1'">골드보유 랭킹</div>
+        <div onclick="location.href='../rank/MoneyRankList.do?pg=1'">골드보유 랭킹</div>
     </div>
 </div>
-
 		</td>
 	</tr>
 	<tr>
@@ -249,21 +251,22 @@ div#total_rank_title {
 </c:forEach>	
 <tr>
 		<td colspan="5" align="center">
+		
 		<c:if test="${startPagee > 3}">
-			[<a id="paging" href="RankList.do?pgg=${startPagee - 1}">이전</a>]
+			[<a id="paging" href="RankList.do?pgg=${startPagee - 1}&keyword=${keyword}&searchOption=${searchOption}">이전</a>]
 		</c:if>		
 		
 		<c:forEach var="z" begin="${startPagee}" end="${endPagee}" step="1">
 			<c:if test="${pgg == z}">
-				[<a id="currentPaging" href="RankList.do?pgg=${z}">${z}</a>]
+				[<a id="currentPaging" href="RankList.do?pgg=${z}&keyword=${keyword}&searchOption=${searchOption}">${z}</a>]
 			</c:if>
 			<c:if test="${pgg != z}">
-				[<a id="paging" href="RankList.do?pgg=${z}">${z}</a>]
+				[<a id="paging" href="RankList.do?pgg=${z}&keyword=${keyword}&searchOption=${searchOption}">${z}</a>]
 			</c:if>		
 		</c:forEach>
 		
 		<c:if test="${endPagee < totalPP}">
-			[<a id="paging" href="RankList.do?pgg=${endPagee + 1}">다음</a>]			
+			[<a id="paging" href="RankList.do?pgg=${endPagee + 1}&keyword=${keyword}&searchOption=${searchOption}">다음</a>]			
 		</c:if>
 		</td>
 	</tr>

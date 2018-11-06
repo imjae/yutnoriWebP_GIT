@@ -1,5 +1,6 @@
 package rank.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +32,7 @@ public class RankController {
 		List<RankDTO> list = rankService.rankList(startNum, endNum);
 		// 페이징 처리
 		int totalA = rankService.getTotalA();	// 총글수  = 43
-		int totalP = (totalA + 4) / 5;		// 총페이지수 = 9
+		int totalP = (totalA + 9) / 10;		// 총페이지수 = 9
 		int startPage = (pg-1)/3*3+1;
 		int endPage = startPage + 2;
 		if(endPage > totalP) endPage = totalP;
@@ -128,7 +129,7 @@ public class RankController {
 		
 		// 페이징 처리
 		int totalA = rankService.getTotalA();	// 총글수  = 43
-		int totalP = (totalA + 4) / 5;		// 총페이지수 = 9
+		int totalP = (totalA + 9) / 10;		// 총페이지수 = 9
 		int startPage = (pg-1)/3*3+1;
 		int endPage = startPage + 2;
 		if(endPage > totalP) endPage = totalP;
@@ -140,34 +141,46 @@ public class RankController {
 		modelAndView.addObject("startPage", startPage);
 		modelAndView.addObject("endPage", endPage);
 		modelAndView.addObject("totalP", totalP);
+		modelAndView.addObject("rank_page_url", "../rank/MoneyRankList.jsp");
 		modelAndView.addObject("display", "../rank/rankInfo.jsp");
 		modelAndView.setViewName("../main/index.jsp");
 		
 		return modelAndView;
 		
 	}
-	@RequestMapping(value="/rank/RankList.do")
+	@RequestMapping(value="/rank/RankList.do", produces="text/plain;charset=UTF-8")
 	public ModelAndView RankList(HttpServletRequest request) {
 		
+		try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 		
 		String searchOption = request.getParameter("searchOption");
 		String keyword = request.getParameter("keyword");
 		
 		int pgg = Integer.parseInt(request.getParameter("pgg"));
+		
+		System.out.println(pgg);
 		// 목록수 : 10개씩
 		int endNumm = pgg * 10;
 		int startNumm = endNumm - 9;
 		// (2) DB
+		List<RankDTO> listAll = rankService.listAll(searchOption, keyword, startNumm, endNumm);
 		// 페이징 처리
 		int countArticle = rankService.getcountArticle(searchOption, keyword, startNumm, endNumm);	// 총글수  = 43
-		int totalPP = (countArticle + 4) / 5;		// 총페이지수 = 9
+		
+		System.out.println(countArticle);
+		
+		int totalPP = (countArticle + 9) / 10;		// 총페이지수 = 9
 		int startPagee = (pgg-1)/3*3+1;
 		int endPagee = startPagee + 2;
 		if(endPagee > totalPP) endPagee = totalPP;
 		
 		System.out.println(searchOption +"," + keyword);
+		System.out.println(startPagee +","  + endPagee + "," + totalPP);
 		
-		List<RankDTO> listAll = rankService.listAll(searchOption, keyword, startNumm, endNumm);
 		
 		
 		// 화면 네비게이션
