@@ -388,8 +388,8 @@ div#category_total {
 		});
 		
 		
-		$("div.item_list_element_1").hover(function(){
-			$(this).css("border", "3px solid red");
+		$("div.item_list_element_1").click(function(){
+			alert("test");
 		});
 
 		$("div#item_list_nextBtn").click(function() {
