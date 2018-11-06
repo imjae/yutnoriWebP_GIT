@@ -27,6 +27,10 @@ public interface UserService {
 	
 	int userModify(UserDTO userDTO);
 	
-	List<PaymentHistoryDTO> haveItemList();
+	List<PaymentHistoryDTO> haveItemList(String category,String user_id,int startNum, int endNum);
+	List<PaymentHistoryDTO> haveItemListAll(String user_id,int startNum, int endNum);
+	int haveItemCount(String user_id);
+	
+	int cashCharge(String user_id, int charge_price);
 	
 }

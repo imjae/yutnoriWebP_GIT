@@ -85,15 +85,16 @@ div#menu_space > div#login_form {
 	z-index: 10;
 }
 
+
+
 #data_space, #space {
 	/* border: 1px solid black; */
 	border-top: 0px;
-	width: 1400px;
-	height: 1250px;
+	width: 1400px; 
+	height: 1000px;
 	margin: 50px auto;
 	background-color: rgba(255,255,255,0.6);
 }
-
 #rank_notice {
 	border-bottom: 1px solid black;
 	width: 100%;
@@ -101,7 +102,7 @@ div#menu_space > div#login_form {
 }
 
 #rank {
-	width: 40%;
+	width: 35%;
 	height: 100%;
 	float: left;
 	border-right: 1px solid black;
@@ -145,11 +146,11 @@ div#menu_space > div#login_form {
     font-size: 13px;
     font-smooth: always;
     -webkit-font-smoothing: antialiased;
-    font-family:'Nanum Gothic', 'NanumGothic','나눔고딕', 돋움, Dotum, Arial, sans-serif; font-size:16px; color:#676767; line-height:1; letter-spacing:-1px; -webkit-text-size-adjust: none;
+    font-family: "-윤고딕320";
 	position:relative;
 	width:1500px; 
 	padding:40px 0 57px 0; 
-	margin:0 auto
+	margin:0 auto;
 }
 
 .footer .ft_logo{

@@ -81,15 +81,15 @@ a.over_mouse_title:hover { text-decoration: none; color: white; }
 		</div>
 	
 		<div id="title_ranking">
-			<a href="#" class="over_mouse_title">랭킹</a>
+			<a href="../rank/yutnoriiiRankList.do?pg=1" class="over_mouse_title">랭킹</a>
 		</div>
 
 		<div id="title_comunity">
-			<a href="#" class="over_mouse_title">커뮤니티</a>
+			<a href="../freeboard/freeboard_list.do?freeboard_pg=1" class="over_mouse_title">커뮤니티</a>
 		</div>
 
 		<div id="title_itemshop">
-			<a href="#" class="over_mouse_title">상점</a>
+			<a href="../itemShop/mainShop.do?category=all&pg=1&order=logtime" class="over_mouse_title">상점</a>
 		</div>
 
 		<div id="title_cs">

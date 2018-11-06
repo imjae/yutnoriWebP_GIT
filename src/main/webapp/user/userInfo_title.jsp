@@ -79,7 +79,9 @@ a.my_sub_menu:hover { text-decoration: none;  }
 
 	<div id="section_left">
 		<%-- <jsp:include page="${userInfo_page_url }"/> --%>
-		<jsp:include page="charInfo_page.jsp"/>
+		<%-- <jsp:include page="../user/cashCharge_page.jsp"/> --%>
+		<jsp:include page="${userInfo_page_url }"/>
+		<%-- <jsp:include page="cashCharge_page.jsp"/> --%>
 	</div>
 	
 	
@@ -89,7 +91,7 @@ a.my_sub_menu:hover { text-decoration: none;  }
 		</div>
 		
 		<div id="section_char_info" class="userInfo_sub_menu">
-		<a href="#" class="my_sub_menu">&nbsp;&nbsp;&CenterDot;캐릭터 정보</a>
+		<a href="../main/myPage.do?dis=../user/charInfo_page.jsp" class="my_sub_menu">&nbsp;&nbsp;&CenterDot;캐릭터 정보</a>
 		</div>
 		
 		<div id="section_user_item" class="userInfo_sub_menu">
@@ -97,11 +99,11 @@ a.my_sub_menu:hover { text-decoration: none;  }
 		</div>
 		
 		<div id="section_cash_chung" class="userInfo_sub_menu">
-		<a href="#"  class="my_sub_menu">&nbsp;&nbsp;&CenterDot;캐쉬 충전</a>
+		<a href="../main/myPage.do?dis=../user/cashCharge_page.jsp"  class="my_sub_menu">&nbsp;&nbsp;&CenterDot;캐쉬 충전</a>
 		</div>
 		
 		<div id="section_user_info" class="userInfo_sub_menu">
-		<a href="#"  class="my_sub_menu">&nbsp;&nbsp;&CenterDot;회원 정보</a>
+		<a href="../main/myPage.do?dis=../user/userInfo_page.jsp"  class="my_sub_menu">&nbsp;&nbsp;&CenterDot;회원 정보</a>
 		</div>
 	</div>
 

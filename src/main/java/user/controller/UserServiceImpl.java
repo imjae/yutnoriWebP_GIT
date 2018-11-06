@@ -67,8 +67,23 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<PaymentHistoryDTO> haveItemList() {
-		return null;
+	public List<PaymentHistoryDTO> haveItemList(String category,String user_id,int startNum, int endNum) {
+		return userDAO.haveItemList(category, user_id, startNum, endNum);
+	}
+
+	@Override
+	public int haveItemCount(String user_id) {
+		return userDAO.haveItemCount(user_id);
+	}
+
+	@Override
+	public List<PaymentHistoryDTO> haveItemListAll(String user_id, int startNum, int endNum) {
+		return userDAO.haveItemListAll(user_id, startNum, endNum);
+	}
+
+	@Override
+	public int cashCharge(String user_id, int charge_price) {
+		return userDAO.cashCharge(user_id, charge_price);
 	}
 	
 	

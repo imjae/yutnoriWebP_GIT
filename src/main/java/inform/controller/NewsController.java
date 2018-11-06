@@ -63,7 +63,56 @@ public class NewsController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/news/newsViewMain.do")
+	@RequestMapping(value = "/news/newsMainSortInform.do")
+	public ModelAndView newsMainSortInform(HttpServletRequest request) {
+		String str_pg = request.getParameter("pg");
+		String sort = request.getParameter("sort");
+		// System.out.println(sort);
+		
+		int pg = 1;
+		if(str_pg != null) {
+			pg = Integer.parseInt(str_pg);
+		}
+
+		int endNum = pg * 5;
+		int startNum = endNum - 4;
+		
+		int totalA = newsService.getTotalA(sort);
+		// System.out.println(totalA);
+		int totalP = (totalA + 4) / 5;
+		
+		int startPage = (pg-1)/3*3+1;
+		int endPage = startPage + 2;
+		if (endPage > totalP) {
+			endPage = totalP;
+		}
+		
+		NewsListDTO newsListDTO = new NewsListDTO();
+		newsListDTO.setPg(pg);
+		newsListDTO.setSort(sort);
+		newsListDTO.setStartNum(startNum);
+		newsListDTO.setEndNum(endNum);
+		newsListDTO.setStartPage(startPage);
+		newsListDTO.setEndPage(endPage);
+		newsListDTO.setTotalA(totalA);
+		newsListDTO.setTotalP(totalP);
+		
+		List<NewsVO> list = newsService.newsList(newsListDTO);
+		
+		ModelAndView modelAndView = new ModelAndView();
+		
+		modelAndView.addObject("sector", "sort");
+		modelAndView.addObject("list", list);
+		modelAndView.addObject("newsdto", newsListDTO);
+		
+		modelAndView.addObject("display", "../news/cnewsMain.jsp");
+		
+		modelAndView.setViewName("../main/index.jsp");
+		
+		return modelAndView;
+	}
+	
+	@RequestMapping(value="/news/newsMainView.do")
 	public ModelAndView newsViewMain(HttpServletRequest request) {
 		
 		int news_num = Integer.parseInt(request.getParameter("news_num"));
@@ -74,7 +123,7 @@ public class NewsController {
 		modelAndView.addObject("newsVO", newsVO);
 		modelAndView.addObject("news_num", news_num);
 		modelAndView.addObject("display", "../news/cnewsMain.jsp");
-		modelAndView.addObject("display2", "../news/cnewsView.jsp");
+		modelAndView.addObject("newsView", "../news/cnewsView.jsp");
 		
 		modelAndView.setViewName("../main/index.jsp");
 		

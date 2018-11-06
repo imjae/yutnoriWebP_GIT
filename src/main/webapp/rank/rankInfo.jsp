@@ -16,8 +16,8 @@
 		border : 1px solid black; */
 		/* border-top: 3px dashed rgba(0,0,0,0.6);  */
 		background-color: rgba(255,255,255,0.5);
-		font-family:'Nanum Gothic', 'NanumGothic','나눔고딕', 돋움, Dotum, Arial, sans-serif; 
-		font-size:14px; 
+		font-family: "-윤고딕320";
+		font-size:14px;
 		color:#676767; 
 		line-height:1; 
 		letter-spacing:-1px; 
@@ -85,10 +85,12 @@ a.my_sub_menu:hover { text-decoration: none;  }
 
 <div id="section_total">
 
+
 	<div id="section_left">
-		<jsp:include page="../rank/yutnoriiiRankList.jsp"/>
+		<jsp:include page="${rank_page_url }"/>
 	
 	</div>
+
 	
 	
 	<div id="section_right">

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.communityMapper">
+	<!-- 자유 게시판  - 게시글 -->
+	<insert parameterType="freeboardDTO" id="freeboardWrite">
+		insert into freeboard values(seq_freeboard.nextval, #{freeboard_writer}, #{freeboard_subject}, #{freeboard_content}, 0, sysdate)
+	</insert>
+	
+	<update parameterType="freeboardDTO" id="freeboardModify">
+		update freeboard set freeboard_subject=#{freeboard_subject}, freeboard_content=#{freeboard_content}, freeboard_date=sysdate where freeboard_num=#{freeboard_num}
+	</update>
+	
+	<update parameterType="int" id="freeboardHit">
+		update freeboard set freeboard_readCount = freeboard_readCount + 1 where freeboard_num=#{freeboard_num}
+	</update>
+	
+	<delete parameterType="int" id="freeboardDelete">
+		delete freeboard where freeboard_num=#{freeboard_num}
+	</delete>
+	
+	<select parameterType="int" id="freeboardView" resultType="freeboardDTO">
+		select * from freeboard where freeboard_num=#{freeboard_num}
+	</select>
+	
+	<select parameterType="freeboardDTO" id="freeboardList" resultType="freeboardDTO">
+		<![CDATA[select * from  
+		(select rownum rn, tt.* from 
+		(select * from freeboard order by freeboard_num desc) tt)  
+		where rn>=#{free_startNum} and rn<=#{free_endNum}]]>
+	</select>
+	
+	<select id="freeboard_getTotalA" resultType="int">
+		select count(*) from freeboard
+	</select>
+	<!-- 자유 게시판 - 게시글 -->
+	
+	
+	<!-- 자유 게시판 - 댓글 -->
+	<!-- <select id="free_commentCount" resultType="int" parameterType="int">
+        SELECT COUNT(*) FROM freeboard_comment where freeboard_num = #{freeboard_num}
+    </select>
+    
+    <select id="free_commentList" resultType="freeboard_commentDTO" parameterType="int">
+        SELECT * FROM freeboard_comment where freeboard_num = #{freeboard_num}
+    </select>
+    
+    <insert id="free_commentInsert">
+        INSERT INTO
+        freeboard_comment
+        VALUES(#{freeboard_num} ,seq_free_comment.nextval,
+        #{free_comment_writer}, #{free_comment_content}, sysdate)
+    </insert>
+    
+    <delete id="free_commentDelete" parameterType="int">
+        DELETE FROM freeboard_comment WHERE free_comment_num = #{free_comment_num}
+    </delete> -->
+	<!-- 자유 게시판 - 댓글 -->
+	
+	
+	<!-- 스샷 게시판 - 게시글 -->
+	<insert parameterType="imgboardDTO" id="imgboardWrite">
+		insert into imgboard values(seq_imgboard.nextval, #{imgboard_writer}, #{imgboard_subject}, #{imgboard_content}, #{imgboard_img}, 0, sysdate)
+	</insert>
+	
+	<update parameterType="imgboardDTO" id="imgboardModify">
+		update imgboard set imgboard_subject=#{imgboard_subject}, imgboard_content=#{imgboard_content}, imgboard_img=#{imgboard_img}, imgboard_date=sysdate where imgboard_num=#{imgboard_num}
+	</update>
+	
+	<update parameterType="int" id="imgboardHit">
+		update imgboard set imgboard_readCount = imgboard_readCount + 1 where imgboard_num=#{imgboard_num}
+	</update>
+	
+	<delete parameterType="int" id="imgboardDelete">
+		delete imgboard where imgboard_num=#{imgboard_num}
+	</delete>
+	
+	<select parameterType="int" id="imgboardView" resultType="imgboardDTO">
+		select * from imgboard where imgboard_num=#{imgboard_num}
+	</select>
+	
+	<select parameterType="imgboardDTO" id="imgboardList" resultType="imgboardDTO">
+		<![CDATA[select * from  
+		(select rownum rn, tt.* from 
+		(select * from imgboard order by imgboard_num desc) tt)  
+		where rn>=#{img_startNum} and rn<=#{img_endNum}]]>
+	</select>
+	
+	<select id="imgboard_getTotalA" resultType="int">
+		select count(*) from imgboard
+	</select>
+	<!-- 스샷 게시판 - 게시글 -->
+	
+	
+	<!-- 스샷 게시판 - 댓글 -->
+	
+	<!-- 스샷 게시판 - 댓글 -->
+</mapper>

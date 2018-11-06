@@ -68,7 +68,6 @@
 				$("div").html("<div>"+textStatus+" (HTTP-)"+ xhr.status + " / " + errorThrown +")</div>");
 			}
 		});
-		
 	});
 </script>
 
@@ -139,7 +138,7 @@
 	</div>
 	
 	<div id="screenshot">
-		스크린샷
+		
 	</div>
 	
 	<div id="item_shop">
@@ -150,11 +149,13 @@
 </c:if>
 <c:if test="${display != null }">
 <div id="space">
-
-	
 	<jsp:include page="${display }"/>
 </div>
 </c:if>
+
+
+
+
 <div id="footer">
 	<jsp:include page="../template/bottom.jsp"/>
 </div>

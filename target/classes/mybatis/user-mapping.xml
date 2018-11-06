@@ -16,7 +16,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<![CDATA[select * from  
 		(select rownum rn, tt.* from 
 		view_pament_item tt)  
-		where rn>=#{startNum} and rn<=#{endNum}]]>
+		where user_id = #{user_id}
+		AND category = #{category}
+		AND rn>=#{startNum} and rn<=#{endNum}]]>
+	</select>
+	<select id="haveItemListAll" parameterType="java.util.Map" resultType="paymentHistoryDTO">
+		<![CDATA[select * from  
+		(select rownum rn, tt.* from 
+		view_pament_item tt)  
+		where user_id = #{user_id}
+		AND rn>=#{startNum} and rn<=#{endNum}]]>
 	</select>
 	
 	<insert id="userSignUp" parameterType="userDTO">
@@ -72,6 +81,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		AND user_phone=#{user_phone}
 	</select>
 	
+	<select id="haveItemCount" parameterType="String" resultType="Integer">
+		SELECT COUNT(*) FROM view_pament_item
+		WHERE user_id = #{user_id}
+	</select>
+	
+	<update id="cashCharge" parameterType="java.util.Map">
+		UPDATE users
+		SET user_cash = user_cash + #{charge_price}
+		WHERE user_id = #{user_id}
+	</update>
 	
 	
 	<!-- <insert id="userLogin" parameterType="boardDTO">

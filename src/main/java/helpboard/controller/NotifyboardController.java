@@ -54,7 +54,8 @@ public class NotifyboardController {
 		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("su", su);
-		modelAndView.setViewName("../helpboardc/myTestttt.jsp");
+		modelAndView.addObject("display", "../helpboardc/myTestttt.jsp");
+		modelAndView.setViewName("../main/index.jsp");
 		return modelAndView;
 	}
 	

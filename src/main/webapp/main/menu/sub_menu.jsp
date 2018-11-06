@@ -74,8 +74,8 @@ a.sub_menu_a:hover { text-decoration: none; color: white; }
 		</div>
 
 		<div id="sub_comunity">
-			<a href="#" class="sub_menu_a">자유게시판</a>
-			<a href="#" class="sub_menu_a">스크린샷</a>
+			<a href="../freeboard/freeboard_list.do?freeboard_pg=1" class="sub_menu_a">자유게시판</a>
+			<a href="../imgboard/imgboard_list.do?imgboard_pg=1" class="sub_menu_a">스크린샷</a>
 		</div>
 
 		<div id="sub_itemshoa">
@@ -83,8 +83,8 @@ a.sub_menu_a:hover { text-decoration: none; color: white; }
 		</div>
 
 		<div id="sub_cs">
-			<a href="#" class="sub_menu_a">FAQ</a>
-			<a href="#" class="sub_menu_a">1:1 문의 </a>
+			<a href="../helpboardc/mytestForm.do" class="sub_menu_a">FAQ</a>
+			<a href="../helpboardc/helpboardNotifyForm.do" class="sub_menu_a">1:1 문의 / 신고 </a>
 		</div>
 
 	</div>
