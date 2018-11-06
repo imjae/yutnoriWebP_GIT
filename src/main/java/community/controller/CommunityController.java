@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -307,10 +308,12 @@ public class CommunityController {
 	}
 	
 	@RequestMapping(value="/imgboard/imgboard_write.do", method=RequestMethod.POST)
-	public ModelAndView write(HttpSession session, MultipartFile imgboard_file, HttpServletRequest request) {
-		String filePath = "/storage";
-		System.out.println("filePath : " + filePath);
+	public ModelAndView imgboard_write(HttpSession session, MultipartFile imgboard_file, HttpServletRequest request) {
+		
 		String fileName = imgboard_file.getOriginalFilename();
+		System.out.println("fileName : " + fileName);
+		String filePath = "";
+		System.out.println("imgboard_file : " + imgboard_file);
 		File file = new File(filePath, fileName);
 		
 		// file 복사

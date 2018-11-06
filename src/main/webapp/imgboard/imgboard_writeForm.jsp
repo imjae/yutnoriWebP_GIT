@@ -29,7 +29,7 @@
 		<tr>
 			<td style="padding-top: 10px; padding-bottom: 5px;">
 				<label style="font-weight: bold">제목&nbsp;</label>
-				<input type="text" name="imgboard_subject" required="required" style="width: 96%;">
+				<input type="text" name="imgboard_subject" required="required" style="width: 600px;">
 			</td>
 		</tr>
 		<tr>
