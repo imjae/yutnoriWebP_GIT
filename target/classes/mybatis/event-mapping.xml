@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="eventMapper">
+
+	<insert id="eventWrite" parameterType="eventVO">
+		insert into event
+		values (seq_e_num.nextval, #{e_img}, #{title}, #{sub_title}, #{s_date}, #{e_date})
+	</insert>
+	
+	<select id="eventListOn" parameterType="java.util.Map" resultType="eventVO">
+		<![CDATA[ 
+		select *
+		from (select rownum rn, tt.* from (select * from event
+		where e_date >= to_char(sysdate, 'YYYY-MM-DD')
+		and s_date <= to_char(sysdate, 'YYYY-MM-DD')
+		order by e_num desc) tt)
+		where rn >= #{startNum} and rn <= #{endNum}
+		]]>
+	</select>
+	
+	<select id="eventListOff" parameterType="java.util.Map" resultType="eventVO">
+		<![CDATA[ select *
+		from (select rownum rn, tt.* from (select * from event
+		where e_date < to_char(sysdate, 'YYYY-MM-DD')
+		or s_date > to_char(sysdate, 'YYYY-MM-DD')
+		order by e_num desc) tt)
+		where rn >= #{startNum} and rn <= #{endNum}]]>
+	</select>
+	
+	<!-- 세부 내용 -->
+	<select id="eventView" parameterType="int" resultType="eventVO">
+		select * from event where e_num = #{e_num}
+	</select>
+	
+	<delete id="eventDelete" parameterType="int">
+		delete from event where e_num = #{e_num}
+	</delete>
+	
+	<update id="eventModify" parameterType="eventVO">
+		update event set
+		title = #{title},
+		content = #{content}
+		where e_num = #{e_num}
+	</update>
+	
+	<select id="getTotalAOn" resultType="int">
+		<![CDATA[
+		select count(*) from event
+		where e_date >= to_char(sysdate, 'YYYY-MM-DD')
+		and s_date <= to_char(sysdate, 'YYYY-MM-DD')
+		order by e_num desc
+		]]>
+	</select>
+	
+	<select id="getTotalAOff" resultType="int">
+		<![CDATA[
+		select count(*) from event
+		where e_date < to_char(sysdate, 'YYYY-MM-DD')
+		and s_date > to_char(sysdate, 'YYYY-MM-DD')
+		order by e_num desc
+		]]>
+	</select>
+	
+</mapper>

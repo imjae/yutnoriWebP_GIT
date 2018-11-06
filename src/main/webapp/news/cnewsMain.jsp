@@ -126,7 +126,7 @@ a.my_sub_menu:hover { text-decoration: none;  }
 <div id="section_total">
 	
 	<div id="section_top_left_center">
-		<h1 id="section_top" style="margin: 30px">공지사항</h1>
+		<h1 id="section_top" style="margin: 23px 30px">공지사항</h1>
 		
 		<div id="section_left_center">
 			<c:if test="${newsView != null }">

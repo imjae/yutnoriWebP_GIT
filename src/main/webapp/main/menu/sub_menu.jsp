@@ -55,9 +55,8 @@ a.sub_menu_a:hover { text-decoration: none; color: white; }
 	<div id="sub_menu_total">
 		<div id="sub_news">
 			
-			<a href="#" class="sub_menu_a">공지사항</a>
+			<a href="../news/newsMainAll.do" class="sub_menu_a">공지사항</a>
 			<a href="#" class="sub_menu_a">이벤트</a>
-			<a href="#" class="sub_menu_a">패치노트</a>
 			
 			
 		</div>
