@@ -130,7 +130,7 @@ div#account_ {
 	</div>
 	<div id="charge_btn">
 	충 전
-</div>
+	</div>
 </div>
 
 

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
@@ -17,8 +18,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import community.bean.FreeboardDTO;
@@ -253,7 +254,7 @@ public class CommunityController {
 //		
 //		communityService.free_commentInsert(freeboard_commentDTO);
 //	}
-	
+//
 //	@RequestMapping(value="/freeboard/freeboard_commentJson.do")
 //	public ModelAndView freeboard_commentJson(HttpServletRequest request, HttpSession session) {
 //		
@@ -280,7 +281,7 @@ public class CommunityController {
 //				Freeboard_commentDTO freeboard_commentDTO = free_commentJson.get(i);
 //				JSONObject temp = new JSONObject();
 //				temp.put("free_comment_num", freeboard_commentDTO.getFree_comment_num());
-//				temp.put("free_comment_writer", free_comment_writer);
+//				temp.put("free_comment_writer", (String)session.getAttribute("session_id"));
 //				temp.put("free_comment_content", freeboard_commentDTO.getFree_comment_content());
 //				temp.put("free_comment_date", freeboard_commentDTO.getFree_comment_date());
 //				
@@ -308,26 +309,22 @@ public class CommunityController {
 	}
 	
 	@RequestMapping(value="/imgboard/imgboard_write.do", method=RequestMethod.POST)
-	public ModelAndView imgboard_write(HttpSession session, MultipartFile imgboard_file, HttpServletRequest request) {
+	public ModelAndView imgboard_write(HttpSession session, MultipartFile imgboard_img, MultipartHttpServletRequest request) {
+		String fileName = imgboard_img.getOriginalFilename();
+		String filePath = request.getSession().getServletContext().getRealPath("/") + "/storage/";
+		File file = new File(filePath + fileName);
 		
-		String fileName = imgboard_file.getOriginalFilename();
-		System.out.println("fileName : " + fileName);
-		String filePath = "";
-		System.out.println("imgboard_file : " + imgboard_file);
-		File file = new File(filePath, fileName);
-		
-		// file 복사
 		try {
 			// getInputStream() : upload한 file data를 읽어오는 InputStream을 구한다.
-			FileCopyUtils.copy(imgboard_file.getInputStream(), new FileOutputStream(file));
+			FileCopyUtils.copy(imgboard_img.getInputStream(), new FileOutputStream(file));
+			System.out.println("imgboard_img.getInputStream() : " + imgboard_img.getInputStream());
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		String user_id = (String)session.getAttribute("session_id");
-		String imgboard_writer = user_id;
+		String imgboard_writer = (String)session.getAttribute("session_id");
 		
 		// data
 		ImgboardDTO imgboardDTO = new ImgboardDTO();
@@ -370,15 +367,15 @@ public class CommunityController {
 	}
 	
 	@RequestMapping(value="/imgboard/imgboard_modify.do", method=RequestMethod.POST)
-	public ModelAndView write(MultipartFile imgboard_file, HttpServletRequest request) {
-		String filePath = "F:/spring/workspace/community/src/main/webapp/storage";
-		String fileName = imgboard_file.getOriginalFilename();
-		File file = new File(filePath, fileName);
+	public ModelAndView write(MultipartFile imgboard_img, MultipartHttpServletRequest request) {
+		String fileName = imgboard_img.getOriginalFilename();
+		String filePath = request.getSession().getServletContext().getRealPath("/") + "/storage/";
+		File file = new File(filePath + fileName);
 		
-		// file 복사
 		try {
 			// getInputStream() : upload한 file data를 읽어오는 InputStream을 구한다.
-			FileCopyUtils.copy(imgboard_file.getInputStream(), new FileOutputStream(file));
+			FileCopyUtils.copy(imgboard_img.getInputStream(), new FileOutputStream(file));
+			System.out.println("imgboard_img.getInputStream() : " + imgboard_img.getInputStream());
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
