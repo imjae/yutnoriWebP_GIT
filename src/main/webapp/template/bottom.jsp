@@ -9,7 +9,7 @@
 div#footer {
     border: 1000px 400px;
     border-top: 1px solid #BDBDBD;
-    overflow-x: none;
+    
     font-size: 13px;
     font-smooth: always;
     position: relative;
@@ -32,7 +32,7 @@ div#footer {
         <li><a href="https://maplestory.nexon.com/Common/Footer/OperationPolicy" title="운영정책" style="text-decoration:none; color:#646464;">운영정책</a></li>
       </ul>
       <dl>
-        <dd>(주)KGITBANK 학생 밥구진&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;주소 : 서울특별시 종로구 돈화문로 26 단성사빌딩 5층 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;고객센터 : 02-3672-6900&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FAX : 02-3672-5615</dd>
+        <dd>(주)윷노리 대표이사 홍길동&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;주소 : 서울특별시 종로구 돈화문로 26 단성사빌딩 5층 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;고객센터 : 02-3672-6900&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FAX : 02-3672-5615</dd>
          </dl>
       <dl>
         <dd>Email : num02@naver.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;사업자 등록번호 : 123-45-6789호&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;통신판매업 신고번호 : 제2018-서울특별시-1234호&nbsp;&nbsp;&nbsp;&nbsp;사업자 정보 확인</dd>

@@ -69,7 +69,8 @@ a.sub_menu_a:hover { text-decoration: none; color: white; }
 		</div>
 
 		<div id="sub_ranking">
-			<a href="#" class="sub_menu_a">종합랭킹</a>
+			<a href="../rank/yutnoriiiRankList.do?pg=1" class="sub_menu_a">전적랭킹</a>
+			<a href="../rank/MoneyRankList.do?pg=1" class="sub_menu_a">골드 보유랭킹</a>
 		</div>
 
 		<div id="sub_comunity">
