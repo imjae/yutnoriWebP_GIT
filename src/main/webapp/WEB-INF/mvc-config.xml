@@ -17,7 +17,6 @@
     <mvc:resources location="/helpboard/" mapping="/helpboard/**" />
     <mvc:resources location="/helpboardc/" mapping="/helpboardc/**" />
     <mvc:resources location="/news/" mapping="/news/**" />
-    <mvc:resources location="/storage/" mapping="/storage/**"/>
 	<mvc:resources location="/itemShop/" mapping="/itemShop/**" />
 	<mvc:resources location="/storage/" mapping="/storage/**"/>
 	<mvc:resources location="/script/" mapping="/script/**" />
