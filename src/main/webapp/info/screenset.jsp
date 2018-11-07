@@ -13,7 +13,10 @@ div#title{
 }
 div#am{
 color:red;
-
+text-align:center;
+}
+div#login{
+weight:100px;
 }
 </style>
 </head>
@@ -21,7 +24,7 @@ color:red;
 	<div id="title">
 	<h3>로그인 화면 구성</h3>
 	</div>
-		<div>
+		<div id="login" align="center">
 			<img alt="" src="../etc/image/downImage/login.jpg">
 		</div>
 		<div id="am">
@@ -30,18 +33,20 @@ color:red;
 		<div id="title">
 			<h3>대기실 화면구성</h3>
 		</div>
-		<div>
+		<div id="wait" align="center">
 			<img alt="" src="../etc/image/downImage/waitroom.jpg">
 		</div>
-		<div>
-			
+		<div id="am">
+			대기실 입장 -> 방만들기(방참가)를 한다. -> 게임방 입장 
 		</div>
 		<div id="title">
 			<h3>게임방 화면구성</h3>
 		</div>
-		<div>
+		<div id="start" align="center">
 			<img alt="" src="../etc/image/downImage/gameroom.jpg">
 		</div>
-	
+		<div id="am">
+			게임방 입장 -> 게임시작(준비) 한다. -> 윷노리를 즐긴다.
+		</div>
 </body>
 </html>

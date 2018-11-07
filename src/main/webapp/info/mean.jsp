@@ -11,19 +11,59 @@ table.animal th{
 	padding: auto;
 	width:300px;
 }
+table.no {
+	width:600px;
+	height: 400px;
+}
+table.no td{
+ 	text-align:center;
+ 	font-family: "-윤고딕330"
+}
+table.no tr{
+	background-color: #F2F5A9;
+}
 </style>
 </head>
 <body>
-	<table class="animal">
+<h2 align="center">윷노리 </h2>
+	<table class="animal" align="center">
 		<tr>
 			<td><img alt="" src="../etc/image/downImage/info.jpg"></td>
-			<th>윷 또는 모가 나올경우와 도 , 개 , 걸로 상대방
-				말을 잡을경우에는 한번더 윷을 던질수 있으며
-				같은 자리에 아군말이갈경우 말을 업고 같이 갈수있다.</th>
-			</tr>
+		</tr>
 	</table>
-	<table>
-		
+	<table class="no" align="center">
+		<tr>
+			<td>도</td>
+			<td>앞으로 한칸 전진<br>
+			상대방 말을 잡으면 한번 더!</td>
+		</tr>
+		<tr>
+			<td>개</td>
+			<td>앞으로 두칸 전진<br>
+			상대방 말을 잡으면 한번 더!</td>	
+		</tr>
+		<tr>
+			<td>걸</td>
+			<td>앞으로 세칸 전진<br>
+			상대방 말을 잡으면 한번 더!</td>
+		</tr>
+		<tr>
+			<td>윷</td>
+			<td>앞으로 네칸 전진<br>
+			나오기만 하면 한번 더!<br>
+			상대방 말을 잡을순있지만 한번더 던질순 없어요</td>	
+		</tr>
+		<tr>
+			<td>모</td>
+			<td>앞으로 다섯칸 전진<br>
+			나오기만 하면 한번 더!<br>
+			상대방 말을 잡을순있지만 한번더 던질순 없어요</td>
+		</tr>
+		<tr>
+			<td>빽도</td>
+			<td>뒤로 한칸 후퇴<br>
+			상대방 말을 잡으면 한번 더!</td>
+		</tr>
 	</table>
 </body>
 </html>

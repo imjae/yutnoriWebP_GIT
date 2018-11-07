@@ -26,23 +26,21 @@ table.down th {
 	color: blue;
 	background-color:yellow;
 }
-table.down{
-align:center;
-}
 </style>
 </head>
 <body>
-<h3>다운로드</h3>
-<table class="down">
+<h2 align="center">다운로드</h2>
+<table class="down" align="center">
 	<tr>   
 		<th>↓ 버튼 클릭하여 설치하기 ↓</th>
 	</tr> 
 	<tr>
-		  <td><a href="/projectteam1/download.do?path=${game}&fileName=${game}"><img alt="" src="../etc/image/downImage/button.jpg"></a></td> 
+		  <td><a href="/projectteam1/download.do?path=${game}&fileName=${game}"><img alt="" src="../etc/image/downImage/button.jpg"></a></td>
+		  <td><img alt="" src="../etc/image/itemImage/characterImage/ycs_.png"></td>
 	</tr>
 </table>
-<h3>게임 권장사항</h3>
-<table border="1" class="made">
+<h2 align="center">게임 권장사항</h2>
+<table border="1" class="made" align="center">
 	<tr>
 		<th align="center" class="title">구분</th>
 		<th align="center" class="title">최소 권장사양</th>
