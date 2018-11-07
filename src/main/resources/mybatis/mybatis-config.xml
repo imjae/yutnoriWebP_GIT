@@ -44,9 +44,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mybatis/notifyboard-mapping.xml" />
 
 		<mapper resource="mybatis/news-mapping.xml" />
-<<<<<<< HEAD
 		<mapper resource="mybatis/event-mapping.xml" />
-=======
 		<!-- <mapper resource="mybatis/event-mapping.xml" />	 -->
 
 
@@ -57,7 +55,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 
 
->>>>>>> 05e3d646dfa4be30f470b9a7464d3442b31d1a70
 		<mapper resource="mybatis/community-mapping.xml"/>
 
 	</mappers>

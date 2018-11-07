@@ -35,6 +35,22 @@ public class EventDAO {
 	}
 	
 	public EventVO eventView(int e_num) {
-		return sqlSession.selectOne("eventMapper", e_num);
+		return sqlSession.selectOne("eventMapper.eventView", e_num);
+	}
+	
+	public int eventDelete(int e_num) {
+		return sqlSession.delete("eventMapper.eventDelete", e_num);
+	}
+	
+	public int eventModify(EventVO eventVO) {
+		return sqlSession.update("eventMapper.eventModify", eventVO);
+	}
+	
+	public int getTotalAOn() {
+		return sqlSession.selectOne("eventMapper.getTotalAOn");
+	}
+	
+	public int getTotalAOff() {
+		return sqlSession.selectOne("eventMapper.getTotalAOff");
 	}
 }

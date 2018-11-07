@@ -6,9 +6,45 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="../etc/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		
+			$("#eventForm").submit(function() {
+				if (!$("input[name='e_img']").val()) {
+					alert("썸네일 이미지를 입력해 주세요");
+					$("input[name='e_img']").focus();
+					return false;
+				}
+				
+				if (!$("input[name='title']").val()) {
+					alert("제목을 입력해 주세요");
+					$("input[name='title']").focus();
+					return false;
+				}
+				
+				if (!$("input[name='sub_title']").val()) {
+					alert("부제목을 입력해 주세요");
+					$("input[name='sub_title']").focus();
+					return false;
+				}
+				
+				if (!$("input[name='s_date']").val()) {
+					alert("시작일을 입력해 주세요");
+					$("input[name='s_date']").focus();
+					return false;
+				}
+				
+				if (!$("input[name='e_date']").val()) {
+					alert("종료일을 입력해 주세요");
+					$("input[name='e_date']").focus();
+					return false;
+				}
+			});
+	});
+</script>
 </head>
 <body>
-<form action="../event/eventWrite.do" method="post" id="form">
+<form action="../event/eventWrite.do" method="post" id="eventForm">
 	<h1>이벤트 입력창</h1>
 	<table border="">
 		<tr>
@@ -36,7 +72,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td align="center">부제목</td>
+			<td align="center">종료일</td>
 			<td>
 				<input type="text" size="110" name="e_date" placeholder="0000-00-00">
 			</td>
@@ -49,7 +85,8 @@
 		</tr>
 		<tr>
 			<td colspan="2">
-				<a href="../event/eventListAll.do?pg=1">이벤트 전체 목록 보기</a>
+				<a href="../event/eventListOn.do?pg=1">진행중인 이벤트 목록 보기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="../event/eventListOff.do?pg=1">종료된 이벤트 목록 보기</a>
 			</td>
 		</tr>
 	</table>

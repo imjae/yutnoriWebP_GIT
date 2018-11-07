@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="eventWrite" parameterType="eventVO">
 		insert into event
-		values (seq_e_num.nextval, #{e_img}, #{title}, #{sub_title}, #{s_date}, #{e_date})
+		values (seq_event_num.nextval, #{e_img}, #{title}, #{sub_title}, #{s_date}, #{e_date})
 	</insert>
 	
 	<select id="eventListOn" parameterType="java.util.Map" resultType="eventVO">
@@ -51,7 +51,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from event
 		where e_date >= to_char(sysdate, 'YYYY-MM-DD')
 		and s_date <= to_char(sysdate, 'YYYY-MM-DD')
-		order by e_num desc
 		]]>
 	</select>
 	
@@ -59,8 +58,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<![CDATA[
 		select count(*) from event
 		where e_date < to_char(sysdate, 'YYYY-MM-DD')
-		and s_date > to_char(sysdate, 'YYYY-MM-DD')
-		order by e_num desc
+		or s_date > to_char(sysdate, 'YYYY-MM-DD')
 		]]>
 	</select>
 	
