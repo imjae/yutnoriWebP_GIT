@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="../etc/js/jquery-3.3.1.min.js"></script>
 <script src="https://cdn.ckeditor.com/4.10.1/standard/ckeditor.js"></script>
@@ -75,8 +75,6 @@
 		<tr>
 			<td colspan="2">
 				<a href="../news/newsListAll.do?pg=1">새소식 전체 목록 보기</a>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">신고 게시판 전체 목록 보기</a>
 			</td>
 		</tr>
 	</table>
