@@ -13,6 +13,11 @@ div#top_info {
 	height: 60px;
 }
 
+div#start_button:hover {
+	cursor: pointer;
+	
+}
+
 #menu_sub {
 	width: 2000px;
 	height: 300px;
