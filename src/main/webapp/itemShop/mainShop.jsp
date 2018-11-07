@@ -60,12 +60,24 @@ div#header a {
 }
 div#menu_space_ad a {margin-left: 500px; /* border: 1px solid orange; */}
 </style>
-
+<script type="text/javascript">
+	function confLogin(uri){
+		if(${session_id == null}){	// 로그인 안한 상태로 결제하기 눌렀을 때
+			alert("로그인 후 결제해주세요.");
+			location.href="../login/loginPage.jsp";
+		}else{	// 로그인 상태일때
+			location.href=uri;
+		}
+	}
+	
+</script>
 </head>
 <body>
+<div id="shop_bg">
+
 <div id="top_info">
 </div>
-<div id="shop_bg">
+
 <div id="menu_space">
 	<div id="menu_space_top">
 		<div id="blank"></div>
@@ -80,7 +92,7 @@ div#menu_space_ad a {margin-left: 500px; /* border: 1px solid orange; */}
 			</a>
 		</div>
 		<div id="basket"><a href="#">장바구니</a></div>
-		<div id="buyList"><a href="#">구매내역</a></div>
+		<div id="buyList"><a onclick="confLogin('../main/myPage.do?dis=../user/paymentHistory.do')">구매내역</a></div>
 		<div id="blank"></div>
 	</div>
 	<div id="menu_space_ad">

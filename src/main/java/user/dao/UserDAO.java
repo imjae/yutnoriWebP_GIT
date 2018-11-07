@@ -96,12 +96,15 @@ public class UserDAO {
 		return sqlSession.update("mybatis.userMapper.cashCharge", map);
 	}
 	
+<<<<<<< HEAD
 
+=======
+>>>>>>> c6ace745a1dfca5d3c38d47aeeeb722ac106c83d
 	public int insertHistory(String user_id, String item_code) {
 		Map<Object, Object> map = new HashMap<Object,Object>();
 		map.put("user_id", user_id);
 		map.put("item_code", item_code);
-		
+
 		return sqlSession.insert("mybatis.userMapper.insertHistory", map);
 	}
 	public int equipItemCreate(String user_id) {
