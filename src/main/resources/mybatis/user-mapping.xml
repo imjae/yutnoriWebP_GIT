@@ -96,6 +96,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE user_id = #{user_id}
 	</update>
 	
+	<update id="equipItem" parameterType="java.util.Map">
+		UPDATE equipment
+		SET ${column_name} = #{item_code}
+		WHERE user_id = #{user_id}
+	</update>
+	
+	<insert id="equipItemCreate" parameterType="String">
+		INSERT INTO equipment (user_id)
+		VALUES( #{user_id} )
+	
+	</insert>
 	
 	<!-- <insert id="userLogin" parameterType="boardDTO">
 		INSERT INTO guestbook
