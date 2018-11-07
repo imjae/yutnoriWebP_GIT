@@ -8,7 +8,7 @@
 <script type="text/javascript" src="../etc/js/jquery-3.3.1.min.js"></script>
 <link rel="stylesheet" href="../etc/css/shopTheme.css" type="text/css">
 <style type="text/css">
-div#content {height: 600px; background: none; }
+div#content {height: 600px; background: none; padding-top: 50px;}
 
 #menu_space div#menu_img {width: 350px; float: left;  /*  border: 1px solid black; */ }
 #menu_space div#menu_name {width:600px; float: left; /* border: 1px solid red; */ }
@@ -52,7 +52,7 @@ div#menu_name td input {
 <script type="text/javascript">
 	function confLogin(uri){
 		if(${session_id == null}){	// 로그인 안한 상태로 결제하기 눌렀을 때
-			alert("로그인 후 결제해주세요.");
+			alert("로그인 후 이용해주세요.");
 			location.href="../login/loginPage.jsp";
 		}else{	// 로그인 상태일때
 			location.href=uri;
@@ -122,15 +122,17 @@ div#menu_name td input {
 	
 </div>
 
+<div id="body">
 
-
-<div id="content" align="center">
-	<img src="../storage/${itemShopDTO.item_content }.png" width="1000" height="450">
+	<div id="content" align="center">
+		<img src="../storage/${itemShopDTO.item_content }.png" width="1000" height="450">
+	</div>
 </div>
-</div>
 
+</div>
 <div id="footer">
 	<jsp:include page="../template/bottom.jsp"/>
 </div>
+
 </body>
 </html>
