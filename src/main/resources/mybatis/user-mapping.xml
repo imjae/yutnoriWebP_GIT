@@ -86,6 +86,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE user_id = #{user_id}
 	</select>
 	
+	<insert id="insertHistory" parameterType="java.util.Map">
+		INSERT INTO payment_history VALUES(#{user_id}, #{item_code}, sysdate)
+	</insert>
+	
 	<update id="cashCharge" parameterType="java.util.Map">
 		UPDATE users
 		SET user_cash = user_cash + #{charge_price}

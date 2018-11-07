@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import itemShop.bean.ItemShopDTO;
 import itemShop.bean.PaymentHistoryDTO;
 import rank.bean.PreviewDTO;
 import user.bean.UserDTO;
@@ -406,6 +407,38 @@ public class UserController {
 
 	}
 
+	@RequestMapping(value = "/user/paymentHistory.do")
+	public ModelAndView paymentHistory(HttpServletRequest request) {
+		
+		int pg = Integer.parseInt(request.getParameter("pg"));
+		String user_id = String.valueOf(request.getSession().getAttribute("session_id"));
+
+		int endNum = pg * 8;
+		int startNum = endNum - 7;
+		List<PaymentHistoryDTO> list = userService.haveItemListAll(user_id, startNum, endNum);
+		int totalA = userService.haveItemCount(user_id);
+		int totalP = (totalA + 7)/8;
+		int startPage = (pg - 1)/3*3+1;
+		int endPage = startPage + 2;
+		if(endPage > totalP) {
+			endPage = totalP;
+		}
+		ModelAndView modelAndView = new ModelAndView();
+		/*modelAndView.addObject("userInfo_page_url", "../user/paymentHistory_page.jsp");
+		modelAndView.addObject("display", "../user/userInfo_title.jsp");*/
+		modelAndView.addObject("pg", pg);
+		modelAndView.addObject("list", list);
+		modelAndView.addObject("startPage", startPage);
+		modelAndView.addObject("endPage", endPage);
+		modelAndView.addObject("totalP", totalP);
+
+		modelAndView.setViewName("../user/paymentHistory_page.jsp");
+		return modelAndView;
+	}
+	
+	
+	
+	
 	@RequestMapping(value = "/user/cashCharge.do")
 	public ModelAndView cashCharge(HttpServletRequest request) {
 

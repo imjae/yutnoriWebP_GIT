@@ -82,7 +82,7 @@ div#payBody div#warning label{
 					location.href="../main/myPage.do?dis=../user/cashCharge_page.jsp";
 				}else{
 					// 결제화면으로 이동하기
-					location.href="../itemShop/itemPaymentSuccess.do?item_charge=${itemShopDTO.item_charge*ea}";
+					location.href="../itemShop/itemPaymentSuccess.do?item_code=${itemShopDTO.item_code}&item_charge=${itemShopDTO.item_charge*ea}";
 				}
 			}else{
 				$("div#warning").css("color","red");
