@@ -143,10 +143,13 @@ div#menu_space > div#login_form {
 	height: 350px;
 }
 
-
+/* #footer {
+	float: none;
+	clear: both;
+} */
 .footer{
 	border: 1500px 1000px;
-    border-top: 1px solid #BDBDBD;
+    border-top: 1px solid #BDBDBD;m 
     overflow-x: none;
     font-size: 13px;
     font-smooth: always;

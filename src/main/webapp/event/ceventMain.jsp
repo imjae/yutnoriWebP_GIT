@@ -19,30 +19,25 @@
 		border : 1px solid black; */
 		/* border-top: 3px dashed rgba(0,0,0,0.6);  */
 		background-color: rgba(255,255,255,0.5);
-		font-family: "-윤고딕320";
-		
-		
-	}
-	
-	div#section_top_left_center {
-		width: 80%;
-		height: 100%;
-		float: left;
+		font-family: "-윤고딕320";	
 	}
 	
 	div#section_left {
-		width:20%;
+		width:80%;
 		height:100%;
 		float: left;
 		/* border: 1px solid black; */
 	}
 	
-	div#section_center {
-		width: 850px;
-		height:100%;
-		float: left;
-		padding-right: 45px;
+	div#section_left_top {
 		/* border: 1px solid black; */
+		margin: 0px 30px;
+		height: 4%;
+	}
+	
+	div#section_left_center {
+		/* border: 1px solid black; */
+		margin: 0px 30px;
 	}
 	
 	div#section_right{
@@ -116,51 +111,57 @@
 a.my_sub_menu:link { text-decoration: none; }
 a.my_sub_menu:visited { text-decoration: none; }
 a.my_sub_menu:hover { text-decoration: none;  }
-	
+
 #selected {
 	color: black;
 	font-weight: bold;
 }	
 
-</style>
+.selected_btn {
+	float: left;
+	text-decoration: none;
+	line-height: 40px;
+	height: 38px;
+	font-weight:bold;
+	width: 110px;
+	text-align: center;
+	background-color: orange;
+	color: white;
+	border: 1px solid rgba(0,0,0, 0.2);
+}
 
+.btn {
+	float: left;
+	text-decoration: none;
+	line-height: 40px;
+	height: 38px;
+	font-weight:bold;
+	width: 110px;
+	text-align: center;
+	background-color: white;
+	color: rgba(0,0,0, 0.6);
+	border: 1px solid rgba(0,0,0, 0.2);
+}
+.btn:link { text-decoration: none;}
+.btn:visited { text-decoration: none;}
+</style>
 </head>
 <body>
 
 <div id="section_total">
 	
-	<div id="section_top_left_center">
-		<h1 id="section_top" style="margin: 23px 30px">공지사항</h1>
+	<div id="section_left">
+		<h1 id="section_top" style="margin: 0 30px; height: 8%; line-height: 80px; /* border: 1px solid black; */">이벤트</h1>
+		
+		<div id="section_left_top">
+			<a href="../event/eventMainOn.do" class="${sector == 'on' ? 'selected_btn' : 'btn' }">진행중</a>
+			<a href="../event/eventMainOff.do" class="${sector == 'off' ? 'selected_btn' : 'btn' }">종료</a>
+		</div>
 		
 		<div id="section_left_center">
-			<c:if test="${newsView != null }">
-				<jsp:include page="${newsView }"></jsp:include>
-			</c:if>
-			
-			<c:if test="${newsView == null }">
-				<div id="section_left">
-				
-				<div id="inform_nav">
-					<a href="../news/newsMainAll.do?pg=1" class="${newsdto.sort == null ? 'navClass' : 'inav' }">전체</a>
-					<a href="../news/newsMainSortInform.do?pg=1&sort=inform" class="${newsdto.sort == 'inform' ? 'navClass' : 'inav' }">공지</a>
-					<a href="../news/newsMainSortInform.do?pg=1&sort=patch" class="${newsdto.sort == 'patch' ? 'navClass' : 'inav' }">점검</a>
-					<a href="../news/newsMainSortInform.do?pg=1&sort=shop" class="${newsdto.sort == 'shop' ? 'navClass' : 'inav' }">샵</a>
-				</div>
-			</div>
-			
-			<div id="section_center">
-				<c:if test="${display2 != null }">
-					<jsp:include page="${display2 }" />
-				</c:if>
-				
-				<c:if test="${display2 == null }">
-					<jsp:include page="cnewsCenter.jsp" />
-				</c:if>
-				
-			</div>
-			</c:if>
-			
+			<jsp:include page="../event/ceventCenter.jsp"/>
 		</div>
+		
 	</div>
 	
 	<div id="section_right">
@@ -170,11 +171,11 @@ a.my_sub_menu:hover { text-decoration: none;  }
 		</div>
 		
 		<div id="section_char_info" class="userInfo_sub_menu">
-		<a href="../news/newsMainAll.do" class="my_sub_menu" id="selected">&nbsp;&nbsp;&CenterDot; 공지사항</a>
+		<a href="../news/newsMainAll.do" class="my_sub_menu">&nbsp;&nbsp;&CenterDot; 공지사항</a>
 		</div>
 		
 		<div id="section_user_item" class="userInfo_sub_menu">
-		<a href="../event/eventMainOn.do"  class="my_sub_menu">&nbsp;&nbsp;&CenterDot;  이벤트</a>
+		<a href="../event/eventMainOn.do"  class="my_sub_menu" id="selected">&nbsp;&nbsp;&CenterDot;  이벤트</a>
 		</div>
 	</div>
 </div>
