@@ -169,6 +169,31 @@ div#char_img_div img#char_img {
 		var pg = 1;
 		
 		$.ajax({
+			url : "../user/equip_item_status_charInfo.do",
+			type : "post",
+			dataType : "json",
+			success : function(data){
+				var su = 0;
+				$.each(data.items, function(index, item){
+					
+					
+					if(item.character != null){
+						$("img#char_img").attr("src","../etc/image/itemImage/characterImage/"+item.character+".png");
+
+					}
+					if(item.background != null){
+						$("img#back_img").attr("src","../etc/image/itemImage/characterImage/"+item.background+".png");
+					}
+					
+				
+				});
+			},
+			error : function(xhr, textStatus, errorThrown){
+				$("div").html("<div>"+textStatus+" (HTTP-)"+ xhr.status + " / " + errorThrown +")</div>");
+			}
+		});
+		
+		$.ajax({
 			url : "../user/have_itemList.do",
 			type : "post",
 			data : {"category" : "total",

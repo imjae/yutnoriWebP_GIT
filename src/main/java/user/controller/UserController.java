@@ -18,6 +18,7 @@ import itemShop.bean.ItemShopDTO;
 import itemShop.bean.PaymentHistoryDTO;
 import rank.bean.PreviewDTO;
 import user.bean.UserDTO;
+import user.bean.UserEquipDTO;
 
 @Controller
 public class UserController {
@@ -259,7 +260,7 @@ public class UserController {
 		dto.setUser_jumin(jumin);
 		dto.setUser_phone(phone);
 
-		System.out.println(name + "," + jumin + "," + phone+"ADFASF");
+		System.out.println(name + "," + jumin + "," + phone + "ADFASF");
 
 		int name_count = userService.userNameCheck(name);
 		int jumin_count = userService.userJuminCheck(jumin);
@@ -268,7 +269,7 @@ public class UserController {
 		int qwert = name_count + jumin_count + phone_count;
 
 		System.out.println(qwert);
-		
+
 		String result = "";
 
 		if (qwert >= 3) {
@@ -374,7 +375,7 @@ public class UserController {
 		String category = request.getParameter("category");
 
 		String user_id = String.valueOf(request.getSession().getAttribute("session_id"));
-	
+
 		// 페이징 처리
 		String column_name = "equ_" + category;
 
@@ -386,13 +387,12 @@ public class UserController {
 		JSONArray items = new JSONArray();
 
 		JSONObject temp = new JSONObject();
-		
+
 		String[] img = item_code.split("_");
-		System.out.println();
-		
+
 		temp.put("category", category);
 		temp.put("item_img", img[1]);
-		
+
 		items.put(temp);
 
 		json.put("items", items);
@@ -411,7 +411,7 @@ public class UserController {
 
 	@RequestMapping(value = "/user/paymentHistory.do")
 	public ModelAndView paymentHistory(HttpServletRequest request) {
-		
+
 		int pg = Integer.parseInt(request.getParameter("pg"));
 		String user_id = String.valueOf(request.getSession().getAttribute("session_id"));
 
@@ -419,15 +419,18 @@ public class UserController {
 		int startNum = endNum - 7;
 		List<PaymentHistoryDTO> list = userService.haveItemListAll(user_id, startNum, endNum);
 		int totalA = userService.haveItemCount(user_id);
-		int totalP = (totalA + 7)/8;
-		int startPage = (pg - 1)/3*3+1;
+		int totalP = (totalA + 7) / 8;
+		int startPage = (pg - 1) / 3 * 3 + 1;
 		int endPage = startPage + 2;
-		if(endPage > totalP) {
+		if (endPage > totalP) {
 			endPage = totalP;
 		}
 		ModelAndView modelAndView = new ModelAndView();
-		/*modelAndView.addObject("userInfo_page_url", "../user/paymentHistory_page.jsp");
-		modelAndView.addObject("display", "../user/userInfo_title.jsp");*/
+		/*
+		 * modelAndView.addObject("userInfo_page_url",
+		 * "../user/paymentHistory_page.jsp"); modelAndView.addObject("display",
+		 * "../user/userInfo_title.jsp");
+		 */
 		modelAndView.addObject("pg", pg);
 		modelAndView.addObject("list", list);
 		modelAndView.addObject("startPage", startPage);
@@ -437,10 +440,7 @@ public class UserController {
 		modelAndView.setViewName("../user/paymentHistory_page.jsp");
 		return modelAndView;
 	}
-	
-	
-	
-	
+
 	@RequestMapping(value = "/user/cashCharge.do")
 	public ModelAndView cashCharge(HttpServletRequest request) {
 
@@ -468,6 +468,83 @@ public class UserController {
 		modelAndView.addObject("charge_count", charge_count);
 		modelAndView.setViewName("../main/index.jsp");
 
+		return modelAndView;
+	}
+
+	@RequestMapping(value = "/user/equip_item_status.do")
+	public ModelAndView equipItemStatus(HttpServletRequest request) {
+
+		String id = String.valueOf(request.getSession().getAttribute("session_id"));
+
+		UserEquipDTO dto = userService.equipItemStatus(id);
+
+		ModelAndView modelAndView = new ModelAndView();
+
+		// (2) DB
+
+		JSONObject json = new JSONObject();
+		JSONArray items = new JSONArray();
+
+		JSONObject temp = new JSONObject();
+
+		System.out.println();
+		
+
+		String[] img = dto.getEqu_character().split("_");
+
+		String[] background = dto.getEqu_background().split("_");
+
+		temp.put("character", img[1]);
+		temp.put("background", background[1]);
+
+		items.put(temp);
+
+		json.put("items", items);
+
+		System.out.println(json);
+
+		
+		modelAndView.addObject("json", json);
+
+		modelAndView.setViewName("../user/item_list_json.jsp");
+		return modelAndView;
+	}
+	@RequestMapping(value = "/user/equip_item_status_charInfo.do")
+	public ModelAndView equipItemStatusCharInfo(HttpServletRequest request) {
+
+		String id = String.valueOf(request.getSession().getAttribute("session_id"));
+
+		UserEquipDTO dto = userService.equipItemStatus(id);
+
+		ModelAndView modelAndView = new ModelAndView();
+
+		// (2) DB
+
+		JSONObject json = new JSONObject();
+		JSONArray items = new JSONArray();
+
+		JSONObject temp = new JSONObject();
+
+		System.out.println();
+		
+
+		String[] img = dto.getEqu_character().split("_");
+
+		String[] background = dto.getEqu_background().split("_");
+
+		temp.put("character", img[1]);
+		temp.put("background", background[1]);
+
+		items.put(temp);
+
+		json.put("items", items);
+
+		System.out.println(json);
+
+		
+		modelAndView.addObject("json", json);
+
+		modelAndView.setViewName("../user/item_list_json.jsp");
 		return modelAndView;
 	}
 
