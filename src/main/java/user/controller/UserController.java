@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import itemShop.bean.ItemShopDTO;
 import itemShop.bean.PaymentHistoryDTO;
 import rank.bean.PreviewDTO;
 import user.bean.UserDTO;
@@ -166,6 +167,8 @@ public class UserController {
 		dto.setUser_phone(phone);
 
 		userService.userSignUp(dto);
+
+		userService.equipItemCreate(id);
 
 		request.getSession().removeAttribute("authNum");
 
@@ -360,10 +363,82 @@ public class UserController {
 		modelAndView.setViewName("../user/item_list_json.jsp");
 		return modelAndView;
 
-		/////////////////////////////////////////////////
+	}
+
+	@RequestMapping(value = "/user/equip_item.do", method = { RequestMethod.POST })
+	public ModelAndView equipItem(HttpServletRequest request) {
+
+		String item_code = request.getParameter("item_code");
+		String category = request.getParameter("category");
+
+		String user_id = String.valueOf(request.getSession().getAttribute("session_id"));
+	
+		// 페이징 처리
+		String column_name = "equ_" + category;
+
+		userService.equipItem(user_id, item_code, column_name);
+
+		// (2) DB
+
+		JSONObject json = new JSONObject();
+		JSONArray items = new JSONArray();
+
+		JSONObject temp = new JSONObject();
+		
+		String[] img = item_code.split("_");
+		System.out.println();
+		
+		temp.put("category", category);
+		temp.put("item_img", img[1]);
+		
+		items.put(temp);
+
+		json.put("items", items);
+
+		System.out.println(json);
+
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("userInfo_page_url", "../user/charInfo_page.jsp");
+		modelAndView.addObject("display", "../user/userInfo_title.jsp");
+		modelAndView.addObject("json", json);
+
+		modelAndView.setViewName("../user/item_list_json.jsp");
+		return modelAndView;
 
 	}
 
+	@RequestMapping(value = "/user/paymentHistory.do")
+	public ModelAndView paymentHistory(HttpServletRequest request) {
+		
+		int pg = Integer.parseInt(request.getParameter("pg"));
+		String user_id = String.valueOf(request.getSession().getAttribute("session_id"));
+
+		int endNum = pg * 8;
+		int startNum = endNum - 7;
+		List<PaymentHistoryDTO> list = userService.haveItemListAll(user_id, startNum, endNum);
+		int totalA = userService.haveItemCount(user_id);
+		int totalP = (totalA + 7)/8;
+		int startPage = (pg - 1)/3*3+1;
+		int endPage = startPage + 2;
+		if(endPage > totalP) {
+			endPage = totalP;
+		}
+		ModelAndView modelAndView = new ModelAndView();
+		/*modelAndView.addObject("userInfo_page_url", "../user/paymentHistory_page.jsp");
+		modelAndView.addObject("display", "../user/userInfo_title.jsp");*/
+		modelAndView.addObject("pg", pg);
+		modelAndView.addObject("list", list);
+		modelAndView.addObject("startPage", startPage);
+		modelAndView.addObject("endPage", endPage);
+		modelAndView.addObject("totalP", totalP);
+
+		modelAndView.setViewName("../user/paymentHistory_page.jsp");
+		return modelAndView;
+	}
+	
+	
+	
+	
 	@RequestMapping(value = "/user/cashCharge.do")
 	public ModelAndView cashCharge(HttpServletRequest request) {
 

@@ -85,6 +85,22 @@ public class UserServiceImpl implements UserService {
 	public int cashCharge(String user_id, int charge_price) {
 		return userDAO.cashCharge(user_id, charge_price);
 	}
+
+	@Override
+<<<<<<< HEAD
+	public int insertHistory(String user_id, String item_code) {
+		return userDAO.insertHistory(user_id, item_code);
+=======
+	public int equipItemCreate(String user_id) {
+		return userDAO.equipItemCreate(user_id);
+	}
+
+	@Override
+	public int equipItem(String user_id, String item_code, String column_name) {
+		
+		return userDAO.equipItem(user_id, item_code, column_name);
+>>>>>>> c515d52a99c1f95eb4aa08456ed0a99b2569f8df
+	}
 	
 	
 	

@@ -195,7 +195,8 @@ div#total_rank_title {
 <form action="../rank/RankList.do?pgg=1" name="yutnoriiiRankList" method="post" >
 <table border="0" cellpadding="5" align="center" id="kim"> 
 	<tr color="">
-		<td colspan="5"><div id="total_rank_title"><FONT SIZE=6 COLOR="black">종합 랭킹</FONT></div></td>
+		<td colspan="5"><div id="total_rank_title"><FONT SIZE=6 COLOR="black">전적 랭킹</FONT></div></td>
+		
 	</tr>
 	<tr>
 		<td colspan="5">
@@ -211,8 +212,12 @@ div#total_rank_title {
         <div>골드보유 랭킹</div>
         <div></div>
         <div onclick="location.href='../rank/MoneyRankList.do?pg=1'">골드보유 랭킹</div>
+        
+        
     </div>
+    
 </div>
+<div align="right"><img src="../etc/image/rankImage/yut.png"></div>
 </td>
 	</tr>
 	
@@ -224,7 +229,7 @@ div#total_rank_title {
 				<option value="user_tear">티어</option>
 			</select>
 			<input type="text" name="keyword">
-			<input type="submit" value="검색">
+			<input type="submit" value="검색" placeholder="닉네임을 검색해주세요.">
 		</td>
 	</tr>
 	<br>
@@ -240,7 +245,7 @@ div#total_rank_title {
 		<td>${dto.rank}</td>
 		<td>${dto.tear}</td>
 		<td>${dto.name}</td>
-		<td>${dto.money}</td>
+		<td>${dto.money}원</td>
 		<td>${dto.win}승${dto.lose}패</td>
 	</tr>
 	
