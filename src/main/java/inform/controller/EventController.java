@@ -91,7 +91,7 @@ public class EventController {
 		modelAndView.addObject("endPage", endPage);
 		modelAndView.addObject("totalA", totalA);
 		modelAndView.addObject("totalP", totalP);
-		modelAndView.addObject("sector", "on");
+		modelAndView.addObject("sector", "off");
 		modelAndView.addObject("display", "../event/ceventMain.jsp");
 		modelAndView.addObject("e_display", "../event/ceventCenter.jsp");
 		

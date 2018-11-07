@@ -30,13 +30,13 @@
 	}
 	
 	div#section_left_top {
-		border: 1px solid black;
+		/* border: 1px solid black; */
 		margin: 0px 30px;
 		height: 4%;
 	}
 	
 	div#section_left_center {
-		border: 1px solid black;
+		/* border: 1px solid black; */
 		margin: 0px 30px;
 	}
 	
@@ -117,23 +117,49 @@ a.my_sub_menu:hover { text-decoration: none;  }
 	font-weight: bold;
 }	
 
-</style>
+.selected_btn {
+	float: left;
+	text-decoration: none;
+	line-height: 40px;
+	height: 38px;
+	font-weight:bold;
+	width: 110px;
+	text-align: center;
+	background-color: orange;
+	color: white;
+	border: 1px solid rgba(0,0,0, 0.2);
+}
 
+.btn {
+	float: left;
+	text-decoration: none;
+	line-height: 40px;
+	height: 38px;
+	font-weight:bold;
+	width: 110px;
+	text-align: center;
+	background-color: white;
+	color: rgba(0,0,0, 0.6);
+	border: 1px solid rgba(0,0,0, 0.2);
+}
+.btn:link { text-decoration: none;}
+.btn:visited { text-decoration: none;}
+</style>
 </head>
 <body>
 
 <div id="section_total">
 	
 	<div id="section_left">
-		<h1 id="section_top" style="margin: 0 30px; height: 8%; line-height: 80px; border: 1px solid black;">이벤트</h1>
+		<h1 id="section_top" style="margin: 0 30px; height: 8%; line-height: 80px; /* border: 1px solid black; */">이벤트</h1>
 		
 		<div id="section_left_top">
-			<a href="../event/eventMainOn.do">진행중</a>
-			<a href="../event/eventMainOff.do">종료</a>
+			<a href="../event/eventMainOn.do" class="${sector == 'on' ? 'selected_btn' : 'btn' }">진행중</a>
+			<a href="../event/eventMainOff.do" class="${sector == 'off' ? 'selected_btn' : 'btn' }">종료</a>
 		</div>
 		
 		<div id="section_left_center">
-			
+			<jsp:include page="../event/ceventCenter.jsp"/>
 		</div>
 		
 	</div>
