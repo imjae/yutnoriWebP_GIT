@@ -259,7 +259,7 @@ public class UserController {
 		dto.setUser_jumin(jumin);
 		dto.setUser_phone(phone);
 
-		System.out.println(name + "," + jumin + "," + phone);
+		System.out.println(name + "," + jumin + "," + phone+"ADFASF");
 
 		int name_count = userService.userNameCheck(name);
 		int jumin_count = userService.userJuminCheck(jumin);
@@ -267,9 +267,11 @@ public class UserController {
 
 		int qwert = name_count + jumin_count + phone_count;
 
+		System.out.println(qwert);
+		
 		String result = "";
 
-		if (qwert == 3) {
+		if (qwert >= 3) {
 			result = "O";
 		} else {
 			result = "X";
