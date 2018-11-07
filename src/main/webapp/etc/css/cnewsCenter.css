@@ -18,8 +18,8 @@
 	text-align: center;
 /* 	border-right: 2px solid white; */
 	padding-right: -2px;
-	border-left: 5px solid black;
-	border-bottom: 1px solid black;
+	border-left: 5px solid orange;
+	border-bottom: 1px solid orange;
 }
 
 .q .q_title {
@@ -29,7 +29,7 @@
 	display:block;
 	text-align:left; 
     /* border-left: 5px solid #c03; */
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid orange;
     padding:0 0 0 35px;
     font-size:18px;
     color:#5e5e5e;
@@ -55,7 +55,7 @@
 	text-align: center;
 	border-right: 2px solid white;
 	padding-right: -2px;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid orange;
 	margin-bottom: 10px;
 }
 

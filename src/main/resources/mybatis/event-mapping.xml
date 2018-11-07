@@ -41,8 +41,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<update id="eventModify" parameterType="eventVO">
 		update event set
+		e_img = #{e_img},
 		title = #{title},
-		content = #{content}
+		sub_title = #{sub_title},
+		s_date = #{s_date},
+		e_date = #{e_date}
 		where e_num = #{e_num}
 	</update>
 	

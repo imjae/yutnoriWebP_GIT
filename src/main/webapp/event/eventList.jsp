@@ -16,6 +16,13 @@
 </style>
 </head>
 <body>
+	<c:if test="${sector == 'on' }">
+		<h1>진행중인 이벤트 목록</h1>
+	</c:if>
+	<c:if test="${sector == 'off' }">
+		<h1>종료된 이벤트 목록</h1>
+	</c:if>
+	
 	<br><br>
 	<table border="1">
 		

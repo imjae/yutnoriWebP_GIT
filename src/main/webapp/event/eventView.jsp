@@ -37,7 +37,7 @@
 	<input type="button" value="목록" onclick="location.href='../event/eventListOff.do?pg=${pg}'">
 </c:if>
 
-<input type="button" value="글수정" onclick="location.href='../event/eventModifyForm.do?e_num=${e_num }&pg=${pg }'">
-<input type="button" value="글삭제" onclick="location.href='../event/eventDelete.do?e_num=${e_num }&pg=${pg }'">
+<input type="button" value="글수정" onclick="location.href='../event/eventModifyForm.do?e_num=${e_num }&pg=${pg }&sector=${sector }'">
+<input type="button" value="글삭제" onclick="location.href='../event/eventDelete.do?e_num=${e_num }&pg=${pg }&sector=${sector }'">
 </body>
 </html>

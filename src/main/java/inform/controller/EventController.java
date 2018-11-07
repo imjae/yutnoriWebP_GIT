@@ -18,6 +18,88 @@ public class EventController {
 	@Autowired
 	EventService eventService;
 	
+	@RequestMapping(value = "/event/eventMainOn.do")
+	public ModelAndView eventMainOn(HttpServletRequest request) {
+		String str_pg = request.getParameter("pg");
+		
+		int pg = 1;
+		if(str_pg != null) {
+			pg = Integer.parseInt(str_pg);
+		}
+
+		int endNum = pg * 5;
+		int startNum = endNum - 4;
+		
+		int totalA = eventService.getTotalAOn();
+		int totalP = (totalA + 4) / 5;
+		
+		int startPage = (pg-1)/3*3+1;
+		int endPage = startPage + 2;
+		if (endPage > totalP) {
+			endPage = totalP;
+		}
+		
+		List<EventVO> list = eventService.eventListOn(startNum, endNum);
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("list", list);
+		modelAndView.addObject("pg", pg);
+		modelAndView.addObject("startNum", startNum);
+		modelAndView.addObject("endNum", endNum);
+		modelAndView.addObject("startPage", startPage);
+		modelAndView.addObject("endPage", endPage);
+		modelAndView.addObject("totalA", totalA);
+		modelAndView.addObject("totalP", totalP);
+		modelAndView.addObject("sector", "on");
+		modelAndView.addObject("display", "../event/ceventMain.jsp");
+		modelAndView.addObject("e_display", "../event/ceventCenter.jsp");
+		
+		modelAndView.setViewName("../main/index.jsp");
+		
+		return modelAndView;	
+	}
+	
+	@RequestMapping(value = "/event/eventMainOff.do")
+	public ModelAndView eventMainOff(HttpServletRequest request) {
+		String str_pg = request.getParameter("pg");
+		
+		int pg = 1;
+		if(str_pg != null) {
+			pg = Integer.parseInt(str_pg);
+		}
+
+		int endNum = pg * 5;
+		int startNum = endNum - 4;
+		
+		int totalA = eventService.getTotalAOff();
+		int totalP = (totalA + 4) / 5;
+		
+		int startPage = (pg-1)/3*3+1;
+		int endPage = startPage + 2;
+		if (endPage > totalP) {
+			endPage = totalP;
+		}
+		
+		List<EventVO> list = eventService.eventListOff(startNum, endNum);
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("list", list);
+		modelAndView.addObject("pg", pg);
+		modelAndView.addObject("startNum", startNum);
+		modelAndView.addObject("endNum", endNum);
+		modelAndView.addObject("startPage", startPage);
+		modelAndView.addObject("endPage", endPage);
+		modelAndView.addObject("totalA", totalA);
+		modelAndView.addObject("totalP", totalP);
+		modelAndView.addObject("sector", "on");
+		modelAndView.addObject("display", "../event/ceventMain.jsp");
+		modelAndView.addObject("e_display", "../event/ceventCenter.jsp");
+		
+		modelAndView.setViewName("../main/index.jsp");
+		
+		return modelAndView;	
+	}
+	
 	@RequestMapping(value = "/event/eventWriteForm.do")
 	public ModelAndView eventWriteForm() {
 		ModelAndView modelAndView = new ModelAndView();
@@ -129,7 +211,7 @@ public class EventController {
 	}
 	
 	@RequestMapping(value="/event/eventView.do")
-	public ModelAndView newsView(HttpServletRequest request) {
+	public ModelAndView eventView(HttpServletRequest request) {
 		
 		int e_num = Integer.parseInt(request.getParameter("e_num"));
 		int pg = Integer.parseInt(request.getParameter("pg"));
@@ -146,6 +228,68 @@ public class EventController {
 		
 		modelAndView.setViewName("../event/eventView.jsp");
 		
+		return modelAndView;
+	}
+	
+	@RequestMapping(value="/event/eventModifyForm.do")
+	public ModelAndView eventModifyForm(HttpServletRequest request) {
+		int e_num = Integer.parseInt(request.getParameter("e_num"));
+		int pg = Integer.parseInt(request.getParameter("pg"));
+		String sector = request.getParameter("sector");
+		
+		EventVO eventVO = new EventVO();
+		eventVO = eventService.eventView(e_num);
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("eventVO", eventVO);
+		modelAndView.addObject("pg", pg);
+		modelAndView.addObject("sector", sector);
+		modelAndView.setViewName("../event/eventModifyForm.jsp");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "/event/eventModify.do", method = RequestMethod.POST)
+	public ModelAndView eventModify(HttpServletRequest request) {
+		int e_num = Integer.parseInt(request.getParameter("e_num"));
+		int pg = Integer.parseInt(request.getParameter("pg"));
+		String e_img = request.getParameter("e_img");
+		String title = request.getParameter("title");
+		String sub_title = request.getParameter("sub_title");
+		String s_date = request.getParameter("s_date");
+		String e_date = request.getParameter("e_date");
+		String sector = request.getParameter("sector");
+		
+		EventVO eventVO = new EventVO();
+		eventVO.setE_num(e_num);
+		eventVO.setE_img(e_img);
+		eventVO.setTitle(title);
+		eventVO.setSub_title(sub_title);
+		eventVO.setS_date(s_date);
+		eventVO.setE_date(e_date);
+		
+		int su = eventService.eventModify(eventVO);
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("su", su);
+		modelAndView.addObject("pg", pg);
+		modelAndView.addObject("sector", sector);
+		modelAndView.setViewName("../event/eventModify.jsp");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "/event/eventDelete.do")
+	public ModelAndView eventDelete(HttpServletRequest request) {
+		int e_num = Integer.parseInt(request.getParameter("e_num"));
+		int pg = Integer.parseInt(request.getParameter("pg"));
+		String sector = request.getParameter("sector");
+		
+		int su = eventService.eventDelete(e_num);
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("su", su);
+		modelAndView.addObject("pg", pg);
+		modelAndView.addObject("sector", sector);
+		modelAndView.setViewName("../event/eventDelete.jsp");
 		return modelAndView;
 	}
 	
