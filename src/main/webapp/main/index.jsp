@@ -97,6 +97,7 @@
 <body>
 <div id="top_info">
 	
+	
 </div>
 <div id="menu_space">
 	

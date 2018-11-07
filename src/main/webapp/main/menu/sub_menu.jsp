@@ -62,10 +62,10 @@ a.sub_menu_a:hover { text-decoration: none; color: white; }
 		</div>
 
 		<div id="sub_game_info">
-			<a href="#" class="sub_menu_a">게임규칙</a>
-			<a href="#" class="sub_menu_a">조작법</a>
-			<a href="#" class="sub_menu_a">화면구성</a>
-			<a href="#" class="sub_menu_a">자료실</a>
+			<a href="../info/info_mean.do" class="sub_menu_a">게임규칙</a>
+			<a href="../info/info_controll.do" class="sub_menu_a">조작법</a>
+			<a href="../info/info_screenset.do" class="sub_menu_a">화면구성</a>
+			<a href="../info/info_download.do" class="sub_menu_a">자료실</a>
 		</div>
 
 		<div id="sub_ranking">
