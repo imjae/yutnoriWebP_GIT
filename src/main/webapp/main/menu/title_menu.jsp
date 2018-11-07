@@ -77,7 +77,7 @@ a.over_mouse_title:hover { text-decoration: none; color: white; }
 		</div>
 		
 		<div id="title_game_info">
-			<a href="#" class="over_mouse_title">게임정보</a>
+			<a href="../info/infoTotal.do" class="over_mouse_title">게임정보</a>
 		</div>
 	
 		<div id="title_ranking">

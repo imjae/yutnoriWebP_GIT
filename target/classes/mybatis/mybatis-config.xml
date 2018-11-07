@@ -15,15 +15,26 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="helpboard.bean.NotifyboardVO" alias="notifyboardVO"/>
 		<typeAlias type="helpboard.controller.NotifyListDTO" alias="notifyListDTO"/>
 		<typeAlias type="itemShop.bean.ItemShopDTO" alias="itemShopDTO"/>
+
+
 		<typeAlias type="itemShop.bean.PaymentHistoryDTO" alias="paymentHistoryDTO"/>
+
+
+		<typeAlias type="itemShop.bean.PaymentHistoryDTO" alias="paymentHistoryDTO"/>
+
 		<typeAlias type="inform.bean.NewsVO" alias="newsVO"/>
 		<typeAlias type="inform.bean.EventVO" alias="eventVO"/>
 		<typeAlias type="inform.controller.NewsListDTO" alias="newsListDTO"/>
 		<!-- <typeAlias type="inform.controller.EventListDTO" alias="eventListDTO"/> -->
+
+
+		
+
 		<typeAlias type="community.bean.FreeboardDTO" alias="freeboardDTO"/>
 		<typeAlias type="community.bean.Freeboard_commentDTO" alias="freeboard_commentDTO"/>
 		<typeAlias type="community.bean.ImgboardDTO" alias="imgboardDTO"/>
 		<!-- <typeAlias type="community.bean.Imgboard_commentDTO" alias="imgboard_commentDTO"/> -->
+
 	</typeAliases>
 	
 	<!-- SQL Mapper 설정  -->
@@ -35,10 +46,15 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 		<mapper resource="mybatis/notifyboard-mapping.xml" />	
 
+<<<<<<< HEAD
+		<mapper resource="mybatis/news-mapping.xml" />
+		<!-- <mapper resource="mybatis/event-mapping.xml" />	 -->	
+=======
 
 
 		
 
+>>>>>>> e30ba7b3af46eeecfcf860d5020775459f7cb417
 
 
 		<mapper resource="mybatis/itemShop-mapping.xml"/>	
