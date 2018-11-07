@@ -417,7 +417,7 @@ div#category_total {
 			<div id="category_background" class="category">배 경</div>
 			<div id="category_etc" class="category">기 타</div>
 		</div>
-
+		<a data-page="1" cl></a>
 		<div id="char_info_div">
 			<div id="char_img_div">
 				<img id="char_img"

@@ -85,6 +85,11 @@ public class UserServiceImpl implements UserService {
 	public int cashCharge(String user_id, int charge_price) {
 		return userDAO.cashCharge(user_id, charge_price);
 	}
+
+	@Override
+	public int insertHistory(String user_id, String item_code) {
+		return userDAO.insertHistory(user_id, item_code);
+	}
 	
 	
 	

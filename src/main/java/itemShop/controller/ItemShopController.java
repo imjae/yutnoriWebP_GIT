@@ -13,12 +13,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import itemShop.bean.ItemShopDTO;
 import user.bean.UserDTO;
+import user.controller.UserService;
 
 @Controller
 public class ItemShopController {
 	
 	@Autowired
 	private ItemShopService itemShopService;
+	@Autowired
+	private UserService userService;
 	
 	@RequestMapping(value="/itemShop/mainShop.do")
 	public ModelAndView mainShop(HttpServletRequest request) {
@@ -126,22 +129,25 @@ public class ItemShopController {
 	
 	@RequestMapping(value="/itemShop/itemPaymentSuccess.do")
 	public ModelAndView itemPaymentSuccess(HttpServletRequest request) {
-		int item_charge = Integer.parseInt(request.getParameter("item_charge"));	
+		int item_charge = Integer.parseInt(request.getParameter("item_charge"));
+		String item_code = request.getParameter("item_code");
 		HttpSession session = request.getSession();
 		UserDTO userDTO = (UserDTO)session.getAttribute("session_dto");
 		
 		int suc = itemShopService.itemPaymentSuccess(item_charge, userDTO.getUser_id());
+		int insertCount = userService.insertHistory(userDTO.getUser_id(), item_code);
 		int user_cash = userDTO.getUser_cash();
 		
-		if(suc>0) {
+		if(suc>0 && insertCount>0) {
 			userDTO.setUser_cash(user_cash - item_charge);
 			session.setAttribute("session_dto", userDTO);
+			
 		}
-		// 세션안의 dto값이 변경되었으니까 다시 만들어줘야함 -> user-mapping에 쿼리문만들어서 사용하면됨
 		
 		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("suc", suc);
+		modelAndView.addObject("insertCount", insertCount);
 		modelAndView.addObject("payOK", "ok");
 		modelAndView.addObject("item_charge", item_charge);
 		modelAndView.addObject("user_cash", user_cash);

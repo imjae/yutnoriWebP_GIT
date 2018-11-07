@@ -148,10 +148,7 @@
 </c:if>
 <c:if test="${display != null }">
 <div id="space">
-<<<<<<< HEAD
 
-=======
->>>>>>> 88a119762519daf4f734401664e40241d410a92b
 	<jsp:include page="${display }"/>
 </div>
 </c:if>

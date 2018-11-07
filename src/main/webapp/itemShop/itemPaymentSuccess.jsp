@@ -75,7 +75,7 @@ div#payment_result_con > div#right {
 </head>
 <body>
 <div id="paymentSuc"></div>
-<c:if test="${suc == 0}">
+<c:if test="${suc == 0 || insertCount == 0}">
 	<h1 id="paymentTitle">아이템 결제에 실패하였습니다.</h1>
 	<h3>이용에 불편을 드려 대단히 죄송합니다.</h3>
 	<h3>잠시 후에 다시 한번 이용해 주시기 바랍니다.</h3>
@@ -85,6 +85,7 @@ div#payment_result_con > div#right {
 </c:if>
 
 
+<c:if test="${suc == 1 && insertCount == 1}">
 
 <div id="payment_result_total">
 	
@@ -117,7 +118,7 @@ div#payment_result_con > div#right {
 			
 		</div>
 		<!-- &#x2714; 충전 수단 -->
-	<button id="go_charInfo" onclick="location.href='#'">마이페이지</button>
+	<button id="go_charInfo" onclick="location.href='../main/myPage.do'">마이페이지</button>
 	<button id="go_shop" onclick="location.href='../itemShop/mainShop.do?category=all&pg=1&order=logtime'">계속 쇼핑하기</button>
 	
 	</div>
@@ -125,12 +126,6 @@ div#payment_result_con > div#right {
 	
 </div>
 
-
-
-
-	
-	
-	<c:if test="${suc == 1}">
 </c:if>
 
 </body>
