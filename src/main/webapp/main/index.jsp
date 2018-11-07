@@ -9,8 +9,6 @@
 
 <script type="text/javascript" src="../etc/js/jquery-3.3.1.min.js"></script>
 
-<script type="text/javascript" src="../etc/css/indexCss/index_style.css"></script>
-
 <link rel="stylesheet" type="text/css" href="../etc/css/indexCss/index_style.css"/>
 
 
@@ -42,6 +40,31 @@
 		$("a.over_mouse_title").mouseout(function(){
 			$(this).parent().css("border-bottom","0px");
 		});
+		
+		$("div#start_button").click(function(){
+			var agent = navigator.userAgent.toLowerCase();
+
+			if ( (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') != -1) || (agent.indexOf("msie") != -1) ) {
+			    alert("Internet Explorer"); 
+				var path = String.fromCharCode(34)+'C:\\Riot Games\\League of Legends\\LeagueClient.exe'+String.fromCharCode(34);
+			    alert(path);
+				var objWSH = new ActiveXObject("WScript.Shell");
+				alert("test");
+			    var retval = objWSH.run(path,1,true);
+			   
+			}
+			 
+			else if (agent.indexOf("chrome") != -1) {
+			  
+			    alert("HAVE TO INSTALL."); 
+			    var objWSH = new ActiveXObject("WScript.Shell");
+			    var retval = objWSH.Run("C:/Windows/SysWOW64/notepad.exe",1,true);
+			  
+			}
+
+		});
+		
+		
 		
 		$.ajax({
 			url : "../rank/rankPreview.do",
@@ -133,6 +156,7 @@
 	</div>
 	
 	<div id="game_info">
+	
 		게임정보 메뉴
 	</div>
 	
@@ -148,10 +172,7 @@
 </c:if>
 <c:if test="${display != null }">
 <div id="space">
-<<<<<<< HEAD
 
-=======
->>>>>>> 88a119762519daf4f734401664e40241d410a92b
 	<jsp:include page="${display }"/>
 </div>
 </c:if>

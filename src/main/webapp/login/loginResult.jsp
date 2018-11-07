@@ -65,9 +65,9 @@
 
 		<div id="char_img"></div>
 		<div id="char_info">
-			<div id="user_id">${dto.user_id }</div>
-			<div id="user_money">${dto.user_money }</div>
-			<div id="user_tear"> ${dto.user_tear }</div>
+			<div id="user_id">${session_dto.user_id }</div>
+			<div id="user_money">${session_dto.user_money }</div>
+			<div id="user_tear"> ${session_dto.user_tear }</div>
 			<div id="user_id"></div>
 		</div>
 

@@ -167,6 +167,8 @@ public class UserController {
 
 		userService.userSignUp(dto);
 
+		userService.equipItemCreate(id);
+
 		request.getSession().removeAttribute("authNum");
 
 		ModelAndView modelAndView = new ModelAndView();
@@ -360,7 +362,47 @@ public class UserController {
 		modelAndView.setViewName("../user/item_list_json.jsp");
 		return modelAndView;
 
-		/////////////////////////////////////////////////
+	}
+
+	@RequestMapping(value = "/user/equip_item.do", method = { RequestMethod.POST })
+	public ModelAndView equipItem(HttpServletRequest request) {
+
+		String item_code = request.getParameter("item_code");
+		String category = request.getParameter("category");
+
+		String user_id = String.valueOf(request.getSession().getAttribute("session_id"));
+	
+		// 페이징 처리
+		String column_name = "equ_" + category;
+
+		userService.equipItem(user_id, item_code, column_name);
+
+		// (2) DB
+
+		JSONObject json = new JSONObject();
+		JSONArray items = new JSONArray();
+
+		JSONObject temp = new JSONObject();
+		
+		String[] img = item_code.split("_");
+		System.out.println();
+		
+		temp.put("category", category);
+		temp.put("item_img", img[1]);
+		
+		items.put(temp);
+
+		json.put("items", items);
+
+		System.out.println(json);
+
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("userInfo_page_url", "../user/charInfo_page.jsp");
+		modelAndView.addObject("display", "../user/userInfo_title.jsp");
+		modelAndView.addObject("json", json);
+
+		modelAndView.setViewName("../user/item_list_json.jsp");
+		return modelAndView;
 
 	}
 

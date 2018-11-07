@@ -135,6 +135,33 @@ div#item_category_total div:first-child {
 div#category_total {
 	margin-left: 38.8%;
 }
+
+div#equipBtn { 
+	width: 130px;
+	height: 40px;
+	margin: 30px auto;
+	background-color: #cacaca;
+	border-radius: 5px;
+	line-height: 40px;
+	font-size: 1.3em;
+	color: white;
+	text-align: center;
+}
+div#equipBtn:hover {
+	cursor: pointer;
+}
+
+div#char_img_div img {
+	width: 99%;
+	height: 99%;
+}
+
+div#char_img_div img#char_img {
+	position: relative;
+	
+	margin-top: -500px;
+}
+
 </style>
 
 <script type="text/javascript">
@@ -157,14 +184,15 @@ div#category_total {
 					</div> */
 					
 					var div1 = $("<div>",{
-						class: "item_list_element_1",
+						"class": "item_list_element_1",
 						"data-itemCode": item.item_code,
-						"data-payLog": item.pay_log
+						"data-category": item.category,
+						"flag" : "0"
 					});
 					
 					su = item.su;
 					if(su != 0){
-						var img = $("<img>", {class: "item_list_img"}).attr("src","../etc/image/itemImage/characterImage/"+item.item_img+".png");
+						var img = $("<img>", {"class": "item_list_img"}).attr("src","../etc/image/itemImage/characterImage/"+item.item_img+".png");
 						}
 					div1.append(img);
 					
@@ -174,7 +202,7 @@ div#category_total {
 				});
 				
 				for(var i=0; i<su; i++){
-					var div1 = $("<div>",{class: "item_list_element_1"});
+					var div1 = $("<div>",{"class": "item_list_element_1"});
 					
 					$("div#item_list_div").append(div1);
 				}
@@ -218,10 +246,15 @@ div#category_total {
 								src="../etc/image/itemImage/characterImage/${list.item_img }.png" />
 						</div> */
 						
-						var div1 = $("<div>",{class: "item_list_element_1"});
+						var div1 = $("<div>",{
+							"class": "item_list_element_1",
+							"data-itemCode": item.item_code,
+							"data-category": item.category,
+							"flag" : "0"
+						});
 						su = item.su;
 						if(su != 0){
-							var img = $("<img>", {class: "item_list_img"}).attr("src","../etc/image/itemImage/characterImage/"+item.item_img+".png");
+							var img = $("<img>", {"class": "item_list_img"}).attr("src","../etc/image/itemImage/characterImage/"+item.item_img+".png");
 							}
 						div1.append(img);
 						
@@ -229,7 +262,7 @@ div#category_total {
 					});
 					
 					for(var i=0; i<su; i++){
-						var div1 = $("<div>",{class: "item_list_element_1"});
+						var div1 = $("<div>",{"class": "item_list_element_1"});
 						
 						$("div#item_list_div").append(div1);
 					}
@@ -266,10 +299,15 @@ div#category_total {
 								src="../etc/image/itemImage/characterImage/${list.item_img }.png" />
 						</div> */
 						
-						var div1 = $("<div>",{class: "item_list_element_1"});
+						var div1 = $("<div>",{
+							"class": "item_list_element_1",
+							"data-itemCode": item.item_code,
+							"data-category": item.category,
+							"flag" : "0"
+						});
 						su = item.su;
 						if(su != 0){
-							var img = $("<img>", {class: "item_list_img"}).attr("src","../etc/image/itemImage/characterImage/"+item.item_img+".png");
+							var img = $("<img>", {"class": "item_list_img"}).attr("src","../etc/image/itemImage/characterImage/"+item.item_img+".png");
 							}
 						div1.append(img);
 						
@@ -277,7 +315,7 @@ div#category_total {
 					});
 					
 					for(var i=0; i<su; i++){
-						var div1 = $("<div>",{class: "item_list_element_1"});
+						var div1 = $("<div>",{"class": "item_list_element_1"});
 						
 						$("div#item_list_div").append(div1);
 					}
@@ -313,11 +351,15 @@ div#category_total {
 						</div> */
 						su = item.su;
 						
-						var div1 = $("<div>",{class: "item_list_element_1"});
-						
+						var div1 = $("<div>",{
+							"class": "item_list_element_1",
+							"data-itemCode": item.item_code,
+							"data-category": item.category,
+							"flag" : "0"
+						});
 						
 						if(su != 0){
-							var img = $("<img>", {class: "item_list_img"}).attr("src","../etc/image/itemImage/characterImage/"+item.item_img+".png");
+							var img = $("<img>", {"class": "item_list_img"}).attr("src","../etc/image/itemImage/characterImage/"+item.item_img+".png");
 						}
 						div1.append(img);
 						
@@ -325,7 +367,7 @@ div#category_total {
 					});
 					
 					for(var i=0; i<su; i++){
-						var div1 = $("<div>",{class: "item_list_element_1"});
+						var div1 = $("<div>",{"class": "item_list_element_1"});
 						
 						$("div#item_list_div").append(div1);
 					}
@@ -363,10 +405,14 @@ div#category_total {
 						</div> */
 						su = item.su;
 						
-						var div1 = $("<div>",{class: "item_list_element_1"});
-						
+						var div1 = $("<div>",{
+							"class": "item_list_element_1",
+							"data-itemCode": item.item_code,
+							"data-category": item.category,
+							"flag" : "0"
+						});
 						if(su != 0){
-						var img = $("<img>", {class: "item_list_img"}).attr("src","../etc/image/itemImage/characterImage/"+item.item_img+".png");
+						var img = $("<img>", {"class": "item_list_img"}).attr("src","../etc/image/itemImage/characterImage/"+item.item_img+".png");
 						}
 						div1.append(img);
 						
@@ -375,7 +421,7 @@ div#category_total {
 					});
 					
 					for(var i=0; i<su; i++){
-						var div1 = $("<div>",{class: "item_list_element_1"});
+						var div1 = $("<div>",{"class": "item_list_element_1"});
 						
 						$("div#item_list_div").append(div1);
 					}
@@ -386,17 +432,63 @@ div#category_total {
 			});
 
 		});
+		var item_sel_flag = false;
 		
+		$(document).on("hover", "div.item_list_element_1", function() {
+			
+			$(this).css("border","2px solid pink");
+			
+		 	 	
+		});
 		
-		$("div.item_list_element_1").click(function(){
-			alert("test");
+		$(document).on("click", "div.item_list_element_1", function() {
+			
+			if( $(this).attr("flag") == "0" ){
+				$(this).css("border","2px solid red");
+				$(this).attr("flag","1")  
+			}else if( $(this).attr("flag") == "1") {
+				$(this).css("border","2px solid lightgray");
+				$(this).attr("flag","0")  
+			}
+			
+			var clicked_item_code = $(this).attr("data-itemCode");
+			var clicked_item_category = $(this).attr("data-category");
+			$.ajax({
+				url : "../user/equip_item.do",
+				type : "post",
+				data : {
+					"item_code" : clicked_item_code,
+					"category" : clicked_item_category
+				},
+				dataType : "json",
+				success : function(data){
+					$.each(data.items, function(index, item){
+						
+						var a = item.category=="character";
+						
+						
+						if(item.category=="character"){
+							$("img#char_img").attr("src","../etc/image/itemImage/characterImage/"+item.item_img+".png")
+							 
+							
+						}else if(item.category == "background"){
+							$("img#back_img").attr("src","../etc/image/itemImage/characterImage/"+item.item_img+".png")
+							
+						}   
+						
+					});
+					
+	
+				},
+				error : function(xhr, textStatus, errorThrown){
+					$("div").html("<div>"+textStatus+" (HTTP-)"+ xhr.status + " / " + errorThrown +")</div>");
+				}
+			});
+		 	 	
 		});
 
 		$("div#item_list_nextBtn").click(function() {
-			pg = 2;
-			$("div.item_list_element_2").show("slide", {
-				direction : "right"
-			}, 500);
+			
 		});
 	});
 </script>
@@ -420,8 +512,10 @@ div#category_total {
 
 		<div id="char_info_div">
 			<div id="char_img_div">
-				<img id="char_img"
-					src="../etc/image/itemImage/characterImage/jk_.png" />
+			
+				<img id="back_img"/>
+				<img id="char_img" />
+				
 			</div>
 
 			<div id="item_list_nextBtn">&gt;</div>
@@ -432,6 +526,7 @@ div#category_total {
 
 			</div>
 		</div>
+		
 	</div>
 
 </body>

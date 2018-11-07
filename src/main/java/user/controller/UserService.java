@@ -11,6 +11,10 @@ public interface UserService {
 
 	int userSignUp(UserDTO userDTO);
 	
+	int equipItemCreate(String user_id);
+	
+	int equipItem(String user_id, String item_code, String column_name);
+	
 	int userIdCheck(String user_id);
 	
 	int userPwCheck(String user_password);
@@ -32,5 +36,7 @@ public interface UserService {
 	int haveItemCount(String user_id);
 	
 	int cashCharge(String user_id, int charge_price);
+	
+	
 	
 }

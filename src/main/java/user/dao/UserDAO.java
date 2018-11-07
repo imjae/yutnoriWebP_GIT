@@ -88,12 +88,28 @@ public class UserDAO {
 	
 	public int cashCharge(String user_id, int charge_price) {
 		
-		Map<Object, Object> map = new HashMap<Object,Object>();
+	Map<Object, Object> map = new HashMap<Object,Object>();
 		
 		map.put("user_id", user_id);
 		map.put("charge_price", charge_price);
 		
 		return sqlSession.update("mybatis.userMapper.cashCharge", map);
+	}
+	
+	public int equipItemCreate(String user_id) {
+		
+		return sqlSession.insert("mybatis.userMapper.equipItemCreate",user_id);
+	}
+	
+	public int equipItem(String user_id,String item_code, String column_name) {
+		
+		Map<Object, Object> map = new HashMap<Object,Object>();
+		
+		map.put("user_id", user_id);
+		map.put("item_code", item_code);
+		map.put("column_name", column_name);
+		
+		return sqlSession.update("mybatis.userMapper.equipItem", map);
 	}
 
 }
