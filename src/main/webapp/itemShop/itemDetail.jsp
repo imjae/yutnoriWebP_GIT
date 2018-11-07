@@ -50,23 +50,25 @@ div#menu_name td input {
 }
 </style>
 <script type="text/javascript">
-	function confLogin(){
+	function confLogin(uri){
 		if(${session_id == null}){	// 로그인 안한 상태로 결제하기 눌렀을 때
 			alert("로그인 후 결제해주세요.");
 			location.href="../login/loginPage.jsp";
 		}else{	// 로그인 상태일때
-			location.href="../itemShop/itemPayment.do?item_code=${itemShopDTO.item_code}&ea=1";
+			location.href=uri;
 		}
 	}
-	
 	
 </script>
 </head>
 <body>
 
+
+<div id="shop_bg">
+
 <div id="top_info">
 </div>
-<div id="shop_bg">
+
 <div id="menu_space">
 	<div id="menu_space_top">
 		<div id="blank"></div>
@@ -81,7 +83,7 @@ div#menu_name td input {
 			</a>
 		</div>
 		<div id="basket"><a href="#">장바구니</a></div>
-		<div id="buyList"><a href="#">구매내역</a></div>
+		<div id="buyList"><a onclick="confLogin('../main/myPage.do?dis=../user/paymentHistory.do')">구매내역</a></div>
 		<div id="blank"></div>
 	</div>
 	<div id="blank"></div>
@@ -112,7 +114,7 @@ div#menu_name td input {
 				<td colspan="2" width="500px"  align="center">
 					<input type="button" value="목록" onclick="location.href='../itemShop/mainShop.do?category=${category}&pg=${pg }&order=${order }'">
 					<input type="button" value="장바구니" onclick="location.href='#'">
-					<input type="button" value="결제하기" onclick="confLogin()">
+					<input type="button" value="결제하기" onclick="confLogin('../itemShop/itemPayment.do?item_code=${itemShopDTO.item_code}&ea=1')">
 				</td>
 			</tr>
 		</table>

@@ -54,6 +54,10 @@ tr#historyContent {
 	color: blue; 
 	text-decoration: none;
 }
+tr#historyContent a:link {color:black; text-decoration: none;}
+tr#historyContent a:visited {color:black; text-decoration: none;}
+tr#historyContent a:active {color:black; text-decoration: none;}
+tr#historyContent a:hover {color: rgba(150, 150, 255, 0.7); text-decoration: none;}
 </style>
 </head> 
 <body>
@@ -70,7 +74,7 @@ tr#historyContent {
 <c:forEach items="${list }" var="dto" >
 	<tr id="historyContent">
 		<td width="120px"><img src="../etc/image/itemImage/characterImage/${dto.item_img }.png" width="75px"></td>
-		<td><a href="">${dto.item_name}</a></td>
+		<td><a href="../itemShop/itemDetail.do?category=${dto.category }&item_code=${dto.item_code }&pg=${pg}&order=sysdate">${dto.item_name}</a></td>
 		<td>${dto.item_charge}</td><td>${dto.pay_log}</td>
 	</tr>
 </c:forEach>
