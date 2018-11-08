@@ -91,7 +91,10 @@
 				$("div").html("<div>"+textStatus+" (HTTP-)"+ xhr.status + " / " + errorThrown +")</div>");
 			}
 		});
-	});
+
+	}
+	
+	
 </script>
 
 <body>
@@ -100,8 +103,6 @@
 	
 </div>
 <div id="menu_space">
-	
-	
 	<div id="menu_title">
 		<div id="menu">
 			<jsp:include page="menu/title_menu.jsp"/>
@@ -138,8 +139,6 @@
 		</div>
 	</div>
 	
-	
-	
 </div>
 
 <c:if test="${display == null }">
@@ -152,7 +151,7 @@
 		</div>
 		
 		<div id="notice">
-			공지사항
+			<jsp:include page="../news/newsPreview.jsp"/>
 		</div>
 	</div>
 	
@@ -162,19 +161,22 @@
 	</div>
 	
 	<div id="screenshot">
-		
+		<jsp:include page="../event/eventPreview.jsp"/>
+	</div>
+	
+	<div id="real_screenshot">
+		<jsp:include page="../imgboard/imgboard_listPreView.jsp"/>
 	</div>
 	
 	<div id="item_shop">
-		아이템샵
+		<jsp:include page="../itemShop/itemShopPreview.jsp"/>
 	</div>
 
 </div>
 </c:if>
 <c:if test="${display != null }">
 <div id="space">
-
-<jsp:include page="${display }"/>
+	<jsp:include page="${display }"/>
 </div>
 </c:if>
 

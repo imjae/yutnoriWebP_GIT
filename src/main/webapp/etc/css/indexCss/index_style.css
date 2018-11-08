@@ -23,7 +23,7 @@ div#start_button:hover {
 	height: 300px;
 	position: absolute;
 	top: 70px;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid black; 
 	z-index: 5;
 	display: none;   
 }
@@ -92,25 +92,26 @@ div#menu_space > div#login_form {
 
 
 
-#data_space, #space {
+div#data_space, div#space {
 	/* border: 1px solid black; */
 	border-top: 0px;
 	width: 1400px; 
-	height: 1000px;
+	height: auto;
 	margin: 50px auto;
 	background-color: rgba(255,255,255,0.6);
 }
-#rank_notice {
-	border-bottom: 1px solid black;
+
+#rank_notice {/* 
+	border-bottom: 1px solid black; */
 	width: 100%;
 	height: 400px;
 }
 
 #rank {
-	width: 35%;
-	height: 100%;
-	float: left;
-	border-right: 1px solid black;
+	width: 38%;
+	height: 99%;
+	float: left;/* 
+	border-right: 1px solid black; */
 	
 	
 }
@@ -123,21 +124,29 @@ div#menu_space > div#login_form {
 }
 
 #notice {
-	width: 100%;
+	float: left;
+	width: 61.5%;
 	height:100%;
 }
+
 #game_info {
-	
-	border-bottom: 1px solid black;
 	clear: both;
 	width: 100%;
 	height: 100px;
+	background-color: rgba(40,100, 255, 0.2);
 }
 
-#screenshot {
-	border-bottom: 1px solid black;
+#screenshot {/* 
+	border-bottom: 1px solid black; */
 	width: 100%;
 	height: 400px;
+}
+
+div#real_screenshot {
+	
+	background-color:  rgba(40,100, 255, 0.2);
+	width: 100%;
+	height: 330px;
 }
 #item_shop {
 	
@@ -150,7 +159,6 @@ div#menu_space > div#login_form {
 	clear: both;
 } */
 .footer{
-	border: 1500px 1000px;
     border-top: 1px solid #BDBDBD;m 
     overflow-x: none;
     font-size: 13px;
