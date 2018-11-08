@@ -91,14 +91,8 @@
 				$("div").html("<div>"+textStatus+" (HTTP-)"+ xhr.status + " / " + errorThrown +")</div>");
 			}
 		});
-<<<<<<< HEAD
 
-=======
->>>>>>> 79e65ab451da186d15b7b4216c0ccc04f9508e6c
-	
-	});
-	
-	
+	}
 	
 	
 </script>
@@ -109,8 +103,6 @@
 	
 </div>
 <div id="menu_space">
-	
-	
 	<div id="menu_title">
 		<div id="menu">
 			<jsp:include page="menu/title_menu.jsp"/>
