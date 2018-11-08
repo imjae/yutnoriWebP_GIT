@@ -115,7 +115,7 @@ div#news_preview_listD_iv {
 					
 					var div_title = $("<div>",{ "id" : "news_preview_title_div"}).html(item.title);
 					
-					
+					var a = $("<a>", {"href" : })
 					
 					
 					div.append(div_sort).append(div_title);

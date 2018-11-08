@@ -152,16 +152,20 @@ a.my_sub_menu:hover { text-decoration: none;  }
 	
 	<div id="section_left">
 		<h1 id="section_top" style="margin: 0 30px; height: 8%; line-height: 80px; /* border: 1px solid black; */">이벤트</h1>
+		<c:if test="${eventView != null }">
+			<jsp:include page="${eventView }"></jsp:include>
+		</c:if>
 		
-		<div id="section_left_top">
-			<a href="../event/eventMainOn.do" class="${sector == 'on' ? 'selected_btn' : 'btn' }">진행중</a>
-			<a href="../event/eventMainOff.do" class="${sector == 'off' ? 'selected_btn' : 'btn' }">종료</a>
-		</div>
-		
-		<div id="section_left_center">
-			<jsp:include page="../event/ceventCenter.jsp"/>
-		</div>
-		
+		<c:if test="${eventView == null }">
+			<div id="section_left_top">
+				<a href="../event/eventMainOn.do" class="${sector == 'on' ? 'selected_btn' : 'btn' }">진행중</a>
+				<a href="../event/eventMainOff.do" class="${sector == 'off' ? 'selected_btn' : 'btn' }">종료</a>
+			</div>
+			
+			<div id="section_left_center">
+				<jsp:include page="../event/ceventCenter.jsp"/>
+			</div>
+		</c:if>
 	</div>
 	
 	<div id="section_right">

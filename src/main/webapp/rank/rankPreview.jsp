@@ -24,6 +24,7 @@ body {
 div#total_rank_subject {
 	border: 0;
 	border-radius: 4px;
+	
 }
 </style>
 <script type="text/javascript" src="../etc/js/jquery-3.3.1.min.js"></script>
@@ -34,7 +35,7 @@ div#total_rank_subject {
 	<table border="0.1" id="rankPreview" style="background-image: url('../image/rankImage/ranklist.png'); background-repeat: no repeat"> 	
 		<tr>
 			<th width="100" class="line" align="center" style="background-color:#A4A4A4; color:#FAFAFA"><div id="total_rank_subject">순위</div></th>	
-			<th width="180" class="line" align="center" style="background-color:#A4A4A4; color:#FAFAFA"><div id="total_rank_subject">닉네임</div></th>
+			<th width="200" class="line" align="center" style="background-color:#A4A4A4; color:#FAFAFA"><div id="total_rank_subject">닉네임</div></th>
 			<th width="120" class="line" align="center" style="background-color:#A4A4A4; color:#FAFAFA"><div id="total_rank_subject">전적 (승/패)</div></th>
 		</tr>
 	</table>

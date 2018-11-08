@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="eventWrite" parameterType="eventVO">
 		insert into event
-		values (seq_event_num.nextval, #{e_img}, #{title}, #{sub_title}, #{s_date}, #{e_date})
+		values (#{e_num}, #{e_img}, #{title}, #{sub_title}, #{s_date}, #{e_date})
 	</insert>
 	
 	<select id="eventListOn" parameterType="java.util.Map" resultType="eventVO">

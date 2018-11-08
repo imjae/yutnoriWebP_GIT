@@ -10,6 +10,12 @@
 	$(function() {
 		
 			$("#eventForm").submit(function() {
+				if (!$("input[name='e_num']").val()) {
+					alert("이벤트 번호 입력해 주세요");
+					$("input[name='e_num']").focus();
+					return false;
+				}
+				
 				if (!$("input[name='e_img']").val()) {
 					alert("썸네일 이미지를 입력해 주세요");
 					$("input[name='e_img']").focus();
@@ -47,6 +53,12 @@
 <form action="../event/eventWrite.do" method="post" id="eventForm">
 	<h1>이벤트 입력창</h1>
 	<table border="">
+		<tr>
+			<td width="100" align="center">이벤트 번호</td>
+			<td width="700">
+				<input type="number" name="e_num" size="110" placeholder="숫자만 입력">
+			</td>
+		</tr>
 		<tr>
 			<td width="100" align="center">썸네일 이미지</td>
 			<td width="700">

@@ -6,6 +6,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -153,6 +155,35 @@ public class ItemShopController {
 		modelAndView.addObject("user_cash", user_cash);
 		
 		modelAndView.setViewName("../itemShop/itemPayment.jsp");
+		return modelAndView;
+		
+	}
+	
+	
+	@RequestMapping(value="/itemShop/itemShopPreview.do")
+	public ModelAndView itemShopPreview() {
+		List<ItemShopDTO> list = itemShopService.itemShopList(1, 7, "logtime desc", "character");
+		int total = list.size();
+
+		JSONObject json = new JSONObject();
+		json.put("total", total);
+		
+		if(total > 0) {
+			JSONArray items = new JSONArray();
+			for(int i=0; i<list.size(); i++) {
+				ItemShopDTO itemShopDTO = list.get(i);
+				JSONObject temp = new JSONObject();
+				temp.put("category", itemShopDTO.getCategory());
+				temp.put("item_code", itemShopDTO.getItem_code());
+				temp.put("item_img",itemShopDTO.getItem_img());
+				items.put(i,temp);
+			}
+			json.put("items", items);
+		}
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("json", json);
+		modelAndView.setViewName("../itemShop/itemShopPreview_json.jsp");
 		return modelAndView;
 		
 	}

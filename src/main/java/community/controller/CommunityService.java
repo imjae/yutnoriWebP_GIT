@@ -25,13 +25,13 @@ public interface CommunityService {
 	
 	
 	// 자유 게시판 - 덧글
-	public void free_commentInsert(Freeboard_commentDTO freeboard_commentDTO);
+	void free_commentInsert(Freeboard_commentDTO freeboard_commentDTO) throws Exception;
 
-	public int free_commentDelete(int free_comment_num);
+	void free_commentDelete(Freeboard_commentDTO freeboard_commentDTO) throws Exception;
 
-	public int free_commentCount(int freeboard_num);
+	public int free_commentCount(int freeboard_num) throws Exception;
 
-	public List<Freeboard_commentDTO> free_commentList(int freeboard_num);
+	List<Freeboard_commentDTO> free_commentList(int freeboard_num) throws Exception;
 	// 자유 게시판 - 덧글
 	
 	

@@ -51,25 +51,15 @@
 </head>
 <body id="news_sec_total">
 <div id="sec_title">
-	[
-	<c:if test="${newsVO.sort == 'inform' }">
-		공지
-	</c:if>
-	<c:if test="${newsVO.sort == 'patch' }">
-		점검
-	</c:if>
-	<c:if test="${newsVO.sort == 'shop' }">
-		샵
-	</c:if>
-	] ${newsVO.title }
+	${eventVO.title }
 </div>
 
 <div id="sec_date">
-	${newsVO.logtime }
+	${eventVO.s_date } ~ ${eventVO.e_date }
 </div>
 
 <div id="sec_content">
-	${newsVO.content }
+	
 </div>
 
 <div id="sec_btn">

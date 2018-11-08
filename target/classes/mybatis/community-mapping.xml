@@ -47,14 +47,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         SELECT * FROM freeboard_comment where freeboard_num = #{freeboard_num}
     </select>
     
-    <insert id="free_commentInsert">
+    <insert id="free_commentInsert" parameterType="freeboard_commentDTO">
         INSERT INTO
         freeboard_comment
         VALUES(#{freeboard_num} ,seq_free_comment.nextval,
         #{free_comment_writer}, #{free_comment_content}, sysdate)
     </insert>
     
-    <delete id="free_commentDelete" parameterType="int">
+    <delete id="free_commentDelete" parameterType="freeboard_commentDTO">
         DELETE FROM freeboard_comment WHERE free_comment_num = #{free_comment_num}
     </delete> -->
 	<!-- 자유 게시판 - 댓글 -->

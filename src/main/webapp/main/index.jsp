@@ -91,6 +91,10 @@
 				$("div").html("<div>"+textStatus+" (HTTP-)"+ xhr.status + " / " + errorThrown +")</div>");
 			}
 		});
+	 
+	
+				
+	
 	});
 </script>
 
@@ -164,7 +168,7 @@
 	</div>
 	
 	<div id="item_shop">
-		아이템샵
+		<jsp:include page="../itemShop/itemShopPreview.jsp"/>
 	</div>
 
 </div>
