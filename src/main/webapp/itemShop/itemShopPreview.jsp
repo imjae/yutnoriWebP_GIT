@@ -48,7 +48,6 @@ div#shopPreview img{
 </script>
 </head>
 <body>
-야야
 <div id="shopPreview">
 
 </div>
