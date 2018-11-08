@@ -91,11 +91,7 @@ public class UserServiceImpl implements UserService {
 	public int insertHistory(String user_id, String item_code) {
 		return userDAO.insertHistory(user_id, item_code);
 	}
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> 6c28451a49e5861cdb5362879b45cfd737088d15
 	public int equipItemCreate(String user_id) {
 		return userDAO.equipItemCreate(user_id);
 	}

@@ -68,7 +68,13 @@ div#payBody div#warning label{
 	font-family: "-윤고딕310";
 	/* border: 1px solid orange; */
 }
-
+div#paybody {
+	margin: 0 auto;
+	width: 1000px;
+	height:1000px;
+	text-align: center;
+	padding-top: 50px; 
+}
 	
 	
 
@@ -125,6 +131,7 @@ div#payBody div#warning label{
 	</div>
 	
 	<div id="body">
+	<div id="paybody">
 		<div id="payTitle">
 			<h2>　구매하기</h2>
 		</div>
@@ -169,6 +176,7 @@ div#payBody div#warning label{
 				<jsp:include page="../itemShop/itemPaymentSuccess.jsp"/>
 			</c:if>
 		</div>
+	</div>
 	</div>
 </div>
 
