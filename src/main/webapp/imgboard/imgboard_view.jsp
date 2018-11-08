@@ -46,11 +46,11 @@
 		padding-top: 90px;
 	}
 	
-	li {
+	/* li {
 		width: 950px;
 		padding-bottom: 10px;
 		border-bottom: 1px solid lightgray;
-	}
+	} */
 	
 	.imgboard_commentWriter {
 		font-weight: bold;
@@ -156,7 +156,7 @@
 		${imgboardDTO.imgboard_readCount}&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;${imgboardDTO.imgboard_date}&nbsp;&nbsp;
 	</div>
 	<div class="imgboard_viewDetail" id="imgboard_viewContent">
-		<p><img src="../storage/${imgboardDTO.imgboard_img}" width="60%" height="60%"></p>
+		<p><img src="../storage/${imgboardDTO.imgboard_img}"></p>
 		<pre>${imgboardDTO.imgboard_content}</pre>
 	</div>
 	<div class="imgboard_viewDetail" id="imgboard_listBtn">

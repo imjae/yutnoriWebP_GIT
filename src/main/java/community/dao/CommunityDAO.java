@@ -51,19 +51,19 @@ public class CommunityDAO {
 	
 	
 	// 자유 게시판(댓글)
-	public void free_commentInsert(Freeboard_commentDTO freeboard_commentDTO) {
+	public void free_commentInsert(Freeboard_commentDTO freeboard_commentDTO) throws Exception {
 		session.insert("mybatis.communityMapper.free_commentInsert", freeboard_commentDTO);
 	}
 
-	public int free_commentDelete(int free_comment_num) {
-		return session.delete("mybatis.communityMapper.free_commentDelete", free_comment_num);
+	public void free_commentDelete(Freeboard_commentDTO freeboard_commentDTO) throws Exception {
+		session.delete("mybatis.communityMapper.free_commentDelete", freeboard_commentDTO);
 	}
 
 	public int free_commentCount(int freeboard_num) {
 		return session.selectOne("mybatis.communityMapper.free_commentCount", freeboard_num);
 	}
 
-	public List<Freeboard_commentDTO> free_commentList(int freeboard_num){
+	public List<Freeboard_commentDTO> free_commentList(int freeboard_num) throws Exception {
 		return session.selectList("mybatis.communityMapper.free_commentList", freeboard_num);
 	}
 	

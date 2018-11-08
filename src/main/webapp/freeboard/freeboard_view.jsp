@@ -62,7 +62,7 @@
 	<div class="freeboard_viewForm" id="freeboard_view_hitNdate" style="text-align: right;">
 		${freeboardDTO.freeboard_readCount}&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;${freeboardDTO.freeboard_date}&nbsp;&nbsp;
 	</div>
-	<div class="freeboard_viewForm" id="freeboard_viewContent" style="height: 500px;">
+	<div class="freeboard_viewForm" id="freeboard_viewContent" style="height: 550px; overflow: scroll;">
 		<pre>${freeboardDTO.freeboard_content}</pre>
 	</div>
 	<div class="freeboard_viewForm" id="freeboard_listBtn">

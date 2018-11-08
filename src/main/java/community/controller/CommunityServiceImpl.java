@@ -55,13 +55,13 @@ public class CommunityServiceImpl implements CommunityService{
 	
 	// 자유 게시판 - 덧글
 	@Override
-	public void free_commentInsert(Freeboard_commentDTO freeboard_commentDTO) {
+	public void free_commentInsert(Freeboard_commentDTO freeboard_commentDTO) throws Exception {
 		communityDAO.free_commentInsert(freeboard_commentDTO);
 	}
 
 	@Override
-	public int free_commentDelete(int free_comment_num) {
-		return communityDAO.free_commentDelete(free_comment_num);
+	public void free_commentDelete(Freeboard_commentDTO freeboard_commentDTO) throws Exception {
+		communityDAO.free_commentDelete(freeboard_commentDTO);
 	}
 
 	@Override
@@ -70,7 +70,7 @@ public class CommunityServiceImpl implements CommunityService{
 	}
 
 	@Override
-	public List<Freeboard_commentDTO> free_commentList(int freeboard_num) {
+	public List<Freeboard_commentDTO> free_commentList(int freeboard_num) throws Exception {
 		return communityDAO.free_commentList(freeboard_num);
 	}
 	// 자유 게시판 - 덧글
@@ -112,6 +112,8 @@ public class CommunityServiceImpl implements CommunityService{
 		communityDAO.imgboard_hit(imgboard_num);
 	}
 	// 스샷 게시판 - 게시글
+
+
 
 
 }

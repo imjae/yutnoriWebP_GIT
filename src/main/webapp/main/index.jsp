@@ -177,8 +177,7 @@
 </c:if>
 <c:if test="${display != null }">
 <div id="space">
-
-<jsp:include page="${display }"/>
+	<jsp:include page="${display }"/>
 </div>
 </c:if>
 
