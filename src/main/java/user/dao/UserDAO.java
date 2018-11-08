@@ -103,10 +103,7 @@ public class UserDAO {
 
 		return sqlSession.insert("mybatis.userMapper.insertHistory", map);
 	}
-<<<<<<< HEAD
-	
-=======
->>>>>>> c6ace745a1dfca5d3c38d47aeeeb722ac106c83d
+
 	public int equipItemCreate(String user_id) {
 		
 		return sqlSession.insert("mybatis.userMapper.equipItemCreate",user_id);

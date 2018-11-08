@@ -112,11 +112,11 @@ div#total {
 			<c:forEach var="i" items="${list }">
 				<div class="object">
 					<div class="img">
-						<a href="#"><img alt="" src="../etc/image/eventThumbnail/${i.e_img }" style="height: 100%; width: 100%;"></a>
+						<a href="../event/eventMainView.do?e_num=${i.e_num }"><img alt="" src="../etc/image/eventThumbnail/${i.e_img }" style="height: 100%; width: 100%;"></a>
 					</div>
 					<div class="text">
-						<div class="e_title"><a href="#">${i.title }</a></div>
-						<div class="e_sub_title"><a href="#">${i.sub_title }</a></div>
+						<div class="e_title"><a href="../event/eventMainView.do?e_num=${i.e_num }">${i.title }</a></div>
+						<div class="e_sub_title"><a href="../event/eventMainView.do?e_num=${i.e_num }">${i.sub_title }</a></div>
 						<div class="period">${i.s_date } ~ ${i.e_date }</div>
 					</div>
 				</div>
