@@ -87,7 +87,7 @@ public class RankController {
 			json.put("items",items);
 		}
 		
-		System.out.println(json);
+		// System.out.println(json);
 		
 		
 
