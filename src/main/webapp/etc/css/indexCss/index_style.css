@@ -92,7 +92,7 @@ div#menu_space > div#login_form {
 
 
 
-#data_space, #space {
+div#data_space, div#space {
 	/* border: 1px solid black; */
 	border-top: 0px;
 	width: 1400px; 
@@ -141,6 +141,13 @@ div#menu_space > div#login_form {
 	border-bottom: 1px solid black; */
 	width: 100%;
 	height: 400px;
+}
+
+div#real_screenshot {
+	margin-top: 100px;
+	margin-bottom: 100px;
+	width: 100%;
+	height: 340px;
 }
 #item_shop {
 	

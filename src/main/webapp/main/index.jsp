@@ -91,12 +91,7 @@
 				$("div").html("<div>"+textStatus+" (HTTP-)"+ xhr.status + " / " + errorThrown +")</div>");
 			}
 		});
-<<<<<<< HEAD
-=======
-	 
-	
-				
->>>>>>> 6c28451a49e5861cdb5362879b45cfd737088d15
+
 	
 	});
 	
@@ -172,6 +167,10 @@
 	
 	<div id="screenshot">
 		<jsp:include page="../event/eventPreview.jsp"/>
+	</div>
+	
+	<div id="real_screenshot">
+		<jsp:include page="../imgboard/imgboard_listPreView.jsp"/>
 	</div>
 	
 	<div id="item_shop">

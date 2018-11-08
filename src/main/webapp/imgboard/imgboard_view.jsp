@@ -55,6 +55,11 @@
 	.imgboard_commentWriter {
 		font-weight: bold;
 	}
+	
+	img#view_img {
+		max-width: 800px;
+		max-height: 500px;
+	}
 </style>
 
 <script type="text/javascript">
@@ -93,7 +98,7 @@
 			// 금일의 날짜 값 생성
 			var today = yy + "-" + mm + "-" + dd + " " + hh + ":" + min + ":" + sec;
 			
-			// 새로운 글이 추가될 li 태그 객체
+			
 			var new_li = $("<li>", );
 			new_li.addClass("imgboard_commentItem");
 			
@@ -156,7 +161,7 @@
 		${imgboardDTO.imgboard_readCount}&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;${imgboardDTO.imgboard_date}&nbsp;&nbsp;
 	</div>
 	<div class="imgboard_viewDetail" id="imgboard_viewContent">
-		<p><img src="../storage/${imgboardDTO.imgboard_img}"></p>
+		<p><img id="view_img" src="../storage/${imgboardDTO.imgboard_img}"></p>
 		<pre>${imgboardDTO.imgboard_content}</pre>
 	</div>
 	<div class="imgboard_viewDetail" id="imgboard_listBtn">
