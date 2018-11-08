@@ -21,7 +21,6 @@ div#top_info {
 	margin: 0 auto;
 	width: 2000px;
 	height: 60px;
-	border: 1px solid blue;
 }
 #menu_space div#menu_space_top {
 	
@@ -38,9 +37,10 @@ div#top_info {
 }
 div#body {
 	margin: 0 auto;
-	width: 1000px;
+	width: 1200px;
 	height:1000px;
 	/* border: 1px solid black;   */
+	background-color: rgba(255,255,255,0.6);
 	text-align: center;
 	margin-top: 0;
 }

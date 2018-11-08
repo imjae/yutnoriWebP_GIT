@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import itemShop.bean.PaymentHistoryDTO;
 import user.bean.UserDTO;
+import user.bean.UserEquipDTO;
 
 @Repository
 public class UserDAO {
@@ -118,6 +119,11 @@ public class UserDAO {
 		map.put("column_name", column_name);
 		
 		return sqlSession.update("mybatis.userMapper.equipItem", map);
+	}
+	
+	public UserEquipDTO equipItemStatus(String user_id) {
+		
+		return sqlSession.selectOne("mybatis.userMapper.equipItemStatus", user_id);
 	}
 
 }

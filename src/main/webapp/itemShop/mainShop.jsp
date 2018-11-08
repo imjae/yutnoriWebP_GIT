@@ -20,9 +20,9 @@ div#header {
 	height: 65px;
 	/* border: 1px solid blue;  */
 }
-div#top {height: 130px; width: 1000px;  /* border: 1px solid blue; */}
+div#top {height: 130px; width: 1200px;  /* border: 1px solid blue; */}
 div#sort {
-	width: 870px;
+	width: 970px;
 	text-align: right;
 	word-spacing: 20px;
 }
@@ -63,7 +63,7 @@ div#menu_space_ad a {margin-left: 500px; /* border: 1px solid orange; */}
 <script type="text/javascript">
 	function confLogin(uri){
 		if(${session_id == null}){	// 로그인 안한 상태로 결제하기 눌렀을 때
-			alert("로그인 후 결제해주세요.");
+			alert("로그인 후 이용해주세요.");
 			location.href="../login/loginPage.jsp";
 		}else{	// 로그인 상태일때
 			location.href=uri;
@@ -110,19 +110,23 @@ div#menu_space_ad a {margin-left: 500px; /* border: 1px solid orange; */}
 	<div id="header">
 		<div id="all" class="${category=='all'? 'selected':'' }">
 			<a href="../itemShop/mainShop.do?category=all&pg=1&order=logtime">
-			<img src="../etc/image/전체글씨.png"></a>
+			<img src="../etc/image/itemImage/all.png">
+			</a>
 		</div>
 		<div id="character" class="${category=='character'? 'selected':'' }">
 			<a href="../itemShop/mainShop.do?category=character&pg=1&order=logtime">
-			<img src="../etc/image/캐릭터.png"></a>
+			<img src="../etc/image/itemImage/character.png">
+			</a>
 		</div>
 		<div id="background" class="${category=='background'? 'selected':'' }">
 			<a href="../itemShop/mainShop.do?category=background&pg=1&order=logtime">
-			<img src="../etc/image/배경.png"></a>
+			<img src="../etc/image/itemImage/backgroundCate.png">
+			</a>
 		</div>
 		<div id="potion" class="${category=='potion'? 'selected':'' }">
 			<a href="../itemShop/mainShop.do?category=potion&pg=1&order=logtime">
-			<img src="../etc/image/물약.png"></a>
+			<img src="../etc/image/itemImage/potion.png">
+			</a>
 		</div>
 	</div>
 	<div id="sort">

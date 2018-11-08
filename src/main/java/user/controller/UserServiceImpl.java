@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import itemShop.bean.PaymentHistoryDTO;
 import user.bean.UserDTO;
+import user.bean.UserEquipDTO;
 import user.dao.UserDAO;
 
 @Service
@@ -90,7 +91,11 @@ public class UserServiceImpl implements UserService {
 	public int insertHistory(String user_id, String item_code) {
 		return userDAO.insertHistory(user_id, item_code);
 	}
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 2ef5e7186265b24a06c6ee486ad6edc414d21ab6
 	public int equipItemCreate(String user_id) {
 		return userDAO.equipItemCreate(user_id);
 	}
@@ -98,6 +103,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public int equipItem(String user_id, String item_code, String column_name) {
 		return userDAO.equipItem(user_id, item_code, column_name);
+	}
+
+	@Override
+	public UserEquipDTO equipItemStatus(String user_id) {
+		return userDAO.equipItemStatus(user_id);
 	}
 	
 	

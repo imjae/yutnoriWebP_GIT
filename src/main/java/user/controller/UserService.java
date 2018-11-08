@@ -4,6 +4,7 @@ import java.util.List;
 
 import itemShop.bean.PaymentHistoryDTO;
 import user.bean.UserDTO;
+import user.bean.UserEquipDTO;
 
 public interface UserService {
 	
@@ -14,6 +15,7 @@ public interface UserService {
 	int equipItemCreate(String user_id);
 	
 	int equipItem(String user_id, String item_code, String column_name);
+	UserEquipDTO equipItemStatus(String user_id);
 	
 	int userIdCheck(String user_id);
 	
@@ -36,8 +38,13 @@ public interface UserService {
 	int haveItemCount(String user_id);
 	
 	int cashCharge(String user_id, int charge_price);
+<<<<<<< HEAD
 	
 	int insertHistory(String user_id, String item_code);
 
+=======
+	int insertHistory(String user_id, String item_code);
+>>>>>>> 2ef5e7186265b24a06c6ee486ad6edc414d21ab6
 	
+
 }
