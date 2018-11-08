@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<img alt="" src="../etc/image/eventThumbnail/1.png" style="width: 100%; height: 100%;">
+<img alt="" src="../etc/image/eventThumbnail/2.png" style="width: 100%; height: 100%;">
 </body>
 </html>
