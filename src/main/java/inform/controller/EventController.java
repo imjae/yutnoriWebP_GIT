@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +19,44 @@ public class EventController {
 
 	@Autowired
 	EventService eventService;
+	
+	@RequestMapping(value = "/event/eventPreview.do", method = RequestMethod.POST)
+	public ModelAndView eventPreview(HttpServletRequest request) {
+		
+		System.out.println("난 eventPreview야");
+		List<EventVO> list = eventService.eventListOn(1, 4);
+		
+		int total = list.size();
+		
+		JSONObject json = new JSONObject();
+		json.put("total", total);
+		
+		if(total > 0) {
+			JSONArray items = new JSONArray();
+			for(int i=0; i<total; i++) {
+				EventVO eventVO = list.get(i);
+				
+				JSONObject temp = new JSONObject();
+				temp.put("e_num", eventVO.getE_num());
+				temp.put("e_img", eventVO.getE_img());
+				temp.put("title", eventVO.getTitle());
+				temp.put("sub_title", eventVO.getSub_title());
+				temp.put("s_date", eventVO.getS_date());
+				temp.put("e_date", eventVO.getE_date());
+				items.put(i, temp);
+			}
+			json.put("items", items);
+		}
+		
+		// System.out.println(json);
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("json", json);
+		
+		modelAndView.setViewName("../event/event_json.jsp");
+		
+		return modelAndView;	
+	}
 	
 	@RequestMapping(value = "/event/eventMainOn.do")
 	public ModelAndView eventMainOn(HttpServletRequest request) {
