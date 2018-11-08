@@ -13,6 +13,11 @@ div#top_info {
 	height: 60px;
 }
 
+div#start_button:hover {
+	cursor: pointer;
+	
+}
+
 #menu_sub {
 	width: 2000px;
 	height: 300px;
@@ -113,7 +118,9 @@ div#menu_space > div#login_form {
 	font-family:'Nanum Gothic', 'NanumGothic','나눔고딕', 돋움, Dotum, Arial, sans-serif; font-size:16px; color:#676767; line-height:1; letter-spacing:-1px; -webkit-text-size-adjust: none;
 	
 }
-
+#rank_rankPreview {
+	font-family:'Nanum Gothic', 'NanumGothic','나눔고딕', 돋움, Dotum, Arial, sans-serif; font-size:16px; color:#676767; line-height:1; letter-spacing:-1px; -webkit-text-size-adjust: none;
+}
 
 #notice {
 	width: 100%;
@@ -138,10 +145,13 @@ div#menu_space > div#login_form {
 	height: 350px;
 }
 
-
+/* #footer {
+	float: none;
+	clear: both;
+} */
 .footer{
 	border: 1500px 1000px;
-    border-top: 1px solid #BDBDBD;
+    border-top: 1px solid #BDBDBD;m 
     overflow-x: none;
     font-size: 13px;
     font-smooth: always;

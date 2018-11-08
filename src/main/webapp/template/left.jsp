@@ -12,7 +12,7 @@
 	<a href="../rank/yutnoriiiRankList.do?pg=1"><img src="../etc/image/rankImage/plus.png"></a>
 </div>
 <div align="center">
-<img alt="" src="../etc/image/rankImage/honor1.png" >
+<img alt="" src="../etc/image/rankImage/honor777.png" >
 <br>
 <br>
 <br>

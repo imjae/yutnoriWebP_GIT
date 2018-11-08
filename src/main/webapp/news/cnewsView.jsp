@@ -29,7 +29,7 @@
 #sec_content {
 	padding-left: 30px;
 	padding-right: 30px;
-	height: 800px;
+	height: 810px;
 	overflow: scroll;
 }
 #sec_btn {
@@ -40,8 +40,14 @@
 	/* border: 1px solid red; */
 }
 
-
 </style>
+<script type="text/javascript">
+	$(function() {
+		$("#btn").click(function() {
+			history.back();
+		});
+	});
+</script>
 </head>
 <body id="news_sec_total">
 <div id="sec_title">

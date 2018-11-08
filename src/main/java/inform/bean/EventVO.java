@@ -7,7 +7,7 @@ public class EventVO {
 	private String sub_title;
 	private String s_date;
 	private String e_date;
-	private int searchType;
+	
 	
 	public int getE_num() {
 		return e_num;
@@ -44,12 +44,6 @@ public class EventVO {
 	}
 	public void setE_date(String e_date) {
 		this.e_date = e_date;
-	}
-	public int getSearchType() {
-		return searchType;
-	}
-	public void setSearchType(int searchType) {
-		this.searchType = searchType;
 	}
 	
 }

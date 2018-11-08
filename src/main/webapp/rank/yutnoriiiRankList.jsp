@@ -6,6 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+function checkRankList() {
+	if(document.yutnoriiiRankList.keyword.value == "") {
+	alert("내용을 입력하세요.")
+	return false;
+	}
+}
+</script>
 <style type="text/css">
 	@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 
@@ -185,18 +193,28 @@ div#total_rank_title {
 	height: 90px;
 	border-bottom: 2px solid #BDBDBD;
 	font-weight: 600;
-	font: #424242;
+	font: #676767;
+	font-family: "-윤고딕330";
 }
 
 </style>
+<script type="text/javascript">
+function checkRankList() {
+	if(yutnoriiiRankList.keyword.value == "") {
+		alert("내용을 입력하세요.")
+		yutnoriiiRankList.keyword.focus();
+		return false;
+	}
+	else return true;
+}
+</script>
 </head>
 <body>
 
-<form action="../rank/RankList.do?pgg=1" name="yutnoriiiRankList" method="post" >
+<form action="../rank/RankList.do?pgg=1" name="yutnoriiiRankList" method="post" onsubmit="return checkRankList()">
 <table border="0" cellpadding="5" align="center" id="kim"> 
 	<tr color="">
-		<td colspan="5"><div id="total_rank_title"><FONT SIZE=6 COLOR="black">전적 랭킹</FONT></div></td>
-		
+		<td colspan="5"><div id="total_rank_title"><FONT SIZE=6>전적 랭킹</FONT></div></td>
 	</tr>
 	<tr>
 		<td colspan="5">
@@ -217,19 +235,18 @@ div#total_rank_title {
     </div>
     
 </div>
-<div align="right"><img src="../etc/image/rankImage/yut.png"></div>
+<!-- <div align="right"><img src="../etc/image/rankImage/yut.png"></div> -->
 </td>
 	</tr>
 	
 	<tr>
 	<td colspan="5" align="right">
 			<select name="searchOption">
-				<option value="select">선택</option>
 				<option value="user_name">닉네임</option>
 				<option value="user_tear">티어</option>
 			</select>
 			<input type="text" name="keyword">
-			<input type="submit" value="검색" placeholder="닉네임을 검색해주세요.">
+			<input type="submit" value="검색">
 		</td>
 	</tr>
 	<br>
