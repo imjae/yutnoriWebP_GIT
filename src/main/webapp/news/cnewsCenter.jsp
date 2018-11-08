@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 .paging {
-	color: blue;
+	color: black;
 	text-decoration: none;
 }
 
@@ -36,6 +36,7 @@
 	color: red;
 	text-decoration: underline;
 }
+
 </style>
 <script type="text/javascript" src="../etc/js/jquery-3.3.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../etc/css/cnewsCenter.css" />
@@ -66,14 +67,15 @@
 			<p align="center">내용을 선택하세요</p>
 		</c:if>
 	</ul>
-
+	
 	<div align="center" class="paging">
+		<br>
+		<br>
 		<c:if test="${newsdto.startPage > 3 }">
 					[<a class="paging"
 				href="../news/newsMainAll.do?pg=${newsdto.startPage - 1 }&sort=${newsdto.sort}">이전</a>]
 				</c:if>
-		<c:forEach var="i" begin="${newsdto.startPage }" end="${newsdto.endPage }"
-			step="1">
+		<c:forEach var="i" begin="${newsdto.startPage }" end="${newsdto.endPage }" step="1">
 			<c:if test="${newsdto.pg == i }">
 							[<a class="currentPaging"
 					href="../news/newsMainAll.do?pg=${i }&sort=${newsdto.sort}">${i }</a>]

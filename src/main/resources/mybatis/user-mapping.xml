@@ -86,11 +86,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE user_id = #{user_id}
 	</select>
 	
+	<insert id="insertHistory" parameterType="java.util.Map">
+		INSERT INTO payment_history VALUES(#{user_id}, #{item_code}, sysdate)
+	</insert>
+	
 	<update id="cashCharge" parameterType="java.util.Map">
 		UPDATE users
 		SET user_cash = user_cash + #{charge_price}
 		WHERE user_id = #{user_id}
 	</update>
+	
+	<update id="equipItem" parameterType="java.util.Map">
+		UPDATE equipment
+		SET ${column_name} = #{item_code}
+		WHERE user_id = #{user_id}
+	</update>
+	
+	<insert id="equipItemCreate" parameterType="String">
+		INSERT INTO equipment (user_id)
+		VALUES( #{user_id} )
+	
+	</insert>
+	
+	<select id="equipItemStatus" parameterType="String" resultType="userEquipDTO">
+		SELECT * 
+		FROM equipment
+		WHERE user_id = #{user_id}
+	</select>
 	
 	
 	<!-- <insert id="userLogin" parameterType="boardDTO">

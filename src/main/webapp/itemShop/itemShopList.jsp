@@ -48,10 +48,10 @@ td {
 			</a>
 		</td>
 		<c:if test="${i%4==0 }">
-			</tr><tr>
+			</tr>
 		</c:if>
 	</c:forEach>
-	</tr>
+	
 	
 	<!-- 페이징처리 -->
 	<tr>

@@ -117,6 +117,10 @@ a.my_sub_menu:link { text-decoration: none; }
 a.my_sub_menu:visited { text-decoration: none; }
 a.my_sub_menu:hover { text-decoration: none;  }
 	
+#selected {
+	color: black;
+	font-weight: bold;
+}	
 
 </style>
 
@@ -126,7 +130,7 @@ a.my_sub_menu:hover { text-decoration: none;  }
 <div id="section_total">
 	
 	<div id="section_top_left_center">
-		<h1 id="section_top" style="margin: 30px">공지사항</h1>
+		<h1 id="section_top" style="margin: 23px 30px">공지사항</h1>
 		
 		<div id="section_left_center">
 			<c:if test="${newsView != null }">
@@ -166,11 +170,11 @@ a.my_sub_menu:hover { text-decoration: none;  }
 		</div>
 		
 		<div id="section_char_info" class="userInfo_sub_menu">
-		<a href="../news/newsMainAll.do" class="my_sub_menu">&nbsp;&nbsp;&CenterDot; 공지사항</a>
+		<a href="../news/newsMainAll.do" class="my_sub_menu" id="selected">&nbsp;&nbsp;&CenterDot; 공지사항</a>
 		</div>
 		
 		<div id="section_user_item" class="userInfo_sub_menu">
-		<a href="#"  class="my_sub_menu">&nbsp;&nbsp;&CenterDot;  이벤트</a>
+		<a href="../event/eventMainOn.do"  class="my_sub_menu">&nbsp;&nbsp;&CenterDot;  이벤트</a>
 		</div>
 	</div>
 </div>

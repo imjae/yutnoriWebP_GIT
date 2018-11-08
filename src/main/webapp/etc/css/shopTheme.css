@@ -21,13 +21,12 @@ div#top_info {
 	margin: 0 auto;
 	width: 2000px;
 	height: 60px;
-	border: 1px solid blue;
 }
 #menu_space div#menu_space_top {
 	
 	width: 2000px;
 	height: 100px;
-	background-color: rgba(0,0,0,0.7);
+	background-color: rgba(0,0,0,0.5);
 	/* margin-bottom: 30px; */
 }
 #menu_space div#menu_space_ad {
@@ -38,9 +37,10 @@ div#top_info {
 }
 div#body {
 	margin: 0 auto;
-	width: 1000px;
+	width: 1200px;
 	height:1000px;
 	/* border: 1px solid black;   */
+	background-color: rgba(255,255,255,0.6);
 	text-align: center;
 	margin-top: 0;
 }
@@ -49,11 +49,12 @@ div#body {
 
 /** 세부사항 */
 #menu_space div#blank {width: 550px; height:10px; float:left; /* border: 1px solid red; */}
-#menu_space_top > div#blank {width: 500px; height:10px; float: left;/*  border: 1px solid red; */}
+#menu_space_top > div#blank {width: 350px; height:10px; float: left; /*  border: 1px solid red; */}
 #menu_space_top > div {float: left;/* border: 1px solid red; */}
 #menu_space_top > div a {
-	color: white; font-size: 20px; 
+	color: white; font-size: 23px; 
 	font-family: "-윤고딕310"; 
+	text-decoration: none;
 }
 #menu_space_top > div#basket {
 	width: 120px; text-align: center; 
@@ -65,10 +66,10 @@ div#body {
 	margin-top: 40px; margin-left: -5px;
 	/* border: 1px solid red;  */
 }
-div#menu_space_top a{
+/* div#menu_space_top a{
 	font-size: 1.2em;
 	color: white;
-}
+} */
 
 
 

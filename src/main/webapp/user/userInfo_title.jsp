@@ -80,7 +80,14 @@ a.my_sub_menu:hover { text-decoration: none;  }
 	<div id="section_left">
 		<%-- <jsp:include page="${userInfo_page_url }"/> --%>
 		<%-- <jsp:include page="../user/cashCharge_page.jsp"/> --%>
-		<jsp:include page="${userInfo_page_url }"/>
+		<c:if test="${userInfo_page_url !=  '../user/paymentHistory.do'}">
+			<jsp:include page="${userInfo_page_url }"/>
+		</c:if>
+		<c:if test="${userInfo_page_url ==  '../user/paymentHistory.do'}">
+			<jsp:include page="${userInfo_page_url }">
+				<jsp:param value="${pg == null? 1:pg }" name="pg"/>
+			</jsp:include>
+		</c:if>
 		<%-- <jsp:include page="cashCharge_page.jsp"/> --%>
 	</div>
 	
@@ -95,7 +102,7 @@ a.my_sub_menu:hover { text-decoration: none;  }
 		</div>
 		
 		<div id="section_user_item" class="userInfo_sub_menu">
-		<a href="#"  class="my_sub_menu">&nbsp;&nbsp;&CenterDot;구매 내역</a>
+		<a href="../main/myPage.do?dis=../user/paymentHistory.do"  class="my_sub_menu">&nbsp;&nbsp;&CenterDot;구매 내역</a>
 		</div>
 		
 		<div id="section_cash_chung" class="userInfo_sub_menu">
