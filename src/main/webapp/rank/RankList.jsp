@@ -190,12 +190,19 @@ div#total_rank_title {
 
 </style>
 <script type="text/javascript">
-
+function checkRankList() {
+	if(RankList.keyword.value == "") {
+		alert("내용을 입력하세요.")
+		RankList.keyword.focus();
+		return false;
+	}
+	else return true;
+}
 </script>
 </head>
 <body>
 
-<form action="../rank/RankList.do?pgg=1" name="RankList" method="post" >
+<form action="../rank/RankList.do?pgg=1" name="RankList" method="post" onsubmit="return checkRankList()">
 <table border="0" cellpadding="5" align="center" id="park"> 
 	<tr color="">
 		<td colspan="5"><div id="total_rank_title"><FONT SIZE=6 COLOR="black">전적 랭킹</FONT></div></td>
@@ -223,7 +230,6 @@ div#total_rank_title {
 	
 		<td colspan="5" align="right">
 			<select name="searchOption">
-			<option value="select">선택</option>
 				<option value="user_name">닉네임</option>
 				<option value="user_tear">티어</option>
 			</select>

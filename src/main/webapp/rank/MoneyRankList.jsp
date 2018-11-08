@@ -186,24 +186,35 @@ div#total_rank_title {
 	border-bottom: 2px solid #BDBDBD;
 	font-weight: 600;
 	font: #424242;
+	font-family: "-윤고딕330";
 }
  
 </style>
+<script type="text/javascript">
+function checkRankList() {
+	if(MoneyRankList.keyword.value == "") {
+		alert("내용을 입력하세요.")
+		MoneyRankList.keyword.focus();
+		return false;
+	}
+	else return true;
+}
+</script>
 </head>
 <body>
 
-<form action="../rank/RankList.do?pgg=1" name="MoneyRankList" method="post" >
+<form action="../rank/RankList.do?pgg=1" name="MoneyRankList" method="post" onsubmit="return checkRankList()">
 <table border="0" cellpadding="5" align="center"> 
-	<tr color="">
-		<td colspan="5"><div id="total_rank_title"><FONT SIZE=6 COLOR="black">골드 보유랭킹</FONT></div></td>
+	<tr>
+		<td colspan="5"><div id="total_rank_title"><FONT SIZE=6>골드 보유랭킹</FONT></div></td>
 	</tr>
 	<tr>
 		<td colspan="5">
 			<div class="back">
     <div class="button_base b03_skewed_slide_in">
-        <div>종합 랭킹</div>
+        <div>전적 랭킹</div>
         <div></div>
-        <div onclick="location.href='../rank/yutnoriiiRankList.do?pg=1'">종합 랭킹 &nbsp;</div>
+        <div onclick="location.href='../rank/yutnoriiiRankList.do?pg=1'">전적 랭킹 &nbsp;</div>
         
     </div>
 </div>
@@ -222,7 +233,6 @@ div#total_rank_title {
 	
 		<td colspan="5" align="right">
 			<select name="searchOption">
-				<option value="select">선택</option>
 				<option value="user_name">닉네임</option>
 				<option value="user_tear">티어</option>
 			</select>
