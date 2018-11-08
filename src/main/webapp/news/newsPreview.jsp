@@ -106,6 +106,13 @@ div#news_preview_preview {
 	height: 80%;
 }
 
+img#news_plus_btn {
+	float: right;
+}
+img#news_plus_btn:hover {
+	cursor: pointer;
+}
+
 </style>
 
 <script type="text/javascript">
@@ -127,10 +134,18 @@ div#news_preview_preview {
 			success : function(data){
 			
 				$.each(data.items, function(index, item){
+					var cate;
+					if(item.sort == 'shop'){
+						cate = '샵';
+					}else if(item.sort == 'patch'){
+						cate = '점검';
+					}else if(item.sort == 'inform'){
+						cate = '공지';
+					}
 					
 					var div = $("<div>",{ "id" : "news_preview_listD_iv"});
 					
-					var div_sort = $("<div>",{ "id" : "news_preview_sort_div"}).html(item.sort);
+					var div_sort = $("<div>",{ "id" : "news_preview_sort_div"}).html(cate);
 					
 					var div_title = $("<div>",{ "id" : "news_preview_title_div"}).html(item.title);
 					
@@ -194,6 +209,12 @@ div#news_preview_preview {
 	         $("div#div#news_preview_privew_title_div").css("display","block");
 	         $("div#news_preview_list").css("width","53%");
 	      });
+	      
+	      
+	      $("img#news_plus_btn").click(function(){
+	    	  
+	    	 	location.href="../news/newsMainAll.do?pg=1"; 
+	      });
 	
 	
 	});
@@ -213,6 +234,7 @@ div#news_preview_preview {
 	
 		<div id="news_preview_title">
 			&nbsp;&nbsp;새소식
+			<img id="news_plus_btn" src="../etc/image/rankImage/plus.png"/>
 		</div>
 		
 		
