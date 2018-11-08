@@ -91,6 +91,12 @@
 				$("div").html("<div>"+textStatus+" (HTTP-)"+ xhr.status + " / " + errorThrown +")</div>");
 			}
 		});
+<<<<<<< HEAD
+=======
+	 
+	
+				
+>>>>>>> 6c28451a49e5861cdb5362879b45cfd737088d15
 	
 	});
 	
@@ -143,8 +149,6 @@
 		</div>
 	</div>
 	
-	
-	
 </div>
 
 <c:if test="${display == null }">
@@ -157,7 +161,7 @@
 		</div>
 		
 		<div id="notice">
-			공지사항
+			<jsp:include page="../news/newsPreview.jsp"/>
 		</div>
 	</div>
 	
@@ -171,7 +175,7 @@
 	</div>
 	
 	<div id="item_shop">
-		아이템샵
+		<jsp:include page="../itemShop/itemShopPreview.jsp"/>
 	</div>
 
 </div>

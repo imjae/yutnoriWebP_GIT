@@ -6,6 +6,7 @@ public class FreeboardDTO {
 	private String freeboard_subject;
 	private String freeboard_content;
 	private int freeboard_readCount;
+	private int freeboard_commCount;
 	private String freeboard_date;
 	
 	public int getFreeboard_num() {
@@ -41,6 +42,13 @@ public class FreeboardDTO {
 	}
 	public void setFreeboard_readCount(int freeboard_readCount) {
 		this.freeboard_readCount = freeboard_readCount;
+	}
+	
+	public int getFreeboard_commCount() {
+		return freeboard_commCount;
+	}
+	public void setFreeboard_commCount(int freeboard_commCount) {
+		this.freeboard_commCount = freeboard_commCount;
 	}
 	
 	public String getFreeboard_date() {

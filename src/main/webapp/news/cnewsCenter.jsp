@@ -49,15 +49,39 @@
 			<c:forEach var="i" items="${list }">
 				<li class="article" id="${id}">
 					<div class="q">
-						<div class="sort">
-							<c:if test="${i.sort == 'inform' }">공지</c:if>
-							<c:if test="${i.sort == 'patch' }">점검</c:if>
-							<c:if test="${i.sort == 'shop' }">샵</c:if>
-						</div>
-						<a href="../news/newsMainView.do?&news_num=${i.news_num}" class="q_title">${i.title }</a>
-						<div class="date">
+						
+							<c:if test="${i.sort == 'inform' }">
+							<div id="sort_notice">
+								공지
+							</div>
+							<a href="../news/newsMainView.do?&news_num=${i.news_num}" id="q_title_notice">${i.title }</a>
+							<div id="date_notic">
 							${i.logtime }
-						</div>
+							</div>
+							</c:if>
+							
+							<c:if test="${i.sort == 'patch' }">
+							<div id="sort_jumgum">
+								점검
+							</div>
+							<a href="../news/newsMainView.do?&news_num=${i.news_num}" id="q_title_jumgum">${i.title }</a>
+							<div id="date_jumgum">
+							${i.logtime }
+							</div>
+							</c:if>
+							
+							<c:if test="${i.sort == 'shop' }">
+							<div id="sort_shop">
+								샵
+							</div>
+							<a href="../news/newsMainView.do?&news_num=${i.news_num}" id="q_title_shop">${i.title }</a>
+							<div id="date_shop">
+							${i.logtime }
+							</div>
+							</c:if>
+						
+						
+						
 					</div>
 				</li>
 			</c:forEach>

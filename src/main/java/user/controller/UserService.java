@@ -38,8 +38,18 @@ public interface UserService {
 	int haveItemCount(String user_id);
 	
 	int cashCharge(String user_id, int charge_price);
+<<<<<<< HEAD
 	
 	int insertHistory(String user_id, String item_code);
+=======
+
+	
+	int insertHistory(String user_id, String item_code);
+
+
+	
+
+>>>>>>> 6c28451a49e5861cdb5362879b45cfd737088d15
 	
 
 }
