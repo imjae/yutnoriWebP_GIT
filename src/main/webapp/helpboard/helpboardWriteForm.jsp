@@ -55,7 +55,7 @@
 				
 				var option0_i = $("<option>");
 				var option1_i = $("<option value='innout'>");
-				var option2_i = $("<option value='search-idnpwd'>");
+				var option2_i = $("<option value='search_idnpwd'>");
 				
 				option0_i.html("---- 선택하세요 ----");
 				option1_i.html("가입 / 탈퇴");

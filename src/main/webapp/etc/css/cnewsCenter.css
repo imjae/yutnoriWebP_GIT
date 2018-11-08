@@ -5,7 +5,7 @@
 .faqBody{margin:0;padding:0}
 .faqBody .article{list-style:none}
 .q{margin:0;}
-.q .sort {
+.q #sort_notice {
 	float: left;
 	height: 60px;
 	width: 15%;
@@ -21,8 +21,41 @@
 	border-left: 5px solid orange;
 	border-bottom: 1px solid orange;
 }
+.q #sort_jumgum {
+	float: left;
+	height: 60px;
+	width: 15%;
+	/* border: 1px solid black; */
+	margin: 1px 0;
+	margin-bottom: 10px;
+	padding-top: 13px;
+	/* background-color: #ffebeb; */
+	line-height: 45px;
+	text-align: center;
+/* 	border-right: 2px solid white; */
+	padding-right: -2px;
+	border-left: 5px solid skyblue;
+	border-bottom: 1px solid skyblue;
+}
+.q #sort_shop {
+	float: left;
+	height: 60px;
+	width: 15%;
+	/* border: 1px solid black; */
+	margin: 1px 0;
+	margin-bottom: 10px;
+	padding-top: 13px;
+	/* background-color: #ffebeb; */
+	line-height: 45px;
+	text-align: center;
+/* 	border-right: 2px solid white; */
+	padding-right: -2px;
+	border-left: 5px solid pink;
+	border-bottom: 1px solid pink;
+}
 
-.q .q_title {
+
+.q #q_title_notice {
 	float: left;
 	width: 64%;
 	/* border: 1px solid yellow; */
@@ -41,9 +74,52 @@
     line-height: 45px;
     cursor:pointer;
     text-decoration: none;
-    margin: 1px 0; !important}
+    margin: 1px 0; !important
+    }
+    .q #q_title_jumgum {
+	float: left;
+	width: 64%;
+	/* border: 1px solid yellow; */
+	display:block;
+	text-align:left; 
+    /* border-left: 5px solid #c03; */
+	border-bottom: 1px solid skyblue;
+    padding:0 0 0 35px;
+    font-size:18px;
+    color:#5e5e5e;
+    height: 60px;
+    padding-top: 13px;
+    margin-bottom: 10px;
+    vertical-align: middle;
+    font-weight:bold;
+    line-height: 45px;
+    cursor:pointer;
+    text-decoration: none;
+    margin: 1px 0; !important
+    }
+    .q #q_title_shop {
+	float: left;
+	width: 64%;
+	/* border: 1px solid yellow; */
+	display:block;
+	text-align:left; 
+    /* border-left: 5px solid #c03; */
+	border-bottom: 1px solid pink;
+    padding:0 0 0 35px;
+    font-size:18px;
+    color:#5e5e5e;
+    height: 60px;
+    padding-top: 13px;
+    margin-bottom: 10px;
+    vertical-align: middle;
+    font-weight:bold;
+    line-height: 45px;
+    cursor:pointer;
+    text-decoration: none;
+    margin: 1px 0; !important
+    }
     
-.q .date {
+.q #date_notic {
 	float: left;
 	height: 60px;
 	width: 15%;
@@ -58,7 +134,36 @@
 	border-bottom: 1px solid orange;
 	margin-bottom: 10px;
 }
-
+.q #date_jumgum {
+	float: left;
+	height: 60px;
+	width: 15%;
+/* 	border: 1px solid black; */
+	margin: 1px 0;
+	padding-top: 13px;
+	/* background-color: #ffebeb; */
+	line-height: 45px;
+	text-align: center;
+	border-right: 2px solid white;
+	padding-right: -2px;
+	border-bottom: 1px solid skyblue;
+	margin-bottom: 10px;
+}
+.q #date_shop {
+	float: left;
+	height: 60px;
+	width: 15%;
+/* 	border: 1px solid black; */
+	margin: 1px 0;
+	padding-top: 13px;
+	/* background-color: #ffebeb; */
+	line-height: 45px;
+	text-align: center;
+	border-right: 2px solid white;
+	padding-right: -2px;
+	border-bottom: 1px solid pink;
+	margin-bottom: 10px;
+}
 
 .q a:hover, .faq .q a:active, .faq .q a:focus{}
 .a{
