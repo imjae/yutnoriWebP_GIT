@@ -96,10 +96,11 @@ div#menu_space > div#login_form {
 	/* border: 1px solid black; */
 	border-top: 0px;
 	width: 1400px; 
-	height: 1000px;
+	height: auto;
 	margin: 50px auto;
 	background-color: rgba(255,255,255,0.6);
 }
+
 #rank_notice {
 	border-bottom: 1px solid black;
 	width: 100%;
@@ -107,8 +108,8 @@ div#menu_space > div#login_form {
 }
 
 #rank {
-	width: 35%;
-	height: 100%;
+	width: 38%;
+	height: 99%;
 	float: left;
 	border-right: 1px solid black;
 	
@@ -123,9 +124,11 @@ div#menu_space > div#login_form {
 }
 
 #notice {
-	width: 100%;
+	float: left;
+	width: 61.5%;
 	height:100%;
 }
+
 #game_info {
 	
 	border-bottom: 1px solid black;

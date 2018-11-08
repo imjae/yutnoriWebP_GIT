@@ -142,8 +142,6 @@
 		</div>
 	</div>
 	
-	
-	
 </div>
 
 <c:if test="${display == null }">
@@ -156,7 +154,7 @@
 		</div>
 		
 		<div id="notice">
-			공지사항
+			<jsp:include page="../news/newsPreview.jsp"/>
 		</div>
 	</div>
 	
