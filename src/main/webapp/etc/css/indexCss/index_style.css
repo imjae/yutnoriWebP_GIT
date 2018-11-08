@@ -23,7 +23,7 @@ div#start_button:hover {
 	height: 300px;
 	position: absolute;
 	top: 70px;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid black; 
 	z-index: 5;
 	display: none;   
 }
@@ -101,8 +101,8 @@ div#menu_space > div#login_form {
 	background-color: rgba(255,255,255,0.6);
 }
 
-#rank_notice {
-	border-bottom: 1px solid black;
+#rank_notice {/* 
+	border-bottom: 1px solid black; */
 	width: 100%;
 	height: 400px;
 }
@@ -110,8 +110,8 @@ div#menu_space > div#login_form {
 #rank {
 	width: 38%;
 	height: 99%;
-	float: left;
-	border-right: 1px solid black;
+	float: left;/* 
+	border-right: 1px solid black; */
 	
 	
 }
@@ -130,15 +130,15 @@ div#menu_space > div#login_form {
 }
 
 #game_info {
-	
-	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black; 
 	clear: both;
 	width: 100%;
 	height: 100px;
 }
 
-#screenshot {
-	border-bottom: 1px solid black;
+#screenshot {/* 
+	border-bottom: 1px solid black; */
 	width: 100%;
 	height: 400px;
 }
@@ -153,7 +153,6 @@ div#menu_space > div#login_form {
 	clear: both;
 } */
 .footer{
-	border: 1500px 1000px;
     border-top: 1px solid #BDBDBD;m 
     overflow-x: none;
     font-size: 13px;

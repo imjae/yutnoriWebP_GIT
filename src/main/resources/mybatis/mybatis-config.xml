@@ -21,12 +21,18 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="inform.bean.NewsVO" alias="newsVO"/>
 		<typeAlias type="inform.bean.EventVO" alias="eventVO"/>
 		<typeAlias type="inform.controller.NewsListDTO" alias="newsListDTO"/>
+<<<<<<< HEAD
 
 
 		<!-- <typeAlias type="inform.controller.EventListDTO" alias="eventListDTO"/> -->
 
 		<!-- <typeAlias type="inform.controller.EventListDTO" alias="eventListDTO"/> -->
 
+=======
+
+		<!-- <typeAlias type="inform.controller.EventListDTO" alias="eventListDTO"/> -->
+
+>>>>>>> 4e630a8cbeec213ce89f4387e6049e18649d86d9
 		<typeAlias type="community.bean.FreeboardDTO" alias="freeboardDTO"/>
 		<!-- <typeAlias type="community.bean.Freeboard_commentDTO" alias="freeboard_commentDTO"/> -->
 		<typeAlias type="community.bean.ImgboardDTO" alias="imgboardDTO"/>
@@ -40,6 +46,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mybatis/rank-mapping.xml"/>
 		<mapper resource="mybatis/helpboard-mapping.xml" />
 		<mapper resource="mybatis/notifyboard-mapping.xml" />	
+<<<<<<< HEAD
 
 		<mapper resource="mybatis/news-mapping.xml" />
 		<!-- <mapper resource="mybatis/event-mapping.xml" />	 -->	
@@ -47,19 +54,21 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mybatis/event-mapping.xml" />
 		<mapper resource="mybatis/news-mapping.xml" />
 		<!-- <mapper resource="mybatis/event-mapping.xml" />	 -->	
-
-		
-		
-		<mapper resource="mybatis/news-mapping.xml" />
-		<!-- <mapper resource="mybatis/event-mapping.xml" />	 -->	
-
-
-		<mapper resource="mybatis/itemShop-mapping.xml"/>	
+=======
+>>>>>>> 4e630a8cbeec213ce89f4387e6049e18649d86d9
 
 		<mapper resource="mybatis/news-mapping.xml" />
 		<mapper resource="mybatis/itemShop-mapping.xml"/>	
+
+<<<<<<< HEAD
+		<mapper resource="mybatis/news-mapping.xml" />
+		<mapper resource="mybatis/itemShop-mapping.xml"/>	
+=======
+>>>>>>> 4e630a8cbeec213ce89f4387e6049e18649d86d9
 		<mapper resource="mybatis/event-mapping.xml" />
+
 		<mapper resource="mybatis/news-mapping.xml" />
+<<<<<<< HEAD
 		<!-- <mapper resource="mybatis/event-mapping.xml" />	 -->	
 		<mapper resource="mybatis/news-mapping.xml" />
 		<!-- <mapper resource="mybatis/event-mapping.xml" />	 -->	
@@ -72,6 +81,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<!-- <mapper resource="mybatis/event-mapping.xml" />	 -->	
 		<mapper resource="mybatis/event-mapping.xml" />
 		<!-- <mapper resource="mybatis/event-mapping.xml" />	 -->
+=======
+>>>>>>> 4e630a8cbeec213ce89f4387e6049e18649d86d9
 
 		<mapper resource="mybatis/community-mapping.xml"/>
 	</mappers>
