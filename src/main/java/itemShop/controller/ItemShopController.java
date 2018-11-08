@@ -162,7 +162,7 @@ public class ItemShopController {
 	
 	@RequestMapping(value="/itemShop/itemShopPreview.do")
 	public ModelAndView itemShopPreview() {
-		List<ItemShopDTO> list = itemShopService.itemShopList(1, 7, "logtime desc", "character");
+		List<ItemShopDTO> list = itemShopService.itemShopList(1, 6, "logtime desc", "character");
 		int total = list.size();
 
 		JSONObject json = new JSONObject();

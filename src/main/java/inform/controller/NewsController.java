@@ -270,6 +270,41 @@ public class NewsController {
 		return modelAndView;
 	}
 
+	@RequestMapping(value = "/news/newsPreview_preview.do", method = RequestMethod.POST)
+	public ModelAndView newsPreview_preview(HttpServletRequest request) {
+		// (1) 데이터
+
+		int news_num = Integer.parseInt(request.getParameter("news_num"));
+
+		NewsVO newsVO = newsService.newsView(news_num);
+		
+		System.out.println(newsVO.getTitle());
+		
+		JSONObject json = new JSONObject();
+
+		JSONArray items = new JSONArray();
+
+		JSONObject temp = new JSONObject();
+		
+		temp.put("news_num", newsVO.getNews_num());
+		temp.put("sort", newsVO.getSort());
+		temp.put("title", newsVO.getTitle());
+		temp.put("logtime", newsVO.getLogtime());
+		temp.put("content", newsVO.getContent());
+
+		items.put(temp);
+		
+		json.put("items", items);
+
+		System.out.println(json+"<asdfasdfasdfasdf");
+
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("json", json);
+		modelAndView.setViewName("../main/news_preview_json.jsp");
+		return modelAndView;
+
+	}
+
 	@RequestMapping(value = "/news/newsModifyForm.do")
 	public ModelAndView newsModifyForm(HttpServletRequest request) {
 		int news_num = Integer.parseInt(request.getParameter("news_num"));
@@ -328,11 +363,11 @@ public class NewsController {
 	@RequestMapping(value = "/news/newsPreview.do", method = RequestMethod.POST)
 	public ModelAndView newsPreview(HttpServletRequest request) {
 		// (1) 데이터
-		
+
 		NewsListDTO newsListDTO = new NewsListDTO();
-		
+
 		newsListDTO.setStartNum(1);
-		newsListDTO.setEndNum(6);
+		newsListDTO.setEndNum(7);
 		// 목록수 : 5개씩
 		// (2) DB
 		List<NewsVO> list = newsService.newsListAll(newsListDTO);
@@ -372,7 +407,6 @@ public class NewsController {
 		modelAndView.addObject("json", json);
 		modelAndView.setViewName("../main/news_json.jsp");
 		return modelAndView;
-
 
 	}
 

@@ -8,8 +8,13 @@
 <script type="text/javascript" src="../etc/js/jquery-3.3.1.min.js"></script>
 <style type="text/css">
 div#shopPreview img{
-	width: 200px;
+	width: 195px;
+	float: left;
 }
+div#shopPreviewTotal{
+	padding-top: 40px; 
+}
+div#shopPreviewTotal a#go_itemshop {float: left; width: 220px;}
 </style>
 
 <script type="text/javascript">
@@ -48,9 +53,19 @@ div#shopPreview img{
 </script>
 </head>
 <body>
-야야
+<div id="shopPreviewTotal">
+	<a id="go_itemshop" href="../itemShop/mainShop.do?category=all&pg=1&order=logtime">
+		<img src="../etc/image/itemImage/goShopLogo.png">
+	</a>
+
 <div id="shopPreview">
 
+</div>
+
+	<!-- <div align="right">
+		<a id="go_itemshop" href="../itemShop/mainShop.do?category=all&pg=1&order=logtime"><img src="../etc/image/rankImage/plus.png"></a>
+	</div>
+	<h1>아이템샵</h1> -->
 </div>
 
 </body>
