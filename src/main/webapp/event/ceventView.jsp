@@ -59,7 +59,7 @@
 </div>
 
 <div id="sec_content">
-	
+	<jsp:include page="../event/eventPage/event_${e_num }.jsp" />
 </div>
 
 <div id="sec_btn">

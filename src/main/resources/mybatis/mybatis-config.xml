@@ -27,16 +27,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="inform.bean.NewsVO" alias="newsVO"/>
 		<typeAlias type="inform.bean.EventVO" alias="eventVO"/>
 		<typeAlias type="inform.controller.NewsListDTO" alias="newsListDTO"/>
-<<<<<<< HEAD
-
-=======
 
 		<!-- <typeAlias type="inform.controller.EventListDTO" alias="eventListDTO"/> -->
 
-
-		
-
->>>>>>> 2ef5e7186265b24a06c6ee486ad6edc414d21ab6
 		<typeAlias type="community.bean.FreeboardDTO" alias="freeboardDTO"/>
 		<typeAlias type="community.bean.Freeboard_commentDTO" alias="freeboard_commentDTO"/>
 		<typeAlias type="community.bean.ImgboardDTO" alias="imgboardDTO"/>
@@ -51,22 +44,20 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mybatis/rank-mapping.xml"/>
 		<mapper resource="mybatis/helpboard-mapping.xml" />
 		<mapper resource="mybatis/notifyboard-mapping.xml" />	
-<<<<<<< HEAD
+
 		<mapper resource="mybatis/news-mapping.xml" />
 		<mapper resource="mybatis/itemShop-mapping.xml"/>	
 		<mapper resource="mybatis/event-mapping.xml" />
-=======
-<<<<<<< HEAD
+
 		<mapper resource="mybatis/news-mapping.xml" />
 		<!-- <mapper resource="mybatis/event-mapping.xml" />	 -->	
-=======
+
 		
 		
 		<mapper resource="mybatis/news-mapping.xml" />
 		<!-- <mapper resource="mybatis/event-mapping.xml" />	 -->	
 
 
->>>>>>> 52f2b24f538c8e0177787ccd3498a6b1defa13f3
 		<mapper resource="mybatis/itemShop-mapping.xml"/>	
 
 		<mapper resource="mybatis/notifyboard-mapping.xml" />
@@ -74,7 +65,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mybatis/event-mapping.xml" />
 		<!-- <mapper resource="mybatis/event-mapping.xml" />	 -->
 
->>>>>>> 2ef5e7186265b24a06c6ee486ad6edc414d21ab6
 		<mapper resource="mybatis/community-mapping.xml"/>
 
 	</mappers>
