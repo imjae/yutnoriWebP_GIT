@@ -41,8 +41,6 @@ public interface UserService {
 
 	
 	int insertHistory(String user_id, String item_code);
-
-
 	
 
 }

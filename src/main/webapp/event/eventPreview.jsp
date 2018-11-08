@@ -9,35 +9,36 @@
 .object {
 	float: left;
 	margin-bottom: 10px;
-	margin-left: 10px;
-	margin-right: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
 	height: 380px;
-	width: 300px;
+	width: 330px;
 	/* border: 1px solid orange; */
 }
 .img {
-	height: 180px;
+	height: 150px;
 	width: 200px;
 	/* border: 1px solid red; */
 	margin-right: 30px;
 }
 
 .text {
-	/* border: 1px solid green;  */
+	/* border: 1px solid green; */
 	height: 200px;
-	padding-left: 25px;
 }
 
 .e_title {
 /* 	margin-top: 20px; */]
-	padding-top: 10px;
+	padding-top: 20px;
 	margin-bottom: 10px;
+	display: inline-block;
+	height: 60px;
 	/* border: 1px solid red; */
 }
 
 .e_title a {
 	color: black;
-	font-size: 2.2em;
+	font-size: 1.8em;
 }
 
 .e_title a:link {
@@ -51,12 +52,13 @@
 	/* border: 1px solid yellow; */
 	margin: 0px;
 	height: 61px;
-	margin-bottom: 30px;
+	height: 110px;
+	/* margin-bottom: 30px; */
 }
 
 .e_sub_title a {
 	color: gray;
-	font-size: 1.2em;
+	font-size: 1em;
 }
 
 .e_sub_title a:link {
@@ -68,13 +70,14 @@
 }
 .period {
 	/* border: 1px solid blue; */
-	margin: 0px;
 	color: gray;
+	position: relative;
+	bottom: 0px;
+	height: 30px;
 }
 #e_total {
 	width: 100%;
 	height: 100%;
-	padding-left: 50px;
 }
 </style>
 <script type="text/javascript" src="../etc/js/jquery-3.3.1.min.js"></script>
@@ -97,8 +100,8 @@
 					});
 					var img_img = $("<img>", {
 						src: "../etc/image/eventThumbnail/" + item.e_img,
-						width: "300px",
-						height: "170px"
+						width: "330px",
+						height: "150px"
 					});
 					a_img.append(img_img);
 					div_img.append(a_img);
