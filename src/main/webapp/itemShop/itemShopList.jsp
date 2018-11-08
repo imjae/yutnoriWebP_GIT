@@ -44,7 +44,7 @@ td {
 		<c:set var="i" value="${i+1 }" />
 		<td>
 			<a href="itemDetail.do?category=${category }&item_code=${itemShopDTO.item_code }&pg=${pg}&order=${order}">
-			<img id="../storage/${itemShopDTO.item_img }Title" src="../storage/${itemShopDTO.item_img }Title.png">
+			<img id="../etc/image/itemImage/characterImage/${itemShopDTO.item_img }Title" src="../etc/image/itemImage/characterImage/${itemShopDTO.item_img }Title.png">
 			</a>
 		</td>
 		<c:if test="${i%4==0 }">

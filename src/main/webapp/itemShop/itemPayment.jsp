@@ -143,7 +143,7 @@ div#paybody {
 					<td width="200px">가격</td><td width="150px">수량</td><td width="200px">합계</td>
 				</tr>
 				<tr id="content">
-					<td><img src="../storage/${itemShopDTO.item_img }.png" width="150" height="150"></td>
+					<td><img src="../etc/image/itemImage/characterImage/${itemShopDTO.item_img }.png" width="150" height="150"></td>
 					<td>${itemShopDTO.item_name }</td><td>${itemShopDTO.item_charge } 캐시</td>
 					<td>${ea }</td><td>${itemShopDTO.item_charge*ea } 캐시</td>
 				</tr>
