@@ -113,11 +113,17 @@ img#news_plus_btn:hover {
 	cursor: pointer;
 }
 
+a.news_preview_title_link:link { text-decoration: none; color: black; }
+a.news_preview_title_link:visited { text-decoration: none; color: black; }
+a.news_preview_title_link:hover { text-decoration: none; color: black; }
+
 </style>
 
 <script type="text/javascript">
 	
 	$(function(){
+		
+		var news_flag = false;
 		
 		
 		$(document).on("hover", "div.item_list_element_1", function() {
@@ -172,6 +178,7 @@ img#news_plus_btn:hover {
 		
 		$(document).on("click", "a.news_preview_title_link", function() {
 			
+			news_flag = !news_flag;
 			 $("div#news_preview_privew_title_div").remove();
  	         $("div#news_preview_privew_content_div").remove();
 			
@@ -204,10 +211,17 @@ img#news_plus_btn:hover {
 	 		});
 		
 		
-	 		$("div#news_preview_preview").css("display","block");
-	         $("div#div#news_preview_privew_content_div").css("display","block");	   
-	         $("div#div#news_preview_privew_title_div").css("display","block");
-	         $("div#news_preview_list").css("width","53%");
+			if(news_flag){
+	 			$("div#news_preview_preview").css("display","block");
+	        	 $("div#div#news_preview_privew_content_div").css("display","block");	   
+	        	 $("div#div#news_preview_privew_title_div").css("display","block");
+	         	$("div#news_preview_list").css("width","53%");
+			}else {
+				$("div#news_preview_preview").css("display","none");
+	        	 $("div#div#news_preview_privew_content_div").css("display","none");	   
+	        	 $("div#div#news_preview_privew_title_div").css("display","none");
+	         	$("div#news_preview_list").css("width","100%");
+			}
 	      });
 	      
 	      

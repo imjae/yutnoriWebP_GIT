@@ -468,16 +468,12 @@ div#char_img_div img#char_img {
 		
 		$(document).on("click", "div.item_list_element_1", function() {
 			
-			if( $(this).attr("flag") == "0" ){
-				$(this).css("border","2px solid red");
-				$(this).attr("flag","1")  
-			}else if( $(this).attr("flag") == "1") {
-				$(this).css("border","2px solid lightgray");
-				$(this).attr("flag","0")  
-			}
-			
+		
 			var clicked_item_code = $(this).attr("data-itemCode");
 			var clicked_item_category = $(this).attr("data-category");
+			if(clicked_item_category === undefined){
+				
+			}else{
 			$.ajax({
 				url : "../user/equip_item.do",
 				type : "post",
@@ -509,6 +505,7 @@ div#char_img_div img#char_img {
 					$("div").html("<div>"+textStatus+" (HTTP-)"+ xhr.status + " / " + errorThrown +")</div>");
 				}
 			});
+			}
 		 	 	
 		});
 
@@ -534,7 +531,7 @@ div#char_img_div img#char_img {
 			<div id="category_background" class="category">배 경</div>
 			<div id="category_etc" class="category">기 타</div>
 		</div>
-		<a data-page="1" cl></a>
+		
 		<div id="char_info_div">
 			<div id="char_img_div">
 			

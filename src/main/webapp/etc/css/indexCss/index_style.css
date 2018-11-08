@@ -92,7 +92,7 @@ div#menu_space > div#login_form {
 
 
 
-#data_space, #space {
+div#data_space, div#space {
 	/* border: 1px solid black; */
 	border-top: 0px;
 	width: 1400px; 
@@ -130,17 +130,23 @@ div#menu_space > div#login_form {
 }
 
 #game_info {
-	border-top: 1px solid black;
-	border-bottom: 1px solid black; 
 	clear: both;
 	width: 100%;
 	height: 100px;
+	background-color: rgba(40,100, 255, 0.2);
 }
 
 #screenshot {/* 
 	border-bottom: 1px solid black; */
 	width: 100%;
 	height: 400px;
+}
+
+div#real_screenshot {
+	
+	background-color:  rgba(40,100, 255, 0.2);
+	width: 100%;
+	height: 330px;
 }
 #item_shop {
 	

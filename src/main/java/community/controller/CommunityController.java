@@ -165,6 +165,7 @@ public class CommunityController {
 		return mav;
 	}
 	
+	
 	@RequestMapping(value="/freeboard_listJson.do")
 	public ModelAndView freeboard_listJson(HttpServletRequest request) throws Exception {
 		
@@ -311,7 +312,7 @@ public class CommunityController {
 	@RequestMapping(value="/imgboard/imgboard_write.do", method=RequestMethod.POST)
 	public ModelAndView imgboard_write(HttpSession session, MultipartFile imgboard_img, MultipartHttpServletRequest request) {
 		String fileName = imgboard_img.getOriginalFilename();
-		String filePath = request.getSession().getServletContext().getRealPath("/") + "/storage/";
+		String filePath = "C:/Users/John/Desktop/yutnori/yutnoriWebProject/src/main/webapp/storage/";
 		File file = new File(filePath + fileName);
 		
 		try {
@@ -369,7 +370,7 @@ public class CommunityController {
 	@RequestMapping(value="/imgboard/imgboard_modify.do", method=RequestMethod.POST)
 	public ModelAndView write(MultipartFile imgboard_img, MultipartHttpServletRequest request) {
 		String fileName = imgboard_img.getOriginalFilename();
-		String filePath = request.getSession().getServletContext().getRealPath("/") + "/storage/";
+		String filePath = "C:/Users/John/Desktop/yutnori/yutnoriWebProject/src/main/webapp/storage";
 		File file = new File(filePath + fileName);
 		
 		try {
@@ -468,6 +469,52 @@ public class CommunityController {
 		mav.addObject("imgboard_page_url", "../imgboard/imgboard_view.jsp");
 		mav.addObject("display", "../imgboard/imgboard_info.jsp");
 		mav.setViewName("../main/index.jsp");
+		return mav;
+	}
+	
+
+@RequestMapping(value="/imgboard/imgboard_listPreView.do", method=RequestMethod.POST)
+	public ModelAndView imgboard_listPreView(HttpServletRequest request) {
+		int imgboard_pg = 1;
+		int img_endNum = imgboard_pg * 5;
+		int img_startNum = img_endNum - 4;
+		
+		List<ImgboardDTO> imgboard_list = communityService.imgboard_list(img_startNum, img_endNum);
+		
+		// json으로 결과값 반환
+		String imgboard_rt = null;
+		int imgboard_total = imgboard_list.size();		// 조회된 data 수
+		if(imgboard_total > 0) {
+			imgboard_rt = "OK";
+		} else {
+			imgboard_rt = "FAIL";
+		}
+		
+		JSONObject json = new JSONObject();		// 첫 번째 중괄호
+		json.put("imgboard_rt", imgboard_rt);
+		json.put("imgboard_total", imgboard_total);
+		if(imgboard_total > 0) {
+			JSONArray items = new JSONArray();
+			for(int i=0; i<imgboard_list.size(); i++) {
+				ImgboardDTO imgboardDTO = imgboard_list.get(i);
+				JSONObject temp = new JSONObject();
+				temp.put("imgboard_num", imgboardDTO.getImgboard_num());
+				temp.put("imgboard_writer", imgboardDTO.getImgboard_writer());
+				temp.put("imgboard_subject", imgboardDTO.getImgboard_subject());
+				temp.put("imgboard_img", imgboardDTO.getImgboard_img());
+				
+				items.put(i, temp);
+			}
+			
+			json.put("items", items);
+		}
+		
+		System.out.println(json);
+		
+		// 3. 검색 결과를 세션에 저장하고 목록 화면으로 이동
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("json", json);
+		mav.setViewName("../main/index_json.jsp");
 		return mav;
 	}
 }

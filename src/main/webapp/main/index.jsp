@@ -15,6 +15,7 @@
 </head>
 
 <script type="text/javascript">
+
 	$(function(){
 		$("div#menu").mouseover(function(){
 			
@@ -91,10 +92,15 @@
 				$("div").html("<div>"+textStatus+" (HTTP-)"+ xhr.status + " / " + errorThrown +")</div>");
 			}
 		});
+<<<<<<< HEAD
 	
 	});
 	
 	
+=======
+
+	}
+>>>>>>> 40e91e833f192dad02cbdc3262df97f1760b18f2
 	
 	
 </script>
@@ -105,8 +111,6 @@
 	
 </div>
 <div id="menu_space">
-	
-	
 	<div id="menu_title">
 		<div id="menu">
 			<jsp:include page="menu/title_menu.jsp"/>
@@ -166,6 +170,10 @@
 	
 	<div id="screenshot">
 		<jsp:include page="../event/eventPreview.jsp"/>
+	</div>
+	
+	<div id="real_screenshot">
+		<jsp:include page="../imgboard/imgboard_listPreView.jsp"/>
 	</div>
 	
 	<div id="item_shop">
