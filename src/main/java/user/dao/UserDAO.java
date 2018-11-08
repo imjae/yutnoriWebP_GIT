@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import itemShop.bean.PaymentHistoryDTO;
 import user.bean.UserDTO;
+import user.bean.UserEquipDTO;
 
 @Repository
 public class UserDAO {
@@ -103,10 +104,7 @@ public class UserDAO {
 
 		return sqlSession.insert("mybatis.userMapper.insertHistory", map);
 	}
-<<<<<<< HEAD
-	
-=======
->>>>>>> c6ace745a1dfca5d3c38d47aeeeb722ac106c83d
+
 	public int equipItemCreate(String user_id) {
 		
 		return sqlSession.insert("mybatis.userMapper.equipItemCreate",user_id);
@@ -121,6 +119,11 @@ public class UserDAO {
 		map.put("column_name", column_name);
 		
 		return sqlSession.update("mybatis.userMapper.equipItem", map);
+	}
+	
+	public UserEquipDTO equipItemStatus(String user_id) {
+		
+		return sqlSession.selectOne("mybatis.userMapper.equipItemStatus", user_id);
 	}
 
 }

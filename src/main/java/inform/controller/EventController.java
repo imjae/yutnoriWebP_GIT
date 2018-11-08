@@ -100,6 +100,25 @@ public class EventController {
 		return modelAndView;	
 	}
 	
+	@RequestMapping(value = "/event/eventMainView.do")
+	public ModelAndView eventViewMain(HttpServletRequest request) {
+		
+		int e_num = Integer.parseInt(request.getParameter("e_num"));
+		
+		EventVO eventVO = new EventVO();
+		eventVO = eventService.eventView(e_num);
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("e_num", e_num);
+		modelAndView.addObject("eventVO", eventVO);
+		modelAndView.addObject("display", "../event/ceventMain.jsp");
+		modelAndView.addObject("eventView", "../event/ceventView.jsp");
+		
+		modelAndView.setViewName("../main/index.jsp");
+		return modelAndView;
+		
+	}
+	
 	@RequestMapping(value = "/event/eventWriteForm.do")
 	public ModelAndView eventWriteForm() {
 		ModelAndView modelAndView = new ModelAndView();
@@ -109,6 +128,7 @@ public class EventController {
 	
 	@RequestMapping(value = "/event/eventWrite.do", method = RequestMethod.POST)
 	public ModelAndView eventWrite(HttpServletRequest request) {
+		int e_num = Integer.parseInt(request.getParameter("e_num"));
 		String e_img = request.getParameter("e_img");
 		String title = request.getParameter("title");
 		String sub_title = request.getParameter("sub_title");
@@ -116,6 +136,7 @@ public class EventController {
 		String e_date = request.getParameter("e_date");
 		
 		EventVO eventVO = new EventVO();
+		eventVO.setE_num(e_num);
 		eventVO.setE_img(e_img);
 		eventVO.setTitle(title);
 		eventVO.setSub_title(sub_title);
