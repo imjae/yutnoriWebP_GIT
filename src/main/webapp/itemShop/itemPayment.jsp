@@ -68,7 +68,13 @@ div#payBody div#warning label{
 	font-family: "-윤고딕310";
 	/* border: 1px solid orange; */
 }
-
+div#paybody {
+	margin: 0 auto;
+	width: 1000px;
+	height:1000px;
+	text-align: center;
+	padding-top: 50px; 
+}
 	
 	
 
@@ -125,6 +131,7 @@ div#payBody div#warning label{
 	</div>
 	
 	<div id="body">
+	<div id="paybody">
 		<div id="payTitle">
 			<h2>　구매하기</h2>
 		</div>
@@ -136,7 +143,7 @@ div#payBody div#warning label{
 					<td width="200px">가격</td><td width="150px">수량</td><td width="200px">합계</td>
 				</tr>
 				<tr id="content">
-					<td><img src="../storage/${itemShopDTO.item_img }.png" width="150" height="150"></td>
+					<td><img src="../etc/image/itemImage/characterImage/${itemShopDTO.item_img }.png" width="150" height="150"></td>
 					<td>${itemShopDTO.item_name }</td><td>${itemShopDTO.item_charge } 캐시</td>
 					<td>${ea }</td><td>${itemShopDTO.item_charge*ea } 캐시</td>
 				</tr>
@@ -169,6 +176,7 @@ div#payBody div#warning label{
 				<jsp:include page="../itemShop/itemPaymentSuccess.jsp"/>
 			</c:if>
 		</div>
+	</div>
 	</div>
 </div>
 

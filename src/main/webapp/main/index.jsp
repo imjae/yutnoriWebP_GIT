@@ -92,8 +92,19 @@
 				$("div").html("<div>"+textStatus+" (HTTP-)"+ xhr.status + " / " + errorThrown +")</div>");
 			}
 		});
-
+<<<<<<< HEAD
+	
 	});
+	
+	
+=======
+
+<<<<<<< HEAD
+	});
+=======
+	}
+>>>>>>> 40e91e833f192dad02cbdc3262df97f1760b18f2
+>>>>>>> 6c2685eeaaadb7787a7f797e6738571f4ae83445
 	
 	
 </script>

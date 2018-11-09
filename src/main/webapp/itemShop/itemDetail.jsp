@@ -88,7 +88,7 @@ div#menu_name td input {
 	</div>
 	<div id="blank"></div>
 	<div id="menu_img">
-		<img src="../storage/${itemShopDTO.item_img }.png" width="230" height="230">
+		<img src="../etc/image/itemImage/characterImage/${itemShopDTO.item_img }.png" width="230" height="230">
 	</div>
 	<div id="menu_name">
 		<table>
@@ -125,7 +125,7 @@ div#menu_name td input {
 <div id="body">
 
 	<div id="content" align="center">
-		<img src="../storage/${itemShopDTO.item_content }.png" width="1000" height="450">
+		<img src="../etc/image/itemImage/characterImage/${itemShopDTO.item_content }.png" width="1000" height="450">
 	</div>
 </div>
 
