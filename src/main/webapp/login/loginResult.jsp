@@ -132,7 +132,7 @@
 		</div>
 	</div>
 	
-	<c:if test="${session_id == 'jakeim1111@gamil.com' }">
+	<c:if test="${session_id == 'jakeim1111@gmail.com' }">
 		<button id="admin" onclick="location.href = '../adminPage.jsp'">Administrator</button>
 	</c:if>
 </div>
