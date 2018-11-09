@@ -119,6 +119,10 @@ input[type=text]::placeholder {
 	font-size: 1.1em;
 	color: lightgray;
 }
+input[type=password]::placeholder {
+	font-size: 1.1em;
+	color: lightgray;
+}
 
 div#phoneDiv {
 	width: 600px;
@@ -208,13 +212,37 @@ div#idPwFind_end:hover {
 
 label#result {
 	margin: 10px auto;
+	line-height: 50px;
+	margin-left: 140px;
 	font-weight: lighter;
 	text-align: center;
 }
+
+div#countTime {
+	width: 300px;
+	height: 100px;
+	margin: 30px auto;
+	font-size: 1.3em;
+	color: gray;
+	
+
+}
+
 </style>
 
 <script type="text/javascript">
 $(function(){
+	
+	var cnt = 180;
+	var counter = setInterval(function(){
+		if(cnt>=0){
+			$("label#time").html(cnt);
+			cnt--;
+		}else {
+			clearInterval(counter);
+			$("label#time").html("유효시간이 지났습니다.");
+		}
+	},1000);
 
 
 	$("input[type=text]").focus(function(){
@@ -302,6 +330,8 @@ $(function(){
 		window.close();
 	});
 	
+	
+	
 });
 	
 
@@ -322,7 +352,7 @@ $(function(){
 	<form action="smsAuth_send.do" method="post" id="smsAuth_send">
 		<input type="text" name="name" placeholder="&nbsp;&nbsp;&nbsp; 이름을 입력해주세요.">
 		<input type="text" name="jumin1" placeholder="&nbsp;&nbsp;&nbsp; 주민등록번호(앞 6자리)"> - 
-		<input type="text" name="jumin2" placeholder="&nbsp;&nbsp;&nbsp; 주민등록번호(뒤 7자리)">
+		<input type="password" name="jumin2" placeholder="&nbsp;&nbsp;&nbsp; 주민등록번호(뒤 7자리)">
 		
 		<div id="phoneDiv1">
 		
@@ -349,7 +379,9 @@ $(function(){
 					<input type="hidden" value="${dto.user_name}" name="name">
 					<input type="hidden" value="${dto.user_phone}" name="phone">
 					<input type="text" name="authNum" placeholder="&nbsp;&nbsp;&nbsp;인증번호 입력">
-					<div id="authBtn_from">인증하기</div>
+					<div id="authBtn_from">인증하기</div><br>
+					
+					<div id="countTime">인증번호 유효시간: <label id="time"></label> 초</div>
 				</div>
 			</form>
 		</c:if>

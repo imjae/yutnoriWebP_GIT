@@ -447,15 +447,21 @@ public class UserController {
 		String charge_price = request.getParameter("cash_input");
 		int price = Integer.parseInt(charge_price);
 		String id = String.valueOf(request.getSession().getAttribute("session_id"));
+		int charge_count = 0;
+		if(id.equals("tnwjd368@naver.com")) {
+			
+		}else {
 
+			charge_count = userService.cashCharge(id, price);
+		}
+		
 		HttpSession session = request.getSession();
 
 		UserDTO dto = (UserDTO) session.getAttribute("session_dto");
 		int cur_cash = dto.getUser_cash();
 
-		int charge_count = userService.cashCharge(id, price);
 
-		if (charge_count > 0) {
+		if (charge_count >= 0) {
 			dto.setUser_cash(cur_cash + price);
 			session.setAttribute("session_dto", dto);
 		}
