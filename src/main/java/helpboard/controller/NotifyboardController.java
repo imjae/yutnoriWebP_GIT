@@ -26,22 +26,34 @@ public class NotifyboardController {
 	
 	// �Ű��ϱ� �Խ��� (�����)
 	@RequestMapping(value = "/helpboardc/helpboardNotifyForm.do")
-	public ModelAndView helpboardNotifyForm() {
+	public ModelAndView helpboardNotifyForm(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("session_id");
+		
+		
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("display", "../helpboardc/myTestttt.jsp");
-		modelAndView.addObject("display2", "../helpboardc/notifyForm.jsp");
+		if (id != null) {
+			
+			modelAndView.addObject("display", "../helpboardc/myTestttt.jsp");
+			modelAndView.addObject("display2", "../helpboardc/notifyForm.jsp");
+
+		} else {
+			modelAndView.addObject("loginCheck", "no");
+		}
+		
 		modelAndView.setViewName("../main/index.jsp");
 		return modelAndView;
+		
 	}
 	
 	@RequestMapping(value = "/helpboardc/helpboardNotify.do")
 	public ModelAndView helpboardNotify(HttpServletRequest request) {
 		String notify_sort = request.getParameter("notify_sort");
-		// HttpSession session = request.getSession();
-		// String reporter_id = (String)session.getAttribute("session_id");
+		HttpSession session = request.getSession();
+		String reporter_id = (String)session.getAttribute("session_id");
 		
 		// �ӽ� �̸��� �ڵ� �Է�
-		String reporter_id = "iris9469@naver.com";
+		// String reporter_id = "iris9469@naver.com";
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		

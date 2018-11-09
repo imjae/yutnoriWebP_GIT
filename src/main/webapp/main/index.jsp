@@ -92,19 +92,12 @@
 				$("div").html("<div>"+textStatus+" (HTTP-)"+ xhr.status + " / " + errorThrown +")</div>");
 			}
 		});
-<<<<<<< HEAD
-	
-	});
-	
-	
-=======
 
-<<<<<<< HEAD
+	
 	});
-=======
-	}
->>>>>>> 40e91e833f192dad02cbdc3262df97f1760b18f2
->>>>>>> 6c2685eeaaadb7787a7f797e6738571f4ae83445
+	
+
+
 	
 	
 </script>
@@ -154,6 +147,12 @@
 </div>
 
 <c:if test="${display == null }">
+	<c:if test="${loginCheck == 'no' }">
+		<script type="text/javascript">
+			alert("로그인 후 이용해주세요");
+			location.href = "../login/loginPage.jsp";
+		</script>
+	</c:if>
 <div id="data_space">
 
 	<div id="rank_notice">
