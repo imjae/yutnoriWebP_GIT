@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
@@ -18,21 +17,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import community.bean.FreeboardDTO;
-import community.bean.Freeboard_commentDTO;
 import community.bean.ImgboardDTO;
 
 @Controller
 public class CommunityController {
 	@Autowired
 	private CommunityService communityService;
-	
+
 	// 자유 게시판(게시글)
-	@RequestMapping(value="/freeboard/freeboard_writeForm.do")
+	@RequestMapping(value = "/freeboard/freeboard_writeForm.do")
 	public ModelAndView freeboard_writeForm() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("freeboard_page_url", "../freeboard/freeboard_writeForm.jsp");
@@ -40,24 +39,24 @@ public class CommunityController {
 		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
-	
-	@RequestMapping(value="/freeboard/freeboard_write.do", method=RequestMethod.POST)
+
+	@RequestMapping(value = "/freeboard/freeboard_write.do", method = RequestMethod.POST)
 	public ModelAndView freeboard_write(HttpServletRequest request, HttpSession session) {
 		try {
 			request.setCharacterEncoding("utf-8");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		String user_id = (String)session.getAttribute("session_id");
+		String user_id = (String) session.getAttribute("session_id");
 		String freeboard_writer = user_id;
 		String freeboard_subject = request.getParameter("freeboard_subject");
 		String freeboard_content = request.getParameter("freeboard_content");
-		
+
 		FreeboardDTO freeboardDTO = new FreeboardDTO();
 		freeboardDTO.setFreeboard_writer(freeboard_writer);
 		freeboardDTO.setFreeboard_subject(freeboard_subject);
 		freeboardDTO.setFreeboard_content(freeboard_content);
-		
+
 		int num = communityService.freeboard_write(freeboardDTO);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("num", num);
@@ -66,20 +65,20 @@ public class CommunityController {
 		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
-	
-	@RequestMapping(value="/freeboard/freeboard_modifyForm.do")
+
+	@RequestMapping(value = "/freeboard/freeboard_modifyForm.do")
 	public ModelAndView freeboard_modifyForm(HttpServletRequest request) {
 		try {
 			request.setCharacterEncoding("utf-8");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		
+
 		int freeboard_num = Integer.parseInt(request.getParameter("freeboard_num"));
 		int freeboard_pg = Integer.parseInt(request.getParameter("freeboard_pg"));
-		
+
 		FreeboardDTO freeboardDTO = communityService.freeboard_view(freeboard_num);
-		
+
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("freeboardDTO", freeboardDTO);
 		mav.addObject("freeboard_pg", freeboard_pg);
@@ -88,29 +87,29 @@ public class CommunityController {
 		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
-	
-	@RequestMapping(value="/freeboard/freeboard_modify.do", method=RequestMethod.POST)
+
+	@RequestMapping(value = "/freeboard/freeboard_modify.do", method = RequestMethod.POST)
 	public ModelAndView freeboard_modify(HttpServletRequest request) {
 		try {
 			request.setCharacterEncoding("utf-8");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		
+
 		int freeboard_num = Integer.parseInt(request.getParameter("freeboard_num"));
 		int freeboard_pg = Integer.parseInt(request.getParameter("freeboard_pg"));
 		String freeboard_writer = request.getParameter("freeboard_writer");
 		String freeboard_subject = request.getParameter("freeboard_subject");
 		String freeboard_content = request.getParameter("freeboard_content");
-		
+
 		FreeboardDTO freeboardDTO = new FreeboardDTO();
 		freeboardDTO.setFreeboard_num(freeboard_num);
 		freeboardDTO.setFreeboard_writer(freeboard_writer);
 		freeboardDTO.setFreeboard_subject(freeboard_subject);
 		freeboardDTO.setFreeboard_content(freeboard_content);
-		
+
 		int num = communityService.freeboard_modify(freeboardDTO);
-		
+
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("num", num);
 		mav.addObject("freeboardDTO", freeboardDTO);
@@ -120,13 +119,13 @@ public class CommunityController {
 		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
-	
-	@RequestMapping(value="/freeboard/freeboard_delete.do")
+
+	@RequestMapping(value = "/freeboard/freeboard_delete.do")
 	public ModelAndView freeboard_delete(HttpServletRequest request) {
 		int freeboard_num = Integer.parseInt(request.getParameter("freeboard_num"));
-		
+
 		int num = communityService.freeboard_delete(freeboard_num);
-		
+
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("num", num);
 		mav.addObject("freeboard_page_url", "../freeboard/freeboard_delete.jsp");
@@ -134,24 +133,33 @@ public class CommunityController {
 		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
-	
-	@RequestMapping(value="/freeboard/freeboard_list.do")
-	public ModelAndView freeboard_list(HttpServletRequest request) {
+
+	@RequestMapping(value = "/freeboard/freeboard_list.do")
+	public ModelAndView freeboard_list(HttpServletRequest request,
+			@RequestParam(defaultValue = "freeboard_searchAll") String freeboard_searchType,
+			@RequestParam(defaultValue = "") String freeboard_keyword) {
+
+		System.out.println("freeboard_searchType : " + freeboard_searchType);
+		System.out.println("freeboard_keyword : " + freeboard_keyword);
 		// data
 		int freeboard_pg = Integer.parseInt(request.getParameter("freeboard_pg"));
+		System.out.println("freeboard_pg : " + freeboard_pg);
 		int free_endNum = freeboard_pg * 15;
 		int free_startNum = free_endNum - 14;
-		
+
 		// DB
-		List<FreeboardDTO> freeboard_list = communityService.freeboard_list(free_startNum, free_endNum);
-		
+		List<FreeboardDTO> freeboard_list = communityService.freeboard_list(free_startNum, free_endNum,
+				freeboard_searchType, freeboard_keyword);
+		System.out.println("asdf" + freeboard_list.get(0).getFreeboard_writer());
 		// paging
-		int free_totalA = communityService.freeboard_getTotalA();
+		int free_totalA = communityService.freeboard_getTotalA(freeboard_searchType, freeboard_keyword);
 		int free_totalP = (free_totalA + 14) / 15;
 		int free_startPg = (freeboard_pg - 1) / 10 * 10 + 1;
 		int free_endPg = free_startPg + 9;
-		if(free_endPg > free_totalP) free_endPg = free_totalP;
-		
+		if (free_endPg > free_totalP)
+			free_endPg = free_totalP;
+		System.out.println("free_totalA : " + free_totalA);
+
 		// navigation
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("freeboard_pg", freeboard_pg);
@@ -159,37 +167,42 @@ public class CommunityController {
 		mav.addObject("free_startPg", free_startPg);
 		mav.addObject("free_endPg", free_endPg);
 		mav.addObject("free_totalP", free_totalP);
+		mav.addObject("freeboard_searchType", freeboard_searchType);
+		mav.addObject("freeboard_keyword", freeboard_keyword);
+
 		mav.addObject("freeboard_page_url", "../freeboard/freeboard_list.jsp");
 		mav.addObject("display", "../freeboard/freeboard_info.jsp");
 		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
-	
-	
-	@RequestMapping(value="/freeboard_listJson.do")
-	public ModelAndView freeboard_listJson(HttpServletRequest request) throws Exception {
-		
+
+	@RequestMapping(value = "/freeboard_listJson.do")
+	public ModelAndView freeboard_listJson(HttpServletRequest request,
+			@RequestParam(defaultValue = "imgboard_searchAll") String freeboard_searchType,
+			@RequestParam(defaultValue = "") String freeboard_keyword) throws Exception {
+
 		int freeboard_pg = 1;
 		int free_endNum = freeboard_pg * 10;
 		int free_startNum = free_endNum - 9;
-		
-		List<FreeboardDTO> freeboard_list = communityService.freeboard_list(free_startNum, free_endNum);
-		
+
+		List<FreeboardDTO> freeboard_list = communityService.freeboard_list(free_startNum, free_endNum,
+				freeboard_searchType, freeboard_keyword);
+
 		// json으로 결과값 반환
 		String freeboard_rt = null;
-		int freeboard_total = freeboard_list.size();		// 조회된 data 수
-		if(freeboard_total > 0) {
+		int freeboard_total = freeboard_list.size(); // 조회된 data 수
+		if (freeboard_total > 0) {
 			freeboard_rt = "OK";
 		} else {
 			freeboard_rt = "FAIL";
 		}
-		
-		JSONObject json = new JSONObject();		// 첫 번째 중괄호
+
+		JSONObject json = new JSONObject(); // 첫 번째 중괄호
 		json.put("freeboard_rt", freeboard_rt);
 		json.put("freeboard_total", freeboard_total);
-		if(freeboard_total > 0) {
+		if (freeboard_total > 0) {
 			JSONArray items = new JSONArray();
-			for(int i=0; i<freeboard_list.size(); i++) {
+			for (int i = 0; i < freeboard_list.size(); i++) {
 				FreeboardDTO freeboardDTO = freeboard_list.get(i);
 				JSONObject temp = new JSONObject();
 				temp.put("freeboard_num", freeboardDTO.getFreeboard_num());
@@ -198,32 +211,32 @@ public class CommunityController {
 				temp.put("freeboard_content", freeboardDTO.getFreeboard_content());
 				temp.put("freeboard_readCount", freeboardDTO.getFreeboard_readCount());
 				temp.put("freeboard_date", freeboardDTO.getFreeboard_date());
-				
+
 				items.put(i, temp);
 			}
-			
+
 			json.put("items", items);
 		}
-		
+
 		System.out.println(json);
-		
+
 		// 3. 검색 결과를 세션에 저장하고 목록 화면으로 이동
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("json", json);
 		mav.setViewName("../main/index_json.jsp");
 		return mav;
 	}
-	
-	@RequestMapping(value="/freeboard/freeboard_view.do")
+
+	@RequestMapping(value = "/freeboard/freeboard_view.do")
 	public ModelAndView freeboard_view(HttpServletRequest request) {
 		// data
 		int freeboard_num = Integer.parseInt(request.getParameter("freeboard_num"));
 		int freeboard_pg = Integer.parseInt(request.getParameter("freeboard_pg"));
-		
+
 		// DB
 		communityService.freeboard_hit(freeboard_num);
 		FreeboardDTO freeboardDTO = communityService.freeboard_view(freeboard_num);
-		
+
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("freeboardDTO", freeboardDTO);
 		mav.addObject("freeboard_num", freeboard_num);
@@ -233,8 +246,7 @@ public class CommunityController {
 		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
-	
-	
+
 	// 자유 게시판(댓글)
 //	@RequestMapping(value="/freeboard/freeboard_commentForm.do")
 //	public void free_comment_write(HttpServletRequest request, HttpSession session) {
@@ -297,10 +309,9 @@ public class CommunityController {
 //		mav.setViewName("../freeboard/freeboard_commentJson.jsp");
 //		return mav;
 //	}
-	
-	
+
 	// 스샷 게시판(게시글)
-	@RequestMapping(value="/imgboard/imgboard_writeForm.do")
+	@RequestMapping(value = "/imgboard/imgboard_writeForm.do")
 	public ModelAndView imgboard_writeForm() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("imgboard_page_url", "../imgboard/imgboard_writeForm.jsp");
@@ -308,13 +319,14 @@ public class CommunityController {
 		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
-	
-	@RequestMapping(value="/imgboard/imgboard_write.do", method=RequestMethod.POST)
-	public ModelAndView imgboard_write(HttpSession session, MultipartFile imgboard_img, MultipartHttpServletRequest request) {
+
+	@RequestMapping(value = "/imgboard/imgboard_write.do", method = RequestMethod.POST)
+	public ModelAndView imgboard_write(HttpSession session, MultipartFile imgboard_img,
+			MultipartHttpServletRequest request) {
 		String fileName = imgboard_img.getOriginalFilename();
 		String filePath = "C:/Users/John/Desktop/yutnori/yutnoriWebProject/src/main/webapp/storage/";
 		File file = new File(filePath + fileName);
-		
+
 		try {
 			// getInputStream() : upload한 file data를 읽어오는 InputStream을 구한다.
 			FileCopyUtils.copy(imgboard_img.getInputStream(), new FileOutputStream(file));
@@ -324,18 +336,18 @@ public class CommunityController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		String imgboard_writer = (String)session.getAttribute("session_id");
-		
+
+		String imgboard_writer = (String) session.getAttribute("session_id");
+
 		// data
 		ImgboardDTO imgboardDTO = new ImgboardDTO();
 		imgboardDTO.setImgboard_writer(imgboard_writer);
 		imgboardDTO.setImgboard_subject(request.getParameter("imgboard_subject"));
 		imgboardDTO.setImgboard_content(request.getParameter("imgboard_content"));
 		imgboardDTO.setImgboard_img(fileName);
-		
+
 		int num = communityService.imgboard_write(imgboardDTO);
-		
+
 		// 화면 navigation
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("num", num);
@@ -344,20 +356,20 @@ public class CommunityController {
 		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
-	
-	@RequestMapping(value="/imgboard/imgboard_modifyForm.do")
+
+	@RequestMapping(value = "/imgboard/imgboard_modifyForm.do")
 	public ModelAndView imgboard_modifyForm(HttpServletRequest request) {
 		try {
 			request.setCharacterEncoding("utf-8");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		
+
 		int imgboard_num = Integer.parseInt(request.getParameter("imgboard_num"));
 		int imgboard_pg = Integer.parseInt(request.getParameter("imgboard_pg"));
-		
+
 		ImgboardDTO imgboardDTO = communityService.imgboard_view(imgboard_num);
-		
+
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("imgboardDTO", imgboardDTO);
 		mav.addObject("imgboard_pg", imgboard_pg);
@@ -366,13 +378,13 @@ public class CommunityController {
 		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
-	
-	@RequestMapping(value="/imgboard/imgboard_modify.do", method=RequestMethod.POST)
+
+	@RequestMapping(value = "/imgboard/imgboard_modify.do", method = RequestMethod.POST)
 	public ModelAndView write(MultipartFile imgboard_img, MultipartHttpServletRequest request) {
 		String fileName = imgboard_img.getOriginalFilename();
 		String filePath = "C:/Users/John/Desktop/yutnori/yutnoriWebProject/src/main/webapp/storage";
 		File file = new File(filePath + fileName);
-		
+
 		try {
 			// getInputStream() : upload한 file data를 읽어오는 InputStream을 구한다.
 			FileCopyUtils.copy(imgboard_img.getInputStream(), new FileOutputStream(file));
@@ -382,10 +394,10 @@ public class CommunityController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		int imgboard_num = Integer.parseInt(request.getParameter("imgboard_num"));
 		int imgboard_pg = Integer.parseInt(request.getParameter("imgboard_pg"));
-		
+
 		// data
 		ImgboardDTO imgboardDTO = new ImgboardDTO();
 		imgboardDTO.setImgboard_num(imgboard_num);
@@ -393,9 +405,9 @@ public class CommunityController {
 		imgboardDTO.setImgboard_subject(request.getParameter("imgboard_subject"));
 		imgboardDTO.setImgboard_content(request.getParameter("imgboard_content"));
 		imgboardDTO.setImgboard_img(fileName);
-		
+
 		int num = communityService.imgboard_modify(imgboardDTO);
-		
+
 		// 화면 navigation
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("num", num);
@@ -406,13 +418,13 @@ public class CommunityController {
 		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
-	
-	@RequestMapping(value="/imgboard/imgboard_delete.do")
+
+	@RequestMapping(value = "/imgboard/imgboard_delete.do")
 	public ModelAndView imgboard_delete(HttpServletRequest request) {
 		int imgboard_num = Integer.parseInt(request.getParameter("imgboard_num"));
-		
+
 		int num = communityService.imgboard_delete(imgboard_num);
-		
+
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("num", num);
 		mav.addObject("imgboard_page_url", "../imgboard/imgboard_delete.jsp");
@@ -420,24 +432,28 @@ public class CommunityController {
 		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
-	
-	@RequestMapping(value="/imgboard/imgboard_list.do")
-	public ModelAndView imgboard_list(HttpServletRequest request) {
+
+	@RequestMapping(value = "/imgboard/imgboard_list.do")
+	public ModelAndView imgboard_list(HttpServletRequest request,
+			@RequestParam(defaultValue = "imgboard_searchAll") String imgboard_searchType,
+			@RequestParam(defaultValue = "") String imgboard_keyword) {
 		// data
 		int imgboard_pg = Integer.parseInt(request.getParameter("imgboard_pg"));
 		int img_endNum = imgboard_pg * 12;
 		int img_startNum = img_endNum - 11;
-		
+
 		// DB
-		List<ImgboardDTO> imgboard_list = communityService.imgboard_list(img_startNum, img_endNum);
-		
+		List<ImgboardDTO> imgboard_list = communityService.imgboard_list(img_startNum, img_endNum, imgboard_searchType,
+				imgboard_keyword);
+
 		// paging
-		int img_totalA = communityService.imgboard_getTotalA();
+		int img_totalA = communityService.imgboard_getTotalA(imgboard_searchType, imgboard_keyword);
 		int img_totalP = (img_totalA + 11) / 12;
-		int img_startPg = (imgboard_pg-1) / 10 * 10 + 1;
+		int img_startPg = (imgboard_pg - 1) / 10 * 10 + 1;
 		int img_endPg = img_startPg + 9;
-		if(img_endPg > img_totalP) img_endPg = img_totalP;
-		
+		if (img_endPg > img_totalP)
+			img_endPg = img_totalP;
+
 		// navigation
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("imgboard_pg", imgboard_pg);
@@ -445,23 +461,23 @@ public class CommunityController {
 		mav.addObject("img_startPg", img_startPg);
 		mav.addObject("img_endPg", img_endPg);
 		mav.addObject("img_totalP", img_totalP);
-		
+
 		mav.addObject("imgboard_page_url", "../imgboard/imgboard_list.jsp");
 		mav.addObject("display", "../imgboard/imgboard_info.jsp");
 		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
-	
-	@RequestMapping(value="/imgboard/imgboard_view.do")
+
+	@RequestMapping(value = "/imgboard/imgboard_view.do")
 	public ModelAndView imgboard_view(HttpServletRequest request) {
 		// data
 		int imgboard_num = Integer.parseInt(request.getParameter("imgboard_num"));
 		int imgboard_pg = Integer.parseInt(request.getParameter("imgboard_pg"));
-		
+
 		// DB
 		communityService.imgboard_hit(imgboard_num);
 		ImgboardDTO imgboardDTO = communityService.imgboard_view(imgboard_num);
-		
+
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("imgboardDTO", imgboardDTO);
 		mav.addObject("imgboard_num", imgboard_num);
@@ -471,83 +487,53 @@ public class CommunityController {
 		mav.setViewName("../main/index.jsp");
 		return mav;
 	}
-	
 
-@RequestMapping(value="/imgboard/imgboard_listPreView.do", method=RequestMethod.POST)
-	public ModelAndView imgboard_listPreView(HttpServletRequest request) {
+	@RequestMapping(value = "/imgboard/imgboard_listPreView.do", method = RequestMethod.POST)
+	public ModelAndView imgboard_listPreView(HttpServletRequest request,
+			@RequestParam(defaultValue = "imgboard_searchAll") String imgboard_searchType,
+			@RequestParam(defaultValue = "") String imgboard_keyword) {
 		int imgboard_pg = 1;
 		int img_endNum = imgboard_pg * 5;
 		int img_startNum = img_endNum - 4;
-		
-		List<ImgboardDTO> imgboard_list = communityService.imgboard_list(img_startNum, img_endNum);
-		
+
+		List<ImgboardDTO> imgboard_list = communityService.imgboard_list(img_startNum, img_endNum, imgboard_searchType,
+				imgboard_keyword);
+
 		// json으로 결과값 반환
 		String imgboard_rt = null;
-		int imgboard_total = imgboard_list.size();		// 조회된 data 수
-		if(imgboard_total > 0) {
+		int imgboard_total = imgboard_list.size(); // 조회된 data 수
+		if (imgboard_total > 0) {
 			imgboard_rt = "OK";
 		} else {
 			imgboard_rt = "FAIL";
 		}
-		
-		JSONObject json = new JSONObject();		// 첫 번째 중괄호
+
+		JSONObject json = new JSONObject(); // 첫 번째 중괄호
 		json.put("imgboard_rt", imgboard_rt);
 		json.put("imgboard_total", imgboard_total);
-		if(imgboard_total > 0) {
+		if (imgboard_total > 0) {
 			JSONArray items = new JSONArray();
-			for(int i=0; i<imgboard_list.size(); i++) {
+			for (int i = 0; i < imgboard_list.size(); i++) {
 				ImgboardDTO imgboardDTO = imgboard_list.get(i);
 				JSONObject temp = new JSONObject();
 				temp.put("imgboard_num", imgboardDTO.getImgboard_num());
 				temp.put("imgboard_writer", imgboardDTO.getImgboard_writer());
 				temp.put("imgboard_subject", imgboardDTO.getImgboard_subject());
 				temp.put("imgboard_img", imgboardDTO.getImgboard_img());
-				
+
 				items.put(i, temp);
 			}
-			
+
 			json.put("items", items);
 		}
-		
+
 		System.out.println(json);
-		
+
 		// 3. 검색 결과를 세션에 저장하고 목록 화면으로 이동
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("json", json);
 		mav.setViewName("../main/index_json.jsp");
 		return mav;
 	}
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
