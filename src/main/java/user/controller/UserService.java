@@ -35,11 +35,15 @@ public interface UserService {
 	
 	List<PaymentHistoryDTO> haveItemList(String category,String user_id,int startNum, int endNum);
 	List<PaymentHistoryDTO> haveItemListAll(String user_id,int startNum, int endNum);
+	/*List<PaymentHistoryDTO> historyList(String user_id);*/
+	
 	int haveItemCount(String user_id);
 	
 	int cashCharge(String user_id, int charge_price);
 
 	int insertHistory(String user_id, String item_code);
+	
+	
 
 	
 }

@@ -26,6 +26,15 @@ td {
 </style>
 <script type="text/javascript">
 	$(function(){
+		
+		$(document).ready(function(){
+			if(${have eq 'have'}){
+				alert("이미 가지고 있는 제품입니다.");
+				location.href="../itemShop/mainShop.do?category=all&pg=1&order=logtime";
+			}
+		});
+		
+		
 		$("#shopForm a img").hover(function(){
 			var img = $(this).attr("id") + "Mud.png";
 			$(this).attr("src",img);

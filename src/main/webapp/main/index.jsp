@@ -92,8 +92,25 @@
 				$("div").html("<div>"+textStatus+" (HTTP-)"+ xhr.status + " / " + errorThrown +")</div>");
 			}
 		});
+<<<<<<< HEAD
 	});
 	
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5649e4fb68e6234db39383cd8a377ddc914982ec
+	
+	});
+	
+
+<<<<<<< HEAD
+	}
+=======
+
+	
+>>>>>>> 5649e4fb68e6234db39383cd8a377ddc914982ec
+>>>>>>> 13fe87bb385dad4405535b04bd74b6beb6d4c443
 	
 </script>
 
