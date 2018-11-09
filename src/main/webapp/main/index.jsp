@@ -92,16 +92,11 @@
 				$("div").html("<div>"+textStatus+" (HTTP-)"+ xhr.status + " / " + errorThrown +")</div>");
 			}
 		});
-<<<<<<< HEAD
 	
 	});
 	
-	
-=======
 
 	}
->>>>>>> 40e91e833f192dad02cbdc3262df97f1760b18f2
-	
 	
 </script>
 

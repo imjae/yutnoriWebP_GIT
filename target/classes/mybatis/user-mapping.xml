@@ -90,6 +90,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO payment_history VALUES(#{user_id}, #{item_code}, sysdate)
 	</insert>
 	
+	<!-- <select id="historyList" parameterType="java.lang.String" resultType="paymentHistoryDTO">
+		
+	</select> -->
+	
 	<update id="cashCharge" parameterType="java.util.Map">
 		UPDATE users
 		SET user_cash = user_cash + #{charge_price}

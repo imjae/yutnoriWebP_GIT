@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import itemShop.bean.ItemShopDTO;
+import itemShop.bean.PaymentHistoryDTO;
 import user.bean.UserDTO;
 import user.controller.UserService;
 
@@ -116,14 +117,33 @@ public class ItemShopController {
 		
 		String item_code = request.getParameter("item_code");
 		int ea = Integer.parseInt(request.getParameter("ea"));
-		
+		String user_id = String.valueOf(request.getSession().getAttribute("session_id"));
 		ItemShopDTO itemShopDTO = itemShopService.itemDetail(item_code);
 		
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("ea", ea);
-		modelAndView.addObject("itemShopDTO", itemShopDTO);
+		int have = 0;
+		/* 이미 가지고 있는 아이템인 경우 결제 안됨 */
+		int endNum = userService.haveItemCount(user_id);
+		List<PaymentHistoryDTO> list = userService.haveItemListAll(user_id, 1, endNum);
+		for(int i=0;i<list.size();i++) {
+			if( item_code.equals(list.get(i).getItem_code()) ) {
+				have++;
+			}
+		}
 		
-		modelAndView.setViewName("../itemShop/itemPayment.jsp");
+		ModelAndView modelAndView = new ModelAndView();
+		
+		if(have>0) {
+			modelAndView.addObject("have", "have");
+			modelAndView.setViewName("../itemShop/mainShop.do?category=all&pg=1&order=logtime");
+		}else {
+			modelAndView.addObject("ea", ea);
+			modelAndView.addObject("itemShopDTO", itemShopDTO);
+			modelAndView.setViewName("../itemShop/itemPayment.jsp");
+		}
+		
+		
+		
+		
 		return modelAndView;	
 		
 	}

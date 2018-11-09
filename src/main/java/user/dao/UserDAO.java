@@ -122,8 +122,12 @@ public class UserDAO {
 	}
 	
 	public UserEquipDTO equipItemStatus(String user_id) {
-		
 		return sqlSession.selectOne("mybatis.userMapper.equipItemStatus", user_id);
 	}
 
+	
+	/*public List<PaymentHistoryDTO> historyList(String user_id) {
+		return sqlSession.selectList("mybatis.userMapper.historyList", user_id);
+	}*/
+	
 }

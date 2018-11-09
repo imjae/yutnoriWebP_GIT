@@ -81,6 +81,7 @@ div#paybody {
 </style>
 <script type="text/javascript">
 	$(function(){
+		
 		$("button#go_buy").click(function(){
 			if($("input[type=checkbox]#warning_check").is(":checked")){
 				if(${session_dto.user_cash - (itemShopDTO.item_charge*ea) < 0} ){
