@@ -92,19 +92,7 @@
 				$("div").html("<div>"+textStatus+" (HTTP-)"+ xhr.status + " / " + errorThrown +")</div>");
 			}
 		});
-<<<<<<< HEAD
-	
 	});
-	
-	
-=======
-
-<<<<<<< HEAD
-	});
-=======
-	}
->>>>>>> 40e91e833f192dad02cbdc3262df97f1760b18f2
->>>>>>> 3201a93b730b6d84b7eab6fdc30771d4aae83acd
 	
 	
 </script>
@@ -146,7 +134,7 @@
 		<c:if test="${session_id != null}">
 			<a href="../main/myPage.do">마이페이지</a>
 			
-			<a href="signOut.do">로그아웃</a>
+			<a href="../main/signOut.do">로그아웃</a>
 		</c:if>
 		</div>
 	</div>

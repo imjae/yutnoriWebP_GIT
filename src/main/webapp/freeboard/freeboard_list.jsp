@@ -51,6 +51,15 @@
 	
 	.paging {color: blue; text-decoration: none;}
 	.currentPaging {color: red; text-decoration: underline;}
+	
+	td#adim_td {
+		color : black;
+		font-size: 1.3em;
+		font-weight: bold;
+		background-color: yellow;
+		font-family: "호국체 std";
+	}
+	
 </style>
 </head>
 <body id="freeboard_list">
@@ -88,7 +97,19 @@
 					${freeboardDTO.freeboard_subject}
 				</a>
 			</td>
-			<td class="freeboard_listAlign">${freeboardDTO.freeboard_writer}</td>
+			<c:if test="${freeboardDTO.freeboard_writer == 'jakeim1111@gmail.com' }">
+			<td class="freeboard_listAlign" id="adim_td">
+			
+				관 리 자
+			
+			</td>
+			</c:if>
+			<c:if test="${freeboardDTO.freeboard_writer != 'jakeim1111@gmail.com' }">
+			<td class="freeboard_listAlign">
+				${freeboardDTO.freeboard_writer}
+			
+			</td>
+			</c:if>
 			<td class="freeboard_listAlign">${freeboardDTO.freeboard_readCount}</td>
 			<td class="freeboard_listAlign">${freeboardDTO.freeboard_date}</td>
 		</tr>

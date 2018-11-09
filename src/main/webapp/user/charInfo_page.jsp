@@ -43,7 +43,7 @@ div#char_img_div {
 	height: 90%;
 	/* border: 1px solid black; */
 	float: left;
-	background-color: pink;
+	border: 1.5px solid lightgray;
 }
 
 div#item_list_div {
