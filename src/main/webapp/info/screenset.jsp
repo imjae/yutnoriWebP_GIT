@@ -18,9 +18,15 @@ text-align:center;
 div#login{
 weight:100px;
 }
+
+div#info_total {
+	width: 100%;
+	height: auto;
+}
 </style>
 </head>
 <body>
+<div id="info_total">
 	<div id="title">
 	<h3>로그인 화면 구성</h3>
 	</div>
@@ -48,5 +54,6 @@ weight:100px;
 		<div id="am">
 			게임방 입장 -> 게임시작(준비) 한다. -> 윷노리를 즐긴다.
 		</div>
+</div>
 </body>
 </html>

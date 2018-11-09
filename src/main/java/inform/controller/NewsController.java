@@ -296,7 +296,7 @@ public class NewsController {
 		
 		json.put("items", items);
 
-		System.out.println(json+"<asdfasdfasdfasdf");
+		System.out.println(json);
 
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("json", json);
