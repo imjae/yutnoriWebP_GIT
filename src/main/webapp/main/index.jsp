@@ -131,6 +131,8 @@
 				$("div").html("<div>"+textStatus+" (HTTP-)"+ xhr.status + " / " + errorThrown +")</div>");
 			}
 		});
+
+	
 	});
 	
 </script>

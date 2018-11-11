@@ -197,6 +197,11 @@ div#total_rank_title {
 	font-family: "-윤고딕330";
 }
 
+div#winranklist {
+	
+
+}
+
 </style>
 <script type="text/javascript">
 function checkRankList() {
@@ -253,20 +258,24 @@ function checkRankList() {
 	<tr>
 		<td width="100" class="line" align="center" style="background-color:#424242; color:#FAFAFA">순위</td>	
 		<td width="150" class="line" align="center" style="background-color:#424242; color:#FAFAFA">티어</td>
-		<td width="200" class="line" align="center" style="background-color:#424242; color:#FAFAFA">이름</td>
-		<td width="300" class="line" align="center" style="background-color:#424242; color:#FAFAFA">보유금액</td>
+		<td width="300" class="line" align="center" style="background-color:#424242; color:#FAFAFA">캐릭터/캐릭터명</td>
+		<td width="200" class="line" align="center" style="background-color:#424242; color:#FAFAFA">보유금액</td>
 		<td width="150" class="line" align="center" style="background-color:#424242; color:#FAFAFA">전적</td>
 	</tr>
+
 <c:forEach var="dto" items="${list}">
+	
 	<tr align="center">
-		<td>${dto.rank}</td>
+	
+		<td><div id="winranklist">${dto.rank}</div></td>
 		<td>${dto.tear}</td>
 		<td>${dto.name}</td>
 		<td>${dto.money}원</td>
 		<td>${dto.win}승${dto.lose}패</td>
 	</tr>
 	
-</c:forEach>	
+</c:forEach>
+
 <tr>
 		<td colspan="5" align="center">
 		<c:if test="${startPage > 3}">

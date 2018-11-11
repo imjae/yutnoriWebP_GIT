@@ -6,6 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+div#rankPreviewList {
+	 background-image: url(../etc/image/rankImage/lostArk.png);
+	 background-repeat: no-repeat;
+	 background-position: center;
+}
+</style>
 </head>
 <body>
 <div align="right">
@@ -14,10 +21,12 @@
 <div align="center">
 <img alt="" src="../etc/image/rankImage/honor777.png" >
 <br>
-<br>
+
+<div id="rankPreviewList">
 <br>
 <jsp:include page="../rank/rankPreview.jsp"/>
-
+<br>
+</div>
 </div>
 </body>
 </html>
