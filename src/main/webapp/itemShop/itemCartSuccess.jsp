@@ -83,7 +83,7 @@ div#cart_result_total button {
 			<p>담으신 아이템은 장바구니에서 확인하실 수 있습니다.</p>
 		</div>
 	
-			<button id="go_shoppingCart" onclick="location.href=''">장바구니 가기</button>
+			<button id="go_shoppingCart" onclick="location.href='../itemShop/itemShoppingCart.do'">장바구니 가기</button>
 			<button id="go_shop" onclick="location.href='../itemShop/mainShop.do?category=all&pg=1&order=logtime'">계속 쇼핑하기</button>
 	</div>
 	

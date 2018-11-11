@@ -82,7 +82,7 @@ div#menu_name td input {
 				<img src="../etc/image/itemImage/shopLogo.png">
 			</a>
 		</div>
-		<div id="basket"><a href="#">장바구니</a></div>
+		<div id="basket"><a onclick="confLogin('../itemShop/itemShoppingCart.do')">장바구니</a></div>
 		<div id="buyList"><a onclick="confLogin('../main/myPage.do?dis=../user/paymentHistory.do')">구매내역</a></div>
 		<div id="blank"></div>
 	</div>
