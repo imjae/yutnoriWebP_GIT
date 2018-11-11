@@ -118,7 +118,7 @@ div#payment_result_con > div#right {
 			
 		</div>
 		<!-- &#x2714; 충전 수단 -->
-	<button id="go_charInfo" onclick="location.href='../main/myPage.do?dis=../user/paymentHistory.do'">구매내역</button>
+	<button id="go_charInfo" onclick="location.href='../main/myPage.do?dis=../user/charInfo_page.jsp'">장착하러 가기</button>
 	<button id="go_shop" onclick="location.href='../itemShop/mainShop.do?category=all&pg=1&order=logtime'">계속 쇼핑하기</button>
 	
 	</div>

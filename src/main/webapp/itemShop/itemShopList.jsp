@@ -26,6 +26,15 @@ td {
 </style>
 <script type="text/javascript">
 	$(function(){
+		
+		$(document).ready(function(){
+			if(${have eq 'have'}){
+				alert("이미 가지고 있는 제품입니다.");
+				location.href="../itemShop/mainShop.do?category=all&pg=1&order=logtime";
+			}
+		});
+		
+		
 		$("#shopForm a img").hover(function(){
 			var img = $(this).attr("id") + "Mud.png";
 			$(this).attr("src",img);
@@ -44,7 +53,7 @@ td {
 		<c:set var="i" value="${i+1 }" />
 		<td>
 			<a href="itemDetail.do?category=${category }&item_code=${itemShopDTO.item_code }&pg=${pg}&order=${order}">
-			<img id="../storage/${itemShopDTO.item_img }Title" src="../storage/${itemShopDTO.item_img }Title.png">
+			<img id="../etc/image/itemImage/characterImage/${itemShopDTO.item_img }Title" src="../etc/image/itemImage/characterImage/${itemShopDTO.item_img }Title.png">
 			</a>
 		</td>
 		<c:if test="${i%4==0 }">

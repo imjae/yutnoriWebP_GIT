@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,6 +51,7 @@
 		width: 185px;
 		height: 140px;
 		float: left;
+		margin-bottom: -7px;
 	}
 	
 	div#char_info div {
@@ -68,7 +70,6 @@
 		width: 100%;
 		height: 100%;
 	}
-
 </style>
 
 <script type="text/javascript">
@@ -129,9 +130,11 @@
 			<div id="user_tear"> 등급 : ${session_dto.user_tear } </div>
 			<div id="user_id"> 캐쉬 : ${session_dto.user_cash } 원</div>
 		</div>
-
 	</div>
-
+	
+	<c:if test="${session_id == 'jakeim1111@gmail.com' }">
+		<button id="admin" onclick="location.href = '../adminPage.jsp'">Administrator</button>
+	</c:if>
 </div>
 </body>
 </html>

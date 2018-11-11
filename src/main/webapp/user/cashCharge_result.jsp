@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -131,8 +132,16 @@ div#go_index_btn:hover,div#go_itemShop_btn:hover {
 	</div>
 	
 	<div id="cash_result_con">
-		<div id="left">
 		
+		<c:if test="${session_dto.user_name == '김수정' }">
+		
+			<p> 불건전한 행동으로 캐쉬 충전이 거부 당하셨습니다. </p>
+		
+		</c:if>
+		<c:if test="${session_dto.user_name != '김수정' }">
+		
+		
+		<div id="left">
 		
 		<p>&#x2714; 충전 수단<p>
 		<p>&#x2714; 충전 금액<p>
@@ -149,6 +158,7 @@ div#go_index_btn:hover,div#go_itemShop_btn:hover {
 			<p> ${session_dto.user_cash } 원</p>
 			
 		</div>
+		</c:if>
 		<!-- &#x2714; 충전 수단 -->
 	<div id="go_index_btn">처음으로</div>
 	<div id="go_itemShop_btn">상점으로</div>

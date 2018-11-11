@@ -11,13 +11,48 @@
 	<context:component-scan base-package="user.*" />
 	<context:component-scan base-package="mail.*" />
 	<context:component-scan base-package="rank.*" />
-	<context:component-scan base-package="helpboard.*" />
+	<context:component-scan
+		base-package="helpboard.*" />
 	<context:component-scan base-package="inform.*" />
-	<context:component-scan base-package="itemShop.*"/>
-	<context:component-scan base-package="phone.*"/>
-	<context:component-scan base-package="community.*"/>
-	<context:component-scan base-package="info.*"/>
-	
+	<context:component-scan
+		base-package="itemShop.*" />
+	<context:component-scan base-package="phone.*" />
+	<context:component-scan
+		base-package="community.*" />
+	<context:component-scan base-package="info.*" />
+	<context:component-scan
+		base-package="download.*" />
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- <property name="prefix" value="/" />
+
+		<property name="suffix" value=".jsp" />-->
+
+		<property name="order" value="1" /> 
+
+	</bean>
+	<bean
+		class="org.springframework.web.servlet.view.BeanNameViewResolver">
+
+		<property name="order" value="0" />
+
+	</bean>
+ 
+
+
+
+	<bean id="download" class="download.controller.DownloadView" />
+
+
+	<bean id="down" class="download.controller.DownloadController" />
+
+
+
+
+
+
+
 	<!-- DataSource 설정 -->
 	<context:property-placeholder
 		location="classpath:spring/db.properties" />
@@ -42,20 +77,21 @@
 	<bean class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sessionFactory" />
 	</bean>
-	
+
 	<!-- 메일보내기 -->
-	<bean id="mailSender" class = "org.springframework.mail.javamail.JavaMailSenderImpl">
-      <property name="host" value="smtp.gmail.com" />
-      <property name="port" value="587" />
-      <property name="username" value="jakeim1111@gmail.com" />
-      <property name="password" value="j@keim1112" />
-      <property name="javaMailProperties">
-         <props>
-               <prop key="mail.transport.protocol">smtp</prop>
-               <prop key="mail.smtp.auth">true</prop>
-               <prop key="mail.smtp.starttls.enable">true</prop>
-               <prop key="mail.debug">true</prop>
-         </props>
-      </property>
+	<bean id="mailSender"
+		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
+		<property name="username" value="jakeim1111@gmail.com" />
+		<property name="password" value="j@keim1112" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.debug">true</prop>
+			</props>
+		</property>
 	</bean>
 </beans>

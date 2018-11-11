@@ -96,16 +96,18 @@
 		<h1>커뮤니티 &gt; 스크린샷 게시판</h1>
 	</div>
 	<div id="img_search">
-		<form action="imgboard_list.do?" name="imgboard_searchForm" method="post">
+		<div id="img_search">
+		<form action="imgboard_list.do?imgboard_pg=${imgboard_pg}" name="imgboard_searchForm" method="post">
 			<select name="imgboard_searchType">
-				<option value="imgboard_searchAll">전체</option>
-				<option value="imgboard_writer">작성자</option>
-				<option value="imgboard_subject">제목</option>
-				<option value="imgboard_content">내용</option>
+				<option value="imgboard_searchAll" <c:out value="${imgboard_searchType == 'imgboard_searchAll'?'selected':''}"/>>전체</option>
+				<option value="imgboard_writer" <c:out value="${imgboard_searchType == 'imgboard_writer'?'selected':''}"/>>작성자</option>
+				<option value="imgboard_subject" <c:out value="${imgboard_searchType == 'imgboard_subject'?'selected':''}"/>>제목</option>
+				<option value="imgboard_content" <c:out value="${imgboard_searchType == 'imgboard_content'?'selected':''}"/>>내용</option>
 			</select>
-			<input type="text" name="imgboard_keyword">
+			<input type="text" name="imgboard_keyword" value="${imgboard_keyword}">
 			<input type="submit" value="검색">
 		</form>
+	</div>
 	</div>
 	<div id="imgboard_listForm">
 		<ul>
@@ -121,19 +123,38 @@
 	</div>
 </div>
 <div id="imgboard_paging">
-	<c:if test="${img_startPg > 10}">
-		<button onclick="location.href='../imgboard/imgboard_list.do?imgboard_pg=${img_startPg-1}'">&lt;</button>
+	<c:if test="${imgboard_keyword == null}">
+		<c:if test="${img_startPg > 10}">
+			<button onclick="location.href='../imgboard/imgboard_list.do?imgboard_pg=${img_startPg-1}'">&lt;</button>
+		</c:if>
+		<c:forEach begin="${img_startPg}" step="1" var="i" end="${img_endPg}">
+			<c:if test="${imgboard_pg == i}">
+				[<a class="currentPaging" href="../imgboard/imgboard_list.do?imgboard_pg=${i}">${i}</a>]
+			</c:if>
+			<c:if test="${imgboard_pg!=i}">
+				[<a class="paging" href="../imgboard/imgboard_list.do?imgboard_pg=${i}">${i}</a>]
+			</c:if>
+		</c:forEach>
+		<c:if test="${img_endPg < img_totalP}">
+			<button onclick="location.href='../imgboard/imgboard_list.do?imgboard_pg=${img_endPg + 1}'">&gt;</button>
+		</c:if>
 	</c:if>
-	<c:forEach begin="${img_startPg}" step="1" var="i" end="${img_endPg}">
-		<c:if test="${imgboard_pg == i}">
-			[<a class="currentPaging" href="../imgboard/imgboard_list.do?imgboard_pg=${i}">${i}</a>]
+	
+	<c:if test="${imgboard_keyword != null}">
+		<c:if test="${img_startPg > 10}">
+			<button onclick="location.href='../imgboard/imgboard_list.do?imgboard_pg=${img_startPg-1}&imgboard_searchType=${imgboard_searchType}&imgboard_keyword=${imgboard_keyword}'">&lt;</button>
 		</c:if>
-		<c:if test="${imgboard_pg!=i}">
-			[<a class="paging" href="../imgboard/imgboard_list.do?imgboard_pg=${i}">${i}</a>]
+		<c:forEach begin="${img_startPg}" step="1" var="i" end="${img_endPg}">
+			<c:if test="${imgboard_pg == i}">
+				[<a class="currentPaging" href="../imgboard/imgboard_list.do?imgboard_pg=${i}&imgboard_searchType=${imgboard_searchType}&imgboard_keyword=${imgboard_keyword}">${i}</a>]
+			</c:if>
+			<c:if test="${imgboard_pg!=i}">
+				[<a class="paging" href="../imgboard/imgboard_list.do?imgboard_pg=${i}&imgboard_searchType=${imgboard_searchType}&imgboard_keyword=${imgboard_keyword}">${i}</a>]
+			</c:if>
+		</c:forEach>
+		<c:if test="${img_endPg < img_totalP}">
+			<button onclick="location.href='../imgboard/imgboard_list.do?imgboard_pg=${img_endPg + 1}&imgboard_searchType=${imgboard_searchType}&imgboard_keyword=${imgboard_keyword}'">&gt;</button>
 		</c:if>
-	</c:forEach>
-	<c:if test="${img_endPg < img_totalP}">
-		<button onclick="location.href='../imgboard/imgboard_list.do?imgboard_pg=${img_endPg + 1}'">&gt;</button>
 	</c:if>
 </div>
 <div id="imgboard_writeBtn">

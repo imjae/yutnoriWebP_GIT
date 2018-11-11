@@ -105,6 +105,11 @@ public class UserServiceImpl implements UserService {
 	public UserEquipDTO equipItemStatus(String user_id) {
 		return userDAO.equipItemStatus(user_id);
 	}
+
+	/*@Override
+	public List<PaymentHistoryDTO> historyList(String user_id) {
+		return userDAO.historyList(user_id);
+	}*/
 	
 	
 	

@@ -16,22 +16,22 @@ public interface CommunityService {
 	
 	FreeboardDTO freeboard_view(int freeboard_num);
 	
-	List<FreeboardDTO> freeboard_list(int free_startNum, int free_endNum);
+	List<FreeboardDTO> freeboard_list(int free_startNum, int free_endNum, String freeboard_searchType, String freeboard_keyword);
 	
-	int freeboard_getTotalA();
+	int freeboard_getTotalA(String freeboard_searchType, String freeboard_keyword);
 	
 	void freeboard_hit(int freeboard_num);
 	// 자유 게시판 - 게시글
 	
 	
 	// 자유 게시판 - 덧글
-	void free_commentInsert(Freeboard_commentDTO freeboard_commentDTO) throws Exception;
-
-	void free_commentDelete(Freeboard_commentDTO freeboard_commentDTO) throws Exception;
-
-	public int free_commentCount(int freeboard_num) throws Exception;
-
-	List<Freeboard_commentDTO> free_commentList(int freeboard_num) throws Exception;
+//	public void free_commentInsert(Freeboard_commentDTO freeboard_commentDTO);
+//
+//	public int free_commentDelete(int free_comment_num);
+//
+//	public int free_commentCount(int freeboard_num);
+//
+//	public List<Freeboard_commentDTO> free_commentList(int freeboard_num);
 	// 자유 게시판 - 덧글
 	
 	
@@ -44,9 +44,9 @@ public interface CommunityService {
 	
 	ImgboardDTO imgboard_view(int imgboard_num);
 	
-	List<ImgboardDTO> imgboard_list(int img_startNum, int img_endNum);
+	List<ImgboardDTO> imgboard_list(int img_startNum, int img_endNum, String imgboard_searchType, String imgboard_keyword);
 	
-	int imgboard_getTotalA();
+	int imgboard_getTotalA(String imgboard_searchType, String imgboard_keyword);
 	
 	void imgboard_hit(int imgboard_num);
 	// 스샷 게시판 - 게시글

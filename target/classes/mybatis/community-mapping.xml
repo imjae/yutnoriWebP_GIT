@@ -24,17 +24,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select parameterType="int" id="freeboardView" resultType="freeboardDTO">
 		select * from freeboard where freeboard_num=#{freeboard_num}
 	</select>
-	
 	<select parameterType="freeboardDTO" id="freeboardList" resultType="freeboardDTO">
-		<![CDATA[select * from  
+		select * from  
 		(select rownum rn, tt.* from 
-		(select * from freeboard order by freeboard_num desc) tt)  
-		where rn>=#{free_startNum} and rn<=#{free_endNum}]]>
+		(select * from freeboard <include refid="freeboard_search"></include> order by freeboard_num desc) tt)  
+		where <![CDATA[rn>=#{free_startNum} and rn<=#{free_endNum}]]>
 	</select>
 	
 	<select id="freeboard_getTotalA" resultType="int">
-		select count(*) from freeboard
+		select count(*) from freeboard <include refid="freeboard_search"></include>
 	</select>
+	
+	
+	
+	<sql id="freeboard_search">
+		<choose>
+			<when test="freeboard_searchType == 'freeboard_searchAll'">
+				where freeboard_writer like '%'||#{freeboard_keyword}||'%'
+				or freeboard_subject like '%'||#{freeboard_keyword}||'%'
+				or freeboard_content like '%'||#{freeboard_keyword}||'%'
+			</when>
+			<otherwise>
+				where ${freeboard_searchType} like '%'||#{freeboard_keyword}||'%'
+			</otherwise>
+		</choose>
+	</sql>
 	<!-- 자유 게시판 - 게시글 -->
 	
 	
@@ -47,14 +61,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         SELECT * FROM freeboard_comment where freeboard_num = #{freeboard_num}
     </select>
     
-    <insert id="free_commentInsert" parameterType="freeboard_commentDTO">
+    <insert id="free_commentInsert">
         INSERT INTO
         freeboard_comment
-        VALUES(#{freeboard_num} ,seq_free_comment.nextval,
-        #{free_comment_writer}, #{free_comment_content}, sysdate)
+        VALUES(#{freeboard_num}, seq_free_comment.nextval,
+        #{free_comment_writer}, #{free_comment_content}, sysdate) 
     </insert>
     
-    <delete id="free_commentDelete" parameterType="freeboard_commentDTO">
+    <delete id="free_commentDelete" parameterType="int">
         DELETE FROM freeboard_comment WHERE free_comment_num = #{free_comment_num}
     </delete> -->
 	<!-- 자유 게시판 - 댓글 -->
@@ -82,15 +96,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select parameterType="imgboardDTO" id="imgboardList" resultType="imgboardDTO">
-		<![CDATA[select * from  
+		select * from  
 		(select rownum rn, tt.* from 
-		(select * from imgboard order by imgboard_num desc) tt)  
-		where rn>=#{img_startNum} and rn<=#{img_endNum}]]>
+		(select * from imgboard <include refid="imgboard_search"></include> order by imgboard_num desc) tt)  
+		where <![CDATA[rn>=#{img_startNum} and rn<=#{img_endNum}]]>
 	</select>
 	
 	<select id="imgboard_getTotalA" resultType="int">
-		select count(*) from imgboard
+		select count(*) from imgboard <include refid="imgboard_search"></include>
 	</select>
+	
+	<sql id="imgboard_search">
+		<choose>
+			<when test="imgboard_searchType == 'imgboard_searchAll'">
+				where imgboard_writer like '%'||#{imgboard_keyword}||'%'
+				or imgboard_subject like '%'||#{imgboard_keyword}||'%'
+				or imgboard_content like '%'||#{imgboard_keyword}||'%'
+			</when>
+			<otherwise>
+				where ${imgboard_searchType} like '%'||#{imgboard_keyword}||'%'
+			</otherwise>
+		</choose>
+	</sql>
 	<!-- 스샷 게시판 - 게시글 -->
 	
 	

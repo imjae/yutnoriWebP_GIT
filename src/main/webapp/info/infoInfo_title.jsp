@@ -12,24 +12,26 @@
 
 	div#section_total {
 		width : 1400px;
-		height : 1000px;/* 
+		min-height: 1000px;
+		/*
 		border : 1px solid black; */
 		/* border-top: 3px dashed rgba(0,0,0,0.6);  */
 		background-color: rgba(255,255,255,0.5);
 		font-family: "-윤고딕320";
+	
 		
 		
 	}
 	
 	div#section_left {
 		width:75%;
-		height:100%;
+		min-height: 1000px;
 		float: left;
 	}
 	
 	div#section_right{
 		width: 24.9%;
-		height:100%;
+		min-height: 1000px;
 		float: left;
 		background-color: rgba(200,200,200,0.4);
 	}
@@ -87,7 +89,7 @@ a.my_sub_menu:hover { text-decoration: none;  }
 	
 	<div id="section_right">
 		<div id="section_title">
-		<p>&nbsp;&nbsp;마이페이지</p>
+		<p>&nbsp;&nbsp;게임 정보</p>
 		</div>
 		
 		<div id="section_char_info" class="userInfo_sub_menu">
