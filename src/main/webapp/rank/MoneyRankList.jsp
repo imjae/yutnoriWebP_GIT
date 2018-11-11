@@ -188,6 +188,23 @@ div#total_rank_title {
 	font: #424242;
 	font-family: "-윤고딕330";
 }
+
+div#rank_paging {
+	border-top: 1px solid lightgray;
+	margin: auto;
+	padding: 0;
+	float: center;
+	margin-top: 15px;
+	padding-top: 10px;
+	width: 97%;
+	text-align: center;
+}
+
+tr#absad {
+	width: 300px;
+	height: 50px;
+	border-bottom: 1px solid black;
+}
  
 </style>
 <script type="text/javascript">
@@ -244,12 +261,12 @@ function checkRankList() {
 	<tr>
 		<td width="100" class="line" align="center" style="background-color:#424242; color:#FAFAFA">순위</td>	
 		<td width="150" class="line" align="center" style="background-color:#424242; color:#FAFAFA">티어</td>
-		<td width="200" class="line" align="center" style="background-color:#424242; color:#FAFAFA">이름</td>
-		<td width="300" class="line" align="center" style="background-color:#424242; color:#FAFAFA">보유금액</td>
+		<td width="300" class="line" align="center" style="background-color:#424242; color:#FAFAFA">이름</td>
+		<td width="200" class="line" align="center" style="background-color:#424242; color:#FAFAFA">보유금액</td>
 		<td width="150" class="line" align="center" style="background-color:#424242; color:#FAFAFA">전적</td>
 	</tr>
 <c:forEach var="moneydto" items="${list}">
-	<tr align="center">
+	<tr id="absad" align="center">
 		<td>${moneydto.rank}</td>
 		<td>${moneydto.tear}</td>
 		<td>${moneydto.name}</td>
@@ -258,30 +275,32 @@ function checkRankList() {
 	</tr>
 	
 </c:forEach>	
-<tr>
-		<td colspan="5" align="center">
-		<c:if test="${startPage > 3}">
-			[<a id="paging" href="MoneyRankList.do?pg=${startPage - 1}">이전</a>]
+
+</table>
+</form>
+<div id="rank_paging">
+	<c:if test="${startPage > 3}">
+		
+			[<a id="paging" href="yutnoriiiRankList.do?pg=${startPage - 1}">이전</a>]
 		</c:if>		
 		
 		<c:forEach var="i" begin="${startPage}" end="${endPage}" step="1">
 			<c:if test="${pg == i}">
-				[<a id="currentPaging" href="MoneyRankList.do?pg=${i}">${i}</a>]
+				[<a id="currentPaging" href="yutnoriiiRankList.do?pg=${i}">${i}</a>]
 			</c:if>
 			<c:if test="${pg != i}">
-				[<a id="paging" href="MoneyRankList.do?pg=${i}">${i}</a>]
+				[<a id="paging" href="yutnoriiiRankList.do?pg=${i}">${i}</a>]
 			</c:if>		
 		</c:forEach>
 		
 		<c:if test="${endPage < totalP}">
-			[<a id="paging" href="MoneyRankList.do?pg=${endPage + 1}">다음</a>]			
+			[<a id="paging" href="yutnoriiiRankList.do?pg=${endPage + 1}">다음</a>]			
 		</c:if>
-		</td>
-	</tr>
-</table>
-</form>
+</div>
 </body>
 </html>
+
+
 
 
 
