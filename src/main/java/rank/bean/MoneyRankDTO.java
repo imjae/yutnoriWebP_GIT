@@ -7,6 +7,7 @@ public class MoneyRankDTO {
 	private int money;
 	private int win;
 	private int lose;
+	private String image;
 	public int getRank() {
 		return rank;
 	}
@@ -42,6 +43,12 @@ public class MoneyRankDTO {
 	}
 	public void setLose(int lose) {
 		this.lose = lose;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
 	
