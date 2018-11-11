@@ -416,7 +416,7 @@ div#char_img_div img#char_img {
 			$.ajax({
 				url : "../user/have_itemList.do",
 				type : "post",
-				data : {"category" : "etc",
+				data : {"category" : "potion",
 						"pg":"1"},
 				dataType : "json",
 				success : function(data){

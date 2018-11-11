@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import itemShop.bean.ItemShopDTO;
 import itemShop.bean.PaymentHistoryDTO;
-import rank.bean.PreviewDTO;
 import user.bean.UserDTO;
 import user.bean.UserEquipDTO;
 

@@ -44,24 +44,31 @@
 		
 		$("div#start_button").click(function(){
 			var agent = navigator.userAgent.toLowerCase();
+			var id = "<%= session.getAttribute("session_id") %>";
+			
+			if(id == 'null'){
+				alert("로그인 해주세요!");
+			}else {
+				if ( (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') != -1) || (agent.indexOf("msie") != -1) ) {
+					//var path = String.fromCharCode(34)+'C:\\Riot Games\\League of Legends\\LeagueClient.exe'+String.fromCharCode(34);
+					var objWSH = new ActiveXObject("WScript.Shell");
+					var runProgram = "cmd.exe /k C:\\Users\\John\\Downloads\\yutnoriyutnori.exe " +id;
+				    var retval = objWSH.run(runProgram,1,true);
+				   
+				}else if (agent.indexOf("chrome") != -1) {
+				  
+				    alert("HAVE TO INSTALL."); 
+				    var objWSH = new ActiveXObject("WScript.Shell");
+				    var retval = objWSH.Run("C:/Windows/SysWOW64/notepad.exe",1,true);
+				  
+				}
+				
+			}
+				
 
-			if ( (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') != -1) || (agent.indexOf("msie") != -1) ) {
-			    alert("Internet Explorer"); 
-				var path = String.fromCharCode(34)+'C:\\Riot Games\\League of Legends\\LeagueClient.exe'+String.fromCharCode(34);
-			    alert(path);
-				var objWSH = new ActiveXObject("WScript.Shell");
-				alert("test");
-			    var retval = objWSH.run(path,1,true);
-			   
-			}
-			 
-			else if (agent.indexOf("chrome") != -1) {
-			  
-			    alert("HAVE TO INSTALL."); 
-			    var objWSH = new ActiveXObject("WScript.Shell");
-			    var retval = objWSH.Run("C:/Windows/SysWOW64/notepad.exe",1,true);
-			  
-			}
+
+
+			
 
 		});
 		

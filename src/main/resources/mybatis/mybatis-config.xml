@@ -23,16 +23,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="inform.controller.NewsListDTO" alias="newsListDTO"/>
 
 
-		<!-- <typeAlias type="inform.controller.EventListDTO" alias="eventListDTO"/> -->
-
-		<!-- <typeAlias type="inform.controller.EventListDTO" alias="eventListDTO"/> -->
-
-
-		<!-- <typeAlias type="inform.controller.EventListDTO" alias="eventListDTO"/> -->
-
-		<!-- <typeAlias type="inform.controller.EventListDTO" alias="eventListDTO"/> -->
-
-
 		<typeAlias type="community.bean.FreeboardDTO" alias="freeboardDTO"/>
 		<!-- <typeAlias type="community.bean.Freeboard_commentDTO" alias="freeboard_commentDTO"/> -->
 		<typeAlias type="community.bean.ImgboardDTO" alias="imgboardDTO"/>
