@@ -28,9 +28,12 @@ td {
 	$(function(){
 		
 		$(document).ready(function(){
-			if(${have eq 'have'}){
+			if(${status eq 'have'}){
 				alert("이미 가지고 있는 제품입니다.");
-				location.href="../itemShop/mainShop.do?category=all&pg=1&order=logtime";
+			}else if(${status eq 'failDel'}){
+				alert("오류가 발생하였습니다. 다시 시도해주세요.");
+			}else if(${status eq 'carthave'}){
+				alert("이미 장바구니에 담겨있는 제품입니다.");
 			}
 		});
 		

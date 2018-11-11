@@ -19,4 +19,15 @@ public interface ItemShopService {
 	// 가격차감
 	int itemPaymentSuccess(int item_charge, String user_id);
 	
+	// 장바구니에 있는지 확인
+	int checkCart(String user_id, String item_code);
+	
+	// 장바구니에 넣기
+	int insertCart(String user_id, String item_code);
+	
+	// 장바구니에서 삭제
+	int deleteCart(String user_id, String item_code);
+	
+	// 장바구니 리스트
+	List<ItemShopDTO> itemShoppingCart(String user_id);
 }

@@ -36,7 +36,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		set user_cash=user_cash-#{item_charge} 
 		where user_id=#{user_id}
 	</update>
+	
+	<select id="checkCart" parameterType="java.util.Map" resultType="int">
+		select count(*) from shoppingCart 
+		where user_id=#{user_id} and item_code=#{item_code}
+	</select>
  
+ 	<delete id="deleteCart" parameterType="java.util.Map">
+ 		delete shoppingCart 
+		where user_id=#{user_id} and item_code=#{item_code}
+ 	</delete>
+ 
+ 	<insert id="insertCart"  parameterType="java.util.Map">
+ 		insert into shoppingCart values(#{user_id}, #{item_code})
+ 	</insert>
+ 
+ 	<select id="itemShoppingCart" parameterType="java.lang.String" resultType="itemShopDTO">
+		select * from item_Shop where item_code in(
+		select item_code from shoppingCart where user_id=#{user_id})
+	</select>
  
 </mapper>
 
