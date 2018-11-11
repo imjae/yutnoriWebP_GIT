@@ -116,6 +116,10 @@
 		width: 160px;
 		height: 35px;
 	}
+	div#user_jumin input[type=password] {
+		width: 160px;
+		height: 35px;
+	}
 	
 	div#user_phone input[name=user_phone1] {
 		width: 70px;
@@ -311,7 +315,7 @@
 			주민등록번호
 		</div>
 		<div class="right_col">
-			<input type="text" name="user_jumin1"> &nbsp;-&nbsp; <input type="text" name="user_jumin2">
+			<input type="text" name="user_jumin1"> &nbsp;-&nbsp; <input type="password" name="user_jumin2">
 		</div>
 	</div>
 

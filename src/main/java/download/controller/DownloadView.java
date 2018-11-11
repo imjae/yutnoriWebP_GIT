@@ -27,6 +27,7 @@ public class DownloadView extends AbstractView {
 		// TODO Auto-generated method stub
          
         File file = (File)model.get("downloadFile");
+        System.out.println(file.getPath()+"<<<_____-------- 경로 지정도니 경로오옹");
         System.out.println("DownloadView --> file.getPath() : " + file.getPath());
         System.out.println("DownloadView --> file.getName() : " + file.getName());
          
@@ -50,7 +51,7 @@ public class DownloadView extends AbstractView {
         }// end if;
         response.setHeader("Content-Disposition", "attachment; filename=\"yutnori" + fileName + "\";");         
         response.setHeader("Content-Transfer-Encoding", "binary");         
-        OutputStream out = response.getOutputStream();  
+        OutputStream out = response.getOutputStream();
         FileInputStream fis = null;
        
         try {

@@ -19,7 +19,6 @@ div#top_info {
 	padding: 0;
 	width: 100%;
 	height: 60px;
-	border: 1px solid blue;
 }
 
 div#login_form_layout {
@@ -87,6 +86,10 @@ input[type=text]::placeholder {
 	font-size: 1.1em;
 	color: lightgray;
 }
+input[type=password]::placeholder {
+	font-size: 1.1em;
+	color: lightgray;
+}
 
 div#loginBtn {
 	width: 99%;
@@ -103,6 +106,7 @@ div#loginBtn {
 div#loginBtn:hover, .bot:hover, div#idLogin:hover, div#ongTimeLogin:hover {
 	cursor: pointer;
 }
+
 
 .bot {
 
@@ -155,6 +159,15 @@ $(function(){
 		
 	});
 	
+	$("div#findIdPw").click(function(){
+		window.open('../user/id_pw_findPage.jsp?step=01','IP/PW 찾기','width=650px, height=800px');
+	});
+	
+	$("div#signUp").click(function(){
+		location.href="../user/signUp.jsp?step=signUp_step01";
+		
+	});
+	
 });
 	
 
@@ -177,18 +190,16 @@ $(function(){
 	
 	<form action="userLogin.do" method="post" id="loginPage">
 		<input type="text" name="id" placeholder="&nbsp;&nbsp;&nbsp; ID ( 이메일 형식 ) 를 입력해 주세요.">
-		<input type="text" name="pw" placeholder="&nbsp;&nbsp;&nbsp; 비밀번호를 입력해 주세요.">
+		<input type="password" name="pw" placeholder="&nbsp;&nbsp;&nbsp; 비밀번호를 입력해 주세요.">
 
 		<div id="loginBtn">로그인</div>
 	</form>
-	<div id="findId" class="bot">
-	ID 찾기
+	<div id="findIdPw" class="bot">
+		ID / 비밀번호 찾기
 	</div>
-	<div id="findPw" class="bot">
-	비밀번호 찾기
-	</div>
+	
 	<div id="signUp" class="bot">
-	회원가입
+		회원가입
 	</div>
 </div>
 

@@ -35,7 +35,10 @@ table.down th {
 		<th>↓ 버튼 클릭하여 설치하기 ↓</th>
 	</tr> 
 	<tr>
-		  <td><a href="/projectteam1/download.do?path=${game}&fileName=${game}"><img alt="" src="../etc/image/downImage/button.jpg"></a></td>
+		  <td>
+		  <a href="../down/downloadGame.do">
+		  <img alt="" src="../etc/image/downImage/button.jpg">
+		  </a></td>
 		  <td><img alt="" src="../etc/image/itemImage/characterImage/ycs_.png"></td>
 	</tr>
 </table>

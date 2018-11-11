@@ -43,7 +43,7 @@ div#char_img_div {
 	height: 90%;
 	/* border: 1px solid black; */
 	float: left;
-	background-color: pink;
+	border: 1.5px solid lightgray;
 }
 
 div#item_list_div {
@@ -416,7 +416,7 @@ div#char_img_div img#char_img {
 			$.ajax({
 				url : "../user/have_itemList.do",
 				type : "post",
-				data : {"category" : "etc",
+				data : {"category" : "potion",
 						"pg":"1"},
 				dataType : "json",
 				success : function(data){

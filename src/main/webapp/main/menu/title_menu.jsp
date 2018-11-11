@@ -46,7 +46,9 @@ div#title_menu_total div {
 div#title_menu_total div:last-child:after {
 	clear: both;
 }
-
+a#a_logo:link { text-decoration: none; color: white; }
+a#a_logo:visited { text-decoration: none; color: white; }
+a#a_logo:hover { text-decoration: none; color: white; }
 a.over_mouse_title:link { text-decoration: none; color: white; }
 a.over_mouse_title:visited { text-decoration: none; color: white; }
 a.over_mouse_title:hover { text-decoration: none; color: white; }

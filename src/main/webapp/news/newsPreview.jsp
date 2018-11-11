@@ -13,6 +13,7 @@ div#notice_total {
 	width: 100%;
 	height: 100%;
 	font-family: "-윤고딕320";
+	color: rgba(74,74,74, 0.8);
 }
 
 div#news_preview_preview {
@@ -49,6 +50,7 @@ div#news_preview_list {
 	height: 82%;
 	float: left;
 	/* border: 1px solid gray; */
+	color: rgba(44,44,44, 0.8);
 }
 
 div#news_preview_sort_div {
@@ -58,6 +60,7 @@ div#news_preview_sort_div {
 	text-align: center;
 	font-weight: bold;
 	margin-left: 10px;
+	color: rgba(74,74,74, 0.8);
 	
 }
 
@@ -70,6 +73,7 @@ div#news_preview_title_div {
 	overflow:hidden;
 	white-space:nowrap; 
 	text-overflow:ellipsis;
+	color: rgba(74,74,74, 0.8);
 
 }
 
