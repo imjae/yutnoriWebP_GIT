@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="rankList" parameterType="java.util.Map"
 		resultType="rankDTO">
-		<![CDATA[select rank,user_tear tear,user_image image,user_name name,user_money money,user_win win,user_lose lose from
+		<![CDATA[select rank,user_tear tear,user_name name,user_money money,user_win win,user_lose lose from
 				(select DENSE_RANK() OVER (ORDER BY user_win DESC) rank ,rownum rn, tt.* from
 				(select * from users order by user_win desc) tt)
 				where rn>=#{startNum} and rn<=#{endNum}]]>
@@ -31,7 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="moneyRankList" parameterType="java.util.Map"
 		resultType="MoneyRankDTO">
-		<![CDATA[select rank,user_tear tear,user_image image,user_name name,user_money money,user_win win,user_lose lose from
+		<![CDATA[select rank,user_tear tear,user_name name,user_money money,user_win win,user_lose lose from
 				(select DENSE_RANK() OVER (ORDER BY user_money DESC) rank ,rownum rn, tt.* from
 				(select * from users order by user_money desc) tt)
 				where rn>=#{startNum} and rn<=#{endNum}]]>
@@ -43,7 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="listAll" parameterType="java.util.Map" resultType="rankDTO">
 	
-	<![CDATA[select rank,user_tear tear,user_image image,user_name name,user_money money,user_win win,user_lose lose 
+	<![CDATA[select rank,user_tear tear,user_name name,user_money money,user_win win,user_lose lose 
 			from (select DENSE_RANK() OVER (ORDER BY user_name DESC) rank ,rownum rn, tt.* 
 				 from (select * 
 					  from users 

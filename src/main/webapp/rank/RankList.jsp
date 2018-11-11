@@ -249,7 +249,7 @@ function checkRankList() {
 	<tr align="center">
 		<td>${dto.rank}</td>
 		<td>${dto.tear}</td>
-		<td>${dto.image}/${dto.name}</td>
+		<td>${dto.name}</td>
 		<td>${dto.money}</td>
 		<td>${dto.win}승${dto.lose}패</td>
 	</tr>
