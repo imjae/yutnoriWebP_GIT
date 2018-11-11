@@ -120,6 +120,7 @@ public class ItemShopController {
 		String user_id = String.valueOf(request.getSession().getAttribute("session_id"));
 		ItemShopDTO itemShopDTO = itemShopService.itemDetail(item_code);
 		
+		
 		int have = 0;
 		/* 이미 가지고 있는 아이템인 경우 결제 안됨 */
 		int endNum = userService.haveItemCount(user_id);
@@ -132,13 +133,38 @@ public class ItemShopController {
 		
 		ModelAndView modelAndView = new ModelAndView();
 		
-		if(have>0) {
-			modelAndView.addObject("have", "have");
+		
+		
+		
+		if(have>0) { // 이미 결제한 아이템인 경우
+			modelAndView.addObject("status", "have");
 			modelAndView.setViewName("../itemShop/mainShop.do?category=all&pg=1&order=logtime");
 		}else {
-			modelAndView.addObject("ea", ea);
-			modelAndView.addObject("itemShopDTO", itemShopDTO);
-			modelAndView.setViewName("../itemShop/itemPayment.jsp");
+			
+			// 장바구니에 있는지 먼저 확인
+			int checkCart = 0;
+			checkCart = itemShopService.checkCart(user_id, item_code);
+			int cartOut = 0;
+			if(checkCart > 0) { // 장바구니에 이미 존재하므로 기존걸 삭제
+				cartOut = itemShopService.deleteCart(user_id, item_code);
+			}
+
+			if(cartOut>0 || checkCart == 0) {
+				// 장바구니에 넣기
+				int cartIn = itemShopService.insertCart(user_id, item_code);
+				if(cartIn>0) {
+					modelAndView.addObject("ea", ea);
+					modelAndView.addObject("itemShopDTO", itemShopDTO);
+					modelAndView.setViewName("../itemShop/itemPayment.jsp");
+				}else {// 넣기 실패 했을경우
+					modelAndView.addObject("status", "failDel");
+					modelAndView.setViewName("../itemShop/mainShop.do?category=all&pg=1&order=logtime");				
+				}
+				
+			}else {// 삭제 실패 했을경우
+				modelAndView.addObject("status", "failDel");
+				modelAndView.setViewName("../itemShop/mainShop.do?category=all&pg=1&order=logtime");
+			}
 		}
 		
 		
@@ -159,15 +185,16 @@ public class ItemShopController {
 		int suc = itemShopService.itemPaymentSuccess(item_charge, userDTO.getUser_id());
 		int insertCount = userService.insertHistory(userDTO.getUser_id(), item_code);
 		int user_cash = userDTO.getUser_cash();
+		int cartOut = itemShopService.deleteCart(userDTO.getUser_id(), item_code);
 		
-		if(suc>0 && insertCount>0) {
+		if(suc>0 && insertCount>0 && cartOut > 0) {	// 결제 완료되었고 장바구니에서 삭제완료			
 			userDTO.setUser_cash(user_cash - item_charge);
-			session.setAttribute("session_dto", userDTO);
-			
+			session.setAttribute("session_dto", userDTO);			
 		}
 		
 		
 		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("cartOut", cartOut);
 		modelAndView.addObject("suc", suc);
 		modelAndView.addObject("insertCount", insertCount);
 		modelAndView.addObject("payOK", "ok");
@@ -178,6 +205,66 @@ public class ItemShopController {
 		return modelAndView;
 		
 	}
+	
+	@RequestMapping(value="/itemShop/itemCart.do")
+	public ModelAndView itemCart(HttpServletRequest request ) {
+		String item_code = request.getParameter("item_code");
+		String user_id = String.valueOf(request.getSession().getAttribute("session_id"));
+		
+		int have = 0;
+		/* 이미 가지고 있는 아이템인 경우 결제 안됨 */
+		int endNum = userService.haveItemCount(user_id);
+		List<PaymentHistoryDTO> list = userService.haveItemListAll(user_id, 1, endNum);
+		for(int i=0;i<list.size();i++) {
+			if( item_code.equals(list.get(i).getItem_code()) ) {
+				have++;
+			}
+		}
+		
+		ModelAndView modelAndView = new ModelAndView();
+		
+		// 장바구니에 있는지 먼저 확인
+		int checkCart = 0;
+		checkCart = itemShopService.checkCart(user_id, item_code);
+		
+		if(have>0) { // 이미 가진 아이템
+			modelAndView.addObject("status", "have");
+			modelAndView.setViewName("../itemShop/mainShop.do?category=all&pg=1&order=logtime");			
+		}else if(checkCart>0) {	// 장바구니에 있는 아이템
+			modelAndView.addObject("status", "carthave");
+			modelAndView.setViewName("../itemShop/mainShop.do?category=all&pg=1&order=logtime");			
+		}else { // 가지고 있지도 장바구니에도 없는 상태
+			// 장바구니에 넣기
+			int cartIn = itemShopService.insertCart(user_id, item_code);
+			if(cartIn>0) {
+				modelAndView.addObject("status", "cartIn");
+				modelAndView.setViewName("../itemShop/mainShop.jsp");				
+			}else {	// 넣기실패
+				modelAndView.addObject("status", "failDel");
+				modelAndView.setViewName("../itemShop/mainShop.do?category=all&pg=1&order=logtime");				
+			}
+		}
+		
+		return modelAndView;
+		
+	}
+	
+
+	@RequestMapping(value="/itemShop/itemShoppingCart.do")
+	public ModelAndView itemShoppingCart(HttpServletRequest request ) {
+		String user_id = String.valueOf(request.getSession().getAttribute("session_id"));
+		
+		List<ItemShopDTO> list = itemShopService.itemShoppingCart(user_id);
+		ModelAndView modelAndView = new ModelAndView();
+		
+		modelAndView.addObject("display", "shoppingCart");
+		modelAndView.addObject("list", list);
+		modelAndView.setViewName("../itemShop/mainShop.jsp");	
+		
+		return modelAndView;
+		
+	}
+	
 	
 	
 	@RequestMapping(value="/itemShop/itemShopPreview.do")
@@ -208,7 +295,6 @@ public class ItemShopController {
 		
 	}
 
-	
 	
 	
 }

@@ -82,7 +82,7 @@ div#menu_name td input {
 				<img src="../etc/image/itemImage/shopLogo.png">
 			</a>
 		</div>
-		<div id="basket"><a href="#">장바구니</a></div>
+		<div id="basket"><a onclick="confLogin('../itemShop/itemShoppingCart.do')">장바구니</a></div>
 		<div id="buyList"><a onclick="confLogin('../main/myPage.do?dis=../user/paymentHistory.do')">구매내역</a></div>
 		<div id="blank"></div>
 	</div>
@@ -113,7 +113,7 @@ div#menu_name td input {
 				<td></td>
 				<td colspan="2" width="500px"  align="center">
 					<input type="button" value="목록" onclick="location.href='../itemShop/mainShop.do?category=${category}&pg=${pg }&order=${order }'">
-					<input type="button" value="장바구니" onclick="location.href='#'">
+					<input type="button" value="장바구니" onclick="confLogin('../itemShop/itemCart.do?item_code=${itemShopDTO.item_code}')">
 					<input type="button" value="결제하기" onclick="confLogin('../itemShop/itemPayment.do?item_code=${itemShopDTO.item_code}&ea=1')">
 				</td>
 			</tr>

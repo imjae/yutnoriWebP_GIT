@@ -203,8 +203,34 @@ div#winranklist {
 }
 
 img#rank_mini_img {
+<<<<<<< HEAD
 	width: 70px;
 	hight: 65px;
+=======
+	width: 65px;
+	height: 70px;
+}
+
+td#rank_name_td {
+	border-bottom: 1px solid black;
+}
+
+tr#absad {
+	width: 300px;
+	height: 50px;
+	border-bottom: 1px solid black;
+}
+
+div#rank_paging {
+	border-top: 1px solid lightgray;
+	margin: auto;
+	padding: 0;
+	float: center;
+	margin-top: 15px;
+	padding-top: 10px;
+	width: 97%;
+	text-align: center;
+>>>>>>> 5b49dfba5b144e1b9dc8cb48208e1279c2b14922
 }
 
 </style>
@@ -263,14 +289,14 @@ function checkRankList() {
 	<tr>
 		<td width="100" class="line" align="center" style="background-color:#424242; color:#FAFAFA">순위</td>	
 		<td width="150" class="line" align="center" style="background-color:#424242; color:#FAFAFA">티어</td>
-		<td width="300" class="line" align="center" style="background-color:#424242; color:#FAFAFA">캐릭터/캐릭터명</td>
+		<td width="300" class="line" align="center" style="background-color:#424242; color:#FAFAFA">이름</td>
 		<td width="200" class="line" align="center" style="background-color:#424242; color:#FAFAFA">보유금액</td>
 		<td width="150" class="line" align="center" style="background-color:#424242; color:#FAFAFA">전적</td>
 	</tr>
 
 <c:forEach var="dto" items="${list}">
 	
-	<tr align="center">
+	<tr id="absad" align="center">
 	
 		<td><div id="winranklist">${dto.rank}</div></td>
 		<td>${dto.tear}</td>
@@ -280,10 +306,11 @@ function checkRankList() {
 	</tr>
 	
 </c:forEach>
-
-<tr>
-		<td colspan="5" align="center">
-		<c:if test="${startPage > 3}">
+</table>
+</form>
+<div id="rank_paging">
+	<c:if test="${startPage > 3}">
+		
 			[<a id="paging" href="yutnoriiiRankList.do?pg=${startPage - 1}">이전</a>]
 		</c:if>		
 		
@@ -299,10 +326,7 @@ function checkRankList() {
 		<c:if test="${endPage < totalP}">
 			[<a id="paging" href="yutnoriiiRankList.do?pg=${endPage + 1}">다음</a>]			
 		</c:if>
-		</td>
-	</tr>
-</table>
-</form>
+</div>
 </body>
 </html>
 

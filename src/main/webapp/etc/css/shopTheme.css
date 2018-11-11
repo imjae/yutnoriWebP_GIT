@@ -71,6 +71,30 @@ div#body {
 	color: white;
 } */
 
+div#warning {
+	height: 30px;
+	margin-top: 20px;
+	
+}
+div#warning label{
+	font-family: "-윤고딕310";
+	/* border: 1px solid orange; */
+}
+div#buttonLine button#go_buy {background-color: #f8585b;}
+
+div#buttonLine div {
+	float: left;
+	width: 160px;
+	padding-top: 20px;
+	/* border: 1px solid blue; */
+} 
+div#buttonLine {
+	width: 1000px;
+	/* border: 1px solid orange;  */
+    display: inline-block;
+	height: 120px; }
+
+
 
 
 

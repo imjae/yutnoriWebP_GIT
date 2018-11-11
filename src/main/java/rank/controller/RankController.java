@@ -6,7 +6,9 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import org.apache.commons.collections.functors.EqualPredicate;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +19,22 @@ import org.springframework.web.servlet.ModelAndView;
 import rank.bean.MoneyRankDTO;
 import rank.bean.PreviewDTO;
 import rank.bean.RankDTO;
+import user.bean.UserEquipDTO;
+import user.controller.UserService;
 
 @Controller
 public class RankController {
 	@Autowired
 	private RankService rankService;
+<<<<<<< HEAD
 
 	@RequestMapping(value = "/rank/yutnoriiiRankList.do")
+=======
+	@Autowired
+	private UserService userService;
+	
+	@RequestMapping(value="/rank/yutnoriiiRankList.do")
+>>>>>>> 5b49dfba5b144e1b9dc8cb48208e1279c2b14922
 	public ModelAndView yutnoriiiRankList(HttpServletRequest request) {
 		// (1) 데이터
 		int pg = Integer.parseInt(request.getParameter("pg"));
@@ -33,6 +44,7 @@ public class RankController {
 		// (2) DB
 		List<RankDTO> list = rankService.rankList(startNum, endNum);
 		
+<<<<<<< HEAD
 		List<RankDTO> new_list = new ArrayList<RankDTO>();
 
 		Iterator<RankDTO> it = list.iterator();
@@ -47,6 +59,10 @@ public class RankController {
 			new_list.add(rankDTO);
 		}
 
+=======
+		
+		
+>>>>>>> 5b49dfba5b144e1b9dc8cb48208e1279c2b14922
 		// 페이징 처리
 		int totalA = rankService.getTotalA(); // 총글수 = 43
 		int totalP = (totalA + 9) / 10; // 총페이지수 = 9

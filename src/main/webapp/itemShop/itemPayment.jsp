@@ -34,17 +34,6 @@ div#payBody tr#haveCash td{background-image: url("../etc/image/itemImage/cashBac
 div#payBody tr#haveCash td div {height:85px; float:left; line-height: 85px; text-align: right;}
 div#payBody tr#haveCash #myCash{font-size: 1.7em; color:#535353;}
 div#payBody tr#haveCash #price{font-size: 1.7em; color: #f8585b;}
-div#payBody div#buttonLine {
-	width: 1000px;
-	/* border: 1px solid orange;  */
-    display: inline-block;
-	height: 120px; }
-div#payBody div#buttonLine div {
-	float: left;
-	width: 160px;
-	padding-top: 20px;
-	/* border: 1px solid blue; */
-} 
 div#payBody button {
 	width:140px;
     background-color: #b7b1b6;
@@ -57,17 +46,9 @@ div#payBody button {
     margin: 4px;
     border-radius:30px;
 }
-div#payBody div#buttonLine button#go_buy {background-color: #f8585b;}
+
 div#menu_space_ad a {margin-left: 500px; /* border: 1px solid orange; */}
-div#payBody div#warning {
-	height: 30px;
-	margin-top: 30px;
-	
-}
-div#payBody div#warning label{
-	font-family: "-윤고딕310";
-	/* border: 1px solid orange; */
-}
+
 div#paybody {
 	margin: 0 auto;
 	width: 1000px;
@@ -122,7 +103,7 @@ div#paybody {
 					<img src="../etc/image/itemImage/shopLogo.png">
 				</a>
 			</div>
-			<div id="basket"><a href="#">장바구니</a></div>
+			<div id="basket"><a onclick="confLogin('../itemShop/itemShoppingCart.do')">장바구니</a></div>
 			<div id="buyList"><a href="../main/myPage.do?dis=../user/paymentHistory.do">구매내역</a></div>
 			<div id="blank"></div>
 		</div>

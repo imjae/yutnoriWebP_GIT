@@ -131,7 +131,10 @@
 				$("div").html("<div>"+textStatus+" (HTTP-)"+ xhr.status + " / " + errorThrown +")</div>");
 			}
 		});
+<<<<<<< HEAD
+=======
 
+>>>>>>> 179c98dc64d5035b5dea1dc094cbba0ede4baa0c
 	
 	});
 	

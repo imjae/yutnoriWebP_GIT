@@ -51,5 +51,30 @@ public class ItemShopDAO {
 		return sqlSession.update("mybatis.itemShopMapper.itemPaymentSuccess", map);
 	}
 	
+	public int checkCart(String user_id, String item_code) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("user_id", user_id);
+		map.put("item_code", item_code);
+		return sqlSession.selectOne("mybatis.itemShopMapper.checkCart", map);
+	}
+	
+	public int deleteCart(String user_id, String item_code) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("user_id", user_id);
+		map.put("item_code", item_code);
+		return sqlSession.delete("mybatis.itemShopMapper.deleteCart", map);
+	}
+	
+	public int insertCart(String user_id, String item_code) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("user_id", user_id);
+		map.put("item_code", item_code);
+		return sqlSession.insert("mybatis.itemShopMapper.insertCart", map);
+	}
+	
+	public List<ItemShopDTO> itemShoppingCart(String user_id){
+		return sqlSession.selectList("mybatis.itemShopMapper.itemShoppingCart", user_id);	
+	}
+	
 	
 }
