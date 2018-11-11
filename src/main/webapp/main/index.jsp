@@ -10,7 +10,39 @@
 <script type="text/javascript" src="../etc/js/jquery-3.3.1.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="../etc/css/indexCss/index_style.css"/>
+<style type="text/css">
+	div.game_info_banner {
+		width: 340px;
+		height: 100%;
+		float: center;
+		display: inline-block;
+		padding: 2px;
+	}
+	
+	img.game_info_icon {
+		width: 95px;
+		height: 97%;
+		float: left;
+		display: inline;
+	}
+	
+	div.game_info_nameSpace {
+		float: left;
+		display: inline-block;
+		height: 100%;
+		width: 232px;
+		text-align: center;
+		line-height: 93px;
+		font-family: "-윤고딕360";
+		font-size: 2em;
+		font-weight: bold;
+	}
+	
+	div.game_info_banner:hover {
+		cursor: pointer;
+	}
 
+</style>
 
 </head>
 
@@ -105,7 +137,7 @@
 
 <body>
 <div id="top_info">
-	
+
 	
 </div>
 <div id="menu_space">
@@ -168,8 +200,24 @@
 	</div>
 	
 	<div id="game_info">
-	
-		게임정보 메뉴
+		
+		<div class="game_info_banner" onclick="location.href='../info/info_mean.do'">
+			<img class="game_info_icon" src="../etc/image/downImage/boicon.png">
+			<div class="game_info_nameSpace">게 임 &nbsp;규 칙</div>
+		</div>
+		<div class="game_info_banner" onclick="location.href='../info/info_controll.do'">
+			<img class="game_info_icon" src="../etc/image/downImage/conticon.png">
+			<div class="game_info_nameSpace">조 작 법</div>
+		</div>
+		<div class="game_info_banner" onclick="location.href='../info/info_screenset.do'">
+			<img class="game_info_icon" src="../etc/image/downImage/scricon.png">
+			<div class="game_info_nameSpace">화 면&nbsp; 구 성</div>
+		</div>
+		<div class="game_info_banner" onclick="location.href='../info/info_download.do'">
+			<img class="game_info_icon" src="../etc/image/downImage/bookicon.png">
+			<div class="game_info_nameSpace">자 료 실</div>
+		</div>
+		
 	</div>
 	
 	<div id="screenshot">
