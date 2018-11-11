@@ -14,14 +14,9 @@ public class UserDTO {
 	private double user_rate;			//승률
 	private int user_money;				//돈
 	private String user_tear;			//유저 등급
+	private String user_image;	        //이미지
 	public int getUser_num() {
 		return user_num;
-	}
-	public int getUser_cash() {
-		return user_cash;
-	}
-	public void setUser_cash(int user_cash) {
-		this.user_cash = user_cash;
 	}
 	public void setUser_num(int user_num) {
 		this.user_num = user_num;
@@ -62,6 +57,12 @@ public class UserDTO {
 	public void setUser_phone(String user_phone) {
 		this.user_phone = user_phone;
 	}
+	public int getUser_cash() {
+		return user_cash;
+	}
+	public void setUser_cash(int user_cash) {
+		this.user_cash = user_cash;
+	}
 	public int getUser_win() {
 		return user_win;
 	}
@@ -92,5 +93,12 @@ public class UserDTO {
 	public void setUser_tear(String user_tear) {
 		this.user_tear = user_tear;
 	}
+	public String getUser_image() {
+		return user_image;
+	}
+	public void setUser_image(String user_image) {
+		this.user_image = user_image;
+	}
+	
 	
 }

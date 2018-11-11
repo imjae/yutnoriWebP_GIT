@@ -4,7 +4,9 @@ import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import org.apache.commons.collections.functors.EqualPredicate;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +17,15 @@ import org.springframework.web.servlet.ModelAndView;
 import rank.bean.MoneyRankDTO;
 import rank.bean.PreviewDTO;
 import rank.bean.RankDTO;
+import user.bean.UserEquipDTO;
+import user.controller.UserService;
 
 @Controller
 public class RankController {
 	@Autowired
 	private RankService rankService;
+	@Autowired
+	private UserService userService;
 	
 	@RequestMapping(value="/rank/yutnoriiiRankList.do")
 	public ModelAndView yutnoriiiRankList(HttpServletRequest request) {
@@ -30,6 +36,9 @@ public class RankController {
 		int startNum = endNum - 9;
 		// (2) DB
 		List<RankDTO> list = rankService.rankList(startNum, endNum);
+		
+		
+		
 		// 페이징 처리
 		int totalA = rankService.getTotalA();	// 총글수  = 43
 		int totalP = (totalA + 9) / 10;		// 총페이지수 = 9

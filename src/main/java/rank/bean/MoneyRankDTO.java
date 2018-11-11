@@ -44,6 +44,4 @@ public class MoneyRankDTO {
 		this.lose = lose;
 	}
 	
-	
-	
 }

@@ -186,6 +186,24 @@ div#total_rank_title {
 	border-bottom: 2px solid #BDBDBD;
 	font-weight: 600;
 	font: #424242;
+	font-family: "-윤고딕330";
+}
+
+div#rank_paging {
+	border-top: 1px solid lightgray;
+	margin: auto;
+	padding: 0;
+	float: center;
+	margin-top: 15px;
+	padding-top: 10px;
+	width: 97%;
+	text-align: center;
+}
+
+tr#absad {
+	width: 300px;
+	height: 50px;
+	border-bottom: 1px solid black;
 }
 
 </style>
@@ -205,7 +223,7 @@ function checkRankList() {
 <form action="../rank/RankList.do?pgg=1" name="RankList" method="post" onsubmit="return checkRankList()">
 <table border="0" cellpadding="5" align="center" id="park"> 
 	<tr color="">
-		<td colspan="5"><div id="total_rank_title"><FONT SIZE=6 COLOR="black">전적 랭킹</FONT></div></td>
+		<td colspan="5"><div id="total_rank_title"><FONT SIZE=6>전적 랭킹</FONT></div></td>
 	</tr>
 	<tr>
 		<td colspan="5">
@@ -241,12 +259,12 @@ function checkRankList() {
 	<tr>
 	<td width="100" class="line" align="center" style="background-color:#424242; color:#FAFAFA">순위</td>	
 		<td width="150" class="line" align="center" style="background-color:#424242; color:#FAFAFA">티어</td>
-		<td width="200" class="line" align="center" style="background-color:#424242; color:#FAFAFA">이름</td>
-		<td width="300" class="line" align="center" style="background-color:#424242; color:#FAFAFA">보유금액</td>
+		<td width="300" class="line" align="center" style="background-color:#424242; color:#FAFAFA">이름</td>
+		<td width="200" class="line" align="center" style="background-color:#424242; color:#FAFAFA">보유금액</td>
 		<td width="150" class="line" align="center" style="background-color:#424242; color:#FAFAFA">전적</td>
 	</tr>
 <c:forEach var="dto" items="${listAll}">
-	<tr align="center">
+	<tr id="absad" align="center">
 		<td>${dto.rank}</td>
 		<td>${dto.tear}</td>
 		<td>${dto.name}</td>
@@ -255,10 +273,11 @@ function checkRankList() {
 	</tr>
 	
 </c:forEach>	
-<tr>
-		<td colspan="5" align="center">
-		
-		<c:if test="${startPagee > 3}">
+
+</table>
+</form>
+<div id="rank_paging">
+	<c:if test="${startPagee > 3}">
 			[<a id="paging" href="RankList.do?pgg=${startPagee - 1}&keyword=${keyword}&searchOption=${searchOption}">이전</a>]
 		</c:if>		
 		
@@ -274,10 +293,7 @@ function checkRankList() {
 		<c:if test="${endPagee < totalPP}">
 			[<a id="paging" href="RankList.do?pgg=${endPagee + 1}&keyword=${keyword}&searchOption=${searchOption}">다음</a>]			
 		</c:if>
-		</td>
-	</tr>
-</table>
-</form>
+</div>
 </body>
 </html>
 
