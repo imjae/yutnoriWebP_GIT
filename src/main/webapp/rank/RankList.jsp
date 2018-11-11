@@ -187,6 +187,10 @@ div#total_rank_title {
 	font-weight: 600;
 	font: #424242;
 }
+img#rank_mini_img {
+	width: 70px;
+	hight: 65px;
+}
 
 </style>
 <script type="text/javascript">
@@ -249,7 +253,7 @@ function checkRankList() {
 	<tr align="center">
 		<td>${dto.rank}</td>
 		<td>${dto.tear}</td>
-		<td>${dto.name}</td>
+		<td><img id="rank_mini_img" src="../etc/image/itemImage/characterImage/${dto.equ_character}.png"/> ${dto.name}</td>
 		<td>${dto.money}</td>
 		<td>${dto.win}승${dto.lose}패</td>
 	</tr>

@@ -12,7 +12,7 @@
 
 	div#section_total {
 		width : 1400px;
-		height : 1000px;/* 
+		min-height:1000px;/* 
 		border : 1px solid black; */
 		/* border-top: 3px dashed rgba(0,0,0,0.6);  */
 		background-color: rgba(255,255,255,0.5);
@@ -29,13 +29,13 @@
 	
 	div#section_left {
 		width:75%;
-		height:100%;
+		min-height:1000px;
 		float: left;
 	}
 	
 	div#section_right{
 		width: 24.9%;
-		height:100%;
+		min-height:1000px;
 		float: left;
 		background-color: rgba(200,200,200,0.4);
 	}

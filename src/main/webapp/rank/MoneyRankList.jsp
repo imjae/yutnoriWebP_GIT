@@ -188,6 +188,11 @@ div#total_rank_title {
 	font: #424242;
 	font-family: "-윤고딕330";
 }
+img#rank_mini_img {
+	width: 70px;
+	hight: 65px;
+}
+
  
 </style>
 <script type="text/javascript">
@@ -252,7 +257,7 @@ function checkRankList() {
 	<tr align="center">
 		<td>${moneydto.rank}</td>
 		<td>${moneydto.tear}</td>
-		<td>${moneydto.name}</td>
+	<td><img id="rank_mini_img" src="../etc/image/itemImage/characterImage/${moneydto.equ_character}.png"/> ${moneydto.name}</td>
 		<td>${moneydto.money}원 </td>
 		<td>${moneydto.win}승${moneydto.lose}패</td>
 	</tr>

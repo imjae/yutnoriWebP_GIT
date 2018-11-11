@@ -31,7 +31,7 @@
 	
 	div#section_right{
 		width: 24.9%;
-		min-height: 1000px;
+		min-height: 1300px;
 		float: left;
 		background-color: rgba(200,200,200,0.4);
 	}

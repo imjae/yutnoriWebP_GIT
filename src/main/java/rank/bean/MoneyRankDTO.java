@@ -7,6 +7,23 @@ public class MoneyRankDTO {
 	private int money;
 	private int win;
 	private int lose;
+	private String equ_character;
+	private String equ_background;
+	
+	
+	
+	public String getEqu_character() {
+		return equ_character;
+	}
+	public void setEqu_character(String equ_character) {
+		this.equ_character = equ_character;
+	}
+	public String getEqu_background() {
+		return equ_background;
+	}
+	public void setEqu_background(String equ_background) {
+		this.equ_background = equ_background;
+	}
 	public int getRank() {
 		return rank;
 	}
