@@ -12,7 +12,7 @@
 
 	div#section_total {
 		width : 1400px;
-		min-height: 1000px;
+		min-height: 1300px;
 		/*
 		border : 1px solid black; */
 		/* border-top: 3px dashed rgba(0,0,0,0.6);  */

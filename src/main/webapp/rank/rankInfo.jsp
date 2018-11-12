@@ -12,13 +12,7 @@
 
 	div#section_total {
 		width : 1400px;
-<<<<<<< HEAD
-		min-height:1000px;/* 
-=======
-		min-height: 1000px;
-		/*
->>>>>>> 5b49dfba5b144e1b9dc8cb48208e1279c2b14922
-		border : 1px solid black; */
+		min-height:1100px;
 		/* border-top: 3px dashed rgba(0,0,0,0.6);  */
 		background-color: rgba(255,255,255,0.5);
 		font-family: "-윤고딕320";
@@ -34,22 +28,15 @@
 	
 	div#section_left {
 		width:75%;
-<<<<<<< HEAD
 		min-height:1000px;
-=======
 		min-height: 1000px;
->>>>>>> 5b49dfba5b144e1b9dc8cb48208e1279c2b14922
 		float: left;
 	}
 	
 	div#section_right{
 		width: 24.9%;
-<<<<<<< HEAD
-		min-height:1000px;
-=======
->>>>>>> 5b49dfba5b144e1b9dc8cb48208e1279c2b14922
+		min-height:1100px;
 		float: left;
-		min-height: 1000px;
 		background-color: rgba(200,200,200,0.4);
 	}
 	

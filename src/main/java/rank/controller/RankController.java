@@ -26,15 +26,11 @@ import user.controller.UserService;
 public class RankController {
 	@Autowired
 	private RankService rankService;
-<<<<<<< HEAD
 
-	@RequestMapping(value = "/rank/yutnoriiiRankList.do")
-=======
 	@Autowired
 	private UserService userService;
 	
 	@RequestMapping(value="/rank/yutnoriiiRankList.do")
->>>>>>> 5b49dfba5b144e1b9dc8cb48208e1279c2b14922
 	public ModelAndView yutnoriiiRankList(HttpServletRequest request) {
 		// (1) 데이터
 		int pg = Integer.parseInt(request.getParameter("pg"));
@@ -44,7 +40,6 @@ public class RankController {
 		// (2) DB
 		List<RankDTO> list = rankService.rankList(startNum, endNum);
 		
-<<<<<<< HEAD
 		List<RankDTO> new_list = new ArrayList<RankDTO>();
 
 		Iterator<RankDTO> it = list.iterator();
@@ -59,10 +54,6 @@ public class RankController {
 			new_list.add(rankDTO);
 		}
 
-=======
-		
-		
->>>>>>> 5b49dfba5b144e1b9dc8cb48208e1279c2b14922
 		// 페이징 처리
 		int totalA = rankService.getTotalA(); // 총글수 = 43
 		int totalP = (totalA + 9) / 10; // 총페이지수 = 9
@@ -150,8 +141,8 @@ public class RankController {
 		// (1) 데이터
 		int pg = Integer.parseInt(request.getParameter("pg"));
 		// 목록수 : 10개씩
-		int endNum = pg * 10;
-		int startNum = endNum - 9;
+		int endNum = pg * 8;
+		int startNum = endNum - 7;
 		// (2) DB
 		List<MoneyRankDTO> list = rankService.MoneyRankList(startNum, endNum);
 

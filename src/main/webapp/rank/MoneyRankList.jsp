@@ -188,13 +188,11 @@ div#total_rank_title {
 	font: #424242;
 	font-family: "-윤고딕330";
 }
-<<<<<<< HEAD
 img#rank_mini_img {
 	width: 70px;
 	hight: 65px;
 }
 
-=======
 
 div#rank_paging {
 	border-top: 1px solid lightgray;
@@ -212,7 +210,6 @@ tr#absad {
 	height: 50px;
 	border-bottom: 1px solid black;
 }
->>>>>>> 5b49dfba5b144e1b9dc8cb48208e1279c2b14922
  
 </style>
 <script type="text/javascript">
