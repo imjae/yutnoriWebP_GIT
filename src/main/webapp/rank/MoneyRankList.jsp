@@ -28,9 +28,6 @@ body {
     width: 15%;
     height: 160px;
     float: left;
-    border: 10px;
-    border-color: #ffffff;
-    border-style: solid;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;

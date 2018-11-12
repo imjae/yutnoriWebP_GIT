@@ -199,8 +199,8 @@ public class RankController {
 
 		System.out.println(pgg);
 		// 목록수 : 10개씩
-		int endNumm = pgg * 10;
-		int startNumm = endNumm - 9;
+		int endNumm = pgg * 8;
+		int startNumm = endNumm - 7;
 		// (2) DB
 		List<RankDTO> listAll = rankService.listAll(searchOption, keyword, startNumm, endNumm);
 		// 페이징 처리

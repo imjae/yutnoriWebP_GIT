@@ -51,7 +51,7 @@ from (select DENSE_RANK() OVER (ORDER BY user_money DESC) rank ,rownum rn, tt.*
 			from (select DENSE_RANK() OVER (ORDER BY user_name DESC) rank ,rownum rn, tt.* 
 				 from (select * 
 					  from users FULL OUTER JOIN equipment eq
-					   ON abc.user_id = eq.user_id
+					   ON users.user_id = eq.user_id
 					  WHERE ${searchOption}  like '%'||#{keyword}||'%' 
 					  order by user_name desc) tt)
 				where rn>=#{startNum} and rn<=#{endNum}]]>
