@@ -20,8 +20,8 @@ public class SMSController {
 	@RequestMapping(value = "/user/smsAuth_send.do", method=RequestMethod.POST)
 	public ModelAndView sendSms(HttpServletRequest request) throws Exception {
 
-		String api_key = "NCSZEUSSA0XZ4RAW";
-		String api_secret = "OF0G9FQQHEFJEUYDYKLZ7AG0IAU00AMD";
+		String api_key = "NCSDCEL7CY5B4FDO";
+		String api_secret = "MIQRUQDMZNCSYSM50K1TBKGQVATYQLZZ";
 		Coolsms coolsms = new Coolsms(api_key, api_secret);
 		String name = request.getParameter("name");
 		String phone1 = request.getParameter("user_phone1");
@@ -48,7 +48,7 @@ public class SMSController {
 		set.put("text", text); // 문자내용
 		set.put("type", "sms"); // 문자 타입
 
-		//JSONObject result = coolsms.send(set); // 보내기&전송결과받기
+		JSONObject result = coolsms.send(set); // 보내기&전송결과받기
 
 		HttpSession session = request.getSession();
 		session.removeAttribute("smsAuth_num");
