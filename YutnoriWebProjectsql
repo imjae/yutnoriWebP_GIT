@@ -1,0 +1,258 @@
+CREATE TABLE users
+(
+user_num NUMBER,
+user_name varchar2(30),
+user_id varchar2(80),
+user_password varchar2(20) not null,
+user_jumin varchar2(15) not null,
+user_gender varchar2(1) not null,
+user_phone varchar2(20),
+user_cash NUMBER DEFAULT 0,
+user_win number DEFAULT 0,
+user_lose number DEFAULT 0,
+user_rate number(5,2) DEFAULT 0,
+user_money number DEFAULT 0,
+user_tear varchar2(30) DEFAULT 'bronze'
+);
+
+ALTER TABLE users
+ADD CONSTRAINTS pk_users_user_id primary key( user_id);
+
+insert into users values (seq_user_num.nextval,'park1','qwe1' ,'qwe', 
+    '990426-1231231', 'M','010-1234-5678',0,'100','50','12','1000000','silver');
+
+insert into users values (seq_user_num.nextval,'park2','qwe2' ,'qwe', 
+    '990426-1231231', 'M','010-1234-5678',0,'95','50','12','990000','iron');
+
+insert into users values (seq_user_num.nextval,'park3','qwe3' ,'qwe', 
+    '990426-1231231', 'M','010-1234-5678',0,'100','50','12','980000','bronze');
+
+insert into users values (seq_user_num.nextval,'park4','qwe4' ,'qwe', 
+    '990426-1231231', 'M','010-1234-5678',0,'100','50','12','970000','silver');
+
+insert into users values (seq_user_num.nextval,'park5','qwe5' ,'qwe', 
+    '990426-1231231', 'M','010-1234-5678',0,'100','50','12','960000','silver');
+
+insert into users values (seq_user_num.nextval,'park6','qwe6' ,'qwe', 
+    '990426-1231231', 'M','010-1234-5678',0,'100','50','12','950000','bronze');
+
+insert into users values (seq_user_num.nextval,'park7','qwe7' ,'qwe', 
+    '990426-1231231', 'M','010-1234-5678',0,'100','50','12','940000','silver');
+
+insert into users values (seq_user_num.nextval,'park8','qwe8' ,'qwe', 
+    '990426-1231231', 'M','010-1234-5678',0,'100','50','12','930000','iron');
+
+insert into users values (seq_user_num.nextval,'park9','qwe9' ,'qwe', 
+    '990426-1231231', 'M','010-1234-5678',0,'100','50','12','920000','silver');
+
+insert into users values (seq_user_num.nextval,'park10','qwe10' ,'qwe', 
+    '990426-1231231', 'M','010-1234-5678',0,'100','50','12','910000','bronze');
+
+insert into users values (seq_user_num.nextval,'박규진','qwe11' ,'qwe', 
+    '990426-1231231', 'M','010-1234-5678',0,'200','50','12','900000','silver');
+
+insert into users values (seq_user_num.nextval,'박규','qwe22' ,'qwe', 
+    '990426-1231231', 'M','010-1234-5678',0,'190','45','12','800000','silver');
+
+insert into users values (seq_user_num.nextval,'규박','qwe33' ,'qwe', 
+    '990426-1231231', 'M','010-1234-5678',0,'180','78','12','700000','iron');
+
+insert into users values (seq_user_num.nextval,'규박진','qwe44' ,'qwe', 
+    '990426-1231231', 'M','010-1234-5678',0,'170','32','12','600000','silver');
+
+insert into users values (seq_user_num.nextval,'박진규','qwe55' ,'qwe', 
+    '990426-1231231', 'M','010-1234-5678',0,'160','53','12','500000','iron');
+
+insert into users values (seq_user_num.nextval,'박진자라','qwe66' ,'qwe', 
+    '990426-1231231', 'M','010-1234-5678',0,'150','500','12','400000','silver');
+
+insert into users values (seq_user_num.nextval,'규박진진','qwe77' ,'qwe', 
+    '990426-1231231', 'M','010-1234-5678',0,'140','82','12','570000','iron');
+
+insert into users values (seq_user_num.nextval,'박규자라','qwe88' ,'qwe', 
+    '990426-1231231', 'M','010-1234-5678',0,'130','45','12','580000','bronze');
+
+insert into users values (seq_user_num.nextval,'규박박','qwe99' ,'qwe', 
+    '990426-1231231', 'M','010-1234-5678',0,'120','20','12','850000','silver');
+
+insert into users values (seq_user_num.nextval,'규진박','qwe00' ,'qwe', 
+    '990426-1231231', 'M','010-1234-5678',0,'110','30','12','240000','iron');
+
+insert into users values (seq_user_num.nextval,'String','qwe543543' ,'qwe', 
+    '990426-1231231', 'M','010-1234-5678',0,'100','57','12','210000','silver');
+
+------------------------------------------------------------------------------------------
+
+CREATE TABLE user_log
+(user_num number,
+login_date date,
+logout_date date);
+------------------------------------------------------------------------------------------
+
+CREATE TABLE room_list (
+room_id number,
+room_name varchar2(100)
+);
+
+------------------------------------------------------------------------------------------
+create table event (
+    e_num number primary key,
+    e_img varchar2(100) not null,
+    title varchar2(100) not null,
+    sub_title varchar2(100) not null,
+    -- 해당 이벤트 관련 페이지 따로 생성
+    s_date varchar(15) not null,
+    e_date varchar(15) not null
+);
+    
+ ------------------------------------------------------------------------------------------       
+create table news (
+    news_num number primary key,
+    sort varchar2(20) not null,
+    title varchar2(100) not null,
+    content CLOB not null,
+    logtime varchar(15) not null
+);
+------------------------------------------------------------------------------------------
+
+create table notifyboard (
+    notifyboard_num number primary key,
+    reporter_id varchar2(50) not null,      -- 사후처리 회신용(session/email)
+    notify_sort varchar2(30) not null,
+    title varchar2(100) not null,
+    content CLOB not null,
+    respond number(1) not null
+);
+
+create sequence seq_notifyboard_num nocycle nocache;
+------------------------------------------------------------------------------------------
+create table helpboard (
+    helpboard_num number primary key,
+    sort1 varchar2(30) not null,
+    sort2 varchar2(30) not null,
+    title varchar2(100) not null,
+    content CLOB not null
+);
+
+SELECT * FROM helpboard;
+
+create sequence seq_helpboard_num nocycle nocache;
+
+------------------------------------------------------------------------------------------
+
+CREATE TABLE equipment (
+    user_id VARCHAR2(80),
+    equ_character varchar2(50) default 'char_basicChar',
+    equ_background varchar2(50) default 'bg_basicBack'
+);
+
+------------------------------------------------------------------------------------------
+CREATE TABLE payment_history (
+    user_id VARCHAR2(80),
+    item_code VARCHAR2(50),
+    pay_log date
+);
+
+
+CREATE VIEW view_pament_item
+AS
+SELECT category, i.item_code, item_name, item_content, item_img, item_charge, user_id, to_char(pay_log,'YYYY-MM-DD HH24:MI:SS') pay_log
+FROM item_shop i, payment_history ph
+WHERE i.item_code = ph.item_code
+order by pay_log desc;
+
+------------------------------------------------------------------------------------------
+CREATE TABLE shoppingCart
+( user_id varchar2(50),
+item_code VARCHAR2(50));
+
+------------------------------------------------------------------------------------------
+create table item_Shop(
+    category varchar2(50) not null,
+    item_code varchar2(50) primary key,
+    item_name varchar2(50) not null,
+    item_content varchar2(200),
+    item_img varchar2(100),
+    item_charge number,
+    logtime date
+);
+
+
+-----------------------------
+insert into item_Shop values ('character','char_bc', '김백차', 'bccontent', 'bc', 9900, sysdate);
+insert into item_Shop values ('character','char_gh', '기현', 'ghcontent', 'gh', 9900, sysdate);
+insert into item_Shop values ('character','char_jk', '임재경', 'jkcontent', 'jk', 9900, sysdate);
+insert into item_Shop values ('character','char_ij', '일찐', 'ijcontent', 'ij', 9900, sysdate);
+insert into item_Shop values ('character','char_sj', '수정', 'sjcontent', 'sj', 10000, sysdate);
+insert into item_Shop values ('character','char_hd', '후드', 'hdcontent', 'hd', 9900, sysdate);
+insert into item_Shop values ('character','char_ycs', '윤창석강사님', 'ycscontent', 'ycs', 9900, sysdate);
+insert into item_Shop values ('character','char_ajm', '아줌마', 'ajmcontent', 'ajm', 7900, sysdate);
+insert into item_Shop values ('character','char_bhsn', '백호수니', 'bhsncontent', 'bhsn', 3000, sysdate);
+insert into item_Shop values ('character','char_db', '단비', 'dbcontent', 'db', 7900, sysdate);
+insert into item_Shop values ('character','char_fr', '프랑켄슈타인', 'frcontent', 'fr', 3000, sysdate);
+insert into item_Shop values ('character','char_mntjg', '머니탐정가', 'mntjgcontent', 'mntjg', 9900, sysdate);
+insert into item_Shop values ('character','char_pse', '펭순이', 'psecontent', 'pse', 7900, sysdate);
+insert into item_Shop values ('background','bg_basic','basic','basic','basic',8000,sysdate);
+-----------------------------
+
+-----------------------------
+
+-----------------------------
+delete item_Shop where item_code='bg_basic';
+-----------------------------
+insert into item_Shop values ('background','bg_2016','2016년의 색','2016','2016',10000,sysdate);
+insert into item_Shop values ('background','bg_bdbd','버디버디style','bdbd','bdbd',10000,sysdate);
+insert into item_Shop values ('background','bg_cj','천재화가 그림','cj','cj',30000,sysdate);
+insert into item_Shop values ('background','bg_dbar','달빛아래','dbar','dbar',15000,sysdate);
+insert into item_Shop values ('background','bg_ddgb','딸기비','ddgb','ddgb',15000,sysdate);
+insert into item_Shop values ('background','bg_gird','게임랜드','gird','gird',15000,sysdate);
+insert into item_Shop values ('background','bg_hrw','할로윈데이','hrw','hrw',15000,sysdate);
+insert into item_Shop values ('background','bg_jm','증명사진','jm','jm',10000,sysdate);
+insert into item_Shop values ('background','bg_pk','분홍배경','pk','pk',5000,sysdate);
+insert into item_Shop values ('background','bg_prdc','프로듀스101','prdc','prdc',15000,sysdate);
+insert into item_Shop values ('background','bg_sirm','세일러문','sirm','sirm',15000,sysdate);
+insert into item_Shop values ('background','bg_stc','스티치','stc','stc',15000,sysdate);
+insert into item_Shop values ('background','bg_unc','유니콘','unc','unc',15000,sysdate);
+insert into item_Shop values ('background','bg_ddgb','딸기비','ddgb','ddgb',15000,sysdate);
+
+----------------------------------------------------------------------------------
+
+insert into item_Shop values ('potion','pot_blue','시간포션','blue','blue',3000,sysdate);
+insert into item_Shop values ('potion','pot_energy','에너지포션','energy','energy',3000,sysdate);
+insert into item_Shop values ('potion','pot_pink','생명포션','pink','pink',3000,sysdate);
+insert into item_Shop values ('potion','pot_sky','신비한포션','sky','sky',3000,sysdate);
+insert into item_Shop values ('potion','pot_yellow','힐링포션','yellow','yellow',3000,sysdate);
+
+----------------------------------------------------------------------------------
+
+create table freeboard(
+   freeboard_num number primary key,         --글 번호
+   freeboard_writer varchar(60) not null,         --작성자
+   freeboard_subject varchar2(100) not null,      --글 제목
+   freeboard_content clob not null,         --글 내용
+   freeboard_readcount number default 0,         --조회 수
+   freeboard_date date               --작성일
+);
+
+-- table 삭제
+drop table freeboard purge;
+
+-- seq 객체 생성
+create sequence seq_freeboard nocycle nocache;
+----------------------------------------------------------------------------------
+create table imgboard(
+   imgboard_num number primary key,         --글 번호
+   imgboard_writer varchar2(60) not null,         --작성자
+   imgboard_subject varchar2(100) not null,        --글 제목
+   imgboard_content clob not null,            --글 내용
+   imgboard_img clob not null,            --스크린샷 이미지
+   imgboard_readcount number default 0   ,      --조회 수
+   imgboard_date date                             --작성일
+);
+
+-- table 삭제
+drop table imgboard purge;
+
+-- seq 객체 생성
+create sequence seq_imgboard nocycle nocache;
+----------------------------------------------------------------------------------
